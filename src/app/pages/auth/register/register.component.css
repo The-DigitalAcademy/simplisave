@@ -1,0 +1,30 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    font-family: Inconsolata, Inconsolata, Inconsolata;
+  }
+
+  .flex-item-left {
+    background-color: #FFFFFF;
+    flex: 40%;
+  }
+  .moneyImg{
+    height: 100%;
+    width: 100%;
+  }
+  
+  .flex-item-right {
+    background-color: #FFFFFF;
+    padding: 20px;
+    flex: 60%;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 800px) {
+    .flex-container {
+      flex-direction: column;
+    }
+  }
+  
+  
