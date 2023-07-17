@@ -2,18 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  height: 100vh;
+  justify-content: center;
+  height: 77vh;
 }
 
 .banner {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 55vh; /* Updated height for better responsiveness */
-  margin-top: 0vh;
+  height: 90vh; /* Updated height for better responsiveness */
+  margin-top:0px;
   background-image: url('/assets/Icons/ClearLearnBanner.png');
   background-size: cover;
   background-position: bottom;
@@ -21,11 +21,11 @@
 }
 
 .banner-heading {
-  max-width: 60%; /* Updated max-width for better responsiveness */
+  max-width: 70%; /* Updated max-width for better responsiveness */
   font-size: 3rem; /* Default font size */
   font-weight: bold;
   text-align: left;
-  margin-left: 7%; /* Updated margin for better responsiveness */
+  
 }
 
 .content {
