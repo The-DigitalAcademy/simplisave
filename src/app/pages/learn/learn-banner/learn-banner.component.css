@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 100vh;
+  }
+  
+  .banner {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 100vw;
+    height: 53vh;
+    margin-top: 10vh;
+    background-image: url('/assets/Icons/ClearLearnBanner.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  
+  .banner-heading {
+    max-width: 50%;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: left; /* Align the heading to the left */
+    margin-left: 10%; /* Add some left margin */
+  }
+  
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    width: 100vw;
+  }
+  
+  .content-paragraph {
+    max-width: 48vw;
+    font-size: 18px;
+    text-align: center;
+  }
