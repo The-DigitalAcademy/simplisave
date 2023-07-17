@@ -19,11 +19,18 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LearnBannerComponent } from './pages/learn/learn-banner/learn-banner.component';
+import { LearnWhySAveComponent } from './pages/learn/learn-why-save/learn-why-save.component';
+import { LearnVsNoSavingsComponent } from './pages/learn/learn-vs-no-savings/learn-vs-no-savings.component';
+import { LearnVsInvestComponent } from './pages/learn/learn-vs-invest/learn-vs-invest.component';
+import { LearnBestSuitedComponent } from './pages/learn/learn-best-suited/learn-best-suited.component';
+import { LearnOfferComponent } from './pages/learn/learn-offer/learn-offer.component';
+
 import { Step1Component } from './pages/auth/register/step1/step1.component';
 
 
 @NgModule({
-    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, Step1Component],
+    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, Step1Component],
     imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule],
     providers: [],
     bootstrap: [AppComponent],

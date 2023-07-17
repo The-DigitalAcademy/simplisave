@@ -1,0 +1,27 @@
+.navbar-nav {
+  margin-left: 450px;
+}
+
+.navbar-nav .nav-link {
+  margin-right: 10px; 
+}
+
+.navbar-brand img {
+  margin-left: auto;
+}
+
+.white-text .nav-link {
+  color: white;
+}
+
+.spaced-nav .nav-item:not(:last-child) {
+  margin-right: 50px;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767.98px) {
+    .img-fluid {
+      max-width: 70%;
+    }
+  }
+
