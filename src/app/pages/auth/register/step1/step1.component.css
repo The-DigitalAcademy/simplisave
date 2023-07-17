@@ -1,4 +1,6 @@
-.flex-container {
+
+
+ .flex-container {
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -9,15 +11,31 @@
     background-color: #FFFFFF;
     flex: 40%;
   }
-  .moneyImg{
-    height: 100%;
-    width: 100%;
-  }
   
   .flex-item-right {
     background-color: #FFFFFF;
     padding: 20px;
     flex: 60%;
+  }
+
+  .text-center{
+    color: #AF144B;
+  }
+
+  mat-icon{
+    color: gray;
+  }
+  ::ng-deep .mat-step-header .mat-step-icon-selected {
+    background-color: #AF144B;; 
+  }
+
+  .btn{
+    background-color: #AF144B;
+    color: #FFFFFF;
+  }
+
+  input{
+    border-bottom: 0.5px solid  #AF144B;
   }
   
   /* Responsive layout */
@@ -26,5 +44,3 @@
       flex-direction: column;
     }
   }
-  
-  
