@@ -21,9 +21,10 @@ import { LearnBestSuitedComponent } from './pages/learn/learn-best-suited/learn-
 import { LearnOfferComponent } from './pages/learn/learn-offer/learn-offer.component';
 import { OffersComponent } from './pages/landing/offers/offers.component';
 import { ChecklistComponent } from './pages/dashboard/checklist/checklist.component';
+import { TopPartComponent } from './pages/dashboard/top-part/top-part.component';
 
 @NgModule({
-    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent,TopPartComponent],
+    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent,TopPartComponent,ChecklistComponent,OffersComponent],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
     bootstrap: [AppComponent],
