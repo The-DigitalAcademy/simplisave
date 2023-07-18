@@ -1,0 +1,27 @@
+.dashboard-container {
+    display: flex;
+  }
+  
+  .sidebar {
+    flex: 1;
+  
+  }
+  
+  .top-part {
+    flex: 5;
+  
+  }
+  @media (max-width: 768px) {
+    .dashboard-container {
+      flex-direction: row; /* Display items horizontally on small screens */
+    }
+  
+    .sidebar {
+      flex: 1;
+    }
+  
+    .top-part {
+      flex: 5;
+    }
+  }
+  
