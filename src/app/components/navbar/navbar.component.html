@@ -1,34 +1,47 @@
 <!-- eslint-disable prettier/prettier -->
 <nav class="navbar navbar-expand-lg" style="background-color: #870A3C; font-family: 'Lato'; font-size: 20px">
     <a class="navbar-brand" href="#">
-        <img src="\assets\logo-no-background 9.png" alt="Simplisave Logo" class="img-fluid">
+        <img src="/assets/Icons/Screenshot_2023-07-18_at_09.13.14-removebg-preview (1).png" alt="Simplisave Logo"
+            class="img-fluid" width="65px">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto white-text spaced-nav">
+            <hr>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/" routerLinkActive="active"
+                <a class="nav-link" routerLink="/home" routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }">Home</a>
             </li>
+            <hr>
             <li class="nav-item">
-                <a class="nav-link" routerLink="../../pages/" routerLinkActive="active">About</a>
+                <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
             </li>
+            <hr>
             <li class="nav-item">
-                <a class="nav-link" routerLink="../../pages/learn" routerLinkActive="active">Learn</a>
+                <a class="nav-link" routerLink="/learn" routerLinkActive="active">Learn</a>
             </li>
+            <hr>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/accounts" routerLinkActive="active">Accounts</a>
             </li>
+            <hr>
         </ul>
-        <ul class=" navbar-nav white-text">
+        <br><br><br>
+        <ul class="navbar-nav ml-auto white-text">
             <li class="nav-item">
-                <a class="nav-link" routerLink="../../pages/auth/login" routerLinkActive="active">Login</a>
+                <a class="nav-link" routerLink="/login" routerLinkActive="active"><span class="mobile-only"><img src="/assets/Icons/loginIcon.png" alt="Simplisave Logo"
+                    class="img-fluid" width="35px"></span>
+                    Login
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="../../pages/auth/register" routerLinkActive="active">Sign Up</a>
+                <a class="nav-link" routerLink="/register" routerLinkActive="active"><span class="mobile-only"><img src="/assets/Icons/signUpIcon.png" alt="Login icon"
+                    class="img-fluid" width="35px"></span>
+                    Sign up
+                </a>
             </li>
         </ul>
     </div>
