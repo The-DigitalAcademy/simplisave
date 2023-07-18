@@ -27,10 +27,14 @@ import { LearnBestSuitedComponent } from './pages/learn/learn-best-suited/learn-
 import { LearnOfferComponent } from './pages/learn/learn-offer/learn-offer.component';
 
 import { Step1Component } from './pages/auth/register/step1/step1.component';
+import { Step2Component } from './pages/auth/register/step2/step2.component';
+import { Step3Component } from './pages/auth/register/step3/step3.component';
+import { Step4Component } from './pages/auth/register/step4/step4.component';
+import { StepsComponent } from './pages/auth/register/steps/steps.component';
 
 
 @NgModule({
-    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, Step1Component],
+    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, Step1Component, Step2Component, Step3Component, Step4Component, StepsComponent],
     imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule],
     providers: [],
     bootstrap: [AppComponent],

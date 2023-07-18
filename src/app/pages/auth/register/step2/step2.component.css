@@ -1,5 +1,5 @@
 
- .flex-container {
+.flex-container {
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -22,7 +22,11 @@
     color: #AF144B;
   }
 
-   button{
+  .button{
+    gap: 50px;
+  }
+
+  button{
     width: 30%;
   }
 
@@ -48,18 +52,14 @@
       flex-direction: column;
     }
     .flex-item-left {
-      flex: 0%;
-    }
-    
-    .flex-item-right {
-      flex: -20%;
-    }
+        flex: 0%;
+      }
+      
+      .flex-item-right {
+        flex: -20%;
+      }
   }
-
-  .horizontal-stepper {
-    flex-direction: row;
-  }
-  /* @media screen and (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     mat-vertical-stepper, mat-step{
       display: flex;
       flex-direction: row;
@@ -67,4 +67,4 @@
     mat-vertical-stepper mat-step-header {
       flex: 1;
     }
-  } */
+  }

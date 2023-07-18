@@ -1,5 +1,4 @@
-
- .flex-container {
+.flex-container {
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -22,13 +21,12 @@
     color: #AF144B;
   }
 
-   button{
+
+
+  button{
     width: 30%;
   }
 
-  mat-icon{
-    color: gray;
-  }
   ::ng-deep .mat-step-header .mat-step-icon-selected {
     background-color: #AF144B;; 
   }
@@ -41,6 +39,13 @@
   input{
     border-bottom: 0.5px solid  #AF144B;
   }
+
+  mat-icon{
+    height: 300px;
+    width: 300px;
+    font-size: 250px;
+    color: #AF144B;
+  }
   
   /* Responsive layout */
   @media (max-width: 800px) {
@@ -48,18 +53,14 @@
       flex-direction: column;
     }
     .flex-item-left {
-      flex: 0%;
-    }
-    
-    .flex-item-right {
-      flex: -20%;
-    }
+        flex: 0%;
+      }
+      
+      .flex-item-right {
+        flex: -20%;
+      }
   }
-
-  .horizontal-stepper {
-    flex-direction: row;
-  }
-  /* @media screen and (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     mat-vertical-stepper, mat-step{
       display: flex;
       flex-direction: row;
@@ -67,4 +68,4 @@
     mat-vertical-stepper mat-step-header {
       flex: 1;
     }
-  } */
+  }
