@@ -19,10 +19,11 @@ import { LearnVsNoSavingsComponent } from './pages/learn/learn-vs-no-savings/lea
 import { LearnVsInvestComponent } from './pages/learn/learn-vs-invest/learn-vs-invest.component';
 import { LearnBestSuitedComponent } from './pages/learn/learn-best-suited/learn-best-suited.component';
 import { LearnOfferComponent } from './pages/learn/learn-offer/learn-offer.component';
+import { TopPartComponent } from './pages/dashboard/top-part/top-part.component';
 
 
 @NgModule({
-    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent],
+    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent,TopPartComponent],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
     bootstrap: [AppComponent],
