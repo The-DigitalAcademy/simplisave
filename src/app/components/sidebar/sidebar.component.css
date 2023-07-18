@@ -1,111 +1,45 @@
+.sidebar {
+  background-color: #E5E5E5;
+  width: 270px;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 25px;
+  height: 800px;
+  margin-top: 0; 
+  margin-bottom: 10px;
+  display: flex; 
+  flex-direction: column;
+ 
+}
+.sidebar > div{
+  background-color: #ffffff;
+  width: 245px;
+  margin: 10px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 25px;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+.sidebar>div:hover {
+  background-color: #870A3C; /* Change the background color on hover */
+}
+.logout-button {
+  background-color: #ffffff;
+  width: 245px;
+  margin: 10px auto;
+  line-height: 50px;
+  font-size: 25px;
+  border-radius: 10px;
+  margin-top: 500px;
+}
 
-  * {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo a {
-    color: #000;
-    font-size: 20px;
-    font-weight: 600;
-    margin: 2rem 8rem 2rem 2rem;
-  }
-  
-  .container {
-    display: flex;
-    height: 100vh;
-  }
-  
-  nav {
-    background: #e5e5e5;
-  }
-  
-  .mobile-menu-icon {
-    display: none;
-    cursor: pointer;
-    padding: 15px;
-  }
-  
-  .mobile-menu-icon span {
-    display: block;
-    height: 2px;
-    width: 25px;
-    background-color: #000;
-    margin-bottom: 5px;
-  }
-  
-  .side_navbar {
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow-y: auto;
-  }
-  
-  .side_navbar a {
-    width: 100%;
-    padding: 1rem 3rem;
-    font-weight: 500;
-    font-size: 18px;
-    color: #000;
-    display: flex;
-    align-items: center;
-  }
-  
-  .side_navbar a i {
-    margin-right: 1rem;
-  }
-
-  .side_navbar .navbar5 {
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    color: #000;
-    font-weight: 500;
-    font-size: 18px;
-    padding: 1rem 3rem;
-    border-radius: 10px;
-    background-color: white;
-    margin-bottom: 5px;
-    border-radius: 10px;
-  }
-  
-  .navbar1 a {
-    background-color: #AF144B;
-    margin-bottom: 15px;
-    border-radius: 20px;
-    color:white;
-  }
-  
-  .navbar2,
-  .navbar3,
-  .navbar4 {
-    background-color: white;
-    margin-bottom: 15px;
-    border-radius: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .mobile-menu-icon {
-      display: block;
-    }
-
-    .side_navbar {
+/* Media query for mobile devices */
+@media (max-width: 767.98px) {
+  .sidebar {
       display: none;
-    }
-
-    .side_navbar.show {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-    }
   }
+}
+
