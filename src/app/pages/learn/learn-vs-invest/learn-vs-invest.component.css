@@ -1,56 +1,36 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .heading {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
-  }
-  
-  .card {
-    flex: 0 0 45%;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
-  }
-  
-  .split-card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .split-card .card {
-    flex: 0 0 45%;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
-  }
-  
-  .card img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .card-heading {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 842px;
+  margin: 0 auto;
+}
+
+.frame {
+  width: calc(50% - 1px); /* Subtract 1px to account for the border */
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.frame h2 {
+  text-align: center;
+}
+
+.sub-frame {
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sub-frame img {
+  max-width: 100%;
+  height: auto;
+}
+
+.sub-frame h3 {
+  margin-top: 10px;
+}
