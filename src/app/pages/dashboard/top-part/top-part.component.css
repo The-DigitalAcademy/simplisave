@@ -8,7 +8,8 @@ h1 {
   text-align: center;
   gap: 20px;
   max-width: 1150px;
-  padding-left: 60px;
+  padding:5px;
+  /* padding-left: 60px; */
 }
 
 .flex-container > div {
@@ -29,7 +30,6 @@ h1 {
 
   .flex-container {
     flex-wrap: wrap;
-    padding-left: 0;
   }
 
   .flex-item:nth-child(2),
