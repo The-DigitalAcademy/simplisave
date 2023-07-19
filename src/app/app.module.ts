@@ -20,7 +20,8 @@ import { LearnVsInvestComponent } from './pages/learn/learn-vs-invest/learn-vs-i
 import { LearnBestSuitedComponent } from './pages/learn/learn-best-suited/learn-best-suited.component';
 import { LearnOfferComponent } from './pages/learn/learn-offer/learn-offer.component';
 import { OffersComponent } from './pages/landing/offers/offers.component';
-// import { LandingNeedHelpComponent } from './pages/landing/landing-need-help/landing-need-help.component';
+import { LandingNeedHelpComponent } from './pages/landing/landing-need-help/landing-need-help.component';
+import { LinksComponent } from './pages/landing/links/links.component';
 
 
 @NgModule({
