@@ -22,6 +22,8 @@ import { LearnOfferComponent } from './pages/learn/learn-offer/learn-offer.compo
 import { OffersComponent } from './pages/landing/offers/offers.component';
 import { TopPartComponent } from './pages/dashboard/top-part/top-part.component';
 import { ChecklistComponent } from './pages/dashboard/checklist/checklist.component';
+import { TopPartComponent } from './pages/dashboard/top-part/top-part.component';
+import { SecondNavBarComponent } from './components/second-nav-bar/second-nav-bar.component';
 
 @NgModule({
     declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent],

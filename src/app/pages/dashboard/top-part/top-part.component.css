@@ -6,7 +6,7 @@ h1 {
 .flex-container {
   display: flex;
   text-align: center;
-  gap:20px;
+  gap: 20px;
   max-width: 1150px;
   padding-left: 60px;
 }
@@ -23,11 +23,29 @@ h1 {
 }
 
 @media (max-width: 800px) {
-  .flex-container {
-    flex-direction: column;
+  h1 {
+    padding-top: 10px;
   }
-  
-  .flex-item {
-    flex-basis: 100%;
+
+  .flex-container {
+    flex-wrap: wrap;
+    padding-left: 0;
+  }
+
+  .flex-item:nth-child(2),
+  .flex-item:nth-child(3) {
+    flex-basis: calc(50% - 10px);
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .flex-container > div {
+    font-size: 16px;
   }
 }
