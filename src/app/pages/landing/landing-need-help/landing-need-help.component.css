@@ -6,7 +6,7 @@
 
   .section{
     border: 1px solid #870A3C;
-    max-width: 1000px;
+    max-width: 1300px;
     margin: 40px auto;
     height: 65vh;
     position: relative; /* Add position relative */
@@ -56,6 +56,8 @@
     justify-content: center;
     height: 100%;
     padding-top: 22px;
+    background-color: #FFFFFF;
+    color: black;
   }
 
   .card-body {
@@ -94,6 +96,7 @@
     border-radius: 10px;
     text-align: center;
     padding:12px;
+    color: white;
   }
 
 
@@ -113,6 +116,10 @@
       margin-bottom: -15px; 
     }
 
+    .card-3{
+      border: none;
+    }
+
     .card {
       width: 100%;
       margin: 10px 0;
@@ -128,6 +135,9 @@
       
       .card-icon {
         margin-left: 5px;
+      }
+      .btn{
+        width: 270px;
       }
   }
 
@@ -149,12 +159,16 @@
     }
     .card-3{
         height: 38vh;
+        border: none;
+    }
+    .btn{
+      width: 200px;
     }
   }
 
   @media (min-width: 820px) {
     .section{
-        width: 810px;
+        width: 730px;
         height: 43vh;
     }
     .container {
@@ -169,6 +183,10 @@
     }
     .card-3{
         height: 33vh;
+        border: none;
+    }
+    .btn{
+      width: 200px;
     }
   }
 
@@ -189,6 +207,7 @@
     }
     .card-3{
         height: 29vh;
+        border: none;
     }
   }
   
@@ -197,19 +216,43 @@
     .container {
       height: 60vh;
     }
+    .btn{
+      width: 250px;
+    }
+    .card{
+      border: none;
+    }
   }
   
   
   @media (min-width: 1024px) {
     .section{
-        width:900px;
+        width:2100px;
         height: 77vh;
     }
     .container {
+      width: 2100;
       height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left:35px; 
+      /*margin-right: 40px; */
+    }
+    .card-2{
+      margin-left: 70px;
+      /* margin-right: 30px; */
     }
     .card-3{
         height: 60vh;
+        margin-left: 100px;
+        border: none;
+    }
+    .card{
+      width: 18rem;
+    }
+    .btn{
+      width: 250px;
     }
   }
   
@@ -224,5 +267,6 @@
     }
     .card-3{
         height: 48vh;
+        border: none;
     }
   } 
