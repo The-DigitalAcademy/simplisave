@@ -20,8 +20,11 @@ import { LearnVsInvestComponent } from './pages/learn/learn-vs-invest/learn-vs-i
 import { LearnBestSuitedComponent } from './pages/learn/learn-best-suited/learn-best-suited.component';
 import { LearnOfferComponent } from './pages/learn/learn-offer/learn-offer.component';
 import { OffersComponent } from './pages/landing/offers/offers.component';
-import { LandingNeedHelpComponent } from './pages/landing/landing-need-help/landing-need-help.component';
-import { LinksComponent } from './pages/landing/links/links.component';
+import { LandingGetstartedComponent } from './pages/landing/landing-getstarted/landing-getstarted.component';
+import { LandingPartnersComponent } from './pages/landing/landing-partners/landing-partners.component';
+import { LandingOpenAccountComponent } from './pages/landing/landing-open-account/landing-open-account.component';
+// import { LandingNeedHelpComponent } from './pages/landing/landing-need-help/landing-need-help.component';
+// import { LinksComponent } from './pages/landing/links/links.component';
 
 
 @NgModule({
@@ -43,7 +46,9 @@ import { LinksComponent } from './pages/landing/links/links.component';
         LearnVsInvestComponent, 
         LearnBestSuitedComponent, 
         LearnOfferComponent, 
-        OffersComponent
+        OffersComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,
+        // LinksComponent,
+        // LandingNeedHelpComponent
 ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
