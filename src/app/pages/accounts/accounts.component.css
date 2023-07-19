@@ -91,11 +91,6 @@
   
   /* Media Query for screens below 786px */
   @media (max-width: 786px) {
-    .card {
-      width: 90%;
-      min-width: auto;
-    }
-
     .banner-heading {
         max-width: 80%; /* Updated max-width for better responsiveness */
         font-size: 1.5rem; /* Default font size */
@@ -103,6 +98,15 @@
         text-align: left;
         margin-left: 7%; /* Updated margin for better responsiveness */
       }
+
+    .heading{
+        font-size: 1.5rem;;
+    }
+
+    .card {
+      width: 90%;
+      min-width: auto;
+    }
   
     .card-heading {
       font-size: 18px; /* Adjusted */
