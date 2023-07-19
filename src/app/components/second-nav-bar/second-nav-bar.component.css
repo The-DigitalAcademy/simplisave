@@ -5,20 +5,12 @@
     justify-content: left;
   }
   
-  .navbar-nav .nav-link {
-    margin-right: 10px; 
-    display: flex;
-    align-items: left;
-    justify-content: left;
-  }
   
   .img-fluid{
     margin-left: 10px;
   }
   
-  .white-text .nav-link {
-    color: white;
-  }
+ 
   
   .mobile-only{
     display: none;
@@ -39,14 +31,7 @@
         justify-content: left;
         height: 50vh;
        }
-       
-       .white-text .nav-link {
-        color: white;
-        margin-left: 0px; 
-        display: flex;
-        align-items: left;
-        justify-content: left;
-      }
+      
   
       .mobile-only {
         display: flex;
