@@ -1,0 +1,44 @@
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    font-family: Inconsolata;
+  }
+
+  .flex-item-left {
+    background-color: #FFFFFF;
+    flex: 40%;
+  }
+  .moneyImg{
+    height: 100%;
+    width: 100%;
+  }
+  
+  .flex-item-right {
+    background-color: #FFFFFF;
+    padding: 20px;
+    align-self: center;
+    flex: 60%;
+  }
+
+  button{
+    width: 20%;
+    height: 45px;
+    background-color: #AF144B;
+    border-radius: 15px;
+    border-color: transparent;
+    color: #FFFFFF;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 800px) {
+    .flex-container {
+      flex-direction: column;
+    }
+    button{
+      width: 60%;
+    }
+  }
+  
+  
