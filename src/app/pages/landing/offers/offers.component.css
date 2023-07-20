@@ -6,7 +6,7 @@
   
   .section{
     text-align: center;
-    padding-top: 30px; 
+    /* padding-top: 30px;  */
     padding-bottom: 30px; 
   }
   
@@ -59,10 +59,11 @@
   }
   
   .btn{
-    background-color: #870A3C;
+    background-color: #FFFFFF;
+    
     width: 80px;
     border-radius: 10px;
-    color: white;
+    color: black;
   }
   
   @media (max-width: 576px) {
