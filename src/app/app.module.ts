@@ -23,7 +23,7 @@ import { OffersComponent } from './pages/landing/offers/offers.component';
 import { LandingGetstartedComponent } from './pages/landing/landing-getstarted/landing-getstarted.component';
 import { LandingPartnersComponent } from './pages/landing/landing-partners/landing-partners.component';
 import { LandingOpenAccountComponent } from './pages/landing/landing-open-account/landing-open-account.component';
-// import { LandingNeedHelpComponent } from './pages/landing/landing-need-help/landing-need-help.component';
+import { LandingNeedHelpComponent } from './pages/landing/landing-need-help/landing-need-help.component';
 // import { LinksComponent } from './pages/landing/links/links.component';
 
 
@@ -48,7 +48,7 @@ import { LandingOpenAccountComponent } from './pages/landing/landing-open-accoun
         LearnOfferComponent, 
         OffersComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,
         // LinksComponent,
-        // LandingNeedHelpComponent
+        LandingNeedHelpComponent
 ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
