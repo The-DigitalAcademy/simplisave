@@ -5,12 +5,6 @@
     height: 100%;
     font-family: Inconsolata;
   }
-
-  .flex-item-left {
-    background-color: #FFFFFF;
-    align-self: center;
-    flex: 40%;
-  }
   
   .flex-item-right {
     background-color: #FFFFFF;
@@ -28,6 +22,9 @@
 
   mat-icon{
     color: gray;
+    font-size: xx-large;
+    width: 50px;
+    height: 50px;
   }
   ::ng-deep .mat-step-header .mat-step-icon-selected {
     background-color: #AF144B;; 
@@ -40,6 +37,7 @@
 
   input{
     border-bottom: 0.5px solid  #AF144B;
+    font-size: large;
   }
   
   /* Responsive layout */

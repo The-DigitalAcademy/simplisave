@@ -17,6 +17,7 @@
     color: #AF144B;
   }
 
+
   button{
     width: 30%;
   }
@@ -39,7 +40,7 @@
     width: 250px;
     font-size: 250px;
     align-self: center;
-    margin-left: 100px;
+    margin-left: 0px;
     color: #AF144B;
   }
   

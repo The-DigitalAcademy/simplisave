@@ -2,25 +2,29 @@
     display: flex;
     flex-direction: row;
     height: 100%;
-    align-self: center;
     font-family: Inconsolata;
   }
   
   .flex-item-right {
     background-color: #FFFFFF;
     align-self: center;
-    /* margin-left: 230px; */
-    flex: 100%;
+    flex: 60%;
   }
 
   .text-center{
     color: #AF144B;
   }
 
-  button{
+   button{
     width: 30%;
   }
 
+  mat-icon{
+    color: gray;
+    font-size: xx-large;
+    width: 50px;
+    height: 50px;
+  }
   ::ng-deep .mat-step-header .mat-step-icon-selected {
     background-color: #AF144B;; 
   }
@@ -32,15 +36,7 @@
 
   input{
     border-bottom: 0.5px solid  #AF144B;
-  }
-
-  mat-icon{
-    height: 250px;
-    width: 250px;
-    font-size: 250px;
-    align-self: center;
-    margin-left: 100px;
-    color: #AF144B;
+    font-size: large;
   }
   
   /* Responsive layout */
@@ -49,14 +45,18 @@
       flex-direction: column;
     }
     .flex-item-left {
-        flex: 0%;
-      }
-      
-      .flex-item-right {
-        flex: -20%;
-      }
+      flex: 0%;
+    }
+    
+    .flex-item-right {
+      flex: -20%;
+    }
   }
-  @media screen and (max-width: 800px) {
+
+  .horizontal-stepper {
+    flex-direction: row;
+  }
+  /* @media screen and (max-width: 800px) {
     mat-vertical-stepper, mat-step{
       display: flex;
       flex-direction: row;
@@ -64,4 +64,4 @@
     mat-vertical-stepper mat-step-header {
       flex: 1;
     }
-  }
+  } */

@@ -18,6 +18,7 @@
   .flex-item-right {
     background-color: #FFFFFF;
     padding: 20px;
+    align-self: center;
     flex: 60%;
   }
   

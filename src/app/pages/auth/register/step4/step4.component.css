@@ -31,6 +31,9 @@
 
   mat-icon{
     color: gray;
+    width: 50px;
+    height: 50px;
+    font-size: xx-large;
   }
   ::ng-deep .mat-step-header .mat-step-icon-selected {
     background-color: #AF144B;; 
@@ -43,6 +46,7 @@
 
   input{
     border-bottom: 0.5px solid  #AF144B;
+    font-size: large;
   }
   
   /* Responsive layout */

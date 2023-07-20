@@ -13,10 +13,6 @@ import { StepsComponent } from './pages/auth/register/steps/steps.component';
 const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'steps', component: StepsComponent },
-    { path: 'step1', component: Step1Component },
-    { path: 'step2', component: Step2Component },
-    { path: 'step3', component: Step3Component },
-    { path: 'step4', component: Step4Component },
     {path: 'accounts', component: AccountsComponent},
     {path : 'learn', component : LearnComponent}
 ];
