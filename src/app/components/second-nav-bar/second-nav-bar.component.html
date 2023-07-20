@@ -11,7 +11,28 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto white-text spaced-nav">
             <hr>
-          
+            <li class="nav-item hide-on-desktop">
+                <a class="nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+              </li>
+              <hr class="hide-on-desktop">
+              <li class="nav-item hide-on-desktop">
+                <a class="nav-link" routerLink="/about" routerLinkActive="active">Transaction</a>
+              </li>
+              <hr class="hide-on-desktop">
+              <!-- Add other nav-items that you want to hide on desktop with the class "hide-on-desktop" -->
+              <hr class="hide-on-desktop">
+              <li class="nav-item hide-on-desktop">
+                <a class="nav-link" routerLink="/about" routerLinkActive="active">Transaction</a>
+              </li>
+              <hr class="hide-on-desktop">
+
+              <hr class="hide-on-desktop">
+<li class="nav-item hide-on-desktop">
+  <a class="nav-link" routerLink="/about"  routerLinkActive="active">Logout</a>
+</li>
+<hr class="hide-on-desktop">
         </ul>
+       
+
     </div>
 </nav>
