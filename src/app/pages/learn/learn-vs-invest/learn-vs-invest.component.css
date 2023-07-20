@@ -1,56 +1,108 @@
 .container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1024px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading {
+  text-align: center;
+  font-family: roboto;
+  font-style: bold;
+  color: #870A3C;
+  font-weight: bolder;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  width: 45%;
+  padding: 10px;
+  margin: 10px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-style: none;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.card-explanation {
+  font-size: 1.5vw;
+  font-family: roboto;
+  font-weight: lighter;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.frame {
+  display: inline-flex; /* Change to inline-flex to align subframes horizontally */
+}
+
+.sub-frame {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sub-frame img {
+  max-width: 100%;
+  height: auto;
+}
+
+.sub-frame h3 {
+  margin-top: 10px;
+}
+
+@media (max-width: 580px) {
+  .card-container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    height: 300px;
+  }
+  
+  .card-content {
     align-items: center;
     justify-content: center;
-    padding: 20px;
     text-align: center;
   }
-  
-  .heading {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
-  }
-  
-  .card {
-    flex: 0 0 45%;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
-  }
-  
-  .split-card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .split-card .card {
-    flex: 0 0 45%;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
-  }
-  
-  .card img {
-    max-width: 100%;
-    height: auto;
-  }
-  
+
   .card-heading {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: 10px;
+    font-size: 18px;
   }
-  
+
+  .card-explanation {
+    font-size: 14px;
+  }
+}
