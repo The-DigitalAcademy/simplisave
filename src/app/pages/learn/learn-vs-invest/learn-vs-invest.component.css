@@ -4,7 +4,6 @@
   justify-content: center;
   height: fit-content;
   margin-bottom: 15%;
-  width: 100vw;
 }
 
 .flex-container {
@@ -12,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 90%;
 }
 
 .heading {
@@ -27,10 +26,9 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 100%;
+  width: 95%;
   flex-wrap: wrap;
   margin-top: 20px;
-  width: 100vw;
   
 }
 
@@ -93,7 +91,7 @@
   }
 
   .card {
-    width: 90%;
+    width: 100%;
     height: fit-content;
   }
   
