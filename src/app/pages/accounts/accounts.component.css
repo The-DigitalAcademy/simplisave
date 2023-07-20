@@ -6,8 +6,7 @@
 .container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    /* height: 50vh; */
+    justify-content: center; 
   }
 
   .banner {
@@ -57,24 +56,17 @@
     
   }
 
-  .card-content{
-    width: 61px;
-    height: 61px;
-    font-size: 2.0vw; 
-    margin: 10px 0;
-    font-family: roboto;
-    color: #ffffff;
-    font-weight:normal;
- 
+  .card-explanation{
+   max-width: 220px;
   }
   
   .card {
     background-color: #870A3C;
     color: #ffffff;
-    width: 28%;
+    width: 24%;
     height: auto;
     padding: 10px;
-    margin: 10px;
+    margin: 10px 10px;
     display: flex;
     align-items: center;
     text-align: center;
