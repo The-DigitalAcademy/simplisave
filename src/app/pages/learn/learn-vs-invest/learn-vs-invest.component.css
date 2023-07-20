@@ -1,0 +1,118 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  margin-bottom: 15%;
+  width: 100vw;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.heading {
+  text-align: center;
+  font-family: roboto;
+  font-style: bold;
+  color: #870A3C;
+  font-weight: bolder;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  width: 100vw;
+  
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  width: 45%;
+  padding: 10px;
+  margin: 10px;
+  flex-direction: column;
+  text-align: center;
+  border-style: none;
+  justify-content: space-between;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.card-explanation {
+  font-size: 1.4vw;
+  font-family: roboto;
+  font-weight: lighter;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.frame {
+  display: inline-flex; /* Change to inline-flex to align subframes horizontally */
+}
+
+.sub-frame {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sub-frame img {
+  max-width: 100%;
+  height: auto;
+}
+
+.sub-frame h3 {
+  margin-top: 10px;
+}
+
+@media (max-width: 580px) {
+  .card-container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    height: fit-content;
+  }
+  
+  .card-content {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .frame{
+    height: fit-content;
+  }
+.sub-frame{
+  height: fit-content;
+}
+  .card-heading {
+    font-size: 18px;
+  }
+
+  .card-explanation {
+    font-size: 14px;
+  }
+}

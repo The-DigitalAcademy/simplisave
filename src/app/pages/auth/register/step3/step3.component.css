@@ -1,0 +1,55 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-self: center;
+    font-family: Inconsolata;
+  }
+  
+  .flex-item-right {
+    background-color: #FFFFFF;
+    align-self: center;
+    /* margin-left: 230px; */
+    flex: 100%;
+  }
+
+  button{
+    width: 30%;
+  }
+
+  ::ng-deep .mat-step-header .mat-step-icon-selected {
+    background-color: #AF144B;; 
+  }
+
+  .btn{
+    background-color: #AF144B;
+    color: #FFFFFF;
+  }
+
+  input{
+    border-bottom: 0.5px solid  #AF144B;
+  }
+
+  mat-icon{
+    height: 250px;
+    width: 250px;
+    font-size: 250px;
+    align-self: center;
+    margin-left: 100px;
+    color: #AF144B;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 800px) {
+    .flex-container {
+      flex-direction: column;
+    }
+    .flex-item-left {
+        flex: 0%;
+      }
+      
+      .flex-item-right {
+        flex: -20%;
+      }
+  }
+  

@@ -1,0 +1,145 @@
+body {
+  font-family: Roboto;
+}
+
+.container {
+  padding-top: 40px;
+}
+
+.card-container {
+  display: flex;
+  align-items: flex-start; 
+}
+
+.card {
+  font-family: roboto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-top: 250px;
+  padding-left: 120px;
+  padding-right: 10px;
+  width: 100%;
+  border-style: none;
+}
+
+.vl {
+  border-left: 7px solid #870A3C;
+  padding-left: 30px;
+}
+
+/* Heading styles for the cards */
+.card-heading {
+  font-size: 2.0vw;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.card-heading1 {
+  font-size: 35px;
+  font-weight: bold;
+  color: #870A3C;
+  margin: 10px 0;
+}
+
+.nav-link {
+  color: #870A3C;
+  font-weight: lighter;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 40px;
+}
+
+/* Styles for the footer */
+.footer {
+  background-color: #870A3C;
+  padding: 5px;
+  text-align: center;
+  margin-top: 130px;
+}
+
+/* Styles for the copyright text */
+.footer h2 {
+  font-size: 19px;
+  color: #ffffff;
+  margin: 0px;
+}
+
+/* Styles for the "Made by" text */
+.footer span {
+  display: block;
+  font-size: 12px;
+  color: #888;
+}
+
+
+/* Media Query for screens below 786px */
+@media screen and (max-width: 786px) {
+  /* General styles */
+.container {
+  padding: 40px 20px; /* Adjust padding on smaller screens */
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  font-family: Roboto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 20px;
+}
+
+.vl {
+  border-left: 7px solid #870A3C;
+  height: 100%;
+  margin-right: 10px;
+}
+
+/* Heading styles for the cards */
+.card-heading {
+  font-size: 25px; /* Adjust font size based on viewport width */
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.card-heading1 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #870A3C;
+  margin: 10px 0;
+}
+
+.nav-link {
+  color: #870A3C;
+  font-weight: lighter;
+  text-decoration: none;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+/* Styles for the footer */
+.footer {
+  background-color: #870A3C;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Styles for the copyright text */
+.footer h2 {
+  font-size: 16px; /* Adjust font size for smaller screens */
+  color: #ffffff;
+  margin: 0px;
+}
+
+/* Styles for the "Made by" text */
+.footer span {
+  display: block;
+  font-size: 12px;
+  color: #888;
+}
+} 
+

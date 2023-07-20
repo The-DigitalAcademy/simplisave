@@ -1,0 +1,44 @@
+
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.top-part {
+  flex: 5;
+}
+
+/* Set a height and enable scrolling for mobile */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+    height: auto; /* Allow the dashboard container to adjust its height based on content */
+  }
+
+  .top-part {
+    flex: 1; /* Adjust the flex value to occupy the available space on mobile */
+    height: auto; /* Allow the top part to adjust its height based on content */
+  }
+
+  .mobile-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Allow the mobile container to occupy the available space on mobile */
+    overflow-y: auto;
+    margin: 7px;
+  
+    
+  }
+
+  .graph-container,
+  .checklist-container {
+    flex: 1;
+    min-height: 0; /* Allow content to overflow and trigger scrolling */
+  }
+}
+
+
