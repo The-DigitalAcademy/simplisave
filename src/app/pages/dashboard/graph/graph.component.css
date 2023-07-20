@@ -1,0 +1,29 @@
+/* graph.component.css */
+h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* graph.component.css */
+/* graph.component.css */
+:host {
+    display: block;
+    width: 100%;
+    max-width: 500px; /* Increase the maximum width for larger screens */
+    height: 280px; /* Increase the height to make the graph bigger */
+    position: absolute;
+    bottom: 60px;
+    left: 300px;
+  }
+  
+  @media (max-width: 480px) {
+    :host {
+      max-width: 100%;
+      height: 200px;
+      bottom: 10px;
+      left: 10px;
+    }
+  }
+  
+  

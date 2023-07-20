@@ -23,9 +23,11 @@ import { OffersComponent } from './pages/landing/offers/offers.component';
 import { TopPartComponent } from './pages/dashboard/top-part/top-part.component';
 import { ChecklistComponent } from './pages/dashboard/checklist/checklist.component';
 import { SecondNavBarComponent } from './components/second-nav-bar/second-nav-bar.component';
+import { GraphComponent } from './pages/dashboard/graph/graph.component';
+
 
 @NgModule({
-    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent,TopPartComponent,OffersComponent,ChecklistComponent,SecondNavBarComponent],
+    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent,TopPartComponent,OffersComponent,ChecklistComponent,SecondNavBarComponent,GraphComponent],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
     bootstrap: [AppComponent],

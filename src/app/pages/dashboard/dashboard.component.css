@@ -1,50 +1,67 @@
+/* 
 .dashboard-container {
-    display: flex;
-  }
-  
-  .sidebar {
-    flex: 1;
-  
-  }
-  
-  .top-part {
-    flex: 5;
-  
-  }
-  @media (max-width: 768px) {
-    .dashboard-container {
-      flex-direction: row; /* Display items horizontally on small screens */
-    }
-  
-    
+  display: flex;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.top-part {
+  flex: 5;
+}
+
+.checklist {
+  flex: 1;
+}
+
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
   }
 
-  .dashboard-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .sidebar {
-    flex: 1;
-  }
-  
   .top-part {
-    flex: 52; /* Adjust the flex value as needed */
-    min-width: 0;
+    flex: 1; 
   }
-  
-  .checklist {
+} */
+
+/* parent.component.css */
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.top-part {
+  flex: 5;
+}
+
+/* Set a height and enable scrolling for mobile */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+    height: auto; /* Allow the dashboard container to adjust its height based on content */
+  }
+
+  .top-part {
+    flex: 1; /* Adjust the flex value to occupy the available space on mobile */
+    height: auto; /* Allow the top part to adjust its height based on content */
+  }
+
+  .mobile-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Allow the mobile container to occupy the available space on mobile */
+    overflow-y: auto;
+  }
+
+  .graph-container,
+  .checklist-container {
     flex: 1;
-    min-width: 0;
+    min-height: 0; /* Allow content to overflow and trigger scrolling */
   }
-  
-  /* Example media query for responsiveness */
-  @media (max-width: 768px) {
-    .dashboard-container {
-      flex-direction: column;
-    }
-  
-    .top-part {
-      flex: 1; /* Adjust the flex value as needed */
-    }
-  }
+}
