@@ -56,12 +56,12 @@
   }
   
   .card-explanation {
-    font-size: 1.5vw; /* Adjusted */
+    font-size: 1.4vw; /* Adjusted */
     font-family: roboto;
     font-weight:lighter;
   }
   .bottomParagraph{
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     font-family: roboto;
     font-weight: lighter;
     margin-top: auto;
@@ -77,16 +77,18 @@
     padding: 1%;
     margin-top: 10%;
     margin-bottom: 2%;
-    border-width: 1px;
+    border-width: 0px;
     color: white;
+    padding:1%;
 
   }
   .browseBtn{
     border-radius: 15px;
     background: #870A3C;
     padding: 1%;
-    border-width: 1px;
+    border-width: 0px;
     color: white;
+    padding:1%;
 
   }
   
