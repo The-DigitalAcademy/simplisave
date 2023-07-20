@@ -24,8 +24,7 @@ body {
 
 .vl {
   border-left: 7px solid #870A3C;
-  height: 100%;
-  padding-right: 30px;
+  padding-left: 30px;
 }
 
 /* Heading styles for the cards */
@@ -36,7 +35,7 @@ body {
 }
 
 .card-heading1 {
-  font-size: 24px;
+  font-size: 35px;
   font-weight: bold;
   color: #870A3C;
   margin: 10px 0;
@@ -48,6 +47,7 @@ body {
   text-decoration: none;
   display: block;
   margin-bottom: 10px;
+  padding-left: 40px;
 }
 
 /* Styles for the footer */
