@@ -4,12 +4,6 @@
     height: 100%;
     font-family: Inconsolata;
   }
-
-  .flex-item-left {
-    background-color: #FFFFFF;
-    align-self: center;
-    flex: 40%;
-  }
   
   .flex-item-right {
     background-color: #FFFFFF;
@@ -21,32 +15,23 @@
     color: #AF144B;
   }
 
-
-
-  .sendBtn{
-    gap: 50px;
-    /* margin-left: 400px; */
-    margin-right:50px;
+   button{
+    width: 30%;
   }
-
 
   mat-icon{
     color: gray;
+    font-size: xx-large;
     width: 50px;
     height: 50px;
-    font-size: xx-large;
   }
   ::ng-deep .mat-step-header .mat-step-icon-selected {
-    background-color: #AF144B;
+    background-color: #AF144B;; 
   }
 
-  button{
+  .btn{
     background-color: #AF144B;
     color: #FFFFFF;
-    border-radius: 15px;
-    border-color: transparent;
-    width: 24%;
-    height: 45px;
   }
 
   input{
@@ -60,10 +45,11 @@
       flex-direction: column;
     }
     .flex-item-left {
-        flex: 0%;
-      }
-      
-      .flex-item-right {
-        flex: -20%;
-      }
+      flex: 0%;
+    }
+    
+    .flex-item-right {
+      flex: -20%;
+    }
   }
+

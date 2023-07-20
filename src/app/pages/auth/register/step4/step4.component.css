@@ -21,14 +21,13 @@
     color: #AF144B;
   }
 
-
-
-  .sendBtn{
+  .button{
     gap: 50px;
-    /* margin-left: 400px; */
-    margin-right:50px;
   }
 
+  button{
+    width: 30%;
+  }
 
   mat-icon{
     color: gray;
@@ -37,16 +36,12 @@
     font-size: xx-large;
   }
   ::ng-deep .mat-step-header .mat-step-icon-selected {
-    background-color: #AF144B;
+    background-color: #AF144B;; 
   }
 
-  button{
+  .btn{
     background-color: #AF144B;
     color: #FFFFFF;
-    border-radius: 15px;
-    border-color: transparent;
-    width: 24%;
-    height: 45px;
   }
 
   input{
