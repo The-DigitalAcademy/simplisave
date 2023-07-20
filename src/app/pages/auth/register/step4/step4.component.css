@@ -62,12 +62,3 @@
         flex: -20%;
       }
   }
-  @media screen and (max-width: 800px) {
-    mat-vertical-stepper, mat-step{
-      display: flex;
-      flex-direction: row;
-    }
-    mat-vertical-stepper mat-step-header {
-      flex: 1;
-    }
-  }

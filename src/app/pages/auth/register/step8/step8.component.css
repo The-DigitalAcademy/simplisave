@@ -13,9 +13,6 @@
     flex: 100%;
   }
 
-  .text-center{
-    color: #AF144B;
-  }
 
   button{
     width: 30%;
@@ -55,13 +52,4 @@
       .flex-item-right {
         flex: -20%;
       }
-  }
-  @media screen and (max-width: 800px) {
-    mat-vertical-stepper, mat-step{
-      display: flex;
-      flex-direction: row;
-    }
-    mat-vertical-stepper mat-step-header {
-      flex: 1;
-    }
   }

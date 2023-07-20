@@ -1,1 +1,22 @@
-<p>step7 works!</p>
+<div class="flex-container">
+    <div class="flex-item-right">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-6 col-xl-6 order-2 order-lg-1">
+                <br>
+                <br>
+                <h1 class="text-center h4  mb-5 mx-1 mx-md-4 mt-4">Let's get you verified!
+                    Please upload your ID and your proof of residence..</h1>
+                <br>
+                <input type="file" (change)="onFileSelected($event)" />
+                <button (click)="upload()">Upload</button>
+                <br>
+                <br>
+                <input type="file" (change)="onFileSelected($event)" />
+                <button (click)="upload()">Upload</button>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
