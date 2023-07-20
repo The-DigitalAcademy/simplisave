@@ -1,28 +1,62 @@
-/* graph.component.css */
-h2 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
+.graph {
+  background-color: #E5E5E5;
+  border-radius: 5px;
+ 
+}
+
+:host{
+    padding: 10px;
+    border-radius: 5px;
+    height: 150%;
+    width: 125%;
+    padding-top: 10px;
+    margin-top: -110px;
+    
   }
-  
-  /* graph.component.css */
-/* graph.component.css */
-:host {
+
+  /* :host {
+    display: block;
+    background-color: #E5E5E5;
+    width: 100%;
+    max-width: 500px; /* Increase the maximum width for larger screens *
+    height: 35%; 
+    position: absolute;
+    bottom: 60px;
+    
+    padding-top: 10px;
+    margin-top: -110px;
+    
+  }  */
+
+
+  @media (min-width: 770px) {
+    .graph {
+      background-color: #E5E5E5;
+      padding-top: 10px;
+      margin-top: -110px;
+      height: 155%; 
+      width: 125%;
+
+    }
+ :host {
     display: block;
     width: 100%;
     max-width: 500px; /* Increase the maximum width for larger screens */
-    height: 280px; /* Increase the height to make the graph bigger */
+    height: 35%; 
     position: absolute;
     bottom: 60px;
     left: 300px;
+    
+  } 
   }
-  
-  @media (max-width: 480px) {
-    :host {
-      max-width: 100%;
-      height: 200px;
-      bottom: 10px;
-      left: 10px;
+  @media (max-width: 320px) {
+    .graph {
+      height: 200px; /* Adjust the height for small screens */
+      width: 100%; /* Set the width to fill the available space */
+      position: static; /* Reset the position to normal flow */
+      margin-bottom: 20px; /* Add some margin at the bottom for spacing */
+      margin: 5%;
+      height: 10%;
     }
   }
   
