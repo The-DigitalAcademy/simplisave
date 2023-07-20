@@ -2,7 +2,8 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    height: 1024px;
+    height: fit-content;
+    margin-bottom: 15%;
   }
   
   .flex-container {
@@ -53,9 +54,10 @@
   }
   
   .card-explanation {
-    font-size: 1.5vw; /* Adjusted */
+    font-size: 1.4vw; /* Adjusted */
     font-family: roboto;
     font-weight:lighter;
+    line-height: 1.5;
   }
   
   /* Media Query for screens below 786px */

@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 1024px;
+  height: fit-content;
+  margin-bottom: 15%;
 }
 
 .flex-container {
@@ -10,6 +11,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: fit-content;
 }
 
 .heading {
@@ -27,6 +29,18 @@
   width: 100%;
   flex-wrap: wrap;
   margin-top: 20px;
+}
+
+.card1 {
+  display: flex;
+  align-items: center;
+  width: 45%;
+  padding: 10px;
+  margin: 10px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-style: none;
 }
 
 .card {
@@ -50,13 +64,13 @@
 }
 
 .card-explanation {
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   font-family: roboto;
   font-weight: lighter;
   margin-top: auto;
   margin-bottom: auto;
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 #chartCanvas {
@@ -66,14 +80,18 @@
 
 @media (max-width: 1024px) {
   
+  .card1 {
+    width: 90%;
+    height: 250px;
+  }
   .card {
     width: 90%;
-    height: 300px;
+    height: fit-content;
   }
   
   .card-content {
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     text-align: center;
   }
 

@@ -1,0 +1,18 @@
+.flex-container {
+    align-items: center !important;
+    align-self: center !important;
+    height: 100%;
+    font-family: Inconsolata;
+    justify-content: center;
+  }
+  
+  .flex-item-right {
+    background-color: #FFFFFF;
+    align-items: center !important;
+    align-self: center;
+    justify-content: center;
+
+  }
+  h1{
+    color:  #AF144B;
+  }
