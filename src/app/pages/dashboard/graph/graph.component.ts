@@ -27,7 +27,7 @@ export class GraphComponent implements AfterViewInit {
         labels: ['February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November'],
         datasets: [{
           label: 'Expense Summary', // Add the heading "Expense Summary"
-          data: [1300, 500, 100, 1500, 2000, 1000, 1200, 800, 1700,1200],
+          data: [1300, 1500, 1100, 1500, 2000, 1000, 1200, 1800, 1700,1200],
           backgroundColor: '#870A3C', // Set the bars' color to #870A3C
           borderWidth: 1
         }]

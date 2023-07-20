@@ -1,32 +1,4 @@
-/* 
-.dashboard-container {
-  display: flex;
-}
 
-.sidebar {
-  flex: 1;
-}
-
-.top-part {
-  flex: 5;
-}
-
-.checklist {
-  flex: 1;
-}
-
-
-@media (max-width: 768px) {
-  .dashboard-container {
-    flex-direction: column;
-  }
-
-  .top-part {
-    flex: 1; 
-  }
-} */
-
-/* parent.component.css */
 .dashboard-container {
   display: flex;
   flex-wrap: wrap;
@@ -57,6 +29,9 @@
     flex-direction: column;
     flex: 1; /* Allow the mobile container to occupy the available space on mobile */
     overflow-y: auto;
+    margin: 7px;
+  
+    
   }
 
   .graph-container,
@@ -65,3 +40,5 @@
     min-height: 0; /* Allow content to overflow and trigger scrolling */
   }
 }
+
+
