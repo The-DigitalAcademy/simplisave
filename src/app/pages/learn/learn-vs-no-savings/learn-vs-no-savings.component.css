@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: center;
   height: fit-content;
+  width: 90%;
 }
 
 .heading {
@@ -26,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   flex-wrap: wrap;
   margin-top: 20px;
 }
