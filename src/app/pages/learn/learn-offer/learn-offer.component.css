@@ -84,7 +84,10 @@
     margin-bottom: 2%;
     border-width: 0px;
     color: white;
-    padding:1%;
+    padding-top:1.5%;
+    padding-bottom: 1.5%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
 
   }
   .browseBtn{
@@ -93,7 +96,10 @@
     padding: 1%;
     border-width: 0px;
     color: white;
-    padding:1%;
+    padding-top:1.5%;
+    padding-bottom: 1.5%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
 
   }
   
@@ -135,6 +141,21 @@
     .heading{
       margin-bottom: 10%;
     }
+    .openBtn{
+      margin-bottom: 5%;
+      padding-top:2.3%;
+      padding-bottom: 2.3%;
+      padding-left: 3.3%;
+      padding-right: 3.3%;
+    }
+    .browseBtn{
+      padding-top:2.5%;
+      padding-bottom: 2.5%;
+      padding-left: 3.5%;
+      padding-right: 3.5%;
+
+    }
+
   }
 
   
