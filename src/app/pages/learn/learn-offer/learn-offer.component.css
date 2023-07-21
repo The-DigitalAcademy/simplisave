@@ -101,7 +101,7 @@
   @media (max-width: 786px) {
     .card {
       width: 90%;
-      height:230px;
+      height:150px;
     }
     .card1 {
       width: 90%;
@@ -125,6 +125,15 @@
   
     .card-explanation {
       font-size: 14px; /* Adjusted */
+    }
+    .container{
+      margin-bottom: 30%;
+    }
+    .card-container{
+      margin-bottom: 10%;
+    }
+    .heading{
+      margin-bottom: 10%;
     }
   }
 

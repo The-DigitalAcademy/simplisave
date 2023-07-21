@@ -36,6 +36,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 36%;
+  padding: 10px;
+  margin: 10px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-style: none;
+  min-height: 300px;
+}
+.card1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 45%;
   padding: 10px;
   margin: 10px;
@@ -45,7 +58,6 @@
   border-style: none;
   min-height: 300px;
 }
-
 .card-content {
   display: flex;
   flex-direction: column;
@@ -87,7 +99,8 @@
 @media (max-width: 1024px) {
   
   .card1 {
-    height: 100px;
+    min-height:20px;
+    width: fit-content;
   }
   .card {
     width: 100%;
@@ -104,6 +117,10 @@
     justify-content: center;
     align-items: center;
     max-width: 90vw;
+    max-height: 100px;
+  }
+  .card-container{
+    height: fit-content;
   }
 
 
@@ -124,5 +141,9 @@
   .card-explanation {
     font-size: 14px; /* Adjusted */
     width: 85vw;
+ 
+  }
+  .container{
+    margin-bottom: 30%;
   }
 }

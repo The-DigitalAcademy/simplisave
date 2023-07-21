@@ -76,6 +76,9 @@
     .card-explanation {
       font-size: 14px; /* Adjusted */
     }
+    .container{
+      margin-bottom: 30%;
+    }
   }
 
   
