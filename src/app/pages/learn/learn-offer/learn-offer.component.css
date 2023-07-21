@@ -101,6 +101,10 @@
   @media (max-width: 786px) {
     .card {
       width: 90%;
+      height:230px;
+    }
+    .card1 {
+      width: 90%;
       min-width: auto;
     }
     .bottomParagraph{
@@ -112,6 +116,7 @@
       margin-bottom: auto;
       text-align: center;
       line-height: 1.5;
+      width:90vw;
     }
   
     .card-heading {

@@ -83,7 +83,7 @@
   
   .card1 {
     width: 90%;
-    height: 250px;
+    height: 290px;
   }
   .card {
     width: 90%;
@@ -103,5 +103,39 @@
 
   .card-explanation {
     font-size: 14px; /* Adjusted */
+    width:90vw;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    margin-bottom: 15%;
+  }
+  
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: 100%;
+  }
+  
+  .heading {
+    text-align: center;
+    font-family: roboto;
+    font-style: bold;
+    color: #870A3C;
+    font-weight: bolder;
+  }
+  
+  .card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 20px;
   }
 }
