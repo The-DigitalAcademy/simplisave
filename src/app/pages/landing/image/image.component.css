@@ -1,6 +1,4 @@
-
-
- body,
+body,
 html {
   height: 100%;
   margin: 0;
@@ -8,7 +6,7 @@ html {
 }
 
 body {
-    background-image: url("/assets/Stacked_coins_Background-image.png");
+    background-image: url("/assets/Open_account_Background-image.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -34,6 +32,8 @@ h1,
     color: #FFFFFF;
     text-align: center;
     background-color: #870A3C;
+    width: 196px;
+  }
 
 @media (max-width: 820px) {    
     .btn {
@@ -52,8 +52,6 @@ h1,
     .card-title{
         font-size: 50px;
     }
-}
-
 
 
   }

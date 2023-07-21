@@ -23,19 +23,19 @@
   width: 90%;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 15px;
-  font-family: Lato;
-}
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 15px;
+    font-family: Lato;
+  }
 
-h5,
-p{
-  font-family: Roboto;
-}
+  h5,
+  p{
+    font-family: Roboto;
+  }
 
 .card {
   margin: 10px;

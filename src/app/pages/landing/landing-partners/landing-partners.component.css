@@ -16,14 +16,14 @@
 }
 
 .heading{
-color:#870A3C;
-text-align: center;
-font-family: lato;
+  color:#870A3C;
+  text-align: center;
+  font-family: lato;
 }
 
 h5,
 p{
-font-family: Roboto;
+  font-family: Roboto;
 }
 .row{
   padding-top:20px;
