@@ -15,7 +15,7 @@
     align-items: flex-start;
     justify-content: center;
     width: 100vw;
-    height: 50vh; /* Updated height for better responsiveness */
+    height: 67vh; /* Updated height for better responsiveness */
     margin-top: 0vh;
     background-image: url('/assets/Icons/Frame 629341.png');
     background-size: cover;
@@ -24,11 +24,12 @@
   }
 
   .banner-heading {
-    max-width: 60%; /* Updated max-width for better responsiveness */
-    font-size: 3rem; /* Default font size */
-    font-weight: bold;
+    max-width: 70%; /* Updated max-width for better responsiveness */
+    font-size: 4.5rem; /* Default font size */
+    font-weight:800;
     text-align: left;
-    margin-left: 7%; /* Updated margin for better responsiveness */
+    margin-left: 10%; /* Updated margin for better responsiveness */
+    font-family: lato;
   }
   
   
@@ -88,7 +89,7 @@
   @media (max-width: 786px) {
     .banner-heading {
         max-width: 80%; /* Updated max-width for better responsiveness */
-        font-size: 1.5rem; /* Default font size */
+        font-size: 2rem; /* Default font size */
         font-weight: bold;
         text-align: left;
         margin-left: 7%; /* Updated margin for better responsiveness */
