@@ -20,8 +20,21 @@ navbar-nav {
   color: white;
 }
 
+.nav-link{
+  font-family: roboto;
+}
+
 .mobile-only{
   display: none;
+}
+.sideBarPic{
+  margin-right: 20px;
+}
+.sideBarPic2{
+  margin-right: 16.5px;
+}
+.sideBarPic1{
+  margin-right: 23px;
 }
 
 /* Media query for mobile devices */
@@ -57,7 +70,7 @@ navbar-nav {
     }
 
   }
-/ Media query for desktop devices */
+/*Media query for desktop devices */
 @media (min-width: 781px) {
   .hide-on-desktop {
     display: none;

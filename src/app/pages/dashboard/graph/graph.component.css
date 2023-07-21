@@ -55,7 +55,7 @@
       width: 100%; /* Set the width to fill the available space */
       position: static; /* Reset the position to normal flow */
       margin-bottom: 20px; /* Add some margin at the bottom for spacing */
-      margin: 5%;
+      margin: 0%;
       height: 10%;
     }
   }
