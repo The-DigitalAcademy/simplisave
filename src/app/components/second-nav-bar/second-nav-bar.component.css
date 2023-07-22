@@ -1,4 +1,4 @@
-.navbar-nav {
+navbar-nav {
   margin-left: 400px;
   display: flex;
   align-items: left;
@@ -20,8 +20,21 @@
   color: white;
 }
 
+.nav-link{
+  font-family: roboto;
+}
+
 .mobile-only{
   display: none;
+}
+.sideBarPic{
+  margin-right: 20px;
+}
+.sideBarPic2{
+  margin-right: 16.5px;
+}
+.sideBarPic1{
+  margin-right: 23px;
 }
 
 /* Media query for mobile devices */
@@ -37,9 +50,9 @@
       display: flex;
       align-items: left;
       justify-content: left;
-      height: 50vh;
+      height: 95vh;
      }
-     
+
      .white-text .nav-link {
       color: white;
       margin-left: 0px; 
@@ -55,9 +68,9 @@
     hr {
       border: 1px solid #ffffff;
     }
-    
+
   }
-/* Media query for desktop devices */
+/*Media query for desktop devices */
 @media (min-width: 781px) {
   .hide-on-desktop {
     display: none;

@@ -46,9 +46,19 @@
 
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
-  .banner-heading {
-    font-size: 2rem; /* Updated font size for smaller screens */
-  }
+  .banner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100vw;
+  height: 67vh; /* Updated height for better responsiveness */
+  margin-top: 0vh;
+  background-image: url('/assets/Icons/Frame 629341.png');
+  background-size: cover;
+  background-position: bottom;
+  color: white;
+}
 
   .content {
     width: 90%;
@@ -63,7 +73,11 @@
 
 @media (max-width: 576px) {
   .banner-heading {
-    font-size: 1.5rem; /* Further decrease font size for smallest screens */
+    max-width: 80%; /* Updated max-width for better responsiveness */
+    font-size: 2rem; /* Default font size */
+    font-weight: bold;
+    text-align: left;
+    margin-left: 7%; /* Updated margin for better responsiveness */
   }
   .content{
     margin-top: 25%;
@@ -71,4 +85,5 @@
   .banner{
     height: 50vh;
   }
+  
 }
