@@ -53,4 +53,13 @@ button{
   button{
     width: 60%;
   }
+  .content-paragraph{
+    margin-top: 10%;
+  text-align: center;
+  line-height: 2rem;
+}
+.buttonContainer{
+  display: flex;
+  justify-content: center;
+}
 }
