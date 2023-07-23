@@ -26,7 +26,7 @@
     
 
     /* Center the buttons horizontally */
-    margin: 0 auto;
+    margin-left: 0.3% ;
   
     /* Apply some padding and font size for better aesthetics */
     padding: 12px 24px;
@@ -45,15 +45,19 @@
 }
   
 
-  mat-icon{
-    color: gray;
-    font-size: xx-large;
-    width: 50px;
-    height: 50px;
-  }
-  ::ng-deep .mat-step-header .mat-step-icon-selected {
-    background-color: #870A3C;
-  }
+mat-icon{
+  color: gray;
+  font-size: xx-large;
+  width: 50px;
+  height: 50px;
+}
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #AF144B;; 
+}
+
+::ng-deep .mat-step-header .mat-step-icon-state-edit {
+  background-color: #AF144B;; 
+}
 
   .btn{
     background-color: #870A3C;

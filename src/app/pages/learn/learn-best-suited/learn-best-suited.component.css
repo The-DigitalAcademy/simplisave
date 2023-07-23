@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width:90%;
+  width:100vw;
 }
 
 .heading {
@@ -20,17 +20,17 @@
   font-style: bold;
   color: #870A3C;
   font-weight: bolder;
-  margin-top: 4.5%;
+  margin-top: 1%;
 }
 
 .card-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
   flex-wrap: wrap;
   min-height: 300px;
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 11%;
 }
 
@@ -82,7 +82,7 @@
   font-size: 1.4vw;
   font-family: roboto;
   font-weight: lighter;
-  margin-top: auto;
+  margin-top: 0px;
   margin-bottom: auto;
   text-align: center;
   line-height: 1.5;
