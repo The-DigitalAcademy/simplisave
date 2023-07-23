@@ -4,9 +4,6 @@
   align-items: left;
   justify-content: left;
 }
-.navbar{
-  max-height: 70px;
-}
 
 .navbar-nav .nav-link {
   margin-right: 10px; 
