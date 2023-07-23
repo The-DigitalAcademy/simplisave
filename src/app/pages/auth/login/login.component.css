@@ -22,10 +22,12 @@
 
   p{
     color: #AF144B;
+    margin-left: 30%;
   }
   button{
     width: 30%;
     height: 45px;
+    margin-left: 35%;
     background-color: #AF144B;
     border-radius: 20px;
     border-color: transparent;
