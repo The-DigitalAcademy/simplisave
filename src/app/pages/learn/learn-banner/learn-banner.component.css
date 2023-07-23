@@ -1,89 +1,56 @@
-.container {
+.flex-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  height: fit-content;
-  margin-bottom: 15%;
+  flex-direction: row;
+  height: 100%;
+  font-family: Inconsolata;
 }
 
-.banner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100vw;
-  height: 67vh; /* Updated height for better responsiveness */
-  margin-top: 0vh;
-  background-image: url('/assets/Icons/Frame 629341.png');
-  background-size: cover;
-  background-position: bottom;
-  color: white;
-}
 
-.banner-heading {
-  max-width: 70%; /* Updated max-width for better responsiveness */
-  font-size: 4.5rem; /* Default font size */
-  font-weight:800;
-  text-align: left;
-  margin-left: 10%; /* Updated margin for better responsiveness */
-  font-family: lato;
+.flex-item-left {
+  background-color: #FFFFFF;
+  flex: 40%;
 }
+.moneyImg{
+  height: 100%;
+  width: 100%;
 
-.content {
-  display: flex;
-  align-items: center; /* Updated to center vertically */
-  justify-content: center;
-  margin-top: 5%; /* Increase margin-top for more spacing */
-  width: 60%; /* Updated width for better responsiveness */
+
+
+
+    background-image: url('/assets/Icons/Frame 629341.png');
+    background-size: cover;
+    background-position: bottom;
+    color: white;
 }
-
 .content-paragraph {
   font-size: 1.2rem; /* Default font size */
-  text-align: center;
+  text-align: left;
   font-weight: bold;
 }
 
-/* Media Queries for responsiveness */
-@media (max-width: 768px) {
-  .banner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100vw;
-  height: 67vh; /* Updated height for better responsiveness */
-  margin-top: 0vh;
-  background-image: url('/assets/Icons/Frame 629341.png');
-  background-size: cover;
-  background-position: bottom;
-  color: white;
+.flex-item-right {
+  background-color: #FFFFFF;
+  padding: 20px;
+  align-self: center;
+  flex: 60%;
 }
 
-  .content {
-    width: 90%;
-    margin-top:8%;
-  }
 
-  .content-paragraph {
-    font-size: 1.1rem; /* Updated font size for smaller screens */
-    line-height: 150%;
-  }
+button{
+  width: 20%;
+  height: 45px;
+  background-color: #AF144B;
+  border-radius: 15px;
+  border-color: transparent;
+  color: #FFFFFF;
 }
 
-@media (max-width: 576px) {
-  .banner-heading {
-    max-width: 80%; /* Updated max-width for better responsiveness */
-    font-size: 2rem; /* Default font size */
-    font-weight: bold;
-    text-align: left;
-    margin-left: 7%; /* Updated margin for better responsiveness */
+/* Responsive layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
   }
-  .content{
-    margin-top: 25%;
+  button{
+    width: 60%;
   }
-  .banner{
-    height: 50vh;
-  }
-  
 }
