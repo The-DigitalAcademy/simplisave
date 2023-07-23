@@ -19,15 +19,29 @@ export class LearnBestSuitedComponent implements OnInit, AfterViewInit {
     const canvas: any = document.getElementById('chartCanvas2');
     const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 
+    const data = [600, 700]; // Sample data
+
+    // Create the ticks object for the y-axis
+    const yAxesTicks = {
+      font: {
+        size: 12, // Reduce the font size of the y-axis labels
+      },
+      stepSize: 200, // Decrease the spacing between labels on the y-axis
+      min: 0, // Set the minimum value for the y-axis
+      max: 700, // Set a smaller max value for the y-axis to decrease max height
+    };
+
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Tax', 'Tax-free'],
+        labels: ['Tax', 'Tax-Free'], // Updated labels
         datasets: [
           {
             label: 'Interest earned (R)',
-            data: [600, 700],
+            data: data,
             backgroundColor: ['#000000', '#870A3C'],
+            barThickness: 25, // Keep the bar thickness constant to maintain bar size
+            barPercentage: 0.7, // Reduce the space between the bars
           },
         ],
       },
@@ -62,27 +76,12 @@ export class LearnBestSuitedComponent implements OnInit, AfterViewInit {
                 weight: 'lighter',
               },
             },
-            ticks: {
-              font: {
-                size: 14,
-              },
-            },
+            ticks: yAxesTicks, // Assign the ticks object to the y-axis
           },
         },
         plugins: {
           legend: {
-            position: 'bottom',
-            labels: {
-              font: {
-                size: 14,
-              },
-            },
-          },
-        },
-        datasets: {
-          bar: {
-            barThickness: 40, // Increase the bar thickness
-            barPercentage: 0.8, // Reduce the space between bars
+            display: false,
           },
         },
       },

@@ -68,6 +68,11 @@
     .card {
       width: 90%;
       min-width: auto;
+      height:fit-content;padding: 0%;
+    }
+    .card-image {
+      width:20%;
+      height: 24%;
     }
   
     .card-heading {

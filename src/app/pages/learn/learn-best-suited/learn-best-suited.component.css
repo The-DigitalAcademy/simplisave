@@ -16,7 +16,7 @@
 
 .heading {
   text-align: center;
-  font-family: roboto;
+  font-family: Bebas Neue;
   font-style: bold;
   color: #870A3C;
   font-weight: bolder;
@@ -29,23 +29,22 @@
   justify-content: center;
   width: 100vw;
   flex-wrap: wrap;
-  min-height: 300px;
   margin-top: 0px;
-  margin-bottom: 11%;
+  
 }
 
 .card {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36%;
+  width: 25%;
   padding: 10px;
   margin: 10px;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-style: none;
-  min-height: 300px;
+  min-height: 190px;
 }
 .card1 {
   display: flex;
@@ -70,7 +69,7 @@
 
 .card-explanation {
   font-size: 1.2vw;
-  font-family: roboto;
+  font-family: Avenir;
   font-weight: lighter;
   margin-top: auto;
   margin-bottom: auto;
@@ -80,13 +79,13 @@
 }
 .bottomParagraph{
   font-size: 1.4vw;
-  font-family: roboto;
+  font-family: Avenir;
   font-weight: lighter;
   margin-top: 0px;
   margin-bottom: auto;
   text-align: center;
   line-height: 1.5;
-  width:80%;
+  width:68%;
 }
 .bottomContent{
   display: flex;
@@ -96,6 +95,11 @@
 #chartCanvas {
   width: 100%;
   height: 100%;
+}
+.custom-tooltip {
+  /* Set a wider width for the tooltip */
+  min-width: 200%;
+  color: #870A3C;
 }
 
 @media (max-width: 1024px) {

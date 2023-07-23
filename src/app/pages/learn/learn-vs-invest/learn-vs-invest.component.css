@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width:100vw;
 }
 
 .heading {
@@ -20,14 +20,14 @@
   font-style: bold;
   color: #870A3C;
   font-weight: bolder;
-  margin-top: 4.5%;
+  margin-top: 1%;
 }
 
 .card-container {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 95%;
+  width: 100vw;
   flex-wrap: wrap;
   margin-top: 20px;
   
@@ -35,32 +35,33 @@
 
 .card {
   display: flex;
-  align-items: center;
-  width: 45%;
-  padding: 10px;
+  align-items: flex-start;
+  max-width: 35%;
   margin: 10px;
+  margin-bottom: 0px;
   flex-direction: column;
   text-align: center;
   border-style: none;
-  justify-content: space-between;
+  justify-content: flex-start;
+  max-height: 125px;
 }
 .card1 {
   display: flex;
   align-items: center;
-  width: 45%;
+  width: 60%;
   padding: 10px;
   margin: 10px;
   flex-direction: column;
   text-align: center;
   border-style: none;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   height: 100%;
 }
 
@@ -69,22 +70,23 @@
   font-family: roboto;
   font-weight: lighter;
   margin-top: auto;
-  margin-bottom: auto;
+  margin-bottom: 5.4%;
   text-align: center;
   line-height: 1.5;
 }
 
 .frame {
   display: inline-flex; /* Change to inline-flex to align subframes horizontally */
+  height: fit-content;
 }
 
 .sub-frame {
   width: 100%;
-  padding: 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: fit-content;
 }
 
 .sub-frame img {
@@ -94,6 +96,9 @@
 
 .sub-frame h3 {
   margin-top: 10px;
+}
+.sub-frame p{
+  padding: none;
 }
 
 @media (max-width: 580px) {
