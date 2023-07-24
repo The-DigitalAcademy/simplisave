@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   height: fit-content;
-  margin-bottom: 15%;
+  margin-bottom: 16%;
 }
 
 .flex-container {
@@ -69,7 +69,7 @@
 
 .card-explanation {
   font-size: 1.2vw;
-  font-family: Avenir;
+  font-family: roboto;
   font-weight: lighter;
   margin-top: auto;
   margin-bottom: auto;
@@ -79,7 +79,7 @@
 }
 .bottomParagraph{
   font-size: 1.4vw;
-  font-family: Avenir;
+  font-family: roboto;
   font-weight: lighter;
   margin-top: 0px;
   margin-bottom: auto;
