@@ -68,22 +68,30 @@
     .card {
       width: 90%;
       min-width: auto;
-      height:fit-content;padding: 0%;
+      height:auto;
+      padding: 0;
+      margin: 0;
+      justify-content: flex-start;
     }
     .card-image {
-      width:20%;
-      height: 24%;
+      width:15%;
+      height: 25%;
+    }
+    .heading{
+      font-size: 23px;
+      width: 100vw;
     }
   
     .card-heading {
       font-size: 18px; /* Adjusted */
+      margin: 0;
     }
   
     .card-explanation {
       font-size: 14px; /* Adjusted */
     }
     .container{
-      margin-bottom: 30%;
+      margin-bottom: 15%;
     }
   }
 

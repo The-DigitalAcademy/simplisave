@@ -149,8 +149,14 @@
     width: 85vw;
  
   }
+
+  .heading{
+    font-size: 23px;
+    width: 95vw;
+    margin-top: 0;
+  }
   .container{
-    margin-bottom: 30%;
+    margin-bottom: 22%;
   }
   .flex-container{
     height:69vh;

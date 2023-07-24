@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   height: fit-content;
-  margin-bottom: 15%;
+  margin-bottom: 15.5%;
 }
 
 .flex-container {
@@ -133,7 +133,7 @@
     align-items: center;
     justify-content: center;
     height: fit-content;
-    margin-bottom: 30%;
+    margin-bottom: 22%;
   }
   
   .flex-container {
@@ -145,13 +145,10 @@
     height:69vh;
   }
   
-  .heading {
-    text-align: center;
-    font-family: roboto;
-    font-style: bold;
-    color: #870A3C;
-    font-weight: bolder;
-    width:90vw;
+  .heading{
+    font-size: 23px;
+    width: 100vw;
+    margin-top: 0;
   }
   
   .card {
@@ -178,6 +175,15 @@
   }
   .heading{
     margin-bottom: 5%;
+  }
+
+  h6{
+    font-size: 18px; /* Adjusted */
+    margin: 0;
+  }
+
+  p {
+    font-size: 14px; /* Adjusted */
   }
  
 }

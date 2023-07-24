@@ -27,7 +27,6 @@
     justify-content: center;
     align-items: center;
     width:100vw;
-    
   }
   
   .card {
@@ -118,8 +117,10 @@
   @media (max-width: 786px) {
     .card {
       width: 100%;
-      height:100%;
+      height:auto;
       padding: none;
+      margin: 0;
+      padding: 0;
     }
     .card1 {
       width: 100%;
@@ -139,8 +140,8 @@
       width:90vw;
     }
     .card-image{
-      height:40%;
-      width: 20%;
+      height:16%;
+      width: 10%;
     }
     .card-heading {
       font-size: 18px; /* Adjusted */
@@ -155,10 +156,13 @@
     }
     .card-container{
       margin-bottom: none;
+      
     }
     .heading{
       margin-bottom: none;
-      max-width:100%;
+      font-size: 23px;
+      width: 100vw;
+      margin-top: 0;
     }
   
     .flex-container{
@@ -188,8 +192,7 @@
 .bottomContent{
   margin-bottom: 0px;
 }
-
-  }
+}
 
   
 

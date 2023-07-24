@@ -30,7 +30,7 @@ export class LearnVsNoSavingsComponent implements OnInit, AfterViewInit {
             backgroundColor: '#000000'
           },
           {
-            label: 'Savings',
+            label: '     Savings',
             data: [4493.08, 8600.98, 13049.83],
             backgroundColor: '#870A3C'
           }

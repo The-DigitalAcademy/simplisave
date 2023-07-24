@@ -112,7 +112,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     height: fit-content;
-    margin-bottom: 38%;
+    margin-bottom: 30%;
     height: 66vh;
   }
   
@@ -126,11 +126,8 @@
   }
   
   .heading {
-    text-align: center;
-    font-family: roboto;
-    font-style: bold;
-    color: #870A3C;
-    font-weight: bolder;
+    font-size: 23px;
+      width: 100vw;
   }
   
   .card-container {
