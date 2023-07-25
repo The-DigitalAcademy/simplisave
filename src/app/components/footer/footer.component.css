@@ -51,6 +51,7 @@ body {
 .nav-link {
     color: #870A3C;
     font-weight: lighter;
+    font-size: 21px;
     text-decoration: none;
     display: block;
     margin-bottom: 10px;
@@ -104,13 +105,13 @@ body {
     }
 
     .card-heading {
-        font-size: 25px;
+        font-size: 22px;
         font-weight: bold;
         margin: 10px 0;
     }
 
     .card-heading1 {
-        font-size: 25px;
+        font-size: 29px;
         font-weight: bold;
         color: #870A3C;
         margin: 10px 0;
@@ -118,13 +119,12 @@ body {
 
     .scroll-up-btn {
         position: static;
-        margin-bottom: 20px;
-        margin-right: 200px;
     }
 
     .nav-link {
         color: #870A3C;
         font-weight: lighter;
+        font-size: 19px;
         text-decoration: none;
         display: flex;
         margin-bottom: 10px;
