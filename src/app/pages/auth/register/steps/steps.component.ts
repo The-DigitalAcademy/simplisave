@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StepperService } from 'src/app/services/stepper.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-steps',
@@ -50,14 +51,30 @@ export class StepsComponent implements OnInit {
   }
 
   firstAlert() {
-    alert('SimpliSave Account successfully created!');
+    Swal.fire({
+      icon: 'success',
+      iconColor: '#AF144B',
+      text: 'SimpliSave Account successfully created!',
+      confirmButtonColor: '#AF144B'
+  });
   }
   secondAlert() {
-    alert('Account successfully linked!');
+    Swal.fire({
+      icon: 'success',
+      text: 'Account successfully linked!',
+      iconColor: '#AF144B',
+      confirmButtonColor: '#AF144B'
+
+  })
   }
 
   lastAlert(){
-    alert('Savings Account successfully created!');
+    Swal.fire({
+      icon: 'success',
+      text: 'Savings Account successfully created!',
+      iconColor: '#AF144B',
+      confirmButtonColor: '#AF144B'
+  })
   }
 
 
