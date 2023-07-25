@@ -1,4 +1,9 @@
+.button{
+    float: right;
+    border-radius: 15px;
+    background-color:#AF144B;
+}
 
-  
-  
-  
+.mat-mdc-button:not(:disabled){
+    color: #ffffff;
+}
