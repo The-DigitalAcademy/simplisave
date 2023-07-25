@@ -20,19 +20,16 @@
   }
 
   button{
-    width: 210px;
-    font-size: 14px;
-    background-color: #870A3C;
-    color: #FFFFFF!important;
-    
-
-    /* Center the buttons horizontally */
-    margin-left: 0.3% ;
-  
-    /* Apply some padding and font size for better aesthetics */
-    padding: 12px 24px;
-    font-size: 16px;
+      max-width: 16%;
+      border-radius: 15px;
+      background-color:#AF144B;
+      margin-left: 2%;
   }
+  
+  .mat-mdc-button:not(:disabled){
+      color: #ffffff;
+  }
+  
   /* Style for the custom buttons */
 
   .mdc-button__label{
@@ -88,7 +85,7 @@ mat-icon{
     }
     
   button{
-    width: 210px;
+    min-width: 50%;
     font-size: 14px;
     background-color: #870A3C;
     color: #FFFFFF;
