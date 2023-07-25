@@ -16,11 +16,6 @@
   font-family: lato;
   }
   
-  h5,
-  p,
-  btn{
-    font-family: Roboto;
-  }
   .header {
       display: flex;
       flex-direction: column;

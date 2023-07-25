@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <br/>
-<mat-horizontal-stepper #stepper>
+<mat-horizontal-stepper class="custom-stepper" #stepper>
     <mat-step [stepControl]="step1FormGroup">
       <ng-template matStepLabel>Step 1</ng-template>
       <app-step1 [formGroup]="step1FormGroup"></app-step1>
@@ -13,7 +13,7 @@
       <app-step2 [formGroup]="step2FormGroup"></app-step2>
       <div class="button">
         <button mat-button matStepperPrevious>Previous</button>
-        <button (click)="firstAlert()" mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step>
@@ -21,7 +21,7 @@
       <app-step4></app-step4>
       <div class="button">
         <button mat-button matStepperPrevious>Previous</button>
-        <button (click)="secondAlert()" mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step>
@@ -37,7 +37,7 @@
         <app-step7></app-step7>
         <div class="button">
           <button mat-button matStepperPrevious>Previous</button>
-          <button (click)="lastAlert()" routerLink="/login" mat-button matStepperNext>Done</button>
+          <button (click)="successAlert()" routerLink="/login" mat-button matStepperNext>Done</button>
         </div>
       </mat-step>
       

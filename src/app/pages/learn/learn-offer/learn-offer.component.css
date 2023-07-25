@@ -16,7 +16,6 @@
   }
   .heading {
     text-align: center;
-    font-family: roboto;
     font-style: bold;
     color: #870A3C;
     font-weight: bolder;
@@ -55,7 +54,6 @@
   }
   .card-explanation {
     font-size: 1.4vw; /* Adjusted */
-    font-family: roboto;
     font-weight:lighter;
   }
   .bottomContent{
@@ -64,7 +62,6 @@
   }
   .bottomParagraph{
     font-size: 1.4vw;
-    font-family: roboto;
     font-weight: lighter;
     margin-top: auto;
     margin-bottom: auto;
@@ -131,7 +128,6 @@
     .bottomParagraph{
       max-width: 90vw;
       font-size: 14px;
-      font-family: roboto;
       font-weight: lighter;
       margin-top: auto;
       margin-bottom: auto;

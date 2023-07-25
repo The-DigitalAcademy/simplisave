@@ -69,7 +69,6 @@
 
 .card-explanation {
   font-size: 1.2vw;
-  font-family: roboto;
   font-weight: lighter;
   margin-top: auto;
   margin-bottom: auto;
@@ -79,7 +78,6 @@
 }
 .bottomParagraph{
   font-size: 1.4vw;
-  font-family: roboto;
   font-weight: lighter;
   margin-top: 0px;
   margin-bottom: auto;
@@ -135,7 +133,6 @@
   }
   .bottomParagraph{
     font-size: 14px;
-  font-family: roboto;
   font-weight: lighter;
   margin-top: auto;
   margin-bottom: auto;

@@ -16,7 +16,6 @@
 
 .heading {
   text-align: center;
-  font-family: roboto;
   font-style: bold;
   color: #870A3C;
   font-weight: bolder;
@@ -67,7 +66,6 @@
 
 .card-explanation {
   font-size: 1.4vw;
-  font-family: roboto;
   font-weight: lighter;
   margin-top: auto;
   margin-bottom: 5.4%;
