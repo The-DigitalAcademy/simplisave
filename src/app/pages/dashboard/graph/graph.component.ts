@@ -24,7 +24,7 @@ export class GraphComponent implements AfterViewInit {
     this.chart = new Chart(ctx, {
       type: 'bar', // Change to 'bar' for a bar graph
       data: {
-        labels: ['February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November'],
+        labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
         datasets: [{
           label: 'Expense Summary', // Add the heading "Expense Summary"
           data: [1300, 1500, 1100, 1500, 2000, 1000, 1200, 1800, 1700, 1200],

@@ -3,9 +3,22 @@ h1 {
   padding-top: 20px;
 }
 
+
+.info-container {
+  display: flex;
+  align-items: center;
+}
+
+.info-icon {
+
+  cursor: pointer;
+  font-size: 24px; /* Set the initial icon size */
+}
+
+
 mat-icon{
   color: #870A3C;
-  margin: 5%;
+  margin: 3%;
   position: absolute;
   top: 0;
   right: 0;
@@ -33,7 +46,13 @@ mat-icon{
   flex: 50%;
   color: #000;
 }
-
+@media (max-width: 600px) {
+  /* Adjust icon size and spacing for mobile devices */
+  .info-icon {
+    font-size: 15px;
+    margin-right: 0px;
+  }
+}
 @media (max-width: 800px) {
   h1 {
     padding-top: 10px;
