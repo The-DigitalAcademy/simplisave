@@ -109,6 +109,17 @@ mat-icon{
   margin-top: -13%;
 }
 
+
+
+      /* If using a global styles file (styles.css) */
+      .custom-stepper .mat-step-header .mat-step-label {
+        display: none;
+        }
+
+      /* If using a component-specific styles file (component.css) */
+        :host ::ng-deep .custom-stepper .mat-step-header .mat-step-label {
+        display: none;
+        }
     
 
   }
