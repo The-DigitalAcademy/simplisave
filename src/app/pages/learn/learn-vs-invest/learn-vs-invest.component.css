@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   height: fit-content;
-  margin-bottom: 15%;
+  margin-bottom: 15.5%;
 }
 
 .flex-container {
@@ -11,22 +11,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width:100vw;
 }
 
 .heading {
   text-align: center;
-  font-family: roboto;
   font-style: bold;
   color: #870A3C;
   font-weight: bolder;
+  margin-top: 1%;
 }
 
 .card-container {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  width: 95%;
+  justify-content: center;
+  width: 100vw;
   flex-wrap: wrap;
   margin-top: 20px;
   
@@ -34,56 +34,57 @@
 
 .card {
   display: flex;
-  align-items: center;
-  width: 45%;
-  padding: 10px;
+  align-items: flex-start;
+  max-width: 35%;
   margin: 10px;
+  margin-bottom: 0px;
   flex-direction: column;
   text-align: center;
   border-style: none;
-  justify-content: space-between;
+  justify-content: flex-start;
+  max-height: 125px;
 }
 .card1 {
   display: flex;
   align-items: center;
-  width: 45%;
+  width: 60%;
   padding: 10px;
   margin: 10px;
   flex-direction: column;
   text-align: center;
   border-style: none;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   height: 100%;
 }
 
 .card-explanation {
   font-size: 1.4vw;
-  font-family: roboto;
   font-weight: lighter;
   margin-top: auto;
-  margin-bottom: auto;
+  margin-bottom: 5.4%;
   text-align: center;
   line-height: 1.5;
 }
 
 .frame {
   display: inline-flex; /* Change to inline-flex to align subframes horizontally */
+  height: fit-content;
 }
 
 .sub-frame {
   width: 100%;
-  padding: 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: fit-content;
 }
 
 .sub-frame img {
@@ -94,6 +95,9 @@
 .sub-frame h3 {
   margin-top: 10px;
 }
+.sub-frame p{
+  padding: none;
+}
 
 @media (max-width: 580px) {
   .card-container {
@@ -101,10 +105,6 @@
     align-items: center;
   }
 
-  .card {
-    width: 100%;
-    height: 220px;
-  }
   
   .card-content {
     align-items: center;
@@ -112,7 +112,8 @@
     text-align: center;
   }
   .frame{
-    height: fit-content;
+    height:fit-content;
+    justify-content: space-evenly;
   }
 .sub-frame{
   height: fit-content;
@@ -130,39 +131,39 @@
     align-items: center;
     justify-content: center;
     height: fit-content;
-    margin-bottom: 30%;
+    margin-bottom: 22%;
   }
   
   .flex-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
+    height:69vh;
   }
   
-  .heading {
-    text-align: center;
-    font-family: roboto;
-    font-style: bold;
-    color: #870A3C;
-    font-weight: bolder;
-  }
-  
-  .card-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    
+  .heading{
+    font-size: 23px;
+    width: 100vw;
+    margin-top: 0;
   }
   
   .card {
     display: flex;
     align-items: center;
-    width: 45%;
+    padding: 10px;
+    margin: 10px;
+    flex-direction: column;
+    text-align: center;
+    border-style: none;
+    justify-content: center;
+   min-width:100vw;
+  }
+  .card1 {
+    display: flex;
+    align-items: center;
+    min-width: 100vw;
     padding: 10px;
     margin: 10px;
     flex-direction: column;
@@ -171,7 +172,16 @@
     justify-content: center;
   }
   .heading{
-    margin-bottom: -5%;
+    margin-bottom: 5%;
+  }
+
+  h6{
+    font-size: 18px; /* Adjusted */
+    margin: 0;
+  }
+
+  p {
+    font-size: 14px; /* Adjusted */
   }
  
 }

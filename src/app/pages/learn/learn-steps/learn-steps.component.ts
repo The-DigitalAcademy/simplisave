@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StepperService } from 'src/app/services/stepper.service';
-import Swal from 'sweetalert2';
+
 
 @Component({
-  selector: 'app-steps',
-  templateUrl: './steps.component.html',
-  styleUrls: ['./steps.component.css']
+  selector: 'app-learn-steps',
+  templateUrl: './learn-steps.component.html',
+  styleUrls: ['./learn-steps.component.css']
 })
-export class StepsComponent implements OnInit {
+export class LearnStepsComponent implements OnInit {
   step1FormGroup!: FormGroup;
   step2FormGroup!: FormGroup;
   // Add more form groups if you have additional steps
@@ -49,15 +49,4 @@ export class StepsComponent implements OnInit {
     const currentStep = this.stepperService.getCurrentStep();
     this.stepperService.setCurrentStep(currentStep - 1);
   }
-
-  successAlert(){
-    Swal.fire({
-      icon: 'success',
-      text: 'Successful! Please Login',
-      iconColor: '#AF144B',
-      confirmButtonColor: '#AF144B'
-  })
-  }
-
-
 }

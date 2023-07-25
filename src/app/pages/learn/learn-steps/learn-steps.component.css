@@ -1,0 +1,115 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    font-family: Inconsolata;
+  }
+  
+  .flex-item-right {
+    background-color: #FFFFFF;
+    align-self: center;
+    flex: 60%;
+  }
+
+  .text-center{
+    color: #870A3C;
+  }
+
+   button{
+    width: 30%;
+  }
+
+  button{
+      max-width: 16%;
+      border-radius: 15px;
+      background-color:#AF144B;
+      margin-left: 2%;
+  }
+  
+  .mat-mdc-button:not(:disabled){
+      color: #ffffff;
+  }
+  
+  /* Style for the custom buttons */
+
+  .mdc-button__label{
+    color: #FFFFFF!important;
+  }
+
+/* Flexbox container for buttons */
+.button-container {
+  /* Center the buttons horizontally */
+  display: flex;
+  justify-content: center;
+  /* Set the container width to the screen width */
+  width: 100%;
+  margin-top: -13%;
+}
+  
+
+mat-icon{
+  color: gray;
+  font-size: xx-large;
+  width: 50px;
+  height: 50px;
+}
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #AF144B;; 
+}
+
+::ng-deep .mat-step-header .mat-step-icon-state-edit {
+  background-color: #AF144B;; 
+}
+
+  .btn{
+    background-color: #870A3C;
+    color: #FFFFFF;
+  }
+
+  input{
+    border-bottom: 0.5px solid  #870A3C;
+    font-size: large;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 800px) {
+    .flex-container {
+      flex-direction: column;
+    }
+    .flex-item-left {
+      flex: 0%;
+    }
+    
+    .flex-item-right {
+      flex: -20%;
+    }
+    
+  button{
+    min-width: 50%;
+    font-size: 14px;
+    background-color: #870A3C;
+    color: #FFFFFF;
+    
+
+    /* Center the buttons horizontally */
+    margin-left: 0.3% ;
+  
+    /* Apply some padding and font size for better aesthetics */
+    padding: 10px 18px;
+  }
+  /* Style for the custom buttons */
+
+/* Flexbox container for buttons */
+.button-container {
+  /* Center the buttons horizontally */
+  display: flex;
+  justify-content: center;
+  /* Set the container width to the screen width */
+  width: 100%;
+  margin-top: -13%;
+}
+
+    
+
+  }
+

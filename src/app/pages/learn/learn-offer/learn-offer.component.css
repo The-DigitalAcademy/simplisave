@@ -3,7 +3,8 @@
     align-items: flex-start;
     justify-content: center;
     height: fit-content;
-    margin-bottom: 15%;
+    margin-bottom: 19%;
+    width: 100vw;
   }
   
   .flex-container {
@@ -11,24 +12,20 @@
     flex-direction: column;
     align-items: center;
     justify-content:center;
-    width:90%;
+    width:100vw;
   }
-  
   .heading {
     text-align: center;
-    font-family: roboto;
     font-style: bold;
     color: #870A3C;
     font-weight: bolder;
   }
-  
   .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width:100vw;
-    
   }
   
   .card {
@@ -44,8 +41,8 @@
   }
   
   .card-image {
-    width: 110px;
-    height: 110px;
+    width: 80px;
+    height: 80px;
   }
   
   .card-heading {
@@ -55,10 +52,8 @@
     color: #870A3C;
     font-weight:normal;
   }
-  
   .card-explanation {
     font-size: 1.4vw; /* Adjusted */
-    font-family: roboto;
     font-weight:lighter;
   }
   .bottomContent{
@@ -67,28 +62,41 @@
   }
   .bottomParagraph{
     font-size: 1.4vw;
-    font-family: roboto;
     font-weight: lighter;
     margin-top: auto;
     margin-bottom: auto;
     text-align: center;
     line-height: 1.5;
-    width:80%;
-
+    width:68%;
   }
-  .openBtn{
-    border-radius: 15px;
-    background: #870A3C;
-    padding: 1%;
-    margin-top: 10%;
+  .btnContainer{
+    display: inline-flex;
+    justify-content: center;
+    width: 40%;
+  }
+  .customButton{
+    margin-top: 13%;
     margin-bottom: 2%;
-    border-width: 0px;
-    color: white;
-    padding-top:1.5%;
-    padding-bottom: 1.5%;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
-
+    width: 200px;
+    background-color: #870A3C;
+    background-color: #870A3C;
+    color: black;
+    /* Apply some padding and font size for better aesthetics */
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+  .customButton2{
+    margin-left: 10%;
+    display: inline-flex;
+    margin-bottom: 2%;
+    width: 210px;
+    background-color: #870A3C;
+    background-color: #870A3C;
+    color: black;
+    /* Apply some padding and font size for better aesthetics */
+    padding: 12px 24px;
+    font-size: 16px;
+    margin-top: 13%;
   }
   .browseBtn{
     border-radius: 15px;
@@ -100,23 +108,26 @@
     padding-bottom: 1.5%;
     padding-left: 2.5%;
     padding-right: 2.5%;
-
   }
   
   /* Media Query for screens below 786px */
   @media (max-width: 786px) {
     .card {
-      width: 90%;
-      height:150px;
+      width: 100%;
+      height:auto;
+      padding: none;
+      margin: 0;
+      padding: 0;
     }
     .card1 {
-      width: 90%;
+      width: 100%;
       min-width: auto;
+      height: 100%;
+      padding: none;
     }
     .bottomParagraph{
       max-width: 90vw;
       font-size: 14px;
-      font-family: roboto;
       font-weight: lighter;
       margin-top: auto;
       margin-bottom: auto;
@@ -124,39 +135,60 @@
       line-height: 1.5;
       width:90vw;
     }
-  
+    .card-image{
+      height:16%;
+      width: 10%;
+    }
     .card-heading {
       font-size: 18px; /* Adjusted */
     }
-  
     .card-explanation {
       font-size: 14px; /* Adjusted */
     }
     .container{
-      margin-bottom: 30%;
+      margin-bottom: 34%;
+      min-width: 100vw;
+      justify-content: center;
     }
     .card-container{
-      margin-bottom: 15%;
+      margin-bottom: none;
+      
     }
     .heading{
-      margin-bottom: 13%;
+      margin-bottom: none;
+      font-size: 23px;
+      width: 100vw;
+      margin-top: 0;
     }
-    .openBtn{
-      margin-bottom: 5%;
-      padding-top:2.3%;
-      padding-bottom: 2.3%;
-      padding-left: 3.3%;
-      padding-right: 3.3%;
-    }
-    .browseBtn{
-      padding-top:2.5%;
-      padding-bottom: 2.5%;
-      padding-left: 3.5%;
-      padding-right: 3.5%;
-
-    }
-
+  
+    .flex-container{
+    width:100vw;
   }
+  button{
+    width: 200px;
+    background-color: #870A3C;
+    color: #FFFFFF;
+    /* Center the buttons horizontally */
+    margin-left: 0.3% ;
+    /* Apply some padding and font size for better aesthetics */
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+  /* Style for the custom buttons */
+
+/* Flexbox container for buttons */
+.button-container {
+  /* Center the buttons horizontally */
+  display: flex;
+  justify-content: center;
+  /* Set the container width to the screen width */
+  width: 100%;
+  margin-top: -13%;
+}
+.bottomContent{
+  margin-bottom: 0px;
+}
+}
 
   
 

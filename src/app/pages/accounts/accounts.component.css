@@ -29,7 +29,6 @@
     font-weight:800;
     text-align: left;
     margin-left: 10%; /* Updated margin for better responsiveness */
-    font-family: lato;
   }
   
   
@@ -43,7 +42,6 @@
   
   .heading {
     text-align: center;
-    font-family: roboto;
     font-style: bold;
     color: #870A3C;
     font-weight: bolder;
@@ -73,7 +71,6 @@
     text-align: center;
     border-style: none;
     font-size: 1.1vw; 
-    font-family: roboto;
     font-weight:lighter;
     padding: 30px 10px 30px 10px ;
   }
@@ -82,7 +79,6 @@
     background-color: #ffffff;
     border-radius: 50px;
     padding: 2px 30px 2px 30px;
-    hover: orange;
   }
   
   /* Media Query for screens below 786px */
