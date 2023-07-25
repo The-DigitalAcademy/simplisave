@@ -53,11 +53,12 @@ h1 {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    /* padding-top: 8px; /
+    /* padding-top: 8px; */
   }
 
   .card-img-overlay a.btn {
     margin-left: 17px;
+  }
 
   body,
   html {
@@ -112,7 +113,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+  }}
   
   @media (max-width: 1200px) {
     .custom-img-overlay {
@@ -172,5 +173,3 @@ h1 {
       align-items: start;
     }
   }
-  
-  
