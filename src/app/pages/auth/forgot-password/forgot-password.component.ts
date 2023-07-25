@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forgot-password',
@@ -8,8 +9,12 @@ import { Component } from '@angular/core';
 export class ForgotPasswordComponent {
 
   showAlert() {
-    alert('Reset email sent!');
-  }
+    Swal.fire({
+      icon: 'success',
+      iconColor: '#AF144B',
+      text: 'Reset email sent!',
+      confirmButtonColor: '#AF144B'
+  });  }
 
 
 
