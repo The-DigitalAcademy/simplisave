@@ -48,4 +48,17 @@ export class StepsComponent implements OnInit {
     const currentStep = this.stepperService.getCurrentStep();
     this.stepperService.setCurrentStep(currentStep - 1);
   }
+
+  firstAlert() {
+    alert('SimpliSave Account successfully created!');
+  }
+  secondAlert() {
+    alert('Account successfully linked!');
+  }
+
+  lastAlert(){
+    alert('Savings Account successfully created!');
+  }
+
+
 }
