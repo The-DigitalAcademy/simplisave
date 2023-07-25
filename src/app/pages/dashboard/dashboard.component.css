@@ -37,8 +37,6 @@
   .graph-container,
   .checklist-container {
     flex: 1;
-    min-height: 0; /* Allow content to overflow and trigger scrolling */
+    min-height: 0; 
   }
 }
-
-
