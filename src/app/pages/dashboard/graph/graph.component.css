@@ -1,7 +1,7 @@
 .graph {
   background-color: 	#F5F5F5; 
   border-radius: 5px;
- 
+
 }
 
 :host{
@@ -32,10 +32,11 @@
   @media (min-width: 770px) {
     .graph {
       background-color: #E5E5E5;
-      padding-top: 90px;
-      margin-top: -23%;
+      padding-top: 10%;
+      margin-top: -20%;
       height: 165%; 
-      width: 115%;
+      width: 120%;
+    
 
     }
  :host {
