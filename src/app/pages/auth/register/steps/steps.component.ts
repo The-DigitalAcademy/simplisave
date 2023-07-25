@@ -50,28 +50,10 @@ export class StepsComponent implements OnInit {
     this.stepperService.setCurrentStep(currentStep - 1);
   }
 
-  firstAlert() {
+  successAlert(){
     Swal.fire({
       icon: 'success',
-      iconColor: '#AF144B',
-      text: 'SimpliSave Account successfully created!',
-      confirmButtonColor: '#AF144B'
-  });
-  }
-  secondAlert() {
-    Swal.fire({
-      icon: 'success',
-      text: 'Account successfully linked!',
-      iconColor: '#AF144B',
-      confirmButtonColor: '#AF144B'
-
-  })
-  }
-
-  lastAlert(){
-    Swal.fire({
-      icon: 'success',
-      text: 'Savings Account successfully created!',
+      text: 'Successful! Please Login',
       iconColor: '#AF144B',
       confirmButtonColor: '#AF144B'
   })

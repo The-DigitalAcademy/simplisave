@@ -16,16 +16,10 @@
 }
 
 .heading{
-  color:#870A3C;
-  text-align: center;
-  font-family: lato;
-  padding-bottom: 30px;
+color:#870A3C;
+text-align: center;
 }
 
-h5,
-p{
-  font-family: Roboto;
-}
 .row{
   padding-top:30px;
   text-align: center;
