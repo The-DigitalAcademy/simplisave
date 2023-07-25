@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-need-help',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./landing-need-help.component.css']
 })
 export class LandingNeedHelpComponent {
+  constructor(private router: Router) {}
 
+  navigateToLearnComponent(): void {
+    this.router.navigateByUrl('/learn');
+  }
 }

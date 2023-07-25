@@ -4,14 +4,14 @@
     <mat-step [stepControl]="step1FormGroup">
       <ng-template matStepLabel>Step 1</ng-template>
       <app-step1 [formGroup]="step1FormGroup"></app-step1>
-      <div>
+      <div class="button">
         <button mat-button matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step [stepControl]="step2FormGroup">
       <ng-template matStepLabel>Step 2</ng-template>
       <app-step2 [formGroup]="step2FormGroup"></app-step2>
-      <div>
+      <div class="button">
         <button mat-button matStepperPrevious>Previous</button>
         <button mat-button matStepperNext>Next</button>
       </div>
@@ -19,14 +19,14 @@
     <mat-step>
       <ng-template matStepLabel>Step 3</ng-template>
       <app-step3></app-step3>
-      <div>
+      <div class="button">
         <button mat-button matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Step 4</ng-template>
         <app-step4></app-step4>
-        <div>
+        <div class="button">
           <button mat-button matStepperPrevious>Previous</button>
           <button mat-button matStepperNext>Next</button>
         </div>
@@ -34,14 +34,14 @@
       <mat-step>
         <ng-template matStepLabel>Step 5</ng-template>
         <app-step5></app-step5>
-        <div>
+        <div class="button">
           <button mat-button matStepperNext>Next</button>
         </div>
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Step 6</ng-template>
         <app-step6></app-step6>
-        <div>
+        <div class="button">
           <button mat-button matStepperPrevious>Previous</button>
           <button mat-button matStepperNext>Next</button>
         </div>
@@ -49,7 +49,7 @@
       <mat-step>
         <ng-template matStepLabel>Step 7</ng-template>
         <app-step7></app-step7>
-        <div>
+        <div class="button">
           <button mat-button matStepperPrevious>Previous</button>
           <button mat-button matStepperNext>Next</button>
         </div>
@@ -57,7 +57,7 @@
       <mat-step>
         <ng-template matStepLabel>Step 8</ng-template>
         <app-step8></app-step8>
-        <div>
+        <div class="button">
           <button mat-button matStepperPrevious>Previous</button>
           <button mat-button routerLink="/login" matStepperNext>Done</button>
         </div>
