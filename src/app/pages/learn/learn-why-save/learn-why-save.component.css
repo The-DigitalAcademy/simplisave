@@ -75,7 +75,7 @@
     }
     .card-image {
       width:15%;
-      height: 25%;
+      height: 33%;
     }
     .heading{
       font-size: 23px;
@@ -91,8 +91,8 @@
       font-size: 14px; /* Adjusted */
     }
     .container{
-      margin-bottom: 15%;
-      height: 66vh;
+      margin-bottom: 20%;
+      height: 70vh;
      justify-content: space-evenly;
     }
   }

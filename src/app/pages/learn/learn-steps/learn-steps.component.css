@@ -23,7 +23,7 @@
     width: 210px;
     font-size: 14px;
     background-color: #870A3C;
-    color: #FFFFFF;
+    color: #FFFFFF!important;
     
 
     /* Center the buttons horizontally */
@@ -34,6 +34,10 @@
     font-size: 16px;
   }
   /* Style for the custom buttons */
+
+  .mdc-button__label{
+    color: #FFFFFF!important;
+  }
 
 /* Flexbox container for buttons */
 .button-container {

@@ -15,10 +15,12 @@
   }
   
   .card-title {
+    max-width: 70%; /* Updated max-width for better responsiveness */
+    font-size: 4.5rem; /* Default font size */
+    font-weight:800;
+    text-align: left;
+    margin-left: 10%; /* Updated margin for better responsiveness */
     font-family: lato;
-    font-size: 4.5rem;
-    font-weight: bold;
-    margin-bottom: 0px;
   }
   
   .custom-img-overlay {
@@ -40,16 +42,24 @@
   
   .btn {
 
+    margin-top: 5%;
     padding: 0;
     color: #FFFFFF;
     text-align: center;
     background-color: #870A3C;
-    width: 340px;
-    height: 70px;
+    width: 20vw;
+    height: 60px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 2.5rem;
+    font-family: roboto;
+  }
+  .buttonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   @media (max-width: 1200px) {
@@ -99,10 +109,11 @@
     .btn {
       width: 255px;
       height: 50px;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-left: 15%;
     }
   
     .custom-img-overlay {
