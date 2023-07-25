@@ -7,10 +7,12 @@
 .section{
   border: 1px solid #870A3C;
   max-width: 1300px;
-  margin: 40px auto;
+  margin: 130px auto;
   height: 65vh;
   position: relative; /* Add position relative */
   z-index: 0;
+  
+  
 }
 
 .container {
@@ -19,18 +21,18 @@
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-evenly;
-  margin: 40px auto;
+  margin: 20px auto;
   width: 90%;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 15px;
-  font-family: Lato;
-}
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 34px 20px;
+    color: #870A3C;
+  }
 
 .card {
   margin: 10px;
@@ -39,7 +41,7 @@
   flex-direction: column;
   background-color: #870A3C;
   color: #FFFFFF;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .card-1,
@@ -94,10 +96,11 @@
 .btn {
   background-color: #870A3C;
   width: 200px;
-  border-radius: 10px;
+  border-radius: 15px;
   text-align: center;
   padding:12px;
   color: white;
+  font-size: 22px;
 }
 
 
@@ -229,7 +232,7 @@
 @media (min-width: 1024px) {
   .section{
     width: calc(95% - 20px);
-      height: 77vh;
+    height: 77vh;
   }
   .container {
     width: 1200px;

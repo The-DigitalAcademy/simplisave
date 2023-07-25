@@ -6,6 +6,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,7 +51,7 @@ import { Step8Component } from './pages/auth/register/step8/step8.component';
 @NgModule({
     declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, Step1Component, Step2Component, Step3Component, Step4Component, StepsComponent, OffersComponent, Step5Component, Step6Component, Step7Component, Step8Component, TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,
         LandingNeedHelpComponent],
-    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule],
+    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule],
 
 
     providers: [],

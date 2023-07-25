@@ -6,7 +6,7 @@
 .section{
   text-align: center;
   padding-top: 30px; 
-  padding-bottom: 30px; 
+  padding-bottom: 65px; 
 }
 .container {
   display: flex;
@@ -20,12 +20,13 @@ color:#870A3C;
 text-align: center;
 }
 
-
 .row{
-  padding-top:20px;
+  padding-top:30px;
   text-align: center;
   padding-bottom: 30px; 
-  /* background-color: bisque; */
+}
+.col-sm-6{
+  padding-right:0px;
 }
 .card{
   border: none;
@@ -48,6 +49,10 @@ text-align: center;
 .col-md-8 {
   flex: 0 0 75%; 
 }
+.card-img{
+  justify-content: center;
+  width: 350px;
+}
 }
 
 
@@ -55,8 +60,13 @@ text-align: center;
 .col-sm-6.col-md-5 {
   flex: 0 0 50%; 
 }
-.card-img{
-  justify-content: center;
+.card-image{
+  display: flex;
 }
+/* .card-img{
+  justify-content: center;
+  width: 350px;
+} */
 
 }
+

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-open-account',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class LandingOpenAccountComponent {
 
+  constructor(private router: Router) {}
+
+   navigateToRegisterComponent(): void {
+     this.router.navigateByUrl('/register');
+   }
 }

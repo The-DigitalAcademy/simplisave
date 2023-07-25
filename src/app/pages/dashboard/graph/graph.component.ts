@@ -24,12 +24,12 @@ export class GraphComponent implements AfterViewInit {
     this.chart = new Chart(ctx, {
       type: 'bar', // Change to 'bar' for a bar graph
       data: {
-        labels: ['February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November'],
+        labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
         datasets: [{
           label: 'Expense Summary', // Add the heading "Expense Summary"
-          data: [1300, 1500, 1100, 1500, 2000, 1000, 1200, 1800, 1700,1200],
+          data: [1300, 1500, 1100, 1500, 2000, 1000, 1200, 1800, 1700, 1200],
           backgroundColor: '#870A3C', // Set the bars' color to #870A3C
-          borderWidth: 1
+          borderWidth: 0 // Remove the borders between the bars
         }]
       },
       options: {
@@ -43,9 +43,11 @@ export class GraphComponent implements AfterViewInit {
             display: true,
             suggestedMin: 0,
             suggestedMax: 2000,
-            // stepSize: 500, // Remove this line
             ticks: {
-              stepSize: 500 // Add this line
+              stepSize: 500
+            },
+            grid: {
+              display: false // Remove the grid from the chart
             }
           }
         },

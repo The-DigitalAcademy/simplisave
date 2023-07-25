@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-getstarted',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class LandingGetstartedComponent {
 
+  constructor(private router: Router) {}
+
+  navigateToLearnComponent(): void {
+    this.router.navigateByUrl('/learn');
+  }
 }
