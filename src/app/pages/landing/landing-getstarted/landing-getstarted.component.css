@@ -5,6 +5,14 @@ html {
   overflow: hidden;
 }
 
+.card-title{
+  max-width: 70%; /* Updated max-width for better responsiveness */
+  font-size: 4.5rem; /* Default font size */
+  font-weight:800;
+  text-align: left;
+  margin-left: 10%; /* Updated margin for better responsiveness */
+}
+
 body {
   background-image: url("/assets/Stacked_coins_Background-image.png");
   background-position: center center;
@@ -15,7 +23,6 @@ body {
 }
 
 .card-title {
-  font-family: lato;
   font-size: 4.5rem;
   font-weight: bold;
   margin-bottom: 10px;
@@ -35,7 +42,6 @@ body {
 h1,
 .btn {
   font-size: 2.5rem;
-  font-family: roboto;
 }
 
 .btn {
