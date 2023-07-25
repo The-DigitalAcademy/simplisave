@@ -10,13 +10,8 @@ html {
   font-weight:800;
   text-align: left;
   margin-left: 10%; /* Updated margin for better responsiveness */
-  font-family: lato;
-
 }
 
-.body{
-  font-family: roboto;
-}
 
 .card-img-overlay {
   display: flex;
@@ -36,10 +31,6 @@ html {
   padding: 0;
 }
 
-h1,
-.btn{
-  font-family: Roboto;
-}
 
 .background { 
   background-position: center;
