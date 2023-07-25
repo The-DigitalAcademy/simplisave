@@ -85,7 +85,7 @@ mat-icon{
     }
     
   button{
-    min-width: 0%;
+    min-width: 50%;
     font-size: 14px;
     background-color: #870A3C;
     color: #FFFFFF;

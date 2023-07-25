@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   height: fit-content;
-  margin-bottom: 15%;
+  margin-bottom: 15.5%;
 }
 
 .flex-container {
@@ -20,6 +20,7 @@
   font-style: bold;
   color: #870A3C;
   font-weight: bolder;
+  margin-top: 1%;
 }
 
 .card-container {
@@ -41,6 +42,7 @@
   align-items: center;
   text-align: center;
   border-style: none;
+  min-height: 290px;
 }
 
 .card {
@@ -105,10 +107,11 @@
   }
   .container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     height: fit-content;
-    margin-bottom: 30%;
+    margin-bottom: 29%;
+    height: 66vh;
   }
   
   .flex-container {
@@ -116,15 +119,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: fit-content;
+    height: 100%;
     width: 100%;
   }
   
   .heading {
-    text-align: center;
-    font-style: bold;
-    color: #870A3C;
-    font-weight: bolder;
+    font-size: 23px;
+      width: 100vw;
   }
   
   .card-container {
@@ -134,5 +135,6 @@
     width: 100%;
     flex-wrap: wrap;
     margin-top: 20px;
+    height:100%;
   }
 }
