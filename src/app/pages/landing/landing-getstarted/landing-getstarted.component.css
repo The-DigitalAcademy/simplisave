@@ -1,112 +1,58 @@
-body,
-html {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
 }
 
-body {
-  background-image: url("/assets/Stacked_coins_Background-image.png");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-.card-title {
-  font-family: lato;
-  font-size: 4.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.card-img-overlay {
+.banner {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-  padding: 0px; 
+  justify-content: center;
+  width: 100vw;
+  height: 90vh; /* Updated height for better responsiveness */
+  margin-top: 0vh;
+  background-image: url('/assets/Icons/Frame 629341.png');
+  background-size: cover;
+  background-position: bottom;
+  color: white;
 }
 
-.btn{
-  background-color: #870A3C;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 25px;
-  padding: 0;
-  height: 100%;
-  padding-top:150px;
-  max-width: 80%;
-  margin-left: 7%;
+.banner-heading {
+  max-width: 70%; /* Updated max-width for better responsiveness */
+  font-size: 4.5rem; /* Default font size */
+  font-weight:800;
+  text-align: left;
+  margin-left: 10%; /* Updated margin for better responsiveness */
+  font-family: lato;
 }
 
-h1,
-.btn {
-  font-size: 2.5rem;
-  font-family: roboto;
-}
+  /* Media Query for screens below 786px */
+  @media (max-width: 786px) {
+    .banner-heading {
+        max-width: 80%; /* Updated max-width for better responsiveness */
+        font-size: 2rem; /* Default font size */
+        font-weight: bold;
+        text-align: left;
+        margin-left: 7%; /* Updated margin for better responsiveness */
+      }
 
-.btn {
-  padding: 0;
-  color: #FFFFFF;
-  text-align: center;
-  background-color: #870A3C;
-  width: 240px;
-  height: 60px;
-  border-radius: 10px;
-}
+    .heading{
+        font-size: 1.5rem;;
+    }
 
-@media (max-width: 1200px) {
-  .card-img-overlay {
-    max-width: 90%;
-  }
-}
-
-@media (max-width: 992px) {
-  .card-title,
-  .btn {
-    font-size: 3rem;
-    
-  }
-
-  .card-img-overlay {
-    padding-top: 50px;
-  }
-}
-
-@media (max-width: 768px) {
-  .card-title,
-  .btn {
-    font-size: 2.5rem;
+    .card {
+      width: 90%;
+      min-width: auto;
+    }
+  
+    .card-heading {
+      font-size: 18px; /* Adjusted */
+    }
+  
+    .card-explanation {
+      font-size: 14px; /* Adjusted */
+    }
   }
 
-  .btn {
-    width: 250px;
-    height: 60px;
-    font-size: 2rem;
-  }
-
-  .card-img-overlay {
-    padding-top: 30px;
-  }
-}
-
-@media (max-width: 576px) {
-  .card-title,
-  .btn {
-    font-size: 2rem;
-  }
-
-
-  .btn {
-    width: 200px;
-    height: 50px;
-    font-size: 1.8rem;
-  }
-
-  .card-img-overlay {
-    padding-top: 20px;
-  }
-}
 
