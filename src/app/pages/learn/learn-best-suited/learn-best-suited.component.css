@@ -16,9 +16,13 @@
 
 .heading {
   text-align: center;
-  font-style: bold;
   color: #870A3C;
-  font-weight: bolder;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   margin-top: 1%;
 }
 
@@ -36,7 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25%;
+  width: 30%;
   padding: 0;
   margin: 0;
   flex-direction: column;
@@ -49,7 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45%;
+  width: 30%;
   padding: 0;
   margin: 0;
   flex-direction: column;
@@ -67,20 +71,23 @@
 }
 
 .card-explanation {
-  font-size: 1.1vw;
-  font-weight: lighter;
-  margin-top: auto;
-  margin-bottom: auto;
-  text-align: center;
-  line-height: 1.1;
+  color: #000;
+text-align: center;
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 0.048px;
 }
 .bottomParagraph{
-  font-size: 1.4vw;
-  font-weight: lighter;
-  margin-top: 0px;
-  margin-bottom: auto;
-  text-align: center;
-  line-height: 1.5;
+  color: #000;
+text-align: center;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
   width:68%;
 }
 .bottomContent{

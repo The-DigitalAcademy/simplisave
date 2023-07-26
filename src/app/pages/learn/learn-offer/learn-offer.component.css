@@ -16,9 +16,13 @@
   }
   .heading {
     text-align: center;
-    font-style: bold;
     color: #870A3C;
-    font-weight: bolder;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
   .card-container {
     display: flex;
@@ -46,11 +50,13 @@
   }
   
   .card-heading {
-    font-size: 2.2vw; /* Adjusted */
-    margin: 10px 0;
-    font-family: roboto;
     color: #870A3C;
-    font-weight:normal;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
   }
   .card-explanation {
     font-size: 1.4vw; /* Adjusted */
@@ -61,12 +67,13 @@
     justify-content: center;
   }
   .bottomParagraph{
-    font-size: 1.4vw;
-    font-weight: lighter;
-    margin-top: auto;
-    margin-bottom: auto;
+    color: #000;
     text-align: center;
-    line-height: 1.5;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
     width:68%;
   }
   .btnContainer{
@@ -78,9 +85,6 @@
     margin-top: 13%;
     margin-bottom: 2%;
     width: 200px;
-    background-color: #870A3C;
-    background-color: #870A3C;
-    color: black;
     /* Apply some padding and font size for better aesthetics */
     padding: 12px 24px;
     font-size: 16px;
