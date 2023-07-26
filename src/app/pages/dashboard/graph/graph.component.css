@@ -4,38 +4,15 @@
 
 }
 
-:host{
-    padding: 10px;
-    border-radius: 5px;
-    height: 150%;
-    width: 125%;
-    padding-top: 10px;
-    margin-top: -110px;
-    
-  }
-
-  /* :host {
-    display: block;
-    background-color: #E5E5E5;
-    width: 100%;
-    max-width: 500px; /* Increase the maximum width for larger screens *
-    height: 35%; 
-    position: absolute;
-    bottom: 60px;
-    
-    padding-top: 10px;
-    margin-top: -110px;
-    
-  }  */
-
 
   @media (min-width: 770px) {
     .graph {
       background-color: #E5E5E5;
       padding-top: 10%;
-      margin-top: -20%;
-      height: 165%; 
+      margin-top: -25%;
+      height: 157%; 
       width: 120%;
+      margin-right: 25%;
     
 
     }

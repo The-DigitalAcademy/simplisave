@@ -40,3 +40,57 @@
     min-height: 0; 
   }
 }
+
+
+
+
+
+
+
+
+
+
+/* Footer css */
+
+.footer {
+  background-color: #870A3C;
+  padding-bottom: 4px;
+  text-align: center;
+ 
+}
+
+.footer h2 {
+  font-size: 15px;
+  color: #ffffff;
+  margin: 0px;
+}
+
+.footer span {
+  display: block;
+  font-size: 12px;
+  color: #888;
+}
+
+
+/* Media Query for screens below 786px */
+@media screen and (max-width: 786px) {
+
+  .footer {
+      background-color: #870A3C;
+      padding: 5px;
+      text-align: center;
+  }
+
+
+  .footer h2 {
+      font-size: 16px;
+      color: #ffffff;
+      margin: 0px;
+  }
+
+  .footer span {
+      display: block;
+      font-size: 12px;
+      color: #888;
+  }
+}
