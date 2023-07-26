@@ -28,7 +28,7 @@ export class ExpenseComponent {
         labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
         datasets: [{
           label: 'Expense Summary', // Add the heading "Expense Summary"
-          data: [1300, 1500, 1100, 1500, 2000, 1000, 1200, 1800, 1700, 1200],
+          data: [1300, 1500, 1100, 1500, 1000, 1000, 1200, 1800, 1700, 1200],
           backgroundColor: '#870A3C', // Set the bars' color to #870A3C
           borderWidth: 0 // Remove the borders between the bars
         }]

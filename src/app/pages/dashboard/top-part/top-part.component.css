@@ -29,8 +29,8 @@ mat-icon{
   text-align: center;
   gap: 20px;
   padding:2%;
-  width: 96%;
-  margin-left: 3%;
+  width: 100%;
+  margin-left: 0%;
 }
 
 .flex-container > div {
@@ -45,6 +45,7 @@ mat-icon{
   position: relative;
   flex: 50%;
   color: #000;
+  width: 150%;
  
 }
 @media (max-width: 600px) {
@@ -53,6 +54,7 @@ mat-icon{
     font-size: 15px;
     margin-right: 0px;
   }
+ 
 }
 @media (max-width: 800px) {
   h1 {

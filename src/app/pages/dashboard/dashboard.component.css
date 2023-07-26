@@ -54,15 +54,16 @@
 
 .footer {
   background-color: #870A3C;
-  padding-bottom: 4px;
+  padding-bottom: 5px;
   text-align: center;
+  padding-top: 10px;
  
 }
 
 .footer h2 {
   font-size: 15px;
   color: #ffffff;
-  margin: 0px;
+ 
 }
 
 .footer span {
