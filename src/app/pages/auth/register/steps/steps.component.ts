@@ -8,9 +8,13 @@ import Swal from 'sweetalert2';
   templateUrl: './steps.component.html',
   styleUrls: ['./steps.component.css']
 })
-export class StepsComponent implements OnInit {
+export class StepsComponent {
   step1FormGroup!: FormGroup;
   step2FormGroup!: FormGroup;
+  step4FormGroup!: FormGroup;
+  step6FormGroup!: FormGroup;
+  step7FormGroup!: FormGroup;
+
   // Add more form groups if you have additional steps
 
   constructor(private fb: FormBuilder, private stepperService: StepperService) {}
@@ -19,8 +23,9 @@ export class StepsComponent implements OnInit {
     this.step1FormGroup = this.fb.group({
       // Define your form fields for Step 1 here
       // Example:
-      // firstName: ['', Validators.required],
-      // lastName: ['', Validators.required],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.required],
     });
 
     this.step2FormGroup = this.fb.group({

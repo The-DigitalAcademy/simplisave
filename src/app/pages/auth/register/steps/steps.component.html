@@ -12,32 +12,32 @@
       <ng-template matStepLabel>Step 2</ng-template>
       <app-step2 [formGroup]="step2FormGroup"></app-step2>
       <div class="button">
-        <button mat-button matStepperPrevious>Previous</button>
         <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Previous</button>
       </div>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Step 3</ng-template>
       <app-step4></app-step4>
       <div class="button">
-        <button mat-button matStepperPrevious>Previous</button>
         <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Previous</button>
       </div>
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Step 4</ng-template>
         <app-step6></app-step6>
         <div class="button">
-          <button mat-button matStepperPrevious>Previous</button>
           <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious>Previous</button>
         </div>
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Step 5</ng-template>
         <app-step7></app-step7>
         <div class="button">
-          <button mat-button matStepperPrevious>Previous</button>
           <button (click)="successAlert()" routerLink="/login" mat-button matStepperNext>Done</button>
+          <button mat-button matStepperPrevious>Previous</button>
         </div>
       </mat-step>
       

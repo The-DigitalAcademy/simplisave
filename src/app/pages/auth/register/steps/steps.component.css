@@ -1,8 +1,11 @@
-.button{
+button{
     float: right;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color:#AF144B;
+    margin-right: 10px;
+    width: 100px;
 }
+
 
 .mat-mdc-button:not(:disabled){
     color: #ffffff;

@@ -6,28 +6,28 @@
         <h1 class="text-center h4 mb-5 mx-1 mx-md-4 mt-4">Welcome to SimpliSave!
           We'd like to know more about you...</h1>
 
-        <form class="mx-1 mx-md-10">
+        <form [formGroup]="formGroup" class="mx-1 mx-md-10">
 
-          <div class="form-group row">
+          <div class="form-group row justify-content-center">
             <div class="d-flex col-sm-10">
               <mat-icon>person</mat-icon>
-              <input matInput type="text" class="form-control-plaintext" id="name" placeholder="What is your full name?" />
+              <input matInput type="text" class="form-control-plaintext" id="name" placeholder="What is your full name?" formControlName="name" />
             </div>
           </div>
           <br>
           <br>
-          <div class="form-group row">
+          <div class="form-group row justify-content-center">
             <div class="d-flex col-sm-10">
               <mat-icon>mailbox</mat-icon>
-              <input matInput type="email" class="form-control-plaintext" id="email" placeholder="What is your current email address?" />
+              <input matInput type="email" class="form-control-plaintext" id="email" placeholder="What is your current email address?" formControlName="email" />
             </div>
           </div>
           <br>
           <br>
-          <div class="form-group row">
+          <div class="form-group row justify-content-center">
             <div class="d-flex col-sm-10">
               <mat-icon>smartphone</mat-icon>
-              <input matInput type="text" class="form-control-plaintext" id="phone" placeholder="What number can we use to contact you?" />
+              <input matInput type="text" class="form-control-plaintext" id="phone" placeholder="What number can we use to contact you?" formControlName="phone" />
             </div>
           </div>
 
