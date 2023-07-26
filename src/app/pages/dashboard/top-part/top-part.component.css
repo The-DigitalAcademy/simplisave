@@ -10,15 +10,14 @@ h1 {
 }
 
 .info-icon {
-
   cursor: pointer;
-  font-size: 24px; /* Set the initial icon size */
+  font-size: 20px; 
 }
 
 
 mat-icon{
   color: #870A3C;
-  margin: 3%;
+  margin: 5%;
   position: absolute;
   top: 0;
   right: 0;
@@ -30,21 +29,23 @@ mat-icon{
   text-align: center;
   gap: 20px;
   padding:2%;
-  
-  /* padding-left: 60px; */
+  width: 96%;
+  margin-left: 3%;
 }
 
 .flex-container > div {
   background-color: #E5E5E5;
   padding: 1%;
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 3px;
+  
 }
 
 .flex-item {
   position: relative;
   flex: 50%;
   color: #000;
+ 
 }
 @media (max-width: 600px) {
   /* Adjust icon size and spacing for mobile devices */
@@ -61,12 +62,6 @@ mat-icon{
   .flex-container {
     flex-wrap: wrap;
   }
-
-  /* mat-icon {
-   display: none;
-    flex: 50%;
-    color: #000;
-  } */
 
   .flex-item:nth-child(2),
   .flex-item:nth-child(3) {
