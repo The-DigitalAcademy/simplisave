@@ -1,8 +1,10 @@
 .navbar-nav {
   margin-left: 400px;
-  display: flex;
-  align-items: left;
-  justify-content: left;
+ 
+}
+
+.navbar{
+  height: 70px;
 }
 
 .navbar-nav .nav-link {
@@ -35,10 +37,13 @@
       margin-left: 0px; 
       padding-left: 20px;
       display: flex;
-      align-items: left;
-      justify-content: left;
       height: 50vh;
      }
+
+    #navbarNav{
+      background-color: #870A3C;
+      height: 95vh;
+    }
 
      .white-text .nav-link {
       color: white;
