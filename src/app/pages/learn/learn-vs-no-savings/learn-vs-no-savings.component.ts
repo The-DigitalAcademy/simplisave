@@ -22,15 +22,15 @@ export class LearnVsNoSavingsComponent implements OnInit, AfterViewInit {
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Year1', 'Year2', 'Year3'],
+        labels: ['12', '24', '36'],
         datasets: [
           {
-            label: 'No savings',
+            label: '         No savings account',
             data: [4300.0, 7900.0, 11500.0],
             backgroundColor: '#000000'
           },
           {
-            label: '     Savings',
+            label: 'Tax-free Savings account',
             data: [4493.08, 8600.98, 13049.83],
             backgroundColor: '#870A3C'
           }
@@ -43,7 +43,7 @@ export class LearnVsNoSavingsComponent implements OnInit, AfterViewInit {
           x: {
             title: {
               display: true,
-              text: 'Years',
+              text: 'Months',
               font: {
                 size: 16,
                 weight: 'lighter'
@@ -61,7 +61,7 @@ export class LearnVsNoSavingsComponent implements OnInit, AfterViewInit {
           y: {
             title: {
               display: true,
-              text: 'Price',
+              text: 'Price(R)',
               font: {
                 size: 16,
                 weight: 'lighter'
