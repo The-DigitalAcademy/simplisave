@@ -34,11 +34,10 @@
   .mdc-button__label{
     color: #FFFFFF!important;
   }
-
 /* Flexbox container for buttons */
 .button-container {
    /* Set the container to fill the available width */
-   min-width: 100%;
+   min-width: 100vw;
    /* Align the content and button horizontally */
    display: flex;
    align-items: center;
