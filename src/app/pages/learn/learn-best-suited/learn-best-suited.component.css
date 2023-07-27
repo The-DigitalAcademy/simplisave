@@ -60,7 +60,7 @@
   align-items: center;
   text-align: center;
   border-style: none;
-  min-height: 300px;
+  min-height: auto;
 }
 .card-content {
   display: flex;
@@ -93,6 +93,7 @@ line-height: normal;
 .bottomContent{
   display: flex;
   justify-content: center;
+  margin-top: 1.5%;
 }
 
 #chartCanvas {
