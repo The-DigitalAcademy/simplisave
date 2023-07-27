@@ -1,11 +1,10 @@
 .sidebar {
   background-color:	#E5E5E5;
-  width: 100%;
+  width: 103%;
   margin-top: 10px;
   text-align: center;
   height: 100%;
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin-top: 0px;
   display: flex;
   flex-direction: column;
 }
@@ -14,12 +13,14 @@
   background-color: #870A3C;
   color: #ffffff;
   width: 93%;
-  height: 7%;
-  margin: 10px auto;
   text-align: center;
   line-height: 40px;
   border-radius: 5px;
   margin: 10px auto;
+font-size: 20px;
+font-family: Roboto;
+font-weight: 500;
+word-wrap: break-word
 }
 
 .logout-button {
@@ -32,7 +33,10 @@
   border-radius: 5px;
   border: none;
   margin-top: 200%;
-  
+  font-size: 20px;
+font-family: Roboto;
+font-weight: 500;
+word-wrap: break-word
 }
 .sideBarPic{
   margin-left:-5%;
