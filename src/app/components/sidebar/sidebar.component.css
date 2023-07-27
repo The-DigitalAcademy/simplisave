@@ -1,12 +1,10 @@
 .sidebar {
   background-color:	#E5E5E5;
-  width: 100%;
+  width: 103%;
   margin-top: 10px;
   text-align: center;
-  
   height: 100%;
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin-top: 0px;
   display: flex;
   flex-direction: column;
 }
@@ -14,38 +12,45 @@
 .sidebar > div {
   background-color: #870A3C;
   color: #ffffff;
-  width: 100%;
-  height: 6.5%;
-  margin: 10px auto;
+  width: 93%;
   text-align: center;
-  line-height: 50px;
+  line-height: 40px;
   border-radius: 5px;
   margin: 10px auto;
+font-size: 20px;
+font-family: Roboto;
+font-weight: 500;
+word-wrap: break-word
 }
 
 .logout-button {
   background-color: #870A3C;
   color: #ffffff;
-  width: 245px;
+  width: 93%;
   margin: 10px auto;
   line-height: 40px;
-  font-size: 25px;
+  font-size: 18px;
   border-radius: 5px;
   border: none;
-  margin-top: 180%;
+  margin-top: 200%;
+  font-size: 20px;
+font-family: Roboto;
+font-weight: 500;
+word-wrap: break-word
+}
+.sideBarPic{
+  margin-left:-5%;
+  margin-right:15%;
+}
+
+.sideBarPic2{
+  margin-left:-3%;
+  margin-right:15%;
 }
 
 .sideBarPic3{
-  margin-left:-85px;
-  margin-right:30px;
-}
-.sideBarPic{
-  margin-left:-50px;
-  margin-right:30px;
-}
-.sideBarPic2{
-  margin-left:-30px;
-  margin-right:25px;
+  margin-left:-20%;
+  margin-right:15%;
 }
 
 /* Media query for mobile devices */

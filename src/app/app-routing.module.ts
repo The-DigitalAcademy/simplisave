@@ -10,6 +10,7 @@ import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-pas
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { LearnBannerComponent } from './pages/learn/learn-banner/learn-banner.component';
+import { ExpenseComponent } from './pages/dashboard/expense/expense.component';
 
 const routes: Routes = [
     { path: 'register', component: RegisterComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
     {path: 'accounts', component: AccountsComponent},
     {path : 'learn', component : LearnComponent},
     {path : 'dashboard', component : DashboardComponent},
+    {path: 'expense', component : ExpenseComponent},
     {path : '', component : LandingComponent},
     {path:"learnBanner",component:LearnBannerComponent}
 
