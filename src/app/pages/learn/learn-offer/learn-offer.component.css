@@ -3,7 +3,9 @@
     align-items: flex-start;
     justify-content: center;
     height: fit-content;
-    margin-bottom: 19%;
+    margin-bottom: 5%;
+    margin-bottom: 5%;
+    margin-top: 5%;
     width: 100vw;
   }
   
@@ -153,6 +155,7 @@
       margin-bottom: 34%;
       min-width: 100vw;
       justify-content: center;
+      height: 70vh;
     }
     .card-container{
       margin-bottom: none;

@@ -3,7 +3,8 @@
     align-items: flex-start;
     justify-content: center;
     height: fit-content;
-    margin-bottom: 15%;
+    margin-bottom: 5%;
+    margin-top: 5%;
   }
   
   .flex-container {
