@@ -43,7 +43,7 @@
    align-items: center;
    justify-content: center;
    /* Position the container at the bottom */
-   position: absolute;
+   position: relative;
    bottom: 0;
    margin-bottom: 5%;
    padding: 0;
