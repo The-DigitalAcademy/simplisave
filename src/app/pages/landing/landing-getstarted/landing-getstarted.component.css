@@ -20,11 +20,12 @@ body {
 }
 
 .banner-heading {
-  max-width: 70%; /* Updated max-width for better responsiveness */
-  font-size: 4.5rem;  /* Default font size */
-  font-weight: 800;
+  font-weight: Light;
+  font-Size: 60px;
+  letter-spacing: -0.5% ;
+  max-width: 70%;
   text-align: left;
-  margin-left: 10%; /* Updated margin for better responsiveness */
+  margin-left: 10%; /*Updated margin for better responsiveness */
 }
 
 .banner-button {
