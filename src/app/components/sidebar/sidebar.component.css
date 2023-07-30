@@ -1,10 +1,7 @@
 .sidebar {
   background-color:	#E5E5E5;
-  width: 103%;
-  margin-top: 10px;
+  width: 16rem;
   text-align: center;
-  height: 99%;
-  margin-top: 0px;
   display: flex;
   flex-direction: column;
 }
@@ -17,10 +14,9 @@
   line-height: 40px;
   border-radius: 5px;
   margin: 10px auto;
-font-size: 20px;
-font-family: Roboto;
-font-weight: 500;
-word-wrap: break-word
+  font-size: 20px;
+  font-family: Roboto;
+  word-wrap: break-word
 }
 
 .logout-button {
@@ -34,9 +30,9 @@ word-wrap: break-word
   border: none;
   margin-top: 180%;
   font-size: 20px;
-font-family: Roboto;
-font-weight: 500;
-word-wrap: break-word
+  font-family: Roboto;
+  font-weight: 500;
+  word-wrap: break-word
 }
 .sideBarPic{
   margin-left:-5%;
@@ -53,23 +49,21 @@ word-wrap: break-word
   margin-right:15%;
 }
 
-/* Media query for mobile devices */
-@media (max-width: 767.98px) {
+
+@media (max-width: 1020px) {
   .sidebar {
     display: none;
   }
-
-  /* Mobile responsive styles */
   body {
-    padding-left: 0; /* Remove padding from the body */
+    padding-left: 0; 
   }
 
   .content {
-    margin-left: 0; /* Remove margin from the content area */
+    margin-left: 0; 
   }
 
   .sidebar-mobile {
-    display: block;
+   
     position: fixed;
     top: 0;
     left: 0;
@@ -77,10 +71,6 @@ word-wrap: break-word
     height: 60px;
     padding: 10px;
     margin: 0;
-  }
-
-  .sidebar-mobile > div {
-    display: none; /* Hide sidebar items on mobile */
   }
 
   .logout-button {

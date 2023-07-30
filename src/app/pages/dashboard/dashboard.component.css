@@ -1,15 +1,23 @@
-
 .dashboard-container {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .sidebar {
   flex: 1;
 }
 
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 4.5;
+}
+
 .top-part {
-  flex: 5;
+  flex: 1;
+}
+
+.expense-part {
+  flex: 1;
 }
 
 /* Set a height and enable scrolling for mobile */
@@ -19,9 +27,10 @@
     height: auto; /* Allow the dashboard container to adjust its height based on content */
   }
 
-  .top-part {
+  .top-part,
+  .expense-part {
     flex: 1; /* Adjust the flex value to occupy the available space on mobile */
-    height: auto; /* Allow the top part to adjust its height based on content */
+    height: auto; /* Allow the top part and expense part to adjust their height based on content */
   }
 
   .mobile-container {
@@ -30,26 +39,22 @@
     flex: 1; /* Allow the mobile container to occupy the available space on mobile */
     overflow-y: auto;
     margin: 7px;
-  
-    
   }
 
   .graph-container,
   .checklist-container {
     flex: 1;
-    min-height: 0; 
+    min-height: 0;
   }
 }
 
-
 /* Footer css */
-
 .footer {
   background-color: #870A3C;
   padding-bottom: 5px;
   text-align: center;
   padding-top: 10px;
-  position: fixed;
+  position:relative;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -62,7 +67,6 @@
 .footer h2 {
   font-size: 15px;
   color: #ffffff;
- 
 }
 
 .footer span {
@@ -71,26 +75,23 @@
   color: #888;
 }
 
-
 /* Media Query for screens below 786px */
 @media screen and (max-width: 786px) {
-
   .footer {
-      background-color: #870A3C;
-      padding: 5px;
-      text-align: center;
+    background-color: #870A3C;
+    padding: 5px;
+    text-align: center;
   }
 
-
   .footer h2 {
-      font-size: 16px;
-      color: #ffffff;
-      margin: 0px;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0px;
   }
 
   .footer span {
-      display: block;
-      font-size: 12px;
-      color: #888;
+    display: block;
+    font-size: 12px;
+    color: #888;
   }
 }
