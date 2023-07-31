@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Chart,ChartOptions } from 'chart.js';
+import { DashboardService } from 'src/app/dashboard.service';
 
 @Component({
   selector: 'app-expense',
@@ -8,10 +10,44 @@ import { Chart,ChartOptions } from 'chart.js';
 })
 export class ExpenseComponent {
 
-  chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
+  constructor(private route: ActivatedRoute,private service:DashboardService, private router: Router) {}
 
-  ngAfterViewInit() {
+  chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
+  items1:any[]=[];
+  items:any;
+  data: any;
+  filteredData: any;
+  sumMoneyOut: any;
+  description:any="Uber";
+
+
+  
+
+
+  ngOnInit() {
     this.createChart();
+    this.getDataFromApi();
+    this.filterData();
+  }
+
+  getDataFromApi() {
+    this.service.getTransactions()
+          .subscribe(res => {
+            this.items1 = res;
+            this.items=this.items1;
+            console.log(this.items1);
+            console.log(this.items);
+            console.log(this.items.Description)
+});
+  }
+
+  filterData() {
+    // Filter records where Money_Out is greater than 0
+this.filteredData = this.items1.filter((record: { Money_Out: any; }) => record.Money_Out > 0);
+
+    // Calculate the sum of Money_Out for the filtered records
+    this.sumMoneyOut = this.filteredData.reduce((sum: any, item: { Money_Out: any; }) => sum + item.Money_Out, 0);
+    console.log( "HI"+this.filteredData)
   }
 
   createChart() {
