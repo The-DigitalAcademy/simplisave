@@ -3,7 +3,9 @@
   align-items: center;
   justify-content: center;
   height: fit-content;
-  margin-bottom: 15.5%;
+  margin-bottom: 5%;
+  margin-bottom: 5%;
+    margin-top: 5%;
 }
 
 .flex-container {
@@ -16,10 +18,13 @@
 
 .heading {
   text-align: center;
-  font-style: bold;
   color: #870A3C;
-  font-weight: bolder;
-  margin-top: 1%;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .card-container {
@@ -47,7 +52,7 @@
 .card1 {
   display: flex;
   align-items: center;
-  width: 60%;
+  width: 68%;
   padding: 10px;
   margin: 10px;
   flex-direction: column;
@@ -65,12 +70,13 @@
 }
 
 .card-explanation {
-  font-size: 1.4vw;
-  font-weight: lighter;
-  margin-top: auto;
-  margin-bottom: 5.4%;
-  text-align: center;
-  line-height: 1.5;
+  color: #000;
+text-align: center;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
 
 .frame {

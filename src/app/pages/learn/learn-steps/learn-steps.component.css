@@ -20,10 +20,9 @@
   }
 
   button{
-      max-width: 16%;
+      max-width: 10%;
       border-radius: 15px;
       background-color:#AF144B;
-      margin-left: 2%;
   }
   
   .mat-mdc-button:not(:disabled){
@@ -35,16 +34,21 @@
   .mdc-button__label{
     color: #FFFFFF!important;
   }
-
 /* Flexbox container for buttons */
 .button-container {
-  /* Center the buttons horizontally */
-  display: flex;
-  justify-content: center;
-  /* Set the container width to the screen width */
-  width: 100%;
-  margin-top: -13%;
+   /* Set the container to fill the available width */
+   min-width: 100vw;
+   /* Align the content and button horizontally */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   /* Position the container at the bottom */
+   position: absolute;
+   bottom: 0;
+   margin-bottom: 5%;
+   padding: 0;
 }
+::ng-deep .mat-horizontal-content-container {padding:0 !important;}
   
 
 mat-icon{
@@ -85,7 +89,7 @@ mat-icon{
     }
     
   button{
-    min-width: 50%;
+    min-width: 35%;
     font-size: 14px;
     background-color: #870A3C;
     color: #FFFFFF;
@@ -106,9 +110,19 @@ mat-icon{
   justify-content: center;
   /* Set the container width to the screen width */
   width: 100%;
-  margin-top: -13%;
 }
 
+
+
+      /* If using a global styles file (styles.css) */
+      .custom-stepper .mat-step-header .mat-step-label {
+        display: none;
+        }
+
+      /* If using a component-specific styles file (component.css) */
+        :host ::ng-deep .custom-stepper .mat-step-header .mat-step-label {
+        display: none;
+        }
     
 
   }

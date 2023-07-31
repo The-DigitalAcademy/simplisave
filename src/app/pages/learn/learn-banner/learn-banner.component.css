@@ -23,9 +23,12 @@
     color: white;
 }
 .content-paragraph {
-  font-size: 1.2rem; /* Default font size */
-  text-align: left;
-  font-weight: bold;
+  color: #000;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .flex-item-right {
@@ -37,8 +40,8 @@
 
 
 button{
-  width: 20%;
-  height: 45px;
+  width: 17%;
+  height: 40px;
   background-color: #AF144B;
   border-radius: 15px;
   border-color: transparent;

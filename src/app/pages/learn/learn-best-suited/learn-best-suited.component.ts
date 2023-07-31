@@ -34,7 +34,7 @@ export class LearnBestSuitedComponent implements OnInit, AfterViewInit {
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Tax', 'Tax-Free'], // Updated labels
+        labels: ['Taxed', 'Tax-Free'], // Updated labels
         datasets: [
           {
             label: 'Interest earned (R)',
@@ -52,7 +52,7 @@ export class LearnBestSuitedComponent implements OnInit, AfterViewInit {
           x: {
             title: {
               display: true,
-              text: 'Tax Category',
+              text: 'Account type',
               font: {
                 size: 16,
                 weight: 'lighter',
