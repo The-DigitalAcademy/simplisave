@@ -19,6 +19,14 @@
     width: 30%;
   }
 
+  .validation{
+    width: 100%;
+  }
+
+  .validation input{
+    
+  }
+
   mat-icon{
     color: gray;
     font-size: xx-large;

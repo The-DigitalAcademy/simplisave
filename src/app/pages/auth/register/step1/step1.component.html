@@ -6,12 +6,17 @@
         <h1 class="text-center h4 mb-5 mx-1 mx-md-4 mt-4">Welcome to SimpliSave!
           We'd like to know more about you...</h1>
 
-        <form [formGroup]="formGroup" class="mx-1 mx-md-10">
+        <form [formGroup]="step1FormGroup" class="mx-1 mx-md-10">
 
           <div class="form-group row justify-content-center">
             <div class="d-flex col-sm-10">
               <mat-icon>person</mat-icon>
-              <input matInput type="text" class="form-control-plaintext" id="name" placeholder="What is your full name?" formControlName="name" />
+              <mat-form-field class="validation" appearance="outline">
+              <input matInput type="text" class="form-control-plaintext" id="name" placeholder="What is your full name?" formControlName="name" required />
+              <mat-error *ngIf="step1FormGroup.get('name')?.invalid">
+                Name is required.
+              </mat-error>
+            </mat-form-field>
             </div>
           </div>
           <br>
@@ -19,7 +24,13 @@
           <div class="form-group row justify-content-center">
             <div class="d-flex col-sm-10">
               <mat-icon>mailbox</mat-icon>
-              <input matInput type="email" class="form-control-plaintext" id="email" placeholder="What is your current email address?" formControlName="email" />
+              <mat-form-field class="validation" appearance="outline">
+              <input matInput type="email" class="form-control-plaintext" id="email" placeholder="What is your current email address?" formControlName="email" required />
+              <mat-error *ngIf="step1FormGroup.get('email')?.invalid">
+                Email is required.
+              </mat-error>
+            </mat-form-field>
+
             </div>
           </div>
           <br>
@@ -27,7 +38,13 @@
           <div class="form-group row justify-content-center">
             <div class="d-flex col-sm-10">
               <mat-icon>smartphone</mat-icon>
-              <input matInput type="text" class="form-control-plaintext" id="phone" placeholder="What number can we use to contact you?" formControlName="phone" />
+              <mat-form-field class="validation" appearance="outline">
+              <input matInput type="text" class="form-control-plaintext" id="phone" placeholder="What number can we use to contact you?" formControlName="phone" required />
+              <mat-error *ngIf="step1FormGroup.get('phone')?.invalid">
+                Phone Number is required.
+              </mat-error>
+            </mat-form-field>
+
             </div>
           </div>
 
