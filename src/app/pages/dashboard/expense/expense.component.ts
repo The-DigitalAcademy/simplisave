@@ -13,12 +13,12 @@ export class ExpenseComponent {
   constructor(private route: ActivatedRoute,private service:DashboardService, private router: Router) {}
 
   chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
-  items1:any[]=[];
+  items1:any=[];
   items:any;
   data: any;
-  filteredData: any;
+  filteredData: any[] = []; // Initialize filteredData as an empty array
   sumMoneyOut: any;
-  description:any="Uber";
+  description="uuu";
 
 
   
@@ -27,27 +27,25 @@ export class ExpenseComponent {
   ngOnInit() {
     this.createChart();
     this.getDataFromApi();
-    this.filterData();
   }
 
   getDataFromApi() {
     this.service.getTransactions()
           .subscribe(res => {
             this.items1 = res;
-            this.items=this.items1;
             console.log(this.items1);
-            console.log(this.items);
-            console.log(this.items.Description)
+            this.filterData();
 });
   }
 
   filterData() {
     // Filter records where Money_Out is greater than 0
-this.filteredData = this.items1.filter((record: { Money_Out: any; }) => record.Money_Out > 0);
+    this.filteredData =this.items1.filter((record: { Money_Out: number; }) => record.Money_Out > 0);
 
-    // Calculate the sum of Money_Out for the filtered records
-    this.sumMoneyOut = this.filteredData.reduce((sum: any, item: { Money_Out: any; }) => sum + item.Money_Out, 0);
-    console.log( "HI"+this.filteredData)
+    this.sumMoneyOut = this.filteredData.reduce((sum, record) => sum + record.Money_Out, 0);
+    console.log(this.sumMoneyOut);
+
+  console.log(this.filteredData)
   }
 
   createChart() {
