@@ -13,39 +13,51 @@ export class ExpenseComponent {
   constructor(private route: ActivatedRoute,private service:DashboardService, private router: Router) {}
 
   chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
-  items1:any=[];
-  items:any;
+  items1: any = [];
   data: any;
   filteredData: any[] = []; // Initialize filteredData as an empty array
   sumMoneyOut: any;
-  description="uuu";
-
-
   
-
-
   ngOnInit() {
     this.createChart();
     this.getDataFromApi();
   }
-
+  
   getDataFromApi() {
     this.service.getTransactions()
-          .subscribe(res => {
-            this.items1 = res;
-            console.log(this.items1);
-            this.filterData();
-});
+      .subscribe(res => {
+        this.items1 = res;
+        console.log(this.items1);
+        this.filterData();
+      });
   }
-
+  
   filterData() {
-    // Filter records where Money_Out is greater than 0
-    this.filteredData =this.items1.filter((record: { Money_Out: number; }) => record.Money_Out > 0);
-
-    this.sumMoneyOut = this.filteredData.reduce((sum, record) => sum + record.Money_Out, 0);
+    // Step 1: Parse the date strings in the JSON data to JavaScript Date objects
+    const transactions = this.items1.map((record: any) => ({
+      ...record,
+      Transaction_Date: new Date(record.Transaction_Date)
+    }));
+  
+    // Step 2: Get the current month and year
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
+  
+    // Step 3: Filter records where Money_Out is greater than 0 and Transaction_Date is within the current month
+    this.filteredData = transactions.filter((record: any) => {
+      const isMoneyOutPositive = record.Money_Out > 0;
+      const transactionDate = record.Transaction_Date;
+      const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
+  
+      return isMoneyOutPositive && isWithinCurrentMonth;
+    });
+  
+    // Step 4: Calculate the sum of Money_Out for the filtered records
+    this.sumMoneyOut = this.filteredData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
     console.log(this.sumMoneyOut);
-
-  console.log(this.filteredData)
+  
+    // Step 5: Log the filtered data
+    console.log(this.filteredData);
   }
 
   createChart() {
