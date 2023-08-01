@@ -34,7 +34,13 @@ p{
 }
 
 .btn{
-  background-color: #870A3C
+  background-color: #870A3C;
+  float: right;
+  border-radius: 10px;
+  background-color:#870A3C;
+  margin-right: 10px;
+  width: 30%;
+  color:white;
 }
 
 .mat-form-field-appearance-outline .mat-form-field-label .mat-placeholder {
