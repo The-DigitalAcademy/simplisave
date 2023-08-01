@@ -1,57 +1,71 @@
-h1{
-color: #870A3C;
-font-family: Roboto;
-font-size: 35px;
-font-style: normal;
-font-weight: 600;
-line-height: 20px; /* 57.143% */
-}
-h2{
-color: #1D1B20;
-font-family: Roboto;
-font-size: 24px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+h1 {
+  color: #870A3C;
+  font-family: Roboto;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
 }
 
-.flex-item{
-    display: flex;
-    padding: 16px;
-    align-items: center;
-    gap: 16px;
-    flex: 1 0 0;
-    border-style: solid;
-    border-width: 0.5px;
-    border-radius: 12px;
-}
-h3{
-color: #1D1B20;
-font-family: Roboto;
-font-size: 24px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+h2 {
+  color: #1D1B20;
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
+.flex-item {
+  display: flex;
+  padding: 5%;
+  align-items: center;
+  flex: 1 0 0;
+  border-style: solid;
+  border-width: 0.5px;
+  border-radius: 12px;
+  width: 160%;
+}
+
+h3 {
+  color: #1D1B20;
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
 
 .grid-container {
-    display: grid;
-    height: 60%;
-    width: 360%;
-    align-content: center;
-    grid-template-columns: auto auto auto;
-    gap: 10px;
-    background-color: #ffff;
-    padding: 10px;
+  display: grid;
+  height: 60%;
+  width: 300%; /* Change this to 100% for full-width responsiveness */
+  align-content: center;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  background-color: #ffff;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: #ffff;
+  border-style: solid;
+  border-width: 0.5px;
+  border-radius: 12px;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .flex-item {
+    width: 100%; /* Adjust the width for smaller screens */
   }
-  
-  .grid-container > div {
-    background-color: #ffff;
-    border-style: solid;
-    border-width: 0.5px;
-    border-radius: 12px;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
+
+  .grid-container {
+    grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    width: 100%; /* Full-width responsiveness for smaller screens */
   }
+}
