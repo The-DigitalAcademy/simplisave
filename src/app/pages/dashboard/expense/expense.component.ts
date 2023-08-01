@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Chart, ChartOptions } from 'chart.js';
 import { DashboardService } from 'src/app/dashboard.service';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-expense',
@@ -10,7 +11,7 @@ import { DashboardService } from 'src/app/dashboard.service';
 })
 export class ExpenseComponent {
 
-  constructor(private route: ActivatedRoute, private service: DashboardService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private service: AccountService, private router: Router) {}
 
   chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
   items1: any = [];
