@@ -12,14 +12,18 @@ export class TopPartComponent implements OnInit {
   totalSaved: number = 0;
   items:any;
   items1:any;
+  filteredData: any[] = []; // Initialize filteredData as an empty array
+  sumMoneyOut: any;
+  
   constructor(private accountService: AccountService) {}
 
   ngOnInit() {
-    this.getDataFromApi();
+    this.getAccountData();
+    this.getDataFromApi()
     this. getSimplisaveData();
   }
 
-  getDataFromApi() {
+  getAccountData() {
     this.accountService.getAccountData()
           .subscribe(res => {
             this.items = res;
@@ -28,7 +32,14 @@ export class TopPartComponent implements OnInit {
             console.log(this.availableBalance)
 });
   }
-
+  getDataFromApi() {
+    this.accountService.getTransactions()
+      .subscribe(res => {
+        this.items1 = res;
+        console.log(this.items1);
+        this.filterData();
+      });
+  }
   getSimplisaveData(){
 
     this.accountService.getSimplisaveData()
@@ -38,6 +49,33 @@ export class TopPartComponent implements OnInit {
                 this.totalSaved=this.items1[0].Balance
                 console.log(this.totalSaved)
                })
+  }
+  filterData() {
+    // Step 1: Parse the date strings in the JSON data to JavaScript Date objects
+    const transactions = this.items1.map((record: any) => ({
+      ...record,
+      Transaction_Date: new Date(record.Transaction_Date)
+    }));
+  
+    // Step 2: Get the current month and year
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
+  
+    // Step 3: Filter records where Money_Out is greater than 0 and Transaction_Date is within the current month
+    this.filteredData = transactions.filter((record: any) => {
+      const isMoneyOutPositive = record.Money_Out > 0;
+      const transactionDate = record.Transaction_Date;
+      const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
+  
+      return isMoneyOutPositive && isWithinCurrentMonth;
+    });
+  
+    // Step 4: Calculate the sum of Money_Out for the filtered records
+    this.sumMoneyOut = this.filteredData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
+    console.log(this.sumMoneyOut);
+  
+    // Step 5: Log the filtered data
+    console.log(this.filteredData);
   }
 
 }

@@ -9,56 +9,56 @@ import { DashboardService } from 'src/app/dashboard.service';
   styleUrls: ['./expense.component.css']
 })
 export class ExpenseComponent {
-
-  constructor(private route: ActivatedRoute,private service:DashboardService, private router: Router) {}
-
   chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
-  items1: any = [];
-  data: any;
-  filteredData: any[] = []; // Initialize filteredData as an empty array
-  sumMoneyOut: any;
+  // constructor(private route: ActivatedRoute,private service:DashboardService, private router: Router) {}
+
   
-  ngOnInit() {
-    this.createChart();
-    this.getDataFromApi();
-  }
+  // items1: any = [];
+  // data: any;
+  // filteredData: any[] = []; // Initialize filteredData as an empty array
+  // sumMoneyOut: any;
   
-  getDataFromApi() {
-    this.service.getTransactions()
-      .subscribe(res => {
-        this.items1 = res;
-        console.log(this.items1);
-        this.filterData();
-      });
-  }
+  // ngOnInit() {
+  //   this.createChart();
+  //   this.getDataFromApi();
+  // }
   
-  filterData() {
-    // Step 1: Parse the date strings in the JSON data to JavaScript Date objects
-    const transactions = this.items1.map((record: any) => ({
-      ...record,
-      Transaction_Date: new Date(record.Transaction_Date)
-    }));
+  // getDataFromApi() {
+  //   this.service.getTransactions()
+  //     .subscribe(res => {
+  //       this.items1 = res;
+  //       console.log(this.items1);
+  //       this.filterData();
+  //     });
+  // }
   
-    // Step 2: Get the current month and year
-    const currentDate = new Date();
-    const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
+  // filterData() {
+  //   // Step 1: Parse the date strings in the JSON data to JavaScript Date objects
+  //   const transactions = this.items1.map((record: any) => ({
+  //     ...record,
+  //     Transaction_Date: new Date(record.Transaction_Date)
+  //   }));
   
-    // Step 3: Filter records where Money_Out is greater than 0 and Transaction_Date is within the current month
-    this.filteredData = transactions.filter((record: any) => {
-      const isMoneyOutPositive = record.Money_Out > 0;
-      const transactionDate = record.Transaction_Date;
-      const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
+  //   // Step 2: Get the current month and year
+  //   const currentDate = new Date();
+  //   const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
   
-      return isMoneyOutPositive && isWithinCurrentMonth;
-    });
+  //   // Step 3: Filter records where Money_Out is greater than 0 and Transaction_Date is within the current month
+  //   this.filteredData = transactions.filter((record: any) => {
+  //     const isMoneyOutPositive = record.Money_Out > 0;
+  //     const transactionDate = record.Transaction_Date;
+  //     const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
   
-    // Step 4: Calculate the sum of Money_Out for the filtered records
-    this.sumMoneyOut = this.filteredData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
-    console.log(this.sumMoneyOut);
+  //     return isMoneyOutPositive && isWithinCurrentMonth;
+  //   });
   
-    // Step 5: Log the filtered data
-    console.log(this.filteredData);
-  }
+  //   // Step 4: Calculate the sum of Money_Out for the filtered records
+  //   this.sumMoneyOut = this.filteredData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
+  //   console.log(this.sumMoneyOut);
+  
+  //   // Step 5: Log the filtered data
+  //   console.log(this.filteredData);
+  // }
 
   createChart() {
     const canvas: HTMLCanvasElement = document.getElementById('myChart') as HTMLCanvasElement;

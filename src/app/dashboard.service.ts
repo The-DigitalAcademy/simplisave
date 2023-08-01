@@ -9,7 +9,7 @@ export class DashboardService {
   constructor(private http:HttpClient) { }
 
 
-  getTransactions(){
-    return this.http.get('http://localhost:3000/Transaction');
-   }
+//   getTransactions(){
+//     return this.http.get('http://localhost:3000/Transaction');
+//    }
 }

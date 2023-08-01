@@ -13,6 +13,12 @@ export class AccountService {
     return this.http.get('http://localhost:3000/Account');
    
   }
+
+  getTransactions(){
+    return this.http.get('http://localhost:3000/Transaction');
+   }
+
+
   getSimplisaveData(){
     return this.http.get('http://localhost:3000/Simpil_Savings_Account')
   }
