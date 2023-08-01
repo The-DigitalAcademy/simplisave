@@ -1,0 +1,26 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "fullName": "Sekgo",
+      "emailaddress": "sk@gmail.com",
+      "phone": "0123789456",
+      "password": "1234",
+      "confirmPassword": "1234"
+    },
+    {
+      "id" : 2,
+      "fullName": "Sekgoka",
+      "emailaddress": "dee@gmail.com",
+      "phone": "0123456789",
+      "password": "123456",
+      "confirmPassword": "123456"
+    }
+  ],
+  
+  "signupUsers": [],
+
+  "profile": {
+    "name": "typicode"
+  }
+}
