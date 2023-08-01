@@ -28,7 +28,6 @@ export class StepsComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
     });
-    console.log('step1FormGroup:', this.step1FormGroup); // Debugging statement
 
     this.step2FormGroup = this.fb.group({
       // Define your form fields for Step 2 here
