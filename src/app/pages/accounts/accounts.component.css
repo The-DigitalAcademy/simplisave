@@ -24,11 +24,12 @@
   }
 
   .banner-heading {
-    max-width: 70%; /* Updated max-width for better responsiveness */
-    font-size: 4.5rem; /* Default font size */
-    font-weight:800;
+    font-weight: Light;
+    font-Size: 60px;
+    letter-spacing: -0.5% ;
+    max-width: 70%;
     text-align: left;
-    margin-left: 10%; /* Updated margin for better responsiveness */
+    margin-left: 10%; /*Updated margin for better responsiveness */
   }
   
   
@@ -41,10 +42,12 @@
   }
   
   .heading {
-    text-align: center;
-    font-style: bold;
     color: #870A3C;
-    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 100px;
+    font-weight: Regular;
+    font-size: 48px;
+    letter-spacing: 0% ;
   }
   
   .card-container {
@@ -57,6 +60,23 @@
 
   .card-explanation{
    max-width: 220px;
+   text-align: center;
+   font-family: Roboto;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: normal;
+  }
+   
+  .card-heading {
+    color: white;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 10px 0;
   }
   
   .card {

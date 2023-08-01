@@ -1,0 +1,76 @@
+{
+  "Account": [
+    {"Account_No": 9898989898989898,
+      "Balance": 1600,
+      "User_ID": "1",
+      "Bank_Name": "Absa",
+      "Account_Type": "personal"
+    }
+  ],
+  "Simpil_Savings_Account": [
+    {
+      "Savings_Acc_No": 9898989898989898,
+      "Account_No": 9898989898989898,
+      "Balance": 300
+    }
+  ],
+  "Transaction": [
+    {
+      "Transaction_Id": 1,
+      "Type_id": 1,
+      "Account_No": 9898989898989898,
+      "Description": "Uber",
+      "Transaction_Date": "2022/08/28",
+      "Money_In": 0,
+      "Money_Out": 200,
+      "Available_Balance": "1600"
+    },
+    {
+      "Transaction_Id": 2,
+      "Type_id": 2,
+      "Account_No": 1234567890123456,
+      "Description": "Amazon",
+      "Transaction_Date": "08/08/2022",
+      "Money_In": 300,
+      "Money_Out": 0,
+      "Available_Balance": "1900"
+    }
+    ,{
+      "Transaction_Id": 2,
+      "Type_id": 2,
+      "Account_No": 1234567890123456,
+      "Description": "Amazon",
+      "Transaction_Date": "08/08/2022",
+      "Money_In": 0,
+      "Money_Out": 800,
+      "Available_Balance": "1100"
+    },
+    {
+      "Transaction_Id": 2,
+      "Type_id": 2,
+      "Account_No": 1234567890123456,
+      "Description": "Amazon",
+      "Transaction_Date": "07/08/2022",
+      "Money_In": 0,
+      "Money_Out": 100,
+      "Available_Balance": "1100"
+    },
+    {
+      "Transaction_Id": 2,
+      "Type_id": 2,
+      "Account_No": 1234567890123456,
+      "Description": "Amazon",
+      "Transaction_Date": "07/08/2022",
+      "Money_In": 0,
+      "Money_Out": 900,
+      "Available_Balance": "1100"
+    }
+  ],
+  "Transaction_Type": [
+    {
+      "Type": "Uber",
+      "Date_Occured": "10/01/22",
+      "Amount": 200
+    }
+  ]
+}
