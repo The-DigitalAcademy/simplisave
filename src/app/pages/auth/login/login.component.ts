@@ -10,20 +10,23 @@ import { OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private http: HttpClient,
-    private router: Router,
-  ) {}
+  loginFormGroup: FormGroup = new FormGroup({});
 
-  ngOnInit(): void {
-    this.loginForm = this.fb.group({
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
+    this.loginFormGroup = this.fb.group({
+      // Define your form fields for login here
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
   }
+
+  
+
+  
+}
 
   login(): void {
     this.http.get<any>('assets/users.json').subscribe(

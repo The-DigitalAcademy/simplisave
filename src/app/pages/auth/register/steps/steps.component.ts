@@ -9,8 +9,13 @@ import Swal from 'sweetalert2';
   styleUrls: ['./steps.component.css']
 })
 export class StepsComponent implements OnInit {
-  step1FormGroup!: FormGroup;
-  step2FormGroup!: FormGroup;
+  isLinear = true;
+  step1FormGroup: FormGroup = new FormGroup({});
+  step2FormGroup: FormGroup = new FormGroup({});
+  step4FormGroup: FormGroup = new FormGroup({});
+  step6FormGroup: FormGroup = new FormGroup({});
+  step7FormGroup: FormGroup = new FormGroup({});
+
   // Add more form groups if you have additional steps
 
   constructor(private fb: FormBuilder, private stepperService: StepperService) {}
@@ -19,15 +24,34 @@ export class StepsComponent implements OnInit {
     this.step1FormGroup = this.fb.group({
       // Define your form fields for Step 1 here
       // Example:
-      // firstName: ['', Validators.required],
-      // lastName: ['', Validators.required],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.required],
     });
 
     this.step2FormGroup = this.fb.group({
       // Define your form fields for Step 2 here
       // Example:
-      // email: ['', [Validators.required, Validators.email]],
-      // phone: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+    });
+
+    this.step4FormGroup = this.fb.group({
+      // Define your form fields for Step 4 here
+      // Example:
+      // ...
+    });
+
+    this.step6FormGroup = this.fb.group({
+      // Define your form fields for Step 6 here
+      // Example:
+      // ...
+    });
+
+    this.step7FormGroup = this.fb.group({
+      // Define your form fields for Step 7 here
+      // Example:
+      // ...
     });
 
     // Initialize the stepper with the first step
@@ -40,6 +64,12 @@ export class StepsComponent implements OnInit {
       this.stepperService.setData('step1Data', this.step1FormGroup.value);
     } else if (currentStep === 1) {
       this.stepperService.setData('step2Data', this.step2FormGroup.value);
+    } else if (currentStep === 3) {
+      this.stepperService.setData('step4Data', this.step4FormGroup.value);
+    } else if (currentStep === 5) {
+      this.stepperService.setData('step6Data', this.step6FormGroup.value);
+    } else if (currentStep === 6) {
+      this.stepperService.setData('step7Data', this.step7FormGroup.value);
     }
 
     this.stepperService.setCurrentStep(currentStep + 1);
