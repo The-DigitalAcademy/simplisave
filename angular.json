@@ -21,7 +21,8 @@
                         "assets": ["src/favicon.ico", "src/assets"],
                         "styles": [
                           "src/custom-theme.scss",
-                          "src/styles.css"
+                          "src/styles.css",
+                          "src/app/expense-modal/expense-modal.component.css"
                         ],
                         "scripts": []
                     },

@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Chart, ChartOptions } from 'chart.js';
 import { DashboardService } from 'src/app/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
+import { ExpenseModalComponent } from './expense-modal/expense-modal.component';
 
 @Component({
   selector: 'app-expense',
   templateUrl: './expense.component.html',
-  styleUrls: ['./expense.component.css']
+  styleUrls: ['./expense.component.css'],
+   encapsulation: ViewEncapsulation.None // Set the encapsulation to none
 })
+
 export class ExpenseComponent {
 
-  constructor(private route: ActivatedRoute, private service: AccountService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private service: AccountService, private router: Router, public dialog: MatDialog) {}
 
   chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
   items1: any = [];
@@ -156,4 +160,17 @@ export class ExpenseComponent {
     });
   }
 
+  openExpenseModal(): void {
+    const dialogRef = this.dialog.open(ExpenseModalComponent, {
+      width: '450px' // Set the desired width of the modal
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result) {
+        console.log('Category Name:', result.categoryName);
+        console.log('Amount:', result.amount);
+      }
+    });
+  }
 }
