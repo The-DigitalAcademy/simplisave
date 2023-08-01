@@ -39,20 +39,18 @@ export class StepsComponent implements OnInit {
     this.step4FormGroup = this.fb.group({
       // Define your form fields for Step 4 here
       // Example:
-      // ...
+      accountNo: ['', Validators.required],
+      pin: ['', Validators.required],
     });
 
     this.step6FormGroup = this.fb.group({
       // Define your form fields for Step 6 here
       // Example:
-      // ...
+      idNo: ['', Validators.required],
+      pinNo: ['', Validators.required],
+      confirmPinNo: ['', Validators.required]
     });
 
-    this.step7FormGroup = this.fb.group({
-      // Define your form fields for Step 7 here
-      // Example:
-      // ...
-    });
 
     // Initialize the stepper with the first step
     this.stepperService.setCurrentStep(0);

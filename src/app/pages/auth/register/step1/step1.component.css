@@ -54,4 +54,8 @@
   u{
     color: #870A3C;
   }
+
+  mat-label{
+    font-size: small ;
+  }
   
