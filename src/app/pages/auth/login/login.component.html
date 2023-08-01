@@ -11,22 +11,34 @@
             <h3 class="create text-left mb-1">Log into your account</h3>
             <h4 class="credentials mb-5">Enter your credentials below.</h4>
 
-            <form [formGroup]="loginFormGroup">
+            <form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
 
               <mat-form-field class="validation mb-4" appearance="outline">
                 <mat-label>Email</mat-label>
                 <input matInput type="email" class="form-control-plaintext" id="email" formControlName="email" required />
-                <mat-error *ngIf="loginFormGroup.get('email')?.invalid">
+                <mat-error *ngIf="loginForm.get('email')?.invalid">
                   Email is required.
+                </mat-error>
+                <mat-error *ngIf="!loginForm.get('email')?.errors?.['required'] && (loginForm.get('email')?.errors?.['pattern'])">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.['required']">
+                  Email is required
                 </mat-error>
               </mat-form-field>
 
               <mat-form-field class="validation" appearance="outline">
                 <mat-label>Password</mat-label>
                 <input matInput type="password" class="form-control-plaintext" id="password" formControlName="password" required />
-                <mat-error *ngIf="loginFormGroup.get('password')?.invalid">
+                <mat-error *ngIf="loginForm.get('password')?.invalid">
                   Password is required.
                 </mat-error>
+                 <mat-error *ngIf="!loginForm.get('password')?.errors?.['required']">
+            Password length must be greater than or equal to 8 and password must contain one or more uppercase , lowercase , numeric and special characters
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.['required']">
+            Password is required
+          </mat-error>
               </mat-form-field>
 
 
@@ -35,7 +47,7 @@
              <p class="text-left text-muted mt-3 mb-2">Forgot your password? <a href="forgot"
                     class="fw-bold text-body"><u>Reset</u></a></p>
                     <div class="d-flex justify-content-center align-items-center">
-                      <button class="btn" type="submit" routerLink="/steps">Login</button>
+                      <button [disabled]="!loginForm.valid" class="btn" type="submit" >Login</button>
                     </div>
                     
             </form>
