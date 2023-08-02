@@ -1,26 +1,16 @@
 {
-  "posts": [
+ 
+  "signupUsers": [
     {
-      "id": 1,
-      "fullName": "Sekgo",
-      "emailaddress": "sk@gmail.com",
-      "phone": "0123789456",
-      "password": "!Pa1234dee78",
-      "confirmPassword": "1234"
+      "email": "sk@gmail.com",
+      "password": "!Sek1234leago5"
     },
-    {
-      "id" : 2,
-      "fullName": "Sekgoka",
-      "emailaddress": "dee@gmail.com",
-      "phone": "0123456789",
-      "password": "123456",
-      "confirmPassword": "123456"
-    }
-  ],
-  
-  "signupUsers": [],
 
-  "profile": {
-    "name": "typicode"
-  }
+    {
+    "email": "dee@gmail.com",
+    "password": "Dee@678S9"
+    }
+
+  ]
+
 }
