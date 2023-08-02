@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: row;
     height: 100%;
-    font-family: Inconsolata;
   }
 
   .flex-item-left {
