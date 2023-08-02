@@ -52,7 +52,8 @@ import { ExpenseComponent } from './pages/dashboard/expense/expense.component';
 import { AccountService } from './services/account.service'; 
 import { MatDialogModule } from '@angular/material/dialog';
 import { ExpenseModalComponent } from './pages/dashboard/expense/expense-modal/expense-modal.component';
-import { MatListModule } from '@angular/material/list';
+import { ManageAccountComponent } from './pages/manage-account/manage-account.component';
+import { ManageExpenseComponent } from './pages/manage-account/manage-expense/manage-expense.component';import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
