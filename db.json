@@ -127,6 +127,11 @@
       "name": "McDonalds",
       "amount": "200",
       "id": 2
+    },
+    {
+      "name": "Van Schaik",
+      "amount": "10000",
+      "id": 3
     }
   ]
 }
