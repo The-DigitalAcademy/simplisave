@@ -18,7 +18,7 @@
         
               <p>Add items to the checklist</p>
             
-              <button>Add To Checklist</button>
+              <button (click)="openExpenseModal()">Add To Checklist</button>
             </div>
           </div>
           
@@ -27,4 +27,14 @@
       
     </div>
   </div>
+
+  <!-- checklist.component.html -->
+<div class="checklist-container">
+  <mat-list>
+    <mat-list-item *ngFor="let item of checklistItems">
+      <h4>{{ item.name }}</h4>
+      <span class="price">{{ item.price }}</span>
+    </mat-list-item>
+  </mat-list>
+</div>
   
