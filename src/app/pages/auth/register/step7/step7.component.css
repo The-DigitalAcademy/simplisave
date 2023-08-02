@@ -1,17 +1,59 @@
-.flex-container {
-    align-items: center !important;
-    align-self: center !important;
-    height: 100%;
-    justify-content: center;
-  }
-  
-  .flex-item-right {
-    background-color: #FFFFFF;
-    align-items: center !important;
-    align-self: center;
-    justify-content: center;
+.create{
+  color: #870A3C;
+  font-weight: bold;
+  font-size: larger;
+}
 
-  }
-  h1{
-    color:  #AF144B;
-  }
+.credentials{
+  color: black;
+  font-size: small;
+}
+
+.title{
+    color: #870A3C;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.subtitle{
+  font-size: small;
+}
+
+p{
+  font-size: small;
+}
+
+ button{
+  width: 30%;
+}
+
+.validation{
+  width: 100%;
+  font-size: small;
+  
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #870A3C;; 
+}
+
+::ng-deep .mat-step-header .mat-step-icon-state-edit {
+  background-color:#870A3C;; 
+}
+
+.btn{
+  background-color: #870A3C
+}
+
+.mat-form-field-appearance-outline .mat-form-field-label .mat-placeholder {
+  font-size: xx-small !important;
+
+}
+
+u{
+  color: #870A3C;
+}
+
+mat-label{
+  font-size: small ;
+}

@@ -5,7 +5,6 @@
       <ng-template matStepLabel>Step 1</ng-template>
       <app-step1 [step1FormGroup]="step1FormGroup"></app-step1>
       <div class="button">
-        <button mat-button matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step [stepControl]="step2FormGroup">
@@ -36,7 +35,7 @@
         <ng-template matStepLabel>Step 5</ng-template>
         <app-step7></app-step7>
         <div class="button">
-          <button (click)="successAlert()" routerLink="/login" mat-button matStepperNext>Done</button>
+          <button (click)="successAlert()" mat-button matStepperNext>Done</button>
           <button mat-button matStepperPrevious>Previous</button>
         </div>
       </mat-step>

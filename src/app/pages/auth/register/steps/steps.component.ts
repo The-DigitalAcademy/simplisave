@@ -66,8 +66,9 @@ export class StepsComponent implements OnInit {
       this.stepperService.setData('step4Data', this.step4FormGroup.value);
     } else if (currentStep === 5) {
       this.stepperService.setData('step6Data', this.step6FormGroup.value);
-    } else if (currentStep === 6) {
+    } else if (currentStep === 6) { // Update this to match the last step index
       this.stepperService.setData('step7Data', this.step7FormGroup.value);
+      this.stepperService.saveRegistrationData(); // Save registration data
     }
 
     this.stepperService.setCurrentStep(currentStep + 1);
@@ -79,6 +80,7 @@ export class StepsComponent implements OnInit {
   }
 
   successAlert(){
+    this.stepperService.saveRegistrationData();
     Swal.fire({
       icon: 'success',
       text: 'Successful! Please Login',

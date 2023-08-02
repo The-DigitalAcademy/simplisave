@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "Name Surname",
+      "email": "trav@gmail.com",
+      "phone": "0812345678",
+      "password": "pass",
+      "confirmPassword": "pass",
+      "accountNo": "12345678",
+      "pin": "1234",
+      "idNo": "9008180345987",
+      "pinNo": "12345",
+      "confirmPinNo": "12345"
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    }
+  ]
+}
