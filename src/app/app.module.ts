@@ -52,12 +52,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AccountService } from './services/account.service'; 
 import { MatDialogModule } from '@angular/material/dialog';
 import { ExpenseModalComponent } from './pages/dashboard/expense/expense-modal/expense-modal.component';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
     declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, Step1Component, Step2Component, Step3Component, Step4Component, StepsComponent, OffersComponent, Step5Component, Step6Component, Step7Component, Step8Component, TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,
         LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent],
-    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule],
+    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule],
 
 
     providers: [],

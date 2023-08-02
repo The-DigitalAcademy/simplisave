@@ -15,6 +15,13 @@ import { ExpenseModalComponent } from './expense-modal/expense-modal.component';
 
 export class ExpenseComponent {
 
+  checklistItems = [
+    { name: 'Item 1', price: '$10.00' },
+    { name: 'Item 2', price: '$20.00' },
+    { name: 'Item 3', price: '$15.00' },
+    // Add more items as needed
+  ];
+
   constructor(private route: ActivatedRoute, private service: AccountService, private router: Router, public dialog: MatDialog) {}
 
   chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
@@ -173,4 +180,6 @@ export class ExpenseComponent {
       }
     });
   }
+
+  
 }
