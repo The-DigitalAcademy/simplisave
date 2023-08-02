@@ -1,6 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { DashboardService } from 'src/app/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
 
 @Component({
@@ -12,11 +14,11 @@ export class ExpenseModalComponent {
   formData: any = {}; // This will store the form data
   expenseForm!: FormGroup; // Add a FormGroup to hold the form controls
 
-  constructor(
+  constructor(private dashService:DashboardService,
     private formBuilder: FormBuilder,
     private service: AccountService,
     public dialogRef: MatDialogRef<ExpenseModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any ,private router: Router
   ) {
     this.expenseForm = this.formBuilder.group({
       categoryName: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('[a-zA-Z ]*')]],
@@ -46,6 +48,8 @@ export class ExpenseModalComponent {
           console.log('API Response:', response);
           // Optionally, you can close the dialog after successful API call
           this.dialogRef.close();
+          this.router.navigate(['/dashboard']);
+          this.refreshChecklist();
         },
         (error) => {
           // Handle API errors if necessary
@@ -53,5 +57,11 @@ export class ExpenseModalComponent {
         }
       );
     }
+  }
+
+
+  refreshChecklist() {
+    // Trigger the refresh for ComponentTwo
+    this.dashService.triggerRefresh();
   }
 }

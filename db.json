@@ -1,20 +1,14 @@
 {
-
- 
   "signupUsers": [
     {
       "email": "sk@gmail.com",
       "password": "!Sek1234leago5"
     },
-
     {
-    "email": "dee@gmail.com",
-    "password": "Dee@678S9"
+      "email": "dee@gmail.com",
+      "password": "Dee@678S9"
     }
-
   ],
-
-
   "Account": [
     {
       "Account_No": 9898989898989898,
@@ -140,14 +134,49 @@
       "id": 1
     },
     {
-      "name": "McDonalds",
-      "amount": "200",
+      "name": "MOe",
+      "amount": "10000",
       "id": 2
     },
     {
-      "name": "Van Schaik",
-      "amount": "10000",
+      "name": "McDonalds",
+      "amount": "400",
       "id": 3
+    },
+    {
+      "name": "asdf",
+      "amount": "300",
+      "id": 4
+    },
+    {
+      "name": "asdf",
+      "amount": "200",
+      "id": 5
+    },
+    {
+      "name": "we",
+      "amount": "300",
+      "id": 6
+    },
+    {
+      "name": "ewqef",
+      "amount": "500",
+      "id": 7
+    },
+    {
+      "name": "e",
+      "amount": "2",
+      "id": 8
+    },
+    {
+      "name": "Delpi",
+      "amount": "200",
+      "id": 9
+    },
+    {
+      "name": "green",
+      "amount": "100",
+      "id": 10
     }
   ]
 }
