@@ -1,6 +1,7 @@
 {
   "Account": [
-    {"Account_No": 9898989898989898,
+    {
+      "Account_No": 9898989898989898,
       "Balance": 2600,
       "User_ID": "1",
       "Bank_Name": "Absa",
@@ -34,8 +35,7 @@
       "Money_In": 300,
       "Money_Out": 0,
       "Available_Balance": "1900"
-    }
-    ,
+    },
     {
       "Transaction_Id": 2,
       "Type_id": 2,
@@ -45,8 +45,7 @@
       "Money_In": 0,
       "Money_Out": 300,
       "Available_Balance": "1900"
-    }
-    ,
+    },
     {
       "Transaction_Id": 2,
       "Type_id": 2,
@@ -76,8 +75,7 @@
       "Money_In": 0,
       "Money_Out": 900,
       "Available_Balance": "1100"
-    }
-    ,
+    },
     {
       "Transaction_Id": 2,
       "Type_id": 2,
@@ -87,8 +85,7 @@
       "Money_In": 0,
       "Money_Out": 900,
       "Available_Balance": "1100"
-    }
-    ,
+    },
     {
       "Transaction_Id": 2,
       "Type_id": 2,
@@ -108,8 +105,7 @@
       "Money_In": 0,
       "Money_Out": 900,
       "Available_Balance": "1100"
-    }
-    ,
+    },
     {
       "Transaction_Id": 2,
       "Type_id": 2,
@@ -120,13 +116,17 @@
       "Money_Out": 900,
       "Available_Balance": "1100"
     }
-    
   ],
   "Transaction_Type": [
     {
-      "Type": "Uber",
-      "Date_Occured": "10/01/22",
-      "Amount": 200
+      "name": "Uber",
+      "amount": "200",
+      "id": 1
+    },
+    {
+      "name": "McDonalds",
+      "amount": "200",
+      "id": 2
     }
   ]
 }
