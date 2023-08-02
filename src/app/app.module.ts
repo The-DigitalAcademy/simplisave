@@ -49,7 +49,6 @@ import { Step8Component } from './pages/auth/register/step8/step8.component';
 import { LearnStepsComponent } from './pages/learn/learn-steps/learn-steps.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ExpenseComponent } from './pages/dashboard/expense/expense.component';
-import { HttpClientModule } from '@angular/common/http';
 import { AccountService } from './services/account.service'; 
 import { MatDialogModule } from '@angular/material/dialog';
 import { ExpenseModalComponent } from './pages/dashboard/expense/expense-modal/expense-modal.component';
