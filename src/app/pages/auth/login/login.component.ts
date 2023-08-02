@@ -17,11 +17,15 @@ export class LoginComponent implements OnInit {
  
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      // Define your form fields for login here
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      // Define form fields for login here
+      email: ['', [Validators.required, Validators.email,Validators.pattern(
+        '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,65}$',
+      ),]],
+      password: ['', [Validators.required,Validators.pattern(
+        '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,65}$'
+      )]]
     });
-  }
+   }
 
   login() {
     if(!this.loginForm.valid){
