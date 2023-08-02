@@ -125,9 +125,9 @@ export class ExpenseComponent {
       data: {
         labels: [prev3MonthName, prev2MonthName, prev1MonthName, currentMonthName],
         datasets: [{
-          label: 'Expense Summary',
+          label: 'Months',
           data: [ prev3MonthData, prev2MonthData, prev1MonthData, currentMonthData],
-          backgroundColor: ['#870A3C', '#6A0572', '#28334AFF', '#00A4CCFF'],
+          backgroundColor: ['#AF144B', '#AF144B', '#AF144B', '#AF144B'],
           borderWidth: 0
         }]
       },
