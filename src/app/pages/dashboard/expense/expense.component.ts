@@ -21,7 +21,7 @@ export class ExpenseComponent {
     { name: 'Van schaik bookstore', price: 'R200.00', checked: false },
     // Add more items as needed
   ];
-  constructor(private route: ActivatedRoute, private service: AccountService, private router: Router, public dialog: MatDialog) {}
+  constructor(private dashService:DashboardService,private route: ActivatedRoute, private service: AccountService, private router: Router, public dialog: MatDialog) {}
 
   chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
   items1: any = [];
@@ -38,6 +38,12 @@ export class ExpenseComponent {
   ngOnInit() {
     this.getDataFromApi();
     this.getTypes();
+
+    // Subscribe to the refreshObservable to listen for refresh events
+    this.dashService.refreshObservable$.subscribe(() => {
+      // Refresh logic for ComponentTwo
+      this.refreshComponent();
+    });
   }
 
 
@@ -197,6 +203,10 @@ export class ExpenseComponent {
         
       }
     });
+  }
+  private refreshComponent() {
+    location.reload();
+    console.log('Component Two is being refreshed!');
   }
   
 
