@@ -10,34 +10,31 @@ import { ExpenseModalComponent } from './expense-modal/expense-modal.component';
   selector: 'app-expense',
   templateUrl: './expense.component.html',
   styleUrls: ['./expense.component.css'],
-   encapsulation: ViewEncapsulation.None // Set the encapsulation to none
+  encapsulation: ViewEncapsulation.None
 })
-
 export class ExpenseComponent {
-
-  checklistItems = [
-    { name: 'Uber', price: 'R100.00', checked: true },
-    { name: 'McDonalds', price: 'R400.00', checked: false },
-    { name: 'Van schaik bookstore', price: 'R200.00', checked: false },
-    // Add more items as needed
-  ];
-  constructor(private dashService:DashboardService,private route: ActivatedRoute, private service: AccountService, private router: Router, public dialog: MatDialog) {}
+  constructor(
+    private dashService: DashboardService,
+    private route: ActivatedRoute,
+    private service: AccountService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
   items1: any = [];
   data: any;
-  types:any;
-  isTypesEmpty:any;
+  types: any;
+  isTypesEmpty: any;
   filteredData: any[] = []; // Initialize filteredData as an empty array
   sumMoneyOut: any;
-  sumMoneyOutCurrentMonth: any;
-  sumMoneyOutPrev1Month: any;
-  sumMoneyOutPrev2Month: any;
-  sumMoneyOutPrev3Month: any;
+  sumMoneyOutMonths: any[] = [];
+  isDataFetched: boolean = false; // Flag to track data fetch completion
 
   ngOnInit() {
-    this.getDataFromApi();
+    this.getTransactionsFromApi();
     this.getTypes();
+    // this.calculateTotalForEachType(); // Remove this call from ngOnInit()
 
     // Subscribe to the refreshObservable to listen for refresh events
     this.dashService.refreshObservable$.subscribe(() => {
@@ -46,48 +43,48 @@ export class ExpenseComponent {
     });
   }
 
+  getTransactionsFromApi() {
+    this.service.getTransactions().subscribe((res) => {
+      this.items1 = res;
+      console.log(this.items1);
+      this.filterAndCalculateSumMoneyOut();
+      this.createChart(...this.sumMoneyOutMonths);
+      this.checkDataFetched(); // Call checkDataFetched after items1 is populated
+    });
+  }
 
   getTypes() {
-    this.service.getTypes()
-      .subscribe(res => {
-        this.types = res;
-        console.log(this.types);
-        if(this.types.length===0){
-         this.isTypesEmpty=''
-        }
-        else{
-          this.isTypesEmpty='full'
-        }
-      });
+    this.service.getTypes().subscribe(res => {
+      this.types = res;
+      console.log(this.types);
+      if (this.types.length === 0) {
+        this.isTypesEmpty = '';
+      } else {
+        this.isTypesEmpty = 'full';
+      }
+      this.checkDataFetched(); // Call checkDataFetched after types are populated
+    });
   }
 
-  getDataFromApi() {
-    this.service.getTransactions()
-      .subscribe(res => {
-        this.items1 = res;
-        console.log(this.items1);
-        this.filterData();
-        this.createChart(
-          this.sumMoneyOutCurrentMonth,
-          this.sumMoneyOutPrev1Month,
-          this.sumMoneyOutPrev2Month,
-          this.sumMoneyOutPrev3Month
-        );
-      });
+  checkDataFetched() {
+    // Check if both items1 and types are populated
+    if (this.items1 && this.types) {
+      this.calculateTotalForEachType();
+    }
   }
 
-  filterData() {
-    // Step 1: Parse the date strings in the JSON data to JavaScript Date objects
+  filterAndCalculateSumMoneyOut() {
+    // Change dates from strings to JavaScript objects
     const transactions = this.items1.map((record: any) => ({
       ...record,
-      Transaction_Date: new Date(record.Transaction_Date)
+      Transaction_Date: new Date(record.Transaction_Date),
     }));
 
-    // Step 2: Get the current month and year
+    // Get the current month and year
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
 
-    // Step 3: Filter records where Money_Out is greater than 0 and Transaction_Date is within the current month
+    // Filter data to find records where Money_Out is greater than 0 (Expense) and Transaction_Date is within the current month
     this.filteredData = transactions.filter((record: any) => {
       const isMoneyOutPositive = record.Money_Out > 0;
       const transactionDate = record.Transaction_Date;
@@ -96,48 +93,23 @@ export class ExpenseComponent {
       return isMoneyOutPositive && isWithinCurrentMonth;
     });
 
-    // Step 4: Calculate the sum of Money_Out for the filtered records of the current month
-    this.sumMoneyOutCurrentMonth = this.filteredData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
+    this.sumMoneyOutMonths = Array.from({ length: 4 }, (_, i) => {
+      const prevMonth = (currentMonth - i + 12) % 12;
+      const filteredPrevMonthData = transactions.filter((record: any) => {
+        const isMoneyOutPositive = record.Money_Out > 0;
+        const transactionDate = record.Transaction_Date;
+        const isWithinPrevMonth = transactionDate.getMonth() === prevMonth;
+        return isMoneyOutPositive && isWithinPrevMonth;
+      });
 
-    // Step 5: Filter records for the previous three months
-    const prev1Month = (currentMonth - 1 + 12) % 12;
-    const prev2Month = (currentMonth - 2 + 12) % 12;
-    const prev3Month = (currentMonth - 3 + 12) % 12;
-
-    const filteredPrev1MonthData = transactions.filter((record: any) => {
-      const isMoneyOutPositive = record.Money_Out > 0;
-      const transactionDate = record.Transaction_Date;
-      const isWithinPrev1Month = transactionDate.getMonth() === prev1Month;
-
-      return isMoneyOutPositive && isWithinPrev1Month;
+      return filteredPrevMonthData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
     });
 
-    const filteredPrev2MonthData = transactions.filter((record: any) => {
-      const isMoneyOutPositive = record.Money_Out > 0;
-      const transactionDate = record.Transaction_Date;
-      const isWithinPrev2Month = transactionDate.getMonth() === prev2Month;
-
-      return isMoneyOutPositive && isWithinPrev2Month;
-    });
-
-    const filteredPrev3MonthData = transactions.filter((record: any) => {
-      const isMoneyOutPositive = record.Money_Out > 0;
-      const transactionDate = record.Transaction_Date;
-      const isWithinPrev3Month = transactionDate.getMonth() === prev3Month;
-
-      return isMoneyOutPositive && isWithinPrev3Month;
-    });
-
-    // Step 6: Calculate the sum of Money_Out for the filtered records of the previous three months
-    this.sumMoneyOutPrev1Month = filteredPrev1MonthData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
-    this.sumMoneyOutPrev2Month = filteredPrev2MonthData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
-    this.sumMoneyOutPrev3Month = filteredPrev3MonthData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
-
-    // Step 7: Calculate the total money spent for the current and previous three months
-    this.sumMoneyOut = this.sumMoneyOutCurrentMonth + this.sumMoneyOutPrev1Month + this.sumMoneyOutPrev2Month + this.sumMoneyOutPrev3Month;
+    this.sumMoneyOutMonths.reverse(); // Reverse the array here
+    this.sumMoneyOut = this.sumMoneyOutMonths.reduce((sum, monthSum) => sum + monthSum, 0);
   }
 
-  createChart(currentMonthData: number, prev1MonthData: number, prev2MonthData: number, prev3MonthData: number) {
+  createChart(...sumMoneyOutMonths: number[]) {
     const canvas: HTMLCanvasElement = document.getElementById('myChart') as HTMLCanvasElement;
     const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
 
@@ -153,11 +125,11 @@ export class ExpenseComponent {
     this.chart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: [prev3MonthName, prev2MonthName, prev1MonthName, currentMonthName],
+        labels: [currentMonthName, prev1MonthName, prev2MonthName, prev3MonthName].reverse(),
         datasets: [{
           label: 'Expense Summary',
-          data: [ prev3MonthData, prev2MonthData, prev1MonthData, currentMonthData],
-          backgroundColor: ['#870A3C', '#6A0572', '#28334AFF', '#00A4CCFF'],
+          data: sumMoneyOutMonths,
+          backgroundColor: ['#00A4CCFF', '#28334AFF', '#6A0572', '#870A3C'],
           borderWidth: 0
         }]
       },
@@ -200,17 +172,46 @@ export class ExpenseComponent {
       if (result) {
         console.log('Category Name:', result.categoryName);
         console.log('Amount:', result.amount);
-        
       }
     });
   }
+
   private refreshComponent() {
     location.reload();
     console.log('Component Two is being refreshed!');
   }
-  
 
- 
+  calculateTotalForEachType() {
+    // Change dates from strings to JavaScript objects
+    const transactions = this.items1.map((record: any) => ({
+      ...record,
+      Transaction_Date: new Date(record.Transaction_Date),
+    }));
 
-  
+    // Get the current month and year
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
+
+    // Calculate the total Money_Out for each type
+    const typeTotals: any = {};
+
+    this.types.forEach((type: any) => {
+      const typeName = type.name; // Extract typeName correctly from the type object
+      const filteredData = transactions.filter((record: any) => {
+        const isMoneyOutPositive = record.Money_Out > 0;
+        const transactionDate = record.Transaction_Date;
+        const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
+        const isDescriptionMatching = record.Description === typeName;
+        console.log(record.Money_Out);
+
+        return isMoneyOutPositive && isWithinCurrentMonth && isDescriptionMatching;
+      });
+      console.log(filteredData);
+      const typeTotal = filteredData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
+      
+      typeTotals[typeName] = typeTotal;
+    });
+
+    console.log(typeTotals);
+  }
 }

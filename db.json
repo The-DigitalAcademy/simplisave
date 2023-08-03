@@ -40,7 +40,7 @@
       "Transaction_Id": 2,
       "Type_id": 2,
       "Account_No": 1234567890123456,
-      "Description": "Amazon",
+      "Description": "Uber",
       "Transaction_Date": "08/08/2022",
       "Money_In": 300,
       "Money_Out": 0,
@@ -50,7 +50,7 @@
       "Transaction_Id": 2,
       "Type_id": 2,
       "Account_No": 1234567890123456,
-      "Description": "Amazon",
+      "Description": "Uber",
       "Transaction_Date": "08/08/2022",
       "Money_In": 0,
       "Money_Out": 300,
@@ -60,7 +60,7 @@
       "Transaction_Id": 2,
       "Type_id": 2,
       "Account_No": 1234567890123456,
-      "Description": "Amazon",
+      "Description": "Uber",
       "Transaction_Date": "07/08/2022",
       "Money_In": 0,
       "Money_Out": 100,
@@ -70,7 +70,7 @@
       "Transaction_Id": 2,
       "Type_id": 2,
       "Account_No": 1234567890123456,
-      "Description": "Amazon",
+      "Description": "Uber",
       "Transaction_Date": "08/08/2022",
       "Money_In": 0,
       "Money_Out": 800,
@@ -80,7 +80,7 @@
       "Transaction_Id": 2,
       "Type_id": 2,
       "Account_No": 1234567890123456,
-      "Description": "Amazon",
+      "Description": "Uber",
       "Transaction_Date": "07/08/2022",
       "Money_In": 0,
       "Money_Out": 900,
@@ -90,7 +90,7 @@
       "Transaction_Id": 2,
       "Type_id": 2,
       "Account_No": 1234567890123456,
-      "Description": "Amazon",
+      "Description": "Uber",
       "Transaction_Date": "06/08/2022",
       "Money_In": 0,
       "Money_Out": 900,
@@ -100,7 +100,7 @@
       "Transaction_Id": 2,
       "Type_id": 2,
       "Account_No": 1234567890123456,
-      "Description": "Amazon",
+      "Description": "Van Schaik",
       "Transaction_Date": "06/08/2022",
       "Money_In": 0,
       "Money_Out": 900,
@@ -110,8 +110,8 @@
       "Transaction_Id": 2,
       "Type_id": 2,
       "Account_No": 1234567890123456,
-      "Description": "Amazon",
-      "Transaction_Date": "05/08/2022",
+      "Description": "McDonalds",
+      "Transaction_Date": "08/08/2022",
       "Money_In": 0,
       "Money_Out": 900,
       "Available_Balance": "1100"
@@ -120,7 +120,18 @@
       "Transaction_Id": 2,
       "Type_id": 2,
       "Account_No": 1234567890123456,
-      "Description": "Amazon",
+      "Description": "Takealot",
+      "Transaction_Date": "08/08/2022",
+      "Money_In": 0,
+      "Money_Out": 900,
+      "Available_Balance": "1100"
+    }
+    ,
+    {
+      "Transaction_Id": 2,
+      "Type_id": 2,
+      "Account_No": 1234567890123456,
+      "Description": "Takealot",
       "Transaction_Date": "05/08/2022",
       "Money_In": 0,
       "Money_Out": 900,
@@ -134,7 +145,7 @@
       "id": 1
     },
     {
-      "name": "MOe",
+      "name": "Van Schaik",
       "amount": "10000",
       "id": 2
     },
@@ -144,39 +155,14 @@
       "id": 3
     },
     {
-      "name": "asdf",
+      "name": "Uber Eats",
       "amount": "300",
       "id": 4
     },
     {
-      "name": "asdf",
+      "name": "Takealot",
       "amount": "200",
       "id": 5
-    },
-    {
-      "name": "we",
-      "amount": "300",
-      "id": 6
-    },
-    {
-      "name": "ewqef",
-      "amount": "500",
-      "id": 7
-    },
-    {
-      "name": "e",
-      "amount": "2",
-      "id": 8
-    },
-    {
-      "name": "Delpi",
-      "amount": "200",
-      "id": 9
-    },
-    {
-      "name": "green",
-      "amount": "100",
-      "id": 10
     }
   ]
 }
