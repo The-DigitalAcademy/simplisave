@@ -58,7 +58,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ExpenseModalComponent } from './pages/dashboard/expense/expense-modal/expense-modal.component';
 import { ManageAccountComponent } from './pages/manage-account/manage-account.component';
 import { ManageExpenseComponent } from './pages/manage-account/manage-expense/manage-expense.component';
-import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
