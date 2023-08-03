@@ -50,4 +50,46 @@
 li{
    text-decoration: none;
 }
-
+/* Hide the default checkbox */
+input[type="checkbox"] {
+   position: absolute;
+   opacity: 0;
+   height: 0;
+   width: 0;
+ }
+ 
+ /* Create the checkbox box */
+ input[type="checkbox"] + label {
+   position: relative;
+   padding-left: 30px;
+   cursor: pointer;
+ }
+ 
+ /* Style the checkbox box */
+ input[type="checkbox"] + label::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 20px;
+   height: 20px;
+   border: 1px solid #000;
+   background-color: #fff;
+ }
+ 
+ /* Style the checkmark inside the checkbox */
+ input[type="checkbox"] + label::after {
+   content: "\2718"; /* Unicode for X symbol */
+   position: absolute;
+   top: 2px;
+   left: 6px;
+   font-size: 16px;
+   color: red;
+   visibility: hidden;
+ }
+ 
+ /* Show the checkmark when the checkbox is checked */
+ input[type="checkbox"]:checked + label::after {
+   visibility: visible;
+ }
+ 
