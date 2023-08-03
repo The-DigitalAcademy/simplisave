@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormDataService } from 'src/app/services/form-data.service';
 import { StepperService } from 'src/app/services/stepper.service';
 import Swal from 'sweetalert2';
 
@@ -18,7 +19,7 @@ export class StepsComponent implements OnInit {
 
   // Add more form groups if you have additional steps
 
-  constructor(private fb: FormBuilder, private stepperService: StepperService) {}
+  constructor(private fb: FormBuilder, private stepperService: StepperService, private formDataService: FormDataService) {}
 
   ngOnInit() {
     this.step1FormGroup = this.fb.group({
@@ -51,6 +52,9 @@ export class StepsComponent implements OnInit {
       confirmPinNo: ['', Validators.required]
     });
 
+    this.formDataService.step1Data = this.step1FormGroup;
+
+    console.log("Form data", this.step1FormGroup.value);
 
     // Initialize the stepper with the first step
     this.stepperService.setCurrentStep(0);
@@ -66,8 +70,8 @@ export class StepsComponent implements OnInit {
       this.stepperService.setData('step4Data', this.step4FormGroup.value);
     } else if (currentStep === 5) {
       this.stepperService.setData('step6Data', this.step6FormGroup.value);
-    } else if (currentStep === 6) { // Update this to match the last step index
-      this.stepperService.setData('step7Data', this.step7FormGroup.value);
+    } else if (currentStep === 6) { 
+      // this.stepperService.setData('step7Data', this.step7FormGroup.value);
       this.stepperService.saveRegistrationData(); // Save registration data
     }
 

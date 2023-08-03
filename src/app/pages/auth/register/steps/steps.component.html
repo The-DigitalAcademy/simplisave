@@ -2,34 +2,24 @@
 <br/>
 <mat-horizontal-stepper [linear]="true" class="custom-stepper" #stepper="matHorizontalStepper">
     <mat-step [stepControl]="step1FormGroup">
-      <ng-template matStepLabel>Step 1</ng-template>
+      <ng-template  matStepLabel>Step 1</ng-template>
       <app-step1 [step1FormGroup]="step1FormGroup"></app-step1>
-      <div class="button">
-      </div>
+
     </mat-step>
     <mat-step [stepControl]="step2FormGroup">
       <ng-template matStepLabel>Step 2</ng-template>
       <app-step2 [step2FormGroup]="step2FormGroup"></app-step2>
-      <div class="button">
-        <button mat-button matStepperNext>Next</button>
-        <button mat-button matStepperPrevious>Previous</button>
-      </div>
+
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Step 3</ng-template>
       <app-step4 [step4FormGroup]="step4FormGroup"></app-step4>
-      <div class="button">
-        <button mat-button matStepperNext>Next</button>
-        <button mat-button matStepperPrevious>Previous</button>
-      </div>
+     
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Step 4</ng-template>
         <app-step6 [step6FormGroup]="step6FormGroup"></app-step6>
-        <div class="button">
-          <button mat-button matStepperNext>Next</button>
-          <button mat-button matStepperPrevious>Previous</button>
-        </div>
+        
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Step 5</ng-template>

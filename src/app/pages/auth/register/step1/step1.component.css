@@ -26,9 +26,8 @@
 
    button{
     width: 30%;
+    color: white;
   }
-
-  
 
   .validation{
     width: 100%;
@@ -45,8 +44,14 @@
   }
 
   .btn{
-    background-color: #870A3C
+    background-color: #870A3C;
+    border-radius: 20px;
+    margin-left: 30px;
   }
+
+  .mat-mdc-button:not(:disabled) {
+    color: #fff;
+}
 
   .mat-form-field-appearance-outline .mat-form-field-label .mat-placeholder {
     font-size: xx-small !important;

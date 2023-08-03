@@ -8,6 +8,5 @@ import { FormGroup } from '@angular/forms';
 })
 export class Step1Component{
   @Input() step1FormGroup!: FormGroup;
-
   
 }
