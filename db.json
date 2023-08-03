@@ -129,29 +129,39 @@
   ],
   "Transaction_Type": [
     {
-      "name": "Uber",
-      "amount": "200",
+      "name": "Thilivia",
+      "amount": "20",
       "id": 1
     },
     {
-      "name": "Van Schaik",
-      "amount": "10000",
+      "name": "Thilivia",
+      "amount": "20",
       "id": 2
     },
     {
-      "name": "McDonalds",
-      "amount": "400",
+      "name": "Thilivia",
+      "amount": "20",
       "id": 3
     },
     {
-      "name": "Uber Eats",
-      "amount": "300",
+      "name": "Thilivia",
+      "amount": "20",
       "id": 4
     },
     {
-      "name": "Takealot",
-      "amount": "200",
+      "name": "Thilivia",
+      "amount": "20",
       "id": 5
+    },
+    {
+      "name": "lol",
+      "amount": "20",
+      "id": 6
+    },
+    {
+      "name": "lol",
+      "amount": "20",
+      "id": 7
     }
   ]
 }

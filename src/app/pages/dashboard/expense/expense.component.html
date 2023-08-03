@@ -11,26 +11,30 @@
     <div class="col">
       <div class="heading"> <mat-icon class="info-icon" matTooltip="Checklist">error</mat-icon><h1>Checklist</h1></div>
       <div class="flex-container">
-        <h3>Expense allocation categories</h3>
+  
 
         <div *ngIf="isTypesEmpty; else emptyValue">
           <ul class="checklist">
             <li *ngFor="let type of types">
-              <input type="checkbox" [(ngModel)]="type.isChecked" disabled id="{{type.name}}">
+       <input type="checkbox" [(ngModel)]="type.isChecked" disabled id="{{type.name}}" style="opacity: 0; "> 
+            
               <label class="checkbox-label" for="{{type.name}}">
                 {{ type.name }} - {{ type.amount }}
               </label>
             </li>
           </ul>
-          <button (click)="openExpenseModal()">Add To Checklist</button>
+          <button (click)="openExpenseModal()" mat-button>	<mat-icon>add</mat-icon>Add To Checklist</button>
         </div>
 
         <ng-template #emptyValue>
           <div *ngIf="isTypesEmpty===''">
-            <h1>Checklist</h1>
+ 
             <div class="card">
+
+
                 <p>Your checklist is empty</p> 
                 <button (click)="openExpenseModal()" mat-button>	<mat-icon>add</mat-icon>Add To Checklist</button>
+
             </div>
           </div>
         </ng-template>

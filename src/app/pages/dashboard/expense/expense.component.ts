@@ -31,6 +31,7 @@ export class ExpenseComponent {
   sumMoneyOutMonths: any[] = [];
   isDataFetched: boolean = false; // Flag to track data fetch completion
   typeTotals: any = {}; // Property to store typeTotals
+  
 
   ngOnInit() {
     this.getTransactionsFromApi();
@@ -130,7 +131,7 @@ export class ExpenseComponent {
         datasets: [{
           label: 'Expense Summary',
           data: sumMoneyOutMonths,
-          backgroundColor: ['#00A4CCFF', '#28334AFF', '#6A0572', '#870A3C'],
+          backgroundColor: ['#AF144B', '#AF144B', '#AF144B', '#AF144B'],
           borderWidth: 0
         }]
       },
