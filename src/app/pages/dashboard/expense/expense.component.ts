@@ -30,6 +30,7 @@ export class ExpenseComponent {
   sumMoneyOut: any;
   sumMoneyOutMonths: any[] = [];
   isDataFetched: boolean = false; // Flag to track data fetch completion
+  typeTotals: any = {}; // Property to store typeTotals
 
   ngOnInit() {
     this.getTransactionsFromApi();
@@ -56,7 +57,7 @@ export class ExpenseComponent {
   getTypes() {
     this.service.getTypes().subscribe(res => {
       this.types = res;
-      console.log(this.types);
+      console.log("Types:"+this.types);
       if (this.types.length === 0) {
         this.isTypesEmpty = '';
       } else {
@@ -192,8 +193,7 @@ export class ExpenseComponent {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
 
-    // Calculate the total Money_Out for each type
-    const typeTotals: any = {};
+    this.typeTotals = {}; // Reset typeTotals before calculating
 
     this.types.forEach((type: any) => {
       const typeName = type.name; // Extract typeName correctly from the type object
@@ -209,9 +209,31 @@ export class ExpenseComponent {
       console.log(filteredData);
       const typeTotal = filteredData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
       
-      typeTotals[typeName] = typeTotal;
+      this.typeTotals[typeName] = typeTotal; // Store the typeTotal in the typeTotals object
     });
 
-    console.log(typeTotals);
+    console.log("Type Totals1" + this.typeTotals);
+    this.compareTypesAndTypeTotals(); // Call the new function to compare types and typeTotals
+  }
+
+  compareTypesAndTypeTotals() {
+    if (!this.types || !this.typeTotals) {
+      return;
+    }
+
+    for (const type of this.types) {
+      const typeName = type.name;
+      const typeTotal = this.typeTotals[typeName] || 0;
+      const typeAmount = type.amount || 0;
+      console.log(type.name);
+      console.log("Amount spent: "+this.typeTotals[typeName]);
+      console.log("Amount set: "+typeAmount);
+
+      if (typeTotal > typeAmount) {
+        type.isChecked = true;
+      } else {
+        type.isChecked = false;
+      }
+    }
   }
 }
