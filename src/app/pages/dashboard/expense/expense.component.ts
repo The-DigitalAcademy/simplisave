@@ -5,6 +5,7 @@ import { Chart, ChartOptions } from 'chart.js';
 import { DashboardService } from 'src/app/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
 import { ExpenseModalComponent } from './expense-modal/expense-modal.component';
+import { ObjectUnsubscribedError } from 'rxjs';
 
 @Component({
   selector: 'app-expense',
@@ -21,32 +22,32 @@ export class ExpenseComponent {
     public dialog: MatDialog
   ) {}
 
-  chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
+  chart!: Chart; 
   items1: any = [];
   data: any;
   types: any;
   isTypesEmpty: any;
-  filteredData: any[] = []; // Initialize filteredData as an empty array
+  filteredData: any[] = []; 
   sumMoneyOut: any;
   sumMoneyOutMonths: any[] = [];
   isDataFetched: boolean = false; // Flag to track data fetch completion
-  typeTotals: any = {}; // Property to store typeTotals
+  typeTotals: any = {}; 
 
   //When the page is loaded, get the transactions records and different expense allocation types
   ngOnInit() {
     this.getTransactionsFromApi();
     this.getTypes();
-    // this.calculateTotalForEachType(); // Remove this call from ngOnInit()
 
-    // Subscribe to the refreshObservable to listen for refresh events
-    this.dashService.refreshObservable$.subscribe(() => {
-      // Refresh logic for ComponentTwo
+/*     Subscribe to the observable that holds the state of the checklist, triggering this which
+        triggers a refresh of the checklist once an item is saved
+ */    this.dashService.refreshObservable$.subscribe(() => {
       this.refreshComponent();
     });
   }
 
+  /* call http get function in the service to get all the transaction records */
   getTransactionsFromApi() {
-    this.service.getTransactions().subscribe((res) => {
+    this.service.getTransactions().subscribe((res: any) => {
       this.items1 = res;
       console.log(this.items1);
       this.filterAndCalculateSumMoneyOut();
@@ -55,8 +56,10 @@ export class ExpenseComponent {
     });
   }
 
+  /* call http get function in the service file to fetch the types of expense allocation categories
+  set by the user to populqte the checklist */
   getTypes() {
-    this.service.getTypes().subscribe(res => {
+    this.service.getTypes().subscribe((res: any) => {
       this.types = res;
       console.log("Types:"+this.types);
       if (this.types.length === 0) {
@@ -64,17 +67,20 @@ export class ExpenseComponent {
       } else {
         this.isTypesEmpty = 'full';
       }
-      this.checkDataFetched(); // Call checkDataFetched after types are populated
+      this.checkDataFetched(); 
     });
   }
 
+  /* check whether both methods fetching data have successfully retreived it */
   checkDataFetched() {
-    // Check if both items1 and types are populated
     if (this.items1 && this.types) {
       this.calculateTotalForEachType();
     }
   }
 
+  /* filter the transaction records for the current and previous three months to find records that occured 
+  within that month, the records should have money going out (expenses), lastly the amounts of these records 
+  should be added to obtain the total expense amount for that month */
   filterAndCalculateSumMoneyOut() {
     // Change dates from strings to JavaScript objects
     const transactions = this.items1.map((record: any) => ({
@@ -86,7 +92,7 @@ export class ExpenseComponent {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
 
-    // Filter data to find records where Money_Out is greater than 0 (Expense) and Transaction_Date is within the current month
+   
     this.filteredData = transactions.filter((record: any) => {
       const isMoneyOutPositive = record.Money_Out > 0;
       const transactionDate = record.Transaction_Date;
@@ -95,7 +101,10 @@ export class ExpenseComponent {
       return isMoneyOutPositive && isWithinCurrentMonth;
     });
 
+
+     // Filter data to find records where Money_Out is greater than 0 (Expense) and Transaction_Date is within the current month
     this.sumMoneyOutMonths = Array.from({ length: 4 }, (_, i) => {
+      //keep month within the javascript object range (0 to 11)
       const prevMonth = (currentMonth - i + 12) % 12;
       const filteredPrevMonthData = transactions.filter((record: any) => {
         const isMoneyOutPositive = record.Money_Out > 0;
@@ -103,14 +112,14 @@ export class ExpenseComponent {
         const isWithinPrevMonth = transactionDate.getMonth() === prevMonth;
         return isMoneyOutPositive && isWithinPrevMonth;
       });
-
+      /* Add the money out amount for each of the transactions that matches the conditions */
       return filteredPrevMonthData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
     });
 
     this.sumMoneyOutMonths.reverse(); // Reverse the array here
-    this.sumMoneyOut = this.sumMoneyOutMonths.reduce((sum, monthSum) => sum + monthSum, 0);
   }
 
+  //create the chart using chart js, display current and three previous months, use the sumMoneyOut created array to populate values
   createChart(...sumMoneyOutMonths: number[]) {
     const canvas: HTMLCanvasElement = document.getElementById('myChart') as HTMLCanvasElement;
     const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
@@ -164,9 +173,10 @@ export class ExpenseComponent {
     });
   }
 
+  //Modal to add to checklist, we pecify which component modal is in to open it
   openExpenseModal(): void {
     const dialogRef = this.dialog.open(ExpenseModalComponent, {
-      width: '450px' // Set the desired width of the modal
+      width: '450px' 
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -178,9 +188,9 @@ export class ExpenseComponent {
     });
   }
 
+  //called by above observable when the checklist needs to be refreshed
   private refreshComponent() {
     location.reload();
-    console.log('Component Two is being refreshed!');
   }
 
   calculateTotalForEachType() {
@@ -192,7 +202,7 @@ export class ExpenseComponent {
 
     // Get the current month and year
     const currentDate = new Date();
-    const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
+    const currentMonth = currentDate.getMonth(); 
 
     this.typeTotals = {}; // Reset typeTotals before calculating
 
@@ -217,6 +227,8 @@ export class ExpenseComponent {
     this.compareTypesAndTypeTotals(); // Call the new function to compare types and typeTotals
   }
 
+/*   compare the total monthly spending amounts for the different transaction types with the expense allocation limits
+  set by the user and then indicate on the checklist whether have exceeded their set limits or not */
   compareTypesAndTypeTotals() {
     if (!this.types || !this.typeTotals) {
       return;
