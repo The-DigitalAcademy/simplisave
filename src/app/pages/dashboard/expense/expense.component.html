@@ -1,34 +1,44 @@
 <div class="container text-center">
-    <div class="row" >
+  <div class="row">
 
-      <div class="col">
-        <div class="head"><mat-icon class="info-icon" matTooltip="The graph displays how much was spent per month">error</mat-icon> <h1>Monthly Expense summary</h1>    
-          </div>
-        <div class="flex-box">
-  
-            <canvas id="myChart" width="400" height="300"></canvas>
-          </div>
-      </div>
+    
 
-      <div class="col">
-      
-        <div class="heading"> <mat-icon class="info-icon" matTooltip="Checklist">error</mat-icon><h1>Checklist</h1></div>
-        <div class="flex-container">
-        
-           
-        
+
+    <div class="col">
+      <div class="flex-container">
+        <h3>Expense allocation categories</h3>
+
+        <div *ngIf="isTypesEmpty; else emptyValue">
+          <ul class="checklist">
+            <li *ngFor="let type of types">
+              <label class="checkbox-label">
+                <input type="checkbox" [(ngModel)]="type.checked" disabled>
+                {{ type.name }} - {{ type.amount }}
+              </label>
+            </li>
+          </ul>
+          <button (click)="openExpenseModal()">Add To Checklist</button>
+        </div>
+        <ng-template #emptyValue>
+          <div *ngIf="isTypesEmpty===''">
+            <h1>Checklist</h1>
+                  
             <div class="card">
-           
-              <p>Your checklist is empty</p> 
-              <button (click)="openExpenseModal()" mat-button>	<mat-icon>add</mat-icon>Add To Checklist</button>
-           
-          
+        
+              <p>Add items to the checklist</p>
+            
+              <button (click)="openExpenseModal()">Add To Checklist</button>
             </div>
           </div>
           
 
-      </div>
+     
       
-    </div>
-  </div>
+    
+ 
+
+
+
+
+
   

@@ -85,6 +85,16 @@ mat-icon{
 .text-center {
    background-color: #ffff;
 }
+.checklist{
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   border-style: solid;
+}
+li{
+   text-decoration: none;
+}
 
 h1{
 color: #1D1B20;

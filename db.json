@@ -1,6 +1,17 @@
 {
+  "signupUsers": [
+    {
+      "email": "sk@gmail.com",
+      "password": "!Sek1234leago5"
+    },
+    {
+      "email": "dee@gmail.com",
+      "password": "Dee@678S9"
+    }
+  ],
   "Account": [
-    {"Account_No": 9898989898989898,
+    {
+      "Account_No": 9898989898989898,
       "Balance": 2600,
       "User_ID": "1",
       "Bank_Name": "Absa",
@@ -11,7 +22,7 @@
     {
       "Savings_Acc_No": 9898989898989898,
       "Account_No": 9898989898989898,
-      "Balance": 3000
+      "Balance": 2000
     }
   ],
   "Transaction": [
@@ -34,16 +45,16 @@
       "Money_In": 300,
       "Money_Out": 0,
       "Available_Balance": "1900"
-    }
-    ,{
+    },
+    {
       "Transaction_Id": 2,
       "Type_id": 2,
       "Account_No": 1234567890123456,
       "Description": "Amazon",
       "Transaction_Date": "08/08/2022",
       "Money_In": 0,
-      "Money_Out": 800,
-      "Available_Balance": "1100"
+      "Money_Out": 300,
+      "Available_Balance": "1900"
     },
     {
       "Transaction_Id": 2,
@@ -74,19 +85,7 @@
       "Money_In": 0,
       "Money_Out": 900,
       "Available_Balance": "1100"
-    }
-    ,
-    {
-      "Transaction_Id": 2,
-      "Type_id": 2,
-      "Account_No": 1234567890123456,
-      "Description": "Amazon",
-      "Transaction_Date": "05/08/2022",
-      "Money_In": 0,
-      "Money_Out": 1900,
-      "Available_Balance": "1100"
-    }
-    ,
+    },
     {
       "Transaction_Id": 2,
       "Type_id": 2,
@@ -96,13 +95,88 @@
       "Money_In": 0,
       "Money_Out": 900,
       "Available_Balance": "1100"
+    },
+    {
+      "Transaction_Id": 2,
+      "Type_id": 2,
+      "Account_No": 1234567890123456,
+      "Description": "Amazon",
+      "Transaction_Date": "06/08/2022",
+      "Money_In": 0,
+      "Money_Out": 900,
+      "Available_Balance": "1100"
+    },
+    {
+      "Transaction_Id": 2,
+      "Type_id": 2,
+      "Account_No": 1234567890123456,
+      "Description": "Amazon",
+      "Transaction_Date": "05/08/2022",
+      "Money_In": 0,
+      "Money_Out": 900,
+      "Available_Balance": "1100"
+    },
+    {
+      "Transaction_Id": 2,
+      "Type_id": 2,
+      "Account_No": 1234567890123456,
+      "Description": "Amazon",
+      "Transaction_Date": "05/08/2022",
+      "Money_In": 0,
+      "Money_Out": 900,
+      "Available_Balance": "1100"
     }
   ],
   "Transaction_Type": [
     {
-      "Type": "Uber",
-      "Date_Occured": "10/01/22",
-      "Amount": 200
+      "name": "Uber",
+      "amount": "200",
+      "id": 1
+    },
+    {
+      "name": "MOe",
+      "amount": "10000",
+      "id": 2
+    },
+    {
+      "name": "McDonalds",
+      "amount": "400",
+      "id": 3
+    },
+    {
+      "name": "asdf",
+      "amount": "300",
+      "id": 4
+    },
+    {
+      "name": "asdf",
+      "amount": "200",
+      "id": 5
+    },
+    {
+      "name": "we",
+      "amount": "300",
+      "id": 6
+    },
+    {
+      "name": "ewqef",
+      "amount": "500",
+      "id": 7
+    },
+    {
+      "name": "e",
+      "amount": "2",
+      "id": 8
+    },
+    {
+      "name": "Delpi",
+      "amount": "200",
+      "id": 9
+    },
+    {
+      "name": "green",
+      "amount": "100",
+      "id": 10
     }
   ]
 }

@@ -15,11 +15,19 @@ import { ExpenseModalComponent } from './expense-modal/expense-modal.component';
 
 export class ExpenseComponent {
 
-  constructor(private route: ActivatedRoute, private service: AccountService, private router: Router, public dialog: MatDialog) {}
+  checklistItems = [
+    { name: 'Uber', price: 'R100.00', checked: true },
+    { name: 'McDonalds', price: 'R400.00', checked: false },
+    { name: 'Van schaik bookstore', price: 'R200.00', checked: false },
+    // Add more items as needed
+  ];
+  constructor(private dashService:DashboardService,private route: ActivatedRoute, private service: AccountService, private router: Router, public dialog: MatDialog) {}
 
   chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
   items1: any = [];
   data: any;
+  types:any;
+  isTypesEmpty:any;
   filteredData: any[] = []; // Initialize filteredData as an empty array
   sumMoneyOut: any;
   sumMoneyOutCurrentMonth: any;
@@ -29,6 +37,28 @@ export class ExpenseComponent {
 
   ngOnInit() {
     this.getDataFromApi();
+    this.getTypes();
+
+    // Subscribe to the refreshObservable to listen for refresh events
+    this.dashService.refreshObservable$.subscribe(() => {
+      // Refresh logic for ComponentTwo
+      this.refreshComponent();
+    });
+  }
+
+
+  getTypes() {
+    this.service.getTypes()
+      .subscribe(res => {
+        this.types = res;
+        console.log(this.types);
+        if(this.types.length===0){
+         this.isTypesEmpty=''
+        }
+        else{
+          this.isTypesEmpty='full'
+        }
+      });
   }
 
   getDataFromApi() {
@@ -170,7 +200,17 @@ export class ExpenseComponent {
       if (result) {
         console.log('Category Name:', result.categoryName);
         console.log('Amount:', result.amount);
+        
       }
     });
   }
+  private refreshComponent() {
+    location.reload();
+    console.log('Component Two is being refreshed!');
+  }
+  
+
+ 
+
+  
 }

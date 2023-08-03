@@ -1,44 +1,32 @@
 
-.flex-container {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    font-family: Inconsolata;
-  }
+.background-container {
+  position: relative;
+  width: 100%; /* Adjust the width and height as needed */
+  height: 100%;
+}
 
-  .flex-item-left {
-    background-color: #FFFFFF;
-    flex: 40%;
-  }
-  .moneyImg{
-    height: 100%;
-    width: 100%;
-  }
-  
-  .flex-item-right {
-    background-color: #FFFFFF;
-    padding: 20px;
-    align-self: center;
-    flex: 60%;
-  }
+.mainText{
+  color: black;
+}
 
-  button{
-    width: 20%;
-    height: 45px;
-    background-color: #AF144B;
-    border-radius: 15px;
-    border-color: transparent;
-    color: #FFFFFF;
-  }
-  
-  /* Responsive layout */
-  @media (max-width: 800px) {
-    .flex-container {
-      flex-direction: column;
-    }
-    button{
-      width: 60%;
-    }
-  }
-  
-  
+.btn{
+  background-color: #870A3C;
+  color: white;
+  border-radius: 20px;
+  padding: 9px;
+} 
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://media.istockphoto.com/id/538505147/photo/south-african-currency.jpg?s=612x612&w=0&k=20&c=8uW74H5r0cXv_ES6m7qjALHfw_-t6h6tXTgZkUfrcaU='); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7; /* Set the opacity to 50% */
+}
+u{
+  color: #870A3C;
+}
