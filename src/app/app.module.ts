@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
@@ -52,8 +53,15 @@ import { ExpenseComponent } from './pages/dashboard/expense/expense.component';
 import { AccountService } from './services/account.service'; 
 import { MatDialogModule } from '@angular/material/dialog';
 import { ExpenseModalComponent } from './pages/dashboard/expense/expense-modal/expense-modal.component';
+import { ManageAccountComponent } from './pages/manage-account/manage-account.component';
+import { ManageExpenseComponent } from './pages/manage-account/manage-expense/manage-expense.component';import { MatListModule } from '@angular/material/list';
+
+
+
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { ManageAccountComponent } from './pages/manage-account/manage-account.component';
 import { ManageExpenseComponent } from './pages/manage-account/manage-expense/manage-expense.component';
 
@@ -61,7 +69,8 @@ import { ManageExpenseComponent } from './pages/manage-account/manage-expense/ma
     declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, Step1Component, Step2Component, Step3Component, Step4Component, StepsComponent, OffersComponent, Step5Component, Step6Component, Step7Component, Step8Component, TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,
 
         LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent],
-    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule],
+    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatProgressBarModule,LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageExpenseComponent,ManageAccountComponent],
+ 
     providers: [],
     bootstrap: [AppComponent],
 })

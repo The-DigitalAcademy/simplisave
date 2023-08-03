@@ -1,71 +1,157 @@
-h1 {
+/* Global styles */
+.container {
+  width: 1000px;
+  margin-top: 30px; 
+}
+
+.heading {
+  text-align: left;
   color: #870A3C;
-  font-family: Roboto;
-  font-size: 35px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 20px;
 }
 
-h2 {
-  color: #1D1B20;
-  font-family: Roboto;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-}
-
-.flex-item {
-  display: flex;
-  padding: 5%;
-  align-items: center;
-  flex: 1 0 0;
-  border-style: solid;
-  border-width: 0.5px;
-  border-radius: 12px;
-  width: 160%;
-}
-
-h3 {
-  color: #1D1B20;
-  font-family: Roboto;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+.balance {
+  position: absolute;
+  bottom: -70px;
+  right: 5px;
+  color: black;
+  height: 50px;
 }
 
 .grid-container {
-  display: grid;
-  height: 60%;
-  width: 300%; /* Change this to 100% for full-width responsiveness */
-  align-content: center;
-  grid-template-columns: auto auto auto;
-  gap: 10px;
-  background-color: #ffff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.cardHeading { 
+  padding-left: 10px;
+  height: 40px; 
+  width: 450px;
+  position: relative;
+}
+
+.card {
+  flex: 1 1 calc(33.333% - 20px);
+  border: 1px solid #ccc;
+  border-radius: 15px;
   padding: 10px;
+  height: 90px; 
+  max-width: 300px; 
 }
 
-.grid-container > div {
-  background-color: #ffff;
-  border-style: solid;
-  border-width: 0.5px;
-  border-radius: 12px;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
+.card-content {
+  position: relative;
 }
 
+mat-icon {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  color: grey;
+  cursor: pointer;
+}
 
-/* Mobile responsiveness */
+mat-progress-bar {
+  margin-top: 20px;
+}
+
+.mat-mdc-progress-bar{
+  background-color: #ffffff;
+  --mdc-linear-progress-active-indicator-color: #870A3C;
+}
+
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
-  .flex-item {
-    width: 100%; /* Adjust the width for smaller screens */
-  }
-
   .grid-container {
-    grid-template-columns: 1fr; /* Single column layout on smaller screens */
-    width: 100%; /* Full-width responsiveness for smaller screens */
+    justify-content: center; 
+  }
+  
+  .card {
+    flex-basis: calc(50% - 20px);  
   }
 }
+
+@media screen and (max-width: 480px) {
+  .card {
+    flex-basis: 100%; 
+  }
+}
+
+
+/* 
+.container {
+  padding: 20px;
+  width: 1000px;
+  margin: 0 auto; 
+}
+
+.heading {
+  text-align: left;
+  color: #870A3C;
+}
+
+.balance{
+  position: absolute;
+  bottom: -70px;
+  right: 5px;
+  color: black;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cardHeading{ 
+  padding-left: 10px;
+  height: 50px; 
+  width: 450px;
+  position: relative;
+}
+
+.card {
+  flex: 1 1 calc(33.333% - 20px);
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 10px;
+  height: 150px; 
+  max-width: 300px; 
+}
+
+.card-content {
+  position: relative;
+}
+
+mat-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: grey;
+  cursor: pointer;
+}
+
+mat-progress-bar {
+  margin-top: 40px;
+}
+
+.red-progress-bar .mat-progress-bar-fill::after {
+  background-color: red;
+}
+
+
+@media screen and (max-width: 768px) {
+  .grid-container {
+    justify-content: center; 
+  }
+  
+  .card {
+    flex-basis: calc(50% - 20px);  
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    flex-basis: 100%; 
+  }
+} */
