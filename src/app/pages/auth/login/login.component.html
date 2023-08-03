@@ -10,7 +10,9 @@
           <div class="card-body p-3">
             <h3 class="create text-left mb-1">Log into your account</h3>
             <h4 class="credentials mb-5">Enter your credentials below.</h4>
+
             <form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
+
               <mat-form-field class="validation mb-4" appearance="outline">
                 <mat-label>Email</mat-label>
                 <input matInput type="email" class="form-control-plaintext" id="email" formControlName="email" required />
