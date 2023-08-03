@@ -1,79 +1,95 @@
-
 .row {
-    display: flex;
-    height: 100%;
-  } 
- .col {
-    background-color: #E5E5E5;
-    border-radius: 3px;
-    margin: 5px;
-    width: 80%;
+   display: flex;
+   height: 100%;
    
-   
- }
-
-
- .flex-box {
-    width: 100%;
-    height: 100%;
- }
-
- .flex-container {
-    padding: 30px;
-    margin-bottom: 5%;
-   
- }
-
- .card button{
-    background-color: #870A3C;
-    width: 70%;
-    color: #ffff;
-    border-radius: 3px;
-    margin-left: 35px;
-    margin-bottom: 5px;
-    border: none;
- }
-
- .text-center {
-background-color: #ffff;
-
 }
 
- @media (min-width: 790px) and (max-width: 1440px) {
-
-    .text-center {
-        margin-top: -30.5%;
-        margin-left: 18%;
-        width: 80.5%;
-        height: 48%;
-        margin-bottom: 6.2%;
-        
-    }
-
-    .flex-container {
-        padding: 10px;
-        margin-bottom: 5%;
-     }
-
-     .card {
-        height: 26vh;
-     }
-
-     .card p {
-        margin-top: 5%;
-       
-     }
-
-     .card button {
-        background-color: #870A3C;
-        color: #ffff;
-        width: 30%;
-        border-radius: 5px;
-        margin-left: 35%;
-        margin-top: 10%;
-     }
- } 
-
+.col {
+   background-color: #E5E5E5;
+   border-radius: 3px;
+   margin: 1.5%;
+   width: 80%;
   
- 
+   
+}
 
+.flex-box {
+   width: 100%;
+   max-height: 100rem;
+   margin: 5%;
+}
+
+.flex-container {
+   margin-bottom: 1%;
+   margin: 5%;
+}
+.card{
+   margin-top: 10%;
+}
+
+.card button {
+   background-color: #870A3C;
+   width: 50%;
+   color: #ffff;
+   border-radius: 3px;
+   margin-left: 25%;
+   margin-bottom: 10%;
+   border: none;
+}
+
+.text-center {
+   background-color: #ffff;
+}
+.checklist{
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   border-style: solid;
+}
+li{
+   text-decoration: none;
+}
+/* Hide the default checkbox */
+input[type="checkbox"] {
+   position: absolute;
+   opacity: 0;
+   height: 0;
+   width: 0;
+ }
+ 
+ /* Create the checkbox box */
+ input[type="checkbox"] + label {
+   position: relative;
+   padding-left: 30px;
+   cursor: pointer;
+ }
+ 
+ /* Style the checkbox box */
+ input[type="checkbox"] + label::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 20px;
+   height: 20px;
+   border: 1px solid #000;
+   background-color: #fff;
+ }
+ 
+ /* Style the checkmark inside the checkbox */
+ input[type="checkbox"] + label::after {
+   content: "\2718"; /* Unicode for X symbol */
+   position: absolute;
+   top: 2px;
+   left: 6px;
+   font-size: 16px;
+   color: red;
+   visibility: hidden;
+ }
+ 
+ /* Show the checkmark when the checkbox is checked */
+ input[type="checkbox"]:checked + label::after {
+   visibility: visible;
+ }
+ 

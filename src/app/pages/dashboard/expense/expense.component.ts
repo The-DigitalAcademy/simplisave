@@ -1,20 +1,116 @@
-import { Component } from '@angular/core';
-import { Chart,ChartOptions } from 'chart.js';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Chart, ChartOptions } from 'chart.js';
+import { DashboardService } from 'src/app/dashboard.service';
+import { AccountService } from 'src/app/services/account.service';
+import { ExpenseModalComponent } from './expense-modal/expense-modal.component';
 
 @Component({
   selector: 'app-expense',
   templateUrl: './expense.component.html',
-  styleUrls: ['./expense.component.css']
+  styleUrls: ['./expense.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ExpenseComponent {
+  constructor(
+    private dashService: DashboardService,
+    private route: ActivatedRoute,
+    private service: AccountService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
+  items1: any = [];
+  data: any;
+  types: any;
+  isTypesEmpty: any;
+  filteredData: any[] = []; // Initialize filteredData as an empty array
+  sumMoneyOut: any;
+  sumMoneyOutMonths: any[] = [];
+  isDataFetched: boolean = false; // Flag to track data fetch completion
+  typeTotals: any = {}; // Property to store typeTotals
 
-  ngAfterViewInit() {
-    this.createChart();
+  ngOnInit() {
+    this.getTransactionsFromApi();
+    this.getTypes();
+    // this.calculateTotalForEachType(); // Remove this call from ngOnInit()
+
+    // Subscribe to the refreshObservable to listen for refresh events
+    this.dashService.refreshObservable$.subscribe(() => {
+      // Refresh logic for ComponentTwo
+      this.refreshComponent();
+    });
   }
 
-  createChart() {
+  getTransactionsFromApi() {
+    this.service.getTransactions().subscribe((res) => {
+      this.items1 = res;
+      console.log(this.items1);
+      this.filterAndCalculateSumMoneyOut();
+      this.createChart(...this.sumMoneyOutMonths);
+      this.checkDataFetched(); // Call checkDataFetched after items1 is populated
+    });
+  }
+
+  getTypes() {
+    this.service.getTypes().subscribe(res => {
+      this.types = res;
+      console.log("Types:"+this.types);
+      if (this.types.length === 0) {
+        this.isTypesEmpty = '';
+      } else {
+        this.isTypesEmpty = 'full';
+      }
+      this.checkDataFetched(); // Call checkDataFetched after types are populated
+    });
+  }
+
+  checkDataFetched() {
+    // Check if both items1 and types are populated
+    if (this.items1 && this.types) {
+      this.calculateTotalForEachType();
+    }
+  }
+
+  filterAndCalculateSumMoneyOut() {
+    // Change dates from strings to JavaScript objects
+    const transactions = this.items1.map((record: any) => ({
+      ...record,
+      Transaction_Date: new Date(record.Transaction_Date),
+    }));
+
+    // Get the current month and year
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
+
+    // Filter data to find records where Money_Out is greater than 0 (Expense) and Transaction_Date is within the current month
+    this.filteredData = transactions.filter((record: any) => {
+      const isMoneyOutPositive = record.Money_Out > 0;
+      const transactionDate = record.Transaction_Date;
+      const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
+
+      return isMoneyOutPositive && isWithinCurrentMonth;
+    });
+
+    this.sumMoneyOutMonths = Array.from({ length: 4 }, (_, i) => {
+      const prevMonth = (currentMonth - i + 12) % 12;
+      const filteredPrevMonthData = transactions.filter((record: any) => {
+        const isMoneyOutPositive = record.Money_Out > 0;
+        const transactionDate = record.Transaction_Date;
+        const isWithinPrevMonth = transactionDate.getMonth() === prevMonth;
+        return isMoneyOutPositive && isWithinPrevMonth;
+      });
+
+      return filteredPrevMonthData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
+    });
+
+    this.sumMoneyOutMonths.reverse(); // Reverse the array here
+    this.sumMoneyOut = this.sumMoneyOutMonths.reduce((sum, monthSum) => sum + monthSum, 0);
+  }
+
+  createChart(...sumMoneyOutMonths: number[]) {
     const canvas: HTMLCanvasElement = document.getElementById('myChart') as HTMLCanvasElement;
     const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
 
@@ -22,15 +118,20 @@ export class ExpenseComponent {
       throw new Error("Canvas context is null.");
     }
 
+    const currentMonthName = new Date().toLocaleString('default', { month: 'long' });
+    const prev1MonthName = new Date(new Date().setMonth(new Date().getMonth() - 1)).toLocaleString('default', { month: 'long' });
+    const prev2MonthName = new Date(new Date().setMonth(new Date().getMonth() - 2)).toLocaleString('default', { month: 'long' });
+    const prev3MonthName = new Date(new Date().setMonth(new Date().getMonth() - 3)).toLocaleString('default', { month: 'long' });
+
     this.chart = new Chart(ctx, {
-      type: 'bar', // Change to 'bar' for a bar graph
+      type: 'bar',
       data: {
-        labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
+        labels: [currentMonthName, prev1MonthName, prev2MonthName, prev3MonthName].reverse(),
         datasets: [{
-          label: 'Expense Summary', // Add the heading "Expense Summary"
-          data: [1300, 1500, 1100, 1500, 1000, 1000, 1200, 1800, 1700, 1200],
-          backgroundColor: '#870A3C', // Set the bars' color to #870A3C
-          borderWidth: 0 // Remove the borders between the bars
+          label: 'Expense Summary',
+          data: sumMoneyOutMonths,
+          backgroundColor: ['#00A4CCFF', '#28334AFF', '#6A0572', '#870A3C'],
+          borderWidth: 0
         }]
       },
       options: {
@@ -48,7 +149,7 @@ export class ExpenseComponent {
               stepSize: 500
             },
             grid: {
-              display: false // Remove the grid from the chart
+              display: false
             }
           }
         },
@@ -58,8 +159,81 @@ export class ExpenseComponent {
             position: 'bottom'
           }
         }
-      } as ChartOptions // Add this type assertion to prevent TypeScript errors
+      } as ChartOptions
     });
   }
 
+  openExpenseModal(): void {
+    const dialogRef = this.dialog.open(ExpenseModalComponent, {
+      width: '450px' // Set the desired width of the modal
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result) {
+        console.log('Category Name:', result.categoryName);
+        console.log('Amount:', result.amount);
+      }
+    });
+  }
+
+  private refreshComponent() {
+    location.reload();
+    console.log('Component Two is being refreshed!');
+  }
+
+  calculateTotalForEachType() {
+    // Change dates from strings to JavaScript objects
+    const transactions = this.items1.map((record: any) => ({
+      ...record,
+      Transaction_Date: new Date(record.Transaction_Date),
+    }));
+
+    // Get the current month and year
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
+
+    this.typeTotals = {}; // Reset typeTotals before calculating
+
+    this.types.forEach((type: any) => {
+      const typeName = type.name; // Extract typeName correctly from the type object
+      const filteredData = transactions.filter((record: any) => {
+        const isMoneyOutPositive = record.Money_Out > 0;
+        const transactionDate = record.Transaction_Date;
+        const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
+        const isDescriptionMatching = record.Description === typeName;
+        console.log(record.Money_Out);
+
+        return isMoneyOutPositive && isWithinCurrentMonth && isDescriptionMatching;
+      });
+      console.log(filteredData);
+      const typeTotal = filteredData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
+      
+      this.typeTotals[typeName] = typeTotal; // Store the typeTotal in the typeTotals object
+    });
+
+    console.log("Type Totals1" + this.typeTotals);
+    this.compareTypesAndTypeTotals(); // Call the new function to compare types and typeTotals
+  }
+
+  compareTypesAndTypeTotals() {
+    if (!this.types || !this.typeTotals) {
+      return;
+    }
+
+    for (const type of this.types) {
+      const typeName = type.name;
+      const typeTotal = this.typeTotals[typeName] || 0;
+      const typeAmount = type.amount || 0;
+      console.log(type.name);
+      console.log("Amount spent: "+this.typeTotals[typeName]);
+      console.log("Amount set: "+typeAmount);
+
+      if (typeTotal > typeAmount) {
+        type.isChecked = true;
+      } else {
+        type.isChecked = false;
+      }
+    }
+  }
 }
