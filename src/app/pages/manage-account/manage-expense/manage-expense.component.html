@@ -7,12 +7,12 @@
   <h3>Saving Goal</h3>
 
   <div class="grid-container">
-    <div class="card">
+    <div class="card" *ngFor="let goalSavings of Goal_Savings">
       <div class="card-content">
         <h6>Savings Goal</h6>
-        <mat-icon>edit</mat-icon>
+        <mat-icon (click)="openGoalModal()">edit</mat-icon>
         <mat-progress-bar class="red-progress-bar" mode="determinate" value="10"></mat-progress-bar>
-        <h5 class="balance">R300</h5>
+        <h5 class="balance">R{{ goalSavings.Amount_Set }}</h5>
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
     <div class="card" *ngFor="let transactionType of Transaction_Type">
       <div class="card-content">
         <h6>{{ transactionType.name }}</h6>
-        <mat-icon>edit</mat-icon>
+        <mat-icon (click)="openExpenseModal()">edit</mat-icon>
         <mat-progress-bar class="red-progress-bar" mode="determinate" value="10"></mat-progress-bar>
         <h5 class="balance">R{{ transactionType.amount }}</h5>
       </div>

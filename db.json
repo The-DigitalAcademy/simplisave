@@ -25,6 +25,14 @@
       "Balance": 2000
     }
   ],
+  "Goal_Savings": [
+    {
+      "Goal_Id": 1,
+      "Savings_Acc_No": 9898989898989898,
+      "Amount_Set": "500",
+      "Date_created": "08/08/2022"
+    }
+  ],
   "Transaction": [
     {
       "Transaction_Id": 1,
@@ -125,8 +133,7 @@
       "Money_In": 0,
       "Money_Out": 900,
       "Available_Balance": "1100"
-    }
-    ,
+    },
     {
       "Transaction_Id": 2,
       "Type_id": 2,
@@ -141,7 +148,7 @@
   "Transaction_Type": [
     {
       "name": "Uber",
-      "amount": "200",
+      "amount": "500",
       "id": 1
     },
     {
@@ -163,6 +170,30 @@
       "name": "Takealot",
       "amount": "200",
       "id": 5
+    },
+    {
+      "name": "lol ",
+      "amount": "3300",
+      "id": 6
+    },
+    {
+      "name": "lol",
+      "amount": "3300",
+      "id": 7
+    },
+    {
+      "name": "nike",
+      "amount": "700",
+      "id": 8
+    },
+    {
+      "name": "lebo",
+      "amount": "300",
+      "id": 9
+    },
+    {
+      "amount": "100",
+      "id": 10
     }
   ]
 }
