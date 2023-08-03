@@ -20,8 +20,8 @@ export class AccountService {
     return this.http.get('http://localhost:3000/Transaction');
    }
 
-   getTypes(){
-    return this.http.get('http://localhost:3000/Transaction_Type');
+   getTypes(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:3000/Transaction_Type');
    }
 
 
