@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class StepperService {
   private currentStep = 0;
   private registrationData: any = {};
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   setCurrentStep(step: number) {
     this.currentStep = step;

@@ -10,7 +10,7 @@
             <h3 class="create text-left mb-1">Create your account</h3>
             <h4 class="credentials mb-5">Enter your credentials below.</h4>
 
-            <form [formGroup]="step1FormGroup">
+            <form [formGroup]="step1FormGroup" (ngSubmit)="storeStepData()">
 
               <mat-form-field class="validation mb-4" appearance="outline">
                 <mat-label>Full name</mat-label>
@@ -43,7 +43,7 @@
                   <div class="buttons text-center">
                   <button class="pbtn text-center mb-2" mat-button matStepperPrevious disabled>Previous</button>
 
-                  <button class="btn text-center mb-2" mat-button matStepperNext>Next</button>
+                  <button type="submit" class="btn text-center mb-2" mat-button matStepperNext>Next</button>
 
                 </div>
 

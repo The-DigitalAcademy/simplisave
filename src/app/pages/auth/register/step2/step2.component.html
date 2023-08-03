@@ -9,7 +9,7 @@
             <h3 class="create text-left mb-1">Create a secure password</h3>
             <h4 class="credentials mb-5">Enter a secure password</h4>
 
-            <form [formGroup]="step2FormGroup">
+            <form [formGroup]="step2FormGroup" (ngSubmit)="storeStepData()">
 
               <mat-form-field class="validation mb-4" appearance="outline">
                 <mat-label>Password</mat-label>
@@ -30,7 +30,7 @@
               <div class="buttons text-center">
                 <button class="btn text-center mb-2" mat-button matStepperPrevious>Previous</button>
 
-                <button class="btn text-center mb-2" mat-button matStepperNext>Next</button>
+                <button type="submit" class="btn text-center mb-2" mat-button matStepperNext>Next</button>
 
               </div>
 
