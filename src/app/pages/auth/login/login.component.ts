@@ -11,12 +11,12 @@ import { AuthService } from 'src/app/services/auth-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-/* Declaring loginForm of type FormGroup
-   Sekhukhune Delphia
-   01-August-2023 
-*/
+  /* 
+      Declaring loginForm of type FormGroup
+      Sekhukhune Delphia
+      01-August-2023
+  */
   public loginForm!: FormGroup;
-
   
   constructor( private formBuilder: FormBuilder, private http: HttpClient, private authService : AuthService, private router: Router) {}
  
@@ -34,10 +34,11 @@ export class LoginComponent implements OnInit {
     });
    }
 
-/* login() is a method for handling the login process.  
-   Sekhukhune Delphia
-   01-August-2023 
-*/
+  /* 
+    login() is a method for handling the login process.  
+    Sekhukhune Delphia
+    01-August-2023
+  */
   login() {
 
   //It checks if the loginForm is valid and returns if it's not. 
@@ -51,12 +52,16 @@ export class LoginComponent implements OnInit {
       .subscribe(
         res=>{
  
- // The find() method searches through the array using the parameter user which stores the data in the variable userCredentials if found.
-          const userCredentials = res.find((user:any)=>{
+ /* 
+    The find() method searches through the array using the parameter user which stores the data in the variable userCredentials if found.
+    Sekhukhune Delphia
+      01-August-2023
+ */
+ const userCredentials = res.find((user:any)=>{
             return user.email === this.loginForm.value.email && user.password === this.loginForm.value.password 
           });
           console.log(userCredentials);
-// Displays a success alert and navigates to the dashboard if a match is found .
+           // Displays a success alert and navigates to the dashboard if a match is found.
           if(userCredentials){
             this.authService.successAlert();
             this.loginForm.reset();

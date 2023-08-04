@@ -10,7 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   box-shadow: 2px 0px 2px gray;
-  min-height: 105%; /* Make the sidebar take up the full height */
+  min-height: 86vh; /* Make the sidebar take up the full height */
 }
 
 .mat-icon {
