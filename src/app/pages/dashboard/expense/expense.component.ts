@@ -40,24 +40,29 @@ export class ExpenseComponent {
 
 /*     Subscribe to the observable that holds the state of the checklist, triggering this which
         triggers a refresh of the checklist once an item is saved
+        2023/08/03
  */    this.dashService.refreshObservable$.subscribe(() => {
       this.refreshComponent();
     });
   }
 
-  /* call http get function in the service to get all the transaction records */
+  /* call http get function in the service to get all the transaction records
+  -Mohammed Badat
+  - 2023/08/01*/
   getTransactionsFromApi() {
     this.service.getTransactions().subscribe((res: any) => {
       this.items1 = res;
       console.log(this.items1);
       this.filterAndCalculateSumMoneyOut();
       this.createChart(...this.sumMoneyOutMonths);
-      this.checkDataFetched(); // Call checkDataFetched after items1 is populated
+      this.checkDataFetched(); 
     });
   }
 
   /* call http get function in the service file to fetch the types of expense allocation categories
-  set by the user to populqte the checklist */
+  set by the user to populqte the checklist
+  -Mohammed Badat
+  -2023/08/01 */
   getTypes() {
     this.service.getTypes().subscribe((res: any) => {
       this.types = res;
@@ -71,7 +76,9 @@ export class ExpenseComponent {
     });
   }
 
-  /* check whether both methods fetching data have successfully retreived it */
+  /* check whether both methods fetching data have successfully retreived it
+  -Mohammed Badat
+  -2023/08/03 */
   checkDataFetched() {
     if (this.items1 && this.types) {
       this.calculateTotalForEachType();
@@ -80,7 +87,9 @@ export class ExpenseComponent {
 
   /* filter the transaction records for the current and previous three months to find records that occured 
   within that month, the records should have money going out (expenses), lastly the amounts of these records 
-  should be added to obtain the total expense amount for that month */
+  should be added to obtain the total expense amount for that month
+  -Mohammed Badat
+  -2023/08/02 */
   filterAndCalculateSumMoneyOut() {
     // Change dates from strings to JavaScript objects
     const transactions = this.items1.map((record: any) => ({
@@ -120,6 +129,8 @@ export class ExpenseComponent {
   }
 
   //create the chart using chart js, display current and three previous months, use the sumMoneyOut created array to populate values
+  //Mohammed Badat
+  //2023/08/02
   createChart(...sumMoneyOutMonths: number[]) {
     const canvas: HTMLCanvasElement = document.getElementById('myChart') as HTMLCanvasElement;
     const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
@@ -193,6 +204,12 @@ export class ExpenseComponent {
     location.reload();
   }
 
+ /*  for each user set expense allocation, fiter the transaction records to find records in the current month
+  , records with only money going and the description of the transaction should match the name of the expense allocation type, 
+  then add the total money out for all these records giving us a sum that is the amount a user has for a certain expense 
+  allocation type for the month 
+  -Mohammed Badat
+  -2023/08/03*/
   calculateTotalForEachType() {
     // Change dates from strings to JavaScript objects
     const transactions = this.items1.map((record: any) => ({
@@ -204,10 +221,10 @@ export class ExpenseComponent {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth(); 
 
-    this.typeTotals = {}; // Reset typeTotals before calculating
+    this.typeTotals = {}; 
 
     this.types.forEach((type: any) => {
-      const typeName = type.name; // Extract typeName correctly from the type object
+      const typeName = type.name;
       const filteredData = transactions.filter((record: any) => {
         const isMoneyOutPositive = record.Money_Out > 0;
         const transactionDate = record.Transaction_Date;
@@ -228,7 +245,9 @@ export class ExpenseComponent {
   }
 
 /*   compare the total monthly spending amounts for the different transaction types with the expense allocation limits
-  set by the user and then indicate on the checklist whether have exceeded their set limits or not */
+  set by the user and then indicate on the checklist whether have exceeded their set limits or not
+  -Mohammed Badat
+  -2023/08/03 */
   compareTypesAndTypeTotals() {
     if (!this.types || !this.typeTotals) {
       return;
