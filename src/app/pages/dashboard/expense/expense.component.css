@@ -29,11 +29,11 @@ mat-icon{
 .col h1::after {
    content: "";
    display: block;
-   width: calc(100% + 4%); /* Adjust to cover the entire .col element including margins */
-   height: 0.5px; /* Adjust the line height as needed */
-   background-color: #000; /* Adjust the line color as needed */
-   margin-top: 10px; /* Adjust the margin as needed to create space between the line and the content */
-   margin-left: -2%; /* Compensate for the margins on .col */
+   width: calc(100% + 4%); 
+   height: 0.5px; 
+   background-color: #000; 
+   margin-top: 10px; 
+   margin-left: -2%; 
 }
 
 .flex-box {
@@ -55,7 +55,7 @@ mat-icon{
       background-size: cover;
       margin-top: 10%;
       margin: 0%;
-      max-width: 100%; /* Limit the image's width to the container's width */
+      max-width: 100%; 
    
    }
 
@@ -158,7 +158,7 @@ input[type="checkbox"] {
 
    @media (max-width: 320px) {
       .col h1 {
-        font-size: 20px; /* Adjust the font size as needed for mobile devices */
+        font-size: 20px; 
       }
     
      

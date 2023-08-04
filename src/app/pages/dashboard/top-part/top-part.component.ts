@@ -12,7 +12,7 @@ export class TopPartComponent implements OnInit {
   totalSaved: number = 0;
   items:any;
   items1:any;
-  filteredData: any[] = []; // Initialize filteredData as an empty array
+  filteredData: any[] = []; 
   sumMoneyOut: any;
   
   constructor(private accountService: AccountService) {}
@@ -23,6 +23,7 @@ export class TopPartComponent implements OnInit {
     this. getSimplisaveData();
   }
 
+  // function to fetch account data
   getAccountData() {
     this.accountService.getAccountData()
           .subscribe(res => {
@@ -32,6 +33,8 @@ export class TopPartComponent implements OnInit {
             console.log(this.availableBalance)
 });
   }
+
+ // Fetches transaction data from the API 
   getDataFromApi() {
     this.accountService.getTransactions()
       .subscribe(res => {
@@ -40,8 +43,9 @@ export class TopPartComponent implements OnInit {
         this.filterData();
       });
   }
-  getSimplisaveData(){
 
+ // Fetches account data (such as available balance for a simplisave savings account) from an AP
+  getSimplisaveData(){
     this.accountService.getSimplisaveData()
                .subscribe(res=>{
                 this.items1 = res;
