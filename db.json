@@ -37,7 +37,7 @@
     {
       "Transaction_Id": 1,
       "Type_id": 1,
-      "Account_No": 9898989898989898,
+      "Account_No": 1234567890123456,
       "Description": "Uber",
       "Transaction_Date": "2022/08/28",
       "Money_In": 0,
@@ -46,82 +46,62 @@
     },
     {
       "Transaction_Id": 2,
-      "Type_id": 2,
+      "Type_id": 1,
       "Account_No": 1234567890123456,
       "Description": "Uber",
-      "Transaction_Date": "08/08/2022",
-      "Money_In": 300,
-      "Money_Out": 0,
+      "Transaction_Date": "2022/08/28",
+      "Money_In": 0,
+      "Money_Out": 50,
       "Available_Balance": "1900"
     },
     {
       "Transaction_Id": 3,
       "Type_id": 2,
       "Account_No": 1234567890123456,
-      "Description": "Uber",
-      "Transaction_Date": "08/08/2022",
+      "Description": "Takealot",
+      "Transaction_Date": "2022/08/20",
       "Money_In": 0,
-      "Money_Out": 300,
+      "Money_Out": 500,
       "Available_Balance": "1900"
     },
     {
       "Transaction_Id": 4,
-      "Type_id": 2,
+      "Type_id": 1,
       "Account_No": 1234567890123456,
       "Description": "Uber",
-      "Transaction_Date": "07/08/2022",
+      "Transaction_Date": "2022/07/08",
       "Money_In": 0,
       "Money_Out": 100,
       "Available_Balance": "1100"
     },
     {
-      "Transaction_Id": 5,
-      "Type_id": 2,
-      "Account_No": 1234567890123456,
-      "Description": "Uber",
-      "Transaction_Date": "08/08/2022",
-      "Money_In": 0,
-      "Money_Out": 800,
-      "Available_Balance": "1100"
-    },
-    {
       "Transaction_Id": 6,
-      "Type_id": 2,
+      "Type_id": 1,
       "Account_No": 1234567890123456,
       "Description": "Uber",
-      "Transaction_Date": "07/08/2022",
+      "Transaction_Date": "2022/07/03",
       "Money_In": 0,
-      "Money_Out": 900,
+      "Money_Out": 300,
       "Available_Balance": "1100"
     },
     {
       "Transaction_Id": 7,
-      "Type_id": 2,
+      "Type_id": 1,
       "Account_No": 1234567890123456,
       "Description": "Uber",
-      "Transaction_Date": "06/08/2022",
+      "Transaction_Date": "2022/06/23",
       "Money_In": 0,
-      "Money_Out": 900,
+      "Money_Out": 200,
       "Available_Balance": "1100"
     },
     {
       "Transaction_Id": 8,
-      "Type_id": 2,
+      "Type_id": 3,
       "Account_No": 1234567890123456,
       "Description": "Van Schaik",
-      "Transaction_Date": "06/08/2022",
+      "Transaction_Date": "2022/06/12",
       "Money_In": 0,
-      "Money_Out": 900,
-      "Available_Balance": "1100"
-    },
-    {
-      "Transaction_Id": 9,
-      "Type_id": 2,
-      "Account_No": 1234567890123456,
-      "Description": "McDonalds",
-      "Transaction_Date": "08/08/2022",
-      "Money_In": 0,
-      "Money_Out": 900,
+      "Money_Out": 200,
       "Available_Balance": "1100"
     },
     {
@@ -139,37 +119,43 @@
       "Type_id": 2,
       "Account_No": 1234567890123456,
       "Description": "Takealot",
-      "Transaction_Date": "05/08/2022",
+      "Transaction_Date": "2011/05/16",
       "Money_In": 0,
-      "Money_Out": 900,
+      "Money_Out": 500,
       "Available_Balance": "1100"
     }
   ],
   "Transaction_Type": [
     {
       "name": "Uber",
-      "amount": "500",
+      "amount": "2000",
       "id": 1
     },
     {
       "name": "Van Schaik",
-      "amount": "10000",
+      "amount": "2000",
       "id": 2
     },
     {
       "name": "McDonalds",
-      "amount": "400",
+      "amount": "2000",
       "id": 3
     },
     {
       "name": "Uber Eats",
-      "amount": "300",
+      "amount": "2000",
       "id": 4
     },
     {
       "name": "Takealot",
-      "amount": "200",
+      "amount": "2000",
       "id": 5
+    },
+    {
+      "name": "werqw",
+      "amount": "2000",
+      "id": 6
+
     }
   ]
 }

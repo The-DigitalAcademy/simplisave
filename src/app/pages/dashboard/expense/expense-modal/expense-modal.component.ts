@@ -30,6 +30,9 @@ export class ExpenseModalComponent {
     return this.expenseForm.controls;
   }
 
+/*   When the user clicks on the close button of the dialogue box, this method is called and 
+  it closes the dialog box
+  2023/08/03 */
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -39,11 +42,14 @@ export class ExpenseModalComponent {
     return control?.touched && control?.hasError(errorName);
   }
 
+  /* This method calls the post function in the service and sends the expense allocation name and amount set by the user to be stored
+  -Mohammed Badat
+  -2023/08/03 */
   saveExpense() {
     // Call the API service to post the form data
     if (this.expenseForm.valid) {
       this.service.createType(this.formData).subscribe(
-        (response) => {
+        (response: any) => {
           // Handle the API response as needed
           console.log('API Response:', response);
           // Optionally, you can close the dialog after successful API call
@@ -51,7 +57,7 @@ export class ExpenseModalComponent {
           this.router.navigate(['/dashboard']);
           this.refreshChecklist();
         },
-        (error) => {
+        (error: any) => {
           // Handle API errors if necessary
           console.error('API Error:', error);
         }
@@ -59,7 +65,10 @@ export class ExpenseModalComponent {
     }
   }
 
-
+/* this method updates the state of refresh subject in the service which triggers the cheklist in another component to be refreshed after an item has been 
+saved
+-Mohammed Badat
+2023/08/03 */
   refreshChecklist() {
     // Trigger the refresh for ComponentTwo
     this.dashService.triggerRefresh();
