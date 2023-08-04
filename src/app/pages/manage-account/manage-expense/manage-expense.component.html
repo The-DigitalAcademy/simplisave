@@ -7,12 +7,12 @@
   <h3>Saving Goal</h3>
 
   <div class="grid-container">
-    <div class="card">
+    <div class="card" *ngFor="let goalSavings of Goal_Savings">
       <div class="card-content">
         <h6>Savings Goal</h6>
-        <mat-icon>edit</mat-icon>
+        <mat-icon (click)="openGoalModal()">edit</mat-icon>
         <mat-progress-bar class="red-progress-bar" mode="determinate" value="10"></mat-progress-bar>
-        <h5 class="balance">R300</h5>
+        <h5 class="balance">R{{ goalSavings.Amount_Set }}</h5>
       </div>
     </div>
   </div>
@@ -22,52 +22,12 @@
     <h3>Expense Allocation Categories</h3>
   </div>
   <div class="grid-container">
-    <div class="card">
+    <div class="card" *ngFor="let transactionType of Transaction_Type">
       <div class="card-content">
-        <h6>McDonalds</h6>
-        <mat-icon>edit</mat-icon>
+        <h6>{{ transactionType.name }}</h6>
+        <mat-icon (click)="openExpenseModal()">edit</mat-icon>
         <mat-progress-bar class="red-progress-bar" mode="determinate" value="10"></mat-progress-bar>
-        <h5 class="balance">R300</h5>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h6>Uber</h6>
-        <mat-icon>edit</mat-icon>
-        <mat-progress-bar class="red-progress-bar" mode="determinate" value="10"></mat-progress-bar>
-        <h5 class="balance">R300</h5>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h6>Uber eats</h6>
-        <mat-icon>edit</mat-icon>
-        <mat-progress-bar mode="determinate" value="75"></mat-progress-bar>
-        <h5 class="balance">R300</h5>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <mat-icon>edit</mat-icon>
-        <h6>Van Schaik Bookstore</h6>
-        <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
-        <h5 class="balance">R300</h5>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <mat-icon>edit</mat-icon>
-        <h6>Bolt</h6>
-        <mat-progress-bar mode="determinate" value="90"></mat-progress-bar>
-        <h5 class="balance">R300</h5>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <mat-icon>edit</mat-icon>
-        <h6>Pep</h6>
-        <mat-progress-bar mode="determinate" value="20"></mat-progress-bar>
-        <h5 class="balance">R300</h5>
+        <h5 class="balance">R{{ transactionType.amount }}</h5>
       </div>
     </div>
   </div>
