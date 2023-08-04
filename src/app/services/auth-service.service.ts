@@ -8,25 +8,30 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class AuthService{
+// LOGIN-URL is a constant variable that holds the API URL for the login endpoint. 
   LOGIN_URL = "http://localhost:3000/signupUsers";
 
+//The constructor holds two parameter: http for making http request and router for navigating to different routes/components 
   constructor(private http: HttpClient, private router: Router) {}
 
-  login(email: string, password: string) {
-    // Replace url with login API endpoint
-    return this.http.post<any>('http://localhost:3000/login', { email, password });
-  }
+  // The method takes an email and password and send a POST request to the login API endpoint 
+  // login(email: string, password: string) {
+  //   // Replace url with login API endpoint
+  //   return this.http.post<any>('http://localhost:3000/login', { email, password });
+  // }
 
+  //This method sends a GET request to the userdata api to fetch user specific data
   getUserData() {
-    // Replace url with user data API endpoint
-    return this.http.get<any>('http://localhost:3000/signupUsers');
+    return this.http.get<any>(this.LOGIN_URL);
   }
 
+  //This method clears the session storage and and navigate the user to the login route, logging them out.
   logout() {
     sessionStorage.clear();
     this.router.navigate(['/login']);
   }
 
+  //This method displays a login success alert using the Swal.fire() function.
   successAlert(){
     Swal.fire({
       icon: 'success',
@@ -37,6 +42,7 @@ export class AuthService{
   })
   }
 
+  // This method displays a failed login alert using the Swal.fire() function indicating that the user-credentials are either incorrect or not found in the database.
   failedAlert(){
   Swal.fire({
     icon: 'error',
@@ -47,6 +53,7 @@ export class AuthService{
   })
   }
 
+  //This method displays a failed connection alert using the Swal.fire() function indicating connectivity problems to backend.
   failedConnAlert(){
     Swal.fire({
       icon:  'question',
