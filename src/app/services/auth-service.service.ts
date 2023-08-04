@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Injectable({
@@ -25,4 +26,34 @@ export class AuthService{
     sessionStorage.clear();
     this.router.navigate(['/login']);
   }
+
+  successAlert(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Login Successful!!!',
+      text: "Welcome to simpliSave",
+      iconColor: '#AF144B',
+      confirmButtonColor: '#AF144B'
+  })
+  }
+
+  failedAlert(){
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'User not found or incorrect credentials. Please try again!!!',
+    iconColor: '#AF144B',
+    confirmButtonColor: '#AF144B'
+  })
+  }
+
+  failedConnAlert(){
+    Swal.fire({
+      icon:  'question',
+      title: 'Unable to connect',
+      text: 'Please check your connection and try again!!!',
+      iconColor: '#AF144B',
+      confirmButtonColor: '#AF144B'
+    })
+    }
 }

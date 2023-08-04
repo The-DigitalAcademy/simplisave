@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "step1": {
+        "name": "Jane Smith",
+        "email": "jane@example.com",
+        "phone": "987654321"
+      },
+      "step2": {
+        "password": "anotherpassword",
+        "confirmPassword": "anotherpassword"
+      },
+      "step3": {
+        "accountNo": "87654321",
+        "pin": "5678"
+      },
+      "step4": {
+        "idNo": "9101211122334",
+        "pinNo": "8765",
+        "confirmPinNo": "8765"
+      }
+    },
+    {
+      "id": 2
+    }
+  ]
+}
