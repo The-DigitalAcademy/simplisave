@@ -31,7 +31,9 @@ export class ExpenseComponent {
   sumMoneyOut: any;
   sumMoneyOutMonths: any[] = [];
   isDataFetched: boolean = false; // Flag to track data fetch completion
+
   typeTotals: any = {}; 
+
 
   //When the page is loaded, get the transactions records and different expense allocation types
   ngOnInit() {
@@ -151,7 +153,7 @@ export class ExpenseComponent {
         datasets: [{
           label: 'Expense Summary',
           data: sumMoneyOutMonths,
-          backgroundColor: ['#00A4CCFF', '#28334AFF', '#6A0572', '#870A3C'],
+          backgroundColor: ['#AF144B', '#AF144B', '#AF144B', '#AF144B'],
           borderWidth: 0
         }]
       },

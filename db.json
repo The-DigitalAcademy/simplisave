@@ -109,6 +109,7 @@
   ],
   "Transaction_Type": [
     {
+
       "name": "Uber",
       "amount": "2000",
       "id": 1
@@ -137,6 +138,7 @@
       "name": "werqw",
       "amount": "2000",
       "id": 6
+
     }
   ]
 }
