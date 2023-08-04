@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FileUploaderService } from 'src/app/services/file-uploader.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-step7',
@@ -9,7 +10,7 @@ import { FileUploaderService } from 'src/app/services/file-uploader.service';
 export class Step7Component {
   selectedFile: File | null = null;
 
-  constructor(private fileUploaderService: FileUploaderService) {}
+  constructor(private fileUploaderService: FileUploaderService, private userService: UserService) {}
 
   onFileSelected(event: Event) {
     const inputElement = event.target as HTMLInputElement;

@@ -1,0 +1,104 @@
+[
+    {
+      "label": "Step 1",
+      "fields": [
+        {
+          "name": "fullName",
+          "label": "Full Name",
+          "type": "text",
+          "placeholder": "Enter your Full name",
+          "required": true
+        },
+        {
+          "name": "email",
+          "label": "Email",
+          "type": "text",
+          "placeholder": "Enter your email address",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "label": "Phone",
+          "type": "number",
+          "placeholder": "Enter your phone number",
+          "required": true
+        }
+      ]
+    },
+    {
+      "label": "Step 2",
+      "fields": [
+        {
+          "name": "password",
+          "label": "Password",
+          "type": "password",
+          "placeholder": "Enter a password",
+          "required": true
+        },
+        {
+          "name": "confirmPassword",
+          "label": "Confirm Password",
+          "type": "password",
+          "placeholder": "Confirm the password",
+          "required": true
+        }
+      ]
+    },
+    {
+        "label": "Step 3",
+        "fields": [
+          {
+            "name": "accountNo",
+            "label": "Account Number",
+            "type": "number",
+            "placeholder": "Enter your account number",
+            "required": true
+          },
+          {
+            "name": "pin",
+            "label": "Pin",
+            "type": "password",
+            "placeholder": "Enter your pin",
+            "required": true
+          }
+        ]
+      },
+      {
+        "label": "Step 4",
+        "fields": [
+          {
+            "name": "idNo",
+            "label": "Identification Number",
+            "type": "number",
+            "placeholder": "Enter your Identification Number",
+            "required": true
+          },
+          {
+            "name": "pinNo",
+            "label": "Pin Number",
+            "type": "number",
+            "placeholder": "Enter a Pin Number",
+            "required": true
+          },
+          {
+            "name": "confirmPinNo",
+            "label": "Confirm Pin Number",
+            "type": "number",
+            "placeholder": "Confirm the Pin Number",
+            "required": true
+          }
+        ]
+      },
+      {
+        "label": "Step 5",
+        "fields": [
+          {
+            
+          },
+          {
+            
+          }
+        ]
+      }
+  ]
+  

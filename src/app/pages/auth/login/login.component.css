@@ -56,6 +56,15 @@ mat-label{
   font-size: small ;
 }
 
+
 .mat-form-field-appearance-outline .mat-form-field-outline {
   border-color:  #870A3C!important;
 }
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 0px; 
+}
+
+

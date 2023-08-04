@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StepperService {
   private currentStep = 0;
-  private data: any = {};
+  private registrationData: any = {};
+
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   setCurrentStep(step: number) {
     this.currentStep = step;
@@ -16,10 +20,21 @@ export class StepperService {
   }
 
   setData(dataKey: string, data: any) {
-    this.data[dataKey] = data;
+    this.registrationData[dataKey] = data;
   }
 
-  getData(dataKey: string): any {
-    return this.data[dataKey];
+  saveRegistrationData() {
+    this.http.post('http://localhost:3000/posts', this.registrationData).subscribe(
+      (response) => {
+        console.log('Registration data saved:', response);
+      },
+      (error) => {
+        console.error('Error saving registration data:', error);
+      }
+    );
+  }
+
+  getRegistrationData() {
+    return this.http.get('http://localhost:3000/posts');
   }
 }

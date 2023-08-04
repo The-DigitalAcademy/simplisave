@@ -11,13 +11,16 @@ import { AuthService } from 'src/app/services/auth-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  // declaring loginForm of type FormGroup
   public loginForm!: FormGroup;
 
   constructor( private formBuilder: FormBuilder, private http: HttpClient, private authService : AuthService, private router: Router) {}
  
   ngOnInit() {
+    //Initializing the loginForm using the formBuilder.group()
     this.loginForm = this.formBuilder.group({
-      // Define form fields for login here
+
+      // Define form fields for login and validation requirements
       email: ['', [Validators.required, Validators.email,Validators.pattern(
         '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,65}$',
       ),]],
@@ -27,29 +30,38 @@ export class LoginComponent implements OnInit {
     });
    }
 
+  // login() is a method for handling the login process.  
   login() {
+
+  //It checks if the loginForm is valid and returns if it's not. 
     if(!this.loginForm.valid){
       return;
      }
-
+ 
+ //If valid it makes an HTTP GET request to the LOGIN_URL and holds the response from the API in res.
     this.http.get<any>(this.authService.LOGIN_URL)
       .subscribe(
         res=>{
+ 
+ // The find() method searches through the array using the parameter user which stores the data in the variable userCredentials if found.
           const userCredentials = res.find((user:any)=>{
             return user.email === this.loginForm.value.email && user.password === this.loginForm.value.password 
           });
           console.log(userCredentials);
+           // Displays a success alert and navigates to the dashboard if a match is found .
           if(userCredentials){
-            alert('Login Succesful!!!');
+            this.authService.successAlert();
             this.loginForm.reset();
             this.router.navigate(["dashboard"]);
             }
+              // Displays a failed alert if no matching user is found or if an error occurs during the request.  
           else{
-            alert("User not found or incorrect credentials. Please try again.")
+            this.authService.failedAlert();
             }
           },
+          // Displays a failed alert if there is no connection to the server.  
       err=>{
-        alert("Something went wrong during login. Please try again.")
+        this.authService.failedConnAlert();
         })
     } 
  }
