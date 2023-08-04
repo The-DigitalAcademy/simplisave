@@ -23,7 +23,7 @@ export class TopPartComponent implements OnInit {
     this. getSimplisaveData();
   }
 
-  // function to fetch account data
+  // function to fetch account data , Mukosi Budeli 01/08/2023
   getAccountData() {
     this.accountService.getAccountData()
           .subscribe(res => {
@@ -34,7 +34,7 @@ export class TopPartComponent implements OnInit {
 });
   }
 
- // Fetches transaction data from the API 
+ // Fetches transaction data from the API , Mukosi Budeli 01/08/2023
   getDataFromApi() {
     this.accountService.getTransactions()
       .subscribe(res => {
@@ -44,7 +44,7 @@ export class TopPartComponent implements OnInit {
       });
   }
 
- // Fetches account data (such as available balance for a simplisave savings account) from an AP
+ // Fetches account data (such as available balance for a simplisave savings account) from an AP , Mukosi Budeli 01/08/2023
   getSimplisaveData(){
     this.accountService.getSimplisaveData()
                .subscribe(res=>{
@@ -55,17 +55,17 @@ export class TopPartComponent implements OnInit {
                })
   }
   filterData() {
-    // Step 1: Parse the date strings in the JSON data to JavaScript Date objects
+    // Step 1: Parse the date strings in the JSON data to JavaScript Date objects , Mohammed Badat 01/08/2023
     const transactions = this.items1.map((record: any) => ({
       ...record,
       Transaction_Date: new Date(record.Transaction_Date)
     }));
   
-    // Step 2: Get the current month and year
+    // Step 2: Get the current month and year , Mohammed Badat 01/08/2023
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
   
-    // Step 3: Filter records where Money_Out is greater than 0 and Transaction_Date is within the current month
+    // Step 3: Filter records where Money_Out is greater than 0 and Transaction_Date is within the current month , Moe 01/08/2023
     this.filteredData = transactions.filter((record: any) => {
       const isMoneyOutPositive = record.Money_Out > 0;
       const transactionDate = record.Transaction_Date;
@@ -74,11 +74,11 @@ export class TopPartComponent implements OnInit {
       return isMoneyOutPositive && isWithinCurrentMonth;
     });
   
-    // Step 4: Calculate the sum of Money_Out for the filtered records
+    // Step 4: Calculate the sum of Money_Out for the filtered records , Mohammed Badat 01/08/2023
     this.sumMoneyOut = this.filteredData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
     console.log(this.sumMoneyOut);
   
-    // Step 5: Log the filtered data
+    // Step 5: Log the filtered data ,Mohammed Badat 01/08/2028
     console.log(this.filteredData);
   }
 

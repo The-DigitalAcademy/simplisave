@@ -26,7 +26,7 @@
       <div class="card-content">
         <h6>{{ transactionType.name }}</h6>
         <mat-icon (click)="openExpenseModal()">edit</mat-icon>
-        <mat-progress-bar class="red-progress-bar" mode="determinate" value="10"></mat-progress-bar>
+        <mat-progress-bar class="red-progress-bar" mode="determinate" [value]="getTypeProgress(transactionType.name)" [bufferValue]="transactionType.amount"></mat-progress-bar>
         <h5 class="balance">R{{ transactionType.amount }}</h5>
       </div>
     </div>
