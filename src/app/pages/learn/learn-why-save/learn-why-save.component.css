@@ -1,10 +1,17 @@
+.outer-container{
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container {
+
     display: flex;
     align-items: flex-start;
     justify-content: center;
     height: fit-content;
-    margin-bottom: 5%;
-    margin-top: 5%;
+    margin-bottom:0;
+    margin-top: 0;
   }
   
   .flex-container {
@@ -17,25 +24,39 @@
   
   .heading {
     text-align: center;
-    color: #870A3C;
+    color: #AF144B;
     text-align: center;
     font-family: Roboto;
-    font-size: 48px;
+    font-size: 32px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: normal;
+    margin-bottom: 5%;
   }
   
   .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100vw;
-    
+    flex-direction: column;
+    width: 80%;
+    border-radius: 12px;
+    border-color: lightgrey;
+    height: 100%;
+  }
+  .button-container{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .cardInfo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
   }
   
   .card {
-    width: 30%;
+    width: 20vw;
     height: auto;
     padding: 10px;
     margin: 10px;
@@ -59,7 +80,6 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin: 10px 0;
     
   }
   

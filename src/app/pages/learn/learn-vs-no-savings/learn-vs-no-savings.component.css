@@ -1,59 +1,80 @@
+.outer-container{
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: fit-content;
-  margin-bottom: 5%;
-  margin-bottom: 5%;
-    margin-top: 5%;
-}
 
-.flex-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: fit-content;
-  width: 90%;
-}
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: fit-content;
+    margin-bottom:0;
+    margin-top: 0;
+  }
+  
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+  }
 
 .heading {
   text-align: center;
-    color: #870A3C;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #AF144B;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .card-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
   flex-wrap: wrap;
-  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: auto;
+  border-style: solid;
+  border-width: 0.1px;
+  border-radius: 12px;
+  border-color: lightgrey;
+  width:80%;
+  height: 100%;
 }
+ .button-container{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .cardInfo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+  }
 
 .card1 {
   display: flex;
   align-items: center;
-  width: 45%;
+  width: 35vw;
   padding: 0;
   margin: 0;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-style: none;
-  min-height: 290px;
+  max-height: 300px;
 }
 
 .card {
   display: flex;
   align-items: center;
-  width: 45%;
+  width: 60%;
   padding: 0;
   margin: 0;
   flex-direction: column;
@@ -72,13 +93,13 @@
 
 .card-explanation {
   color: #000;
-text-align: center;
-font-family: Roboto;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-letter-spacing: 0.048px;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  width: 100%;
 }
 
 #chartCanvas {
