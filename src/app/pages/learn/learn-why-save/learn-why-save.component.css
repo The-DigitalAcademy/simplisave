@@ -65,6 +65,7 @@
     align-items: center;
     text-align: center;
     border-style: none;
+    height: 40vh;
   }
   
   .card-image {

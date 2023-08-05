@@ -31,6 +31,8 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  margin-bottom: 0;
+  padding: 0;
 }
 
 .card-container {
@@ -47,40 +49,42 @@
   width:80%;
   height: 100%;
 }
- .button-container{
-    display: flex;
-    justify-content: flex-end;
-  }
-  .cardInfo{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: auto;
-  }
 
 .card1 {
-  display: flex;
-  align-items: center;
   width: 35vw;
-  padding: 0;
-  margin: 0;
+  height: auto;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-style: none;
-  max-height: 300px;
+  height: 40vh;
+}
+.button-container{
+  display: flex;
+  justify-content: flex-end;
+  width:100%
+}
+.cardInfo{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: auto;
 }
 
 .card {
   display: flex;
   align-items: center;
-  width: 60%;
+  width: 65vw;
   padding: 0;
   margin: 0;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-style: none;
+  height: 5%;
 }
 
 .card-content {

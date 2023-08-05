@@ -1,64 +1,90 @@
+.outer-container{
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: fit-content;
-  margin-bottom: 5%;
-  margin-bottom: 5%;
-    margin-top: 5%;
-}
 
-.flex-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width:100vw;
-}
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: fit-content;
+    margin-bottom:0;
+    margin-top: 0;
+  }
+  
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+  }
 
 .heading {
   text-align: center;
-  color: #870A3C;
+  color: #AF144B;
   text-align: center;
   font-family: Roboto;
-  font-size: 48px;
+  font-size: 32px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: normal;
+  margin-bottom: 5%;
+  padding: 0;
 }
 
 .card-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
   flex-wrap: wrap;
-  margin-top: 20px;
-  
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: auto;
+  border-style: solid;
+  border-width: 0.1px;
+  border-radius: 12px;
+  border-color: lightgrey;
+  width:80%;
+  height: 100%;
+}
+.button-container{
+  display: flex;
+  justify-content: flex-end;
+  width:100%
+}
+.cardInfo{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: auto;
+  flex-direction: column;
 }
 
 .card {
   display: flex;
-  align-items: flex-start;
-  max-width: 35%;
+  align-items: center;
+  width: 35vw;
   margin: 10px;
   margin-bottom: 0px;
   flex-direction: column;
   text-align: center;
   border-style: none;
-  justify-content: flex-start;
-  max-height: 125px;
+  justify-content: fcenter;
+  height: 20vh;
 }
 .card1 {
   display: flex;
   align-items: center;
-  width: 68%;
+  width: 65vw;
   padding: 10px;
   margin: 10px;
   flex-direction: column;
   text-align: center;
   border-style: none;
   justify-content: center;
+  height: 20vh;
 }
 
 .card-content {
@@ -81,16 +107,20 @@ line-height: normal;
 
 .frame {
   display: inline-flex; /* Change to inline-flex to align subframes horizontally */
-  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  height:20vh;
 }
 
 .sub-frame {
-  width: 100%;
+  width: auto;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: fit-content;
+padding:5%;
+  
 }
 
 .sub-frame img {
