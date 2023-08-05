@@ -1,67 +1,89 @@
+.outer-container{
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: fit-content;
-  margin-bottom: 5%;
-  margin-bottom: 5%;
-    margin-top: 5%;
-}
 
-.flex-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width:100vw;
-}
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: fit-content;
+    margin-bottom:0;
+    margin-top: 0;
+  }
+  
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+  }
 
 .heading {
   text-align: center;
-  color: #870A3C;
+  color: #AF144B;
   text-align: center;
   font-family: Roboto;
-  font-size: 48px;
+  font-size: 32px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: normal;
+  padding: 0;
+  margin: 0;
 }
 
 .card-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
   flex-wrap: wrap;
-  margin-top: 0px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: auto;
+  border-style: solid;
+  border-width: 0.1px;
+  border-radius: 12px;
+  border-color: lightgrey;
+  width:80%;
+  height: 100%;
   
+}
+.button-container{
+  display: flex;
+  justify-content: flex-end;
+  width:100%
+}
+.cardInfo{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: auto;
 }
 
 .card {
+  width: 35vw;
+  height: auto;
+  margin: 4px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30%;
-  padding: 0;
-  margin: 0;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-style: none;
-  min-height: 190px;
+  height: 30vh;
 }
 .card1 {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 30%;
+  width: 65vw;
   padding: 0;
   margin: 0;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-style: none;
-  min-height: auto;
+  height: 5%;
 }
 .card-content {
   display: flex;
@@ -73,13 +95,13 @@
 
 .card-explanation {
   color: #000;
-text-align: center;
-font-family: Roboto;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-letter-spacing: 0.048px;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  width: 100%;
 }
 .bottomParagraph{
   color: #000;
@@ -90,11 +112,13 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
   width:68%;
+  height: 10vh;
 }
 .bottomContent{
   display: flex;
   justify-content: center;
-  margin-top: 1.5%;
+  margin-top: 0;
+  padding:0;
 }
 
 #chartCanvas {
