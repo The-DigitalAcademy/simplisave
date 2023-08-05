@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
 }
-.container {
 
+.container {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -44,24 +44,20 @@
     border-color: lightgrey;
     height: 100%;
   }
-  .button-container{
-    display: flex;
-    justify-content: flex-end;
-  }
+
   .cardInfo{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: auto;
   }
-  
+
   .card {
-    width: 20vw;
-    height: auto;
-    padding: 10px;
-    margin: 10px;
     display: flex;
     flex-direction: column;
+    width: 20vw;
+    padding: 10px;
+    margin: 10px;
     align-items: center;
     text-align: center;
     border-style: none;
@@ -77,7 +73,7 @@
     color: #870A3C;
     text-align: center;
     font-family: Roboto;
-    font-size: 24px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -93,13 +89,24 @@
     font-weight: 400;
     line-height: normal;
   }
+  .button-container{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  
   
   /* Media Query for screens below 786px */
   @media (max-width: 786px) {
+    .outer-container{
+      margin-bottom: 20%;
+    }
+    .card-container{
+      width: 100%;
+    }
     .card {
       width: 90%;
-      min-width: auto;
-      height:auto;
+      height:18vh;
       padding: 0;
       margin: 0;
       justify-content: flex-start;
@@ -109,7 +116,13 @@
       height: 33%;
     }
     .heading{
-      font-size: 23px;
+      color: #870A3C;
+      text-align: center;
+      font-family: Roboto;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
       width: 100vw;
     }
   
@@ -119,11 +132,15 @@
     }
   
     .card-explanation {
-      font-size: 14px; /* Adjusted */
+      color: #000;
+      text-align: center;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
     }
     .container{
-      margin-bottom: 20%;
-      height: 70vh;
      justify-content: space-evenly;
     }
   }

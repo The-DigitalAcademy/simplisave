@@ -49,11 +49,7 @@
   width:80%;
   height: 100%;
 }
-.button-container{
-  display: flex;
-  justify-content: flex-end;
-  width:100%
-}
+
 .cardInfo{
   display: flex;
   flex-wrap: wrap;
@@ -65,10 +61,11 @@
 .card {
   display: flex;
   align-items: center;
-  width: 35vw;
-  margin: 10px;
-  margin-bottom: 0;
   flex-direction: column;
+  width: 35vw;
+  margin:0;
+  padding: 0;
+  margin-bottom: 0;
   text-align: center;
   border-style: none;
   justify-content: fcenter;
@@ -77,9 +74,9 @@
 .card1 {
   display: flex;
   align-items: center;
-  width: 65vw;
-  padding: 10px;
-  margin: 10px;
+  width: 55vw;
+  padding: 0;
+  margin: 0;
   flex-direction: column;
   text-align: center;
   border-style: none;
@@ -106,10 +103,13 @@ line-height: normal;
 }
 
 .frame {
+
   display: inline-flex; /* Change to inline-flex to align subframes horizontally */
   justify-content: center;
   align-items: center;
   height:20vh;
+  margin: 10px;
+  padding:10px;
 }
 
 .sub-frame {
@@ -135,10 +135,16 @@ padding:5%;
   padding: none;
 }
 
-@media (max-width: 580px) {
-  .card-container {
-    flex-direction: column-reverse;
-    align-items: center;
+.button-container{
+  display: flex;
+  justify-content: flex-end;
+  width:100%
+}
+
+
+@media (max-width: 790px) {
+  .card-container{
+    width: 100%;
   }
 
   
@@ -180,9 +186,14 @@ padding:5%;
   }
   
   .heading{
-    font-size: 23px;
+    color: #870A3C;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
     width: 100vw;
-    margin-top: 0;
   }
   
   .card {
@@ -219,5 +230,6 @@ padding:5%;
   p {
     font-size: 14px; /* Adjusted */
   }
+  
  
 }

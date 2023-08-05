@@ -31,8 +31,6 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  padding: 0;
-  margin: 0;
 }
 
 .card-container {
@@ -48,13 +46,8 @@
   border-color: lightgrey;
   width:80%;
   height: 100%;
-  
 }
-.button-container{
-  display: flex;
-  justify-content: flex-end;
-  width:100%
-}
+
 .cardInfo{
   display: flex;
   flex-wrap: wrap;
@@ -65,18 +58,19 @@
 .card {
   width: 35vw;
   height: auto;
-  margin: 4px;
+  margin: 10px;
+  padding:10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-style: none;
-  height: 30vh;
+  height:27vh;
 }
 .card1 {
   display: flex;
   align-items: center;
-  width: 65vw;
+  width: 55vw;
   padding: 0;
   margin: 0;
   flex-direction: column;
@@ -94,12 +88,12 @@
 }
 
 .card-explanation {
-  color: #000;
+  color: black;
   text-align: center;
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
-  font-weight: 500;
+  font-weight:100;
   line-height: normal;
   width: 100%;
 }
@@ -111,14 +105,22 @@ font-size: 16px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
-  width:68%;
-  height: 10vh;
+  width:55vw;
+  height: 13vh;
+  margin: 0;
+  padding:0;
 }
 .bottomContent{
   display: flex;
   justify-content: center;
   margin-top: 0;
   padding:0;
+}
+
+.button-container{
+  display: flex;
+  justify-content: flex-end;
+  width:100%
 }
 
 #chartCanvas {
@@ -131,7 +133,8 @@ line-height: normal;
   color: #870A3C;
 }
 
-@media (max-width: 1024px) {
+
+@media (max-width: 790px) {
   
   .card1 {
     min-height:20px;
