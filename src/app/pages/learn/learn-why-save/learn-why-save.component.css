@@ -92,6 +92,7 @@
   .button-container{
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
   }
 
   
@@ -103,6 +104,9 @@
     }
     .card-container{
       width: 100%;
+      padding: 0;
+      margin: 0;
+      height:auto;
     }
     .card {
       width: 90%;
@@ -124,10 +128,14 @@
       font-weight: 400;
       line-height: normal;
       width: 100vw;
+      margin: 0;
+      padding: 0;
+      height:10vh;
     }
   
     .card-heading {
       font-size: 18px; /* Adjusted */
+      padding: 0;
       margin: 0;
     }
   
@@ -142,6 +150,8 @@
     }
     .container{
      justify-content: space-evenly;
+     padding: 0;
+     margin: 0;
     }
   }
 

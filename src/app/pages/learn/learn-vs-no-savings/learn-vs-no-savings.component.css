@@ -103,6 +103,7 @@
 .button-container{
   display: flex;
   justify-content: flex-end;
+  align-items:flex-end;
   width:100%
 }
 
@@ -114,19 +115,24 @@
 @media (max-width: 790px) {
   .outer-container{
    min-height: 100%;
+   
+   margin-bottom: 20%;
   }
   .card1 {
     width: 100%;
     height: 40vh;
+    padding: 0;
+    margin: 0;
   }
   .card {
     width: 100%;
-    height: auto;
+    height: 15.5vh;
+    
   }
   
   .card-content {
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     text-align: center;
   }
 
@@ -149,7 +155,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     height: fit-content;
-    height: 70vh;
+    height: auto;
   }
   
   .flex-container {
@@ -170,6 +176,9 @@
     font-weight: 400;
     line-height: normal;
     width: 100vw;
+    height:10vh;
+    margin: 0;
+    padding: 0;
   }
   
   .card-container {
@@ -178,7 +187,8 @@
     justify-content: center;
     width: 100%;
     flex-wrap: wrap;
-    margin-top: 20px;
-    height:100%;
+    margin:0;
+    padding:0;
+    height:auto;
   }
 }
