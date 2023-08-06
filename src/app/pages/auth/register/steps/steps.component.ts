@@ -19,6 +19,16 @@ export class StepsComponent implements OnInit {
   step6FormGroup: FormGroup = new FormGroup({});
   step7FormGroup: FormGroup = new FormGroup({});
   userData: User | null;
+  newFullName: string = '';
+  newEmail: string = '';
+  newPhone: string = '';
+  newPassword: string = '';
+  newConfirmPassword: string = '';
+  newAccountNo: string = '';
+  newPin: any = '';
+  newIdNo: any ='';
+  newPinNo: any = '';
+  newConfirmPinNo: any ='';
 
   constructor(private fb: FormBuilder, private stepperService: StepperService, private router: Router, private userService: UserService) {
     this.userData = this.userService.getUser();
@@ -62,6 +72,50 @@ export class StepsComponent implements OnInit {
     this.stepperService.setCurrentStep(0);
   }
 
+
+  //updating step 1 - Thilivhali Ravhutulu 05/08/2023
+  updateStep1Values() {
+    const updatedValues = {
+      fullName: this.newFullName,
+      email: this.newEmail,
+      phone: this.newPhone,
+    };
+    
+    this.step1FormGroup.patchValue(updatedValues);
+  }
+
+  //updating step 2 - Thilivhali Ravhutulu 05/08/2023
+  updateStep2Values() {
+    const updatedValues = {
+      password: this.newPassword,
+      confirmPassword: this.newConfirmPassword,
+    };
+    
+    this.step2FormGroup.patchValue(updatedValues);
+  }
+
+  //updating third step  - Thilivhali Ravhutulu 05/08/2023
+  updateStep4Values() {
+    const updatedValues = {
+      accountNo: this.newAccountNo,
+      pin: this.newPin,
+    };
+    
+    this.step4FormGroup.patchValue(updatedValues);
+  }
+
+  //updating fourth step  - Thilivhali Ravhutulu 05/08/2023
+  updateStep6Values() {
+    const updatedValues = {
+      idNo: this.newIdNo,
+      pinNo: this.newPinNo,
+      confirmPinNo: this.newConfirmPinNo,
+    };
+    
+    this.step6FormGroup.patchValue(updatedValues);
+  }
+  
+
   onNext() {
     const currentStep = this.stepperService.getCurrentStep();
     if (currentStep === 0) {
@@ -90,6 +144,11 @@ export class StepsComponent implements OnInit {
   }
 
   successAlert(){
+    this.updateStep1Values();
+    this.updateStep2Values();
+    this.updateStep4Values();
+    this.updateStep6Values();
+    console.log("Form data", this.step6FormGroup.value, this.step4FormGroup.value,  this.step2FormGroup.value,  this.step1FormGroup.value );
     this.stepperService.saveRegistrationData();
     Swal.fire({
       icon: 'success',
@@ -98,7 +157,7 @@ export class StepsComponent implements OnInit {
       confirmButtonColor: '#AF144B'
   })
     // this.completeRegistration();
-    this.navigateToLogin();
+    // this.navigateToLogin();
     
   }
 

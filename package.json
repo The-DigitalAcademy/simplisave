@@ -24,8 +24,10 @@
         "angular-material-icons": "^0.7.1",
         "chart.js": "^4.3.0",
         "jquery": "^3.7.0",
+        "json-server": "^0.17.3",
         "material-icons": "^1.13.8",
         "rxjs": "~7.8.0",
+        "swal": "^0.1.0",
         "sweetalert2": "^11.7.20",
         "tslib": "^2.3.0",
         "zone.js": "~0.12.0"
