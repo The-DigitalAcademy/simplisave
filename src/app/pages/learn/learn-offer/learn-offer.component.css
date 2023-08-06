@@ -122,9 +122,14 @@
   
   /* Media Query for screens below 786px */
   @media (max-width: 786px) {
+    .outer-container{
+      min-height: 100%;
+      
+      margin-bottom: 20%;
+     }
     .card {
       width: 100%;
-      height:auto;
+      height:13.33vh;
       padding: none;
       margin: 0;
       padding: 0;
@@ -136,18 +141,18 @@
       padding: none;
     }
     .bottomParagraph{
-      max-width: 90vw;
       font-size: 14px;
       font-weight: lighter;
       margin-top: auto;
       margin-bottom: auto;
       text-align: center;
       line-height: 1.5;
-      width:90vw;
+      width:100%;
+      height:15.5vh ;
     }
     .card-image{
-      height:16%;
-      width: 10%;
+      width:15%;
+      height: 33%;
     }
     .card-heading {
       font-size: 18px; /* Adjusted */
@@ -155,49 +160,57 @@
     .card-explanation {
       font-size: 14px; /* Adjusted */
     }
-    .container{
-      margin-bottom: 34%;
-      min-width: 100vw;
-      justify-content: center;
-      height: 70vh;
+    .topCards{
+      padding: 0;
+      margin: 0;
+      height: auto;
+    }
+    .container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      height: fit-content;
+      height: auto;
     }
     .card-container{
-      margin-bottom: none;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    margin:0;
+    padding:0;
+    height:100%;
       
     }
     .heading{
-      margin-bottom: none;
-      font-size: 23px;
+      color: #870A3C;
+      text-align: center;
+      font-family: Roboto;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
       width: 100vw;
-      margin-top: 0;
+      height:10vh;
+      margin: 0;
+      padding: 0;
     }
   
-    .flex-container{
-    width:100vw;
-  }
-  button{
-    width: 200px;
-    background-color: #870A3C;
-    color: #FFFFFF;
-    /* Center the buttons horizontally */
-    margin-left: 0.3% ;
-    /* Apply some padding and font size for better aesthetics */
-    padding: 12px 24px;
-    font-size: 16px;
-  }
-  /* Style for the custom buttons */
+    .flex-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+    }
 
-/* Flexbox container for buttons */
-.button-container {
-  /* Center the buttons horizontally */
-  display: flex;
-  justify-content: center;
-  /* Set the container width to the screen width */
-  width: 100%;
-  margin-top: -13%;
-}
+
 .bottomContent{
-  margin-bottom: 0px;
+  height: 100%;
+  margin: 0;
+  padding:0;
 }
 }
 
