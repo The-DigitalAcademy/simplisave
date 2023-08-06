@@ -9,11 +9,11 @@
             <h3 class="create text-left mb-1">Your details are encrypted</h3>
             <h4 class="credentials mb-5">Enter your details below</h4>
 
-            <form [formGroup]="step4FormGroup" (ngSubmit)="storeStepData()">
+            <form [formGroup]="step4FormGroup" (ngSubmit)="updateStep4Values()">
 
               <mat-form-field class="validation mb-4" appearance="outline">
                 <mat-label>Account Number</mat-label>
-                <input matInput type="number" class="form-control-plaintext" id="accountNo" placeholder="12345678" formControlName="accountNo" required />
+                <input matInput type="number" class="form-control-plaintext"  [(ngModel)]="newAccountNo" id="accountNo" placeholder="12345678" formControlName="accountNo" required />
                 <mat-error *ngIf="step4FormGroup.get('accountNo')?.invalid">
                   Account Number is required.
                 </mat-error>
@@ -21,7 +21,7 @@
 
               <mat-form-field class="validation mb-4" appearance="outline">
                 <mat-label>Pin</mat-label>
-                <input matInput type="password" class="form-control-plaintext" id="pin" placeholder="*******" formControlName="pin" required />
+                <input matInput type="password" class="form-control-plaintext"  [(ngModel)]="newPin" id="pin" placeholder="*******" formControlName="pin" required />
                 <mat-error *ngIf="step4FormGroup.get('pin')?.invalid">
                   Pin is required.
                 </mat-error>
