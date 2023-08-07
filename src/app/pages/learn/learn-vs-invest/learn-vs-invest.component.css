@@ -170,12 +170,23 @@ padding:5%;
   height: fit-content;
 }
   .card-heading {
-    font-size: 18px;
+    color: #000;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
 
   .card-explanation {
-    font-size: 14px;
-    width:90vw;
+    color: #000;
+      text-align: center;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
   }
   .container {
     display: flex;
@@ -214,12 +225,23 @@ padding:5%;
   }
 
   h6{
-    font-size: 18px; /* Adjusted */
-    margin: 0;
+    color: #000;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
 
   p {
-    font-size: 14px; /* Adjusted */
+    color: #000;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
   
  

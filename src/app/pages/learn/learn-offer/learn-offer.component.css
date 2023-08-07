@@ -152,13 +152,16 @@
     }
     .card-image{
       width:15%;
-      height: 33%;
+      height: 35%;
     }
     .card-heading {
-      font-size: 18px; /* Adjusted */
-    }
-    .card-explanation {
-      font-size: 14px; /* Adjusted */
+      color:#870A3C;
+      text-align: center;
+      font-family: Roboto;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
     }
     .topCards{
       padding: 0;
@@ -211,6 +214,15 @@
   height: 100%;
   margin: 0;
   padding:0;
+}
+.bottomParagraph{
+  color: #000;
+      text-align: center;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
 }
 }
 
