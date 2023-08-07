@@ -119,6 +119,45 @@
     justify-content: flex-end;
     width:100%
   }
+  .custom-button{
+    max-width: 10%;
+    border-radius: 20px;
+    border-style: none;
+    background-color:#AF144B;
+    color: #FFFFFF;
+    width:45px;
+    height: 40px;
+    display: flex;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    margin: 20px;
+    margin-left: 10px;
+  }
+  
+  .previous-button{
+    max-width: 12%;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 0.1px;
+    border-color: lightgray;
+    background-color:white;
+    color: grey;
+    width:45px;
+    height: 40px;
+    display: flex;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    margin-top: 20px;
+  }
+
   
   /* Media Query for screens below 786px */
   @media (max-width: 786px) {
@@ -152,13 +191,16 @@
     }
     .card-image{
       width:15%;
-      height: 33%;
+      height: 38%;
     }
     .card-heading {
-      font-size: 18px; /* Adjusted */
-    }
-    .card-explanation {
-      font-size: 14px; /* Adjusted */
+      color:#870A3C;
+      text-align: center;
+      font-family: Roboto;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
     }
     .topCards{
       padding: 0;
@@ -211,6 +253,33 @@
   height: 100%;
   margin: 0;
   padding:0;
+}
+.bottomParagraph{
+  color: #000;
+      text-align: center;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+}
+.custom-button{
+  max-width: 15%;
+  border-radius: 20px;
+  height: 30px;
+  padding: 10px 24px;
+  margin: 20px;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.previous-button{
+  max-width: 20%;
+  border-radius: 20px;
+  height: 30px;
+  padding: 10px 24px;
+  margin-top: 20px;
+  font-size: 12px;
 }
 }
 
