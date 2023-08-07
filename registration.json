@@ -2,24 +2,16 @@
   "posts": [
     {
       "id": 1,
-      "step1": {
-        "name": "Jane Smith",
-        "email": "jane@example.com",
-        "phone": "987654321"
-      },
-      "step2": {
-        "password": "anotherpassword",
-        "confirmPassword": "anotherpassword"
-      },
-      "step3": {
-        "accountNo": "87654321",
-        "pin": "5678"
-      },
-      "step4": {
-        "idNo": "9101211122334",
-        "pinNo": "8765",
-        "confirmPinNo": "8765"
-      }
+      "name": "Jane Doe",
+      "email": "jane@example.com",
+      "phone": "0812345678",
+      "password": "password",
+      "confirmPassword": "password",
+      "accountNo": "123456789",
+      "pin": "12345",
+      "idNo": "7654321345567",
+      "pinNo": "12345678",
+      "confirmPinNo": "12345678"
     },
     {
       "id": 2
