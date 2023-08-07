@@ -1,4 +1,4 @@
-export interface User {
+export interface User { // interface for all data - Thilivhali Ravhutulu 07/08/2023
     name: string;
     email: string;
     phone: string;

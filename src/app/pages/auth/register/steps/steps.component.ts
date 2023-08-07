@@ -1,9 +1,6 @@
-import { RegistrationData } from './../../../../interfaces/registration-data';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/app/interfaces/user';
 import { StepperService } from 'src/app/services/stepper.service';
-import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
@@ -14,15 +11,17 @@ import { Router } from '@angular/router';
 })
 export class StepsComponent implements OnInit {
   isLinear = true;
+  
+  // FormGroups
   step1FormGroup: FormGroup = new FormGroup({});
   step2FormGroup: FormGroup = new FormGroup({});
   step4FormGroup: FormGroup = new FormGroup({});
   step6FormGroup: FormGroup = new FormGroup({});
   step7FormGroup: FormGroup = new FormGroup({});
 
-  registrationData: any[] = []; //  an array to store the registration data
+  registrationData: any[] = []; //  an array to store the registration data - Thilivhali Ravhutulu 07/08/2023
 
-  userData: User | null;
+  // empty strings to store input data - Thilivhali Ravhutulu 07/08/2023
   newFullName: string = '';
   newEmail: string = '';
   newPhone: string = '';
@@ -34,9 +33,7 @@ export class StepsComponent implements OnInit {
   newPinNo: any = '';
   newConfirmPinNo: any ='';
 
-  constructor(private fb: FormBuilder, private stepperService: StepperService, private router: Router, private userService: UserService) {
-    this.userData = this.userService.getUser();
-  }
+  constructor(private fb: FormBuilder, private stepperService: StepperService, private router: Router) {}
 
   ngOnInit() {
     this.step1FormGroup = this.fb.group({
@@ -72,7 +69,7 @@ export class StepsComponent implements OnInit {
 
     console.log("Form data", this.step1FormGroup.value);
 
-    // Initialize the stepper with the first step
+    // Initialize the stepper with the first step - Thilivhali Ravhutulu 07/08/2023
     this.stepperService.setCurrentStep(0);
   }
 
@@ -134,8 +131,7 @@ export class StepsComponent implements OnInit {
     } else if (currentStep === 5) {
       localStorage.setItem('step6Data', JSON.stringify(this.step6FormGroup.value));
     } else if (currentStep === 6) { 
-      // this.completeRegistration();
-      // this.stepperService.setData('step7Data', this.step7FormGroup.value);
+      
       this.stepperService.saveRegistrationData(); // Save registration data
     }
 
@@ -151,14 +147,14 @@ export class StepsComponent implements OnInit {
   }
 
   successAlert(){
-    // Store the data from each step
+    // Store the data from each step - Thilivhali Ravhutulu 07/08/2023
     this.updateStep1Values();
     this.updateStep2Values();
     this.updateStep4Values();
     this.updateStep6Values();
     console.log("Form data", this.step1FormGroup.value, this.step2FormGroup.value,  this.step4FormGroup.value,  this.step6FormGroup.value );
 
-    // Push the collected data into the registrationData array
+    // Push the collected data into the registrationData array - Thilivhali Ravhutulu 07/08/2023
     this.registrationData.push(
     this.step1FormGroup.value,
     this.step2FormGroup.value,
@@ -176,10 +172,9 @@ export class StepsComponent implements OnInit {
       iconColor: '#AF144B',
       confirmButtonColor: '#AF144B'
   })
-    // this.completeRegistration();
     // this.navigateToLogin();
 
-    // Clear the form fields
+    // Clear the form fields - Thilivhali Ravhutulu 07/08/2023
     this.step1FormGroup.reset();
     this.step2FormGroup.reset();
     this.step4FormGroup.reset();
@@ -188,26 +183,8 @@ export class StepsComponent implements OnInit {
   }
 
   navigateToLogin() {
-    this.router.navigate(['/login']); // Navigate to the login page
+    this.router.navigate(['/login']); // Navigate to the login page - Thilivhali Ravhutulu 07/08/2023
   }
 
-  completeRegistration() {
-    const step1Data = JSON.parse(localStorage.getItem('step1Data') || '{}');
-    const step2Data = JSON.parse(localStorage.getItem('step2Data') || '{}');
-    const step4Data = JSON.parse(localStorage.getItem('step4Data') || '{}');
-    const step6Data = JSON.parse(localStorage.getItem('step6Data') || '{}');
-
-    const userData = {
-      ...step1Data,
-      ...step2Data,
-      ...step4Data,
-      ...step6Data
-    };
-  
-    console.log('User registration completed:', userData);
-    localStorage.clear(); // Clear stored data
-  
-    this.navigateToLogin();
-}
 
 }
