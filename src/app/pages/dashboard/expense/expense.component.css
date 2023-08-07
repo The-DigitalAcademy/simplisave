@@ -90,6 +90,7 @@ mat-icon{
    align-items: flex-start;
    border-style: solid ;
    border-radius: 12px;
+   border-width: 0.5px;
    padding: 4%;
    width: 100%;
 }
@@ -101,6 +102,10 @@ mat-icon{
 }
 li{
    text-decoration: none;
+}
+
+ul{
+   list-style-type: none;
 }
 /* Hide the default checkbox */
 input[type="checkbox"] {
