@@ -3,7 +3,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { DashboardService } from 'src/app/dashboard.service';
+import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
 
 
