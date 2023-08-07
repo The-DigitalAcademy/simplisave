@@ -2,7 +2,7 @@
 <!-- expense-modal.component.html -->
 <h2 mat-dialog-title>Edit Monthly Expense Allocation</h2>
 <mat-dialog-content>
-  <form [formGroup]="expenseForm" (ngSubmit)="saveExpense()">
+  <form [formGroup]="expenseForm" (ngSubmit)="updateExpensePage()">
     <div class="form-group">
       <label for="categoryName">Category Name</label>
       <input matInput placeholder="Field 1" formControlName="categoryName" name="amount" [(ngModel)]="formData.name"><br>
