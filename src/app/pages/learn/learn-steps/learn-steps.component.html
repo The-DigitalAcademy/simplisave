@@ -5,48 +5,30 @@
   <mat-step [stepControl]="step1FormGroup">
     <ng-template matStepLabel #stepperLabel>Why save?</ng-template>
     <app-learn-why-save></app-learn-why-save>
-    <div class="button-container">
-      <button mat-button matStepperNext class="custom-button">Next</button>
-    </div>
   </mat-step>
 
   <!-- Step 2: No savings account -->
   <mat-step [stepControl]="step2FormGroup">
     <ng-template matStepLabel>No savings account</ng-template>
     <app-learn-vs-no-savings></app-learn-vs-no-savings>
-    <div class="button-container">
-      <button mat-button matStepperPrevious class="custom-button">Previous</button>
-      <button mat-button matStepperNext class="custom-button">Next</button>
-    </div>
+    
   </mat-step>
 
   <!-- Step 3: Investing -->
   <mat-step>
     <ng-template matStepLabel>Investing</ng-template>
     <app-learn-vs-invest></app-learn-vs-invest>
-    <div class="button-container">
-      <button mat-button matStepperPrevious >Previous</button>
-      <button mat-button matStepperNext >Next</button>
-    </div>
   </mat-step>
 
   <!-- Step 4: Best Account -->
   <mat-step>
     <ng-template matStepLabel>Best Account</ng-template>
     <app-learn-best-suited></app-learn-best-suited>
-    <div class="button-container">
-      <button mat-button matStepperPrevious class="custom-button">Previous</button>
-      <button mat-button matStepperNext class="custom-button">Next</button>
-    </div>
   </mat-step>
 
   <!-- Step 5: What we offer -->
   <mat-step>
     <ng-template matStepLabel>What we offer</ng-template>
     <app-learn-offer></app-learn-offer>
-    <div class="button-container">
-      <button mat-button matStepperPrevious class="custom-button" routerLink="/register">Create account</button>
-      <button mat-button matStepperNext class="custom-button" routerLink="/accounts">Other options</button>
-    </div>
   </mat-step>
 </mat-horizontal-stepper>
