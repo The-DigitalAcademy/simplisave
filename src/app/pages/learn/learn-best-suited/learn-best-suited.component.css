@@ -278,6 +278,7 @@ color: #FFFFFF!important;
       padding: 10px 24px;
       margin: 20px;
       margin-left: 10px;
+      font-size: 12px;
     }
     
     .previous-button{
@@ -286,5 +287,6 @@ color: #FFFFFF!important;
       height: 30px;
       padding: 10px 24px;
       margin-top: 20px;
+      font-size: 12px;
     }
 }
