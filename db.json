@@ -27,9 +27,9 @@
   ],
   "Goal_Savings": [
     {
-      "Goal_Id": 1,
+      "id": 1,
       "Savings_Acc_No": 9898989898989898,
-      "Amount_Set": "500",
+      "amount": "500",
       "Date_created": "08/08/2022"
     }
   ],
