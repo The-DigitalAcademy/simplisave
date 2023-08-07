@@ -1,0 +1,19 @@
+button{
+    background-color: #870A3C;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+
+}
+.card{
+    border-color: #870A3C;
+    width: 100%;
+   margin-top: -50%;
+}
+h2{
+    color: #870A3C;
+    padding-left: 38%;
+    margin-top: 3%;
+}
