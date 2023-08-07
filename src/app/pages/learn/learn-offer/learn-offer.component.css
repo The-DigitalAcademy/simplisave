@@ -119,6 +119,45 @@
     justify-content: flex-end;
     width:100%
   }
+  .custom-button{
+    max-width: 10%;
+    border-radius: 20px;
+    border-style: none;
+    background-color:#AF144B;
+    color: #FFFFFF;
+    width:45px;
+    height: 40px;
+    display: flex;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    margin: 20px;
+    margin-left: 10px;
+  }
+  
+  .previous-button{
+    max-width: 12%;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 0.1px;
+    border-color: lightgray;
+    background-color:white;
+    color: grey;
+    width:45px;
+    height: 40px;
+    display: flex;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    margin-top: 20px;
+  }
+
   
   /* Media Query for screens below 786px */
   @media (max-width: 786px) {
@@ -152,7 +191,7 @@
     }
     .card-image{
       width:15%;
-      height: 35%;
+      height: 38%;
     }
     .card-heading {
       color:#870A3C;
@@ -223,6 +262,22 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+}
+.custom-button{
+  max-width: 15%;
+  border-radius: 20px;
+  height: 30px;
+  padding: 10px 24px;
+  margin: 20px;
+  margin-left: 10px;
+}
+
+.previous-button{
+  max-width: 20%;
+  border-radius: 20px;
+  height: 30px;
+  padding: 10px 24px;
+  margin-top: 20px;
 }
 }
 
