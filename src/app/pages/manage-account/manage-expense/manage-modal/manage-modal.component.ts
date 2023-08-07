@@ -15,7 +15,8 @@ import { AccountService } from 'src/app/services/account.service';
 export class ManageModalComponent {
   formData: any = {}; // This will store the form data
   expenseForm!: FormGroup; // Add a FormGroup to hold the form controls
-
+  id:any;
+  
   constructor(private dashService:DashboardService,
     private formBuilder: FormBuilder,
     private service: AccountService,
@@ -26,6 +27,9 @@ export class ManageModalComponent {
       categoryName: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('[a-zA-Z ]*')]],
       amount: ['', [Validators.required, Validators.pattern('^[0-9]*$')]]
     });
+  }
+  ngOnInit(){
+    this.id=localStorage.getItem('typeId');
   }
 
   get formControls() {
@@ -41,17 +45,17 @@ export class ManageModalComponent {
     return control?.touched && control?.hasError(errorName);
   }
 
-  saveExpense() {
+  updateExpensePage() {
     // Call the API service to post the form data
     if (this.expenseForm.valid) {
-      this.service.createType(this.formData).subscribe(
+      const updatedData = { ...this.data, amount: this.formData.amount, name: this.formData.name };
+      this.service.updateGoalSavings(updatedData, this.id).subscribe(
         (response) => {
           // Handle the API response as needed
           console.log('API Response:', response);
           // Optionally, you can close the dialog after successful API call
           this.dialogRef.close();
-          this.router.navigate(['/manage']);
-          this.refreshChecklist();
+          this.refreshManagePage();
         },
         (error) => {
           // Handle API errors if necessary
@@ -61,9 +65,10 @@ export class ManageModalComponent {
     }
   }
   
-  refreshChecklist() {
+  refreshManagePage() {
     // Trigger the refresh for ComponentTwo
-    this.dashService.triggerRefresh();
+    this.service.triggerRefresh();
   }
+  
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
 /* eslint-disable prettier/prettier */
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/account.service';
@@ -24,11 +25,18 @@ export class ManageExpenseComponent implements OnInit {
 
   constructor(private accountService: AccountService, private dialog: MatDialog) { }
 
+  private refreshComponent() {
+    location.reload();
+  }
+
   ngOnInit() {
    this.loadData();
    this.goalSavings();
    this.getTransactionsFromApi();
    this.getTypes();
+   this.accountService.refreshObservable.subscribe(() => {
+    this.refreshComponent();
+  });
   }
 
   // 
@@ -46,15 +54,17 @@ export class ManageExpenseComponent implements OnInit {
   }
 
   // triggers onclick edit icon
-  openExpenseModal(): void {
+  openExpenseModal(id:any): void {
+    localStorage.setItem('typeId',id)
     const dialogRef = this.dialog.open(ManageModalComponent, {
       width: '450px' // Set the desired width of the modal
     });
   }
 
-  openGoalModal(): void {
+  openGoalModal(id:any): void {
+    localStorage.setItem('typeId',id);
     const dialogRef = this.dialog.open(GoalModalComponent, {
-      width: '450px' // Set the desired width of the modal
+      width: '450px' 
     });
   }
 
