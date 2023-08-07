@@ -34,6 +34,8 @@ export class ExpenseComponent {
 
   typeTotals: any = {}; // Property to store typeTotals
   
+
+
   //When the page is loaded, get the transactions records and different expense allocation types
   ngOnInit() {
     this.getTransactionsFromApi();

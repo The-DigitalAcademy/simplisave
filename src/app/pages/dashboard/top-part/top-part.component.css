@@ -75,7 +75,7 @@ word-wrap: break-word
  
 }
 @media (max-width: 600px) {
-  /* Adjust icon size and spacing for mobile devices */
+  
   .info-icon {
     font-size: 15px;
     margin-right: 0px;

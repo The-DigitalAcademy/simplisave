@@ -20,23 +20,23 @@
   flex: 1;
 }
 
-/* Set a height and enable scrolling for mobile */
+
 @media (max-width: 768px) {
   .dashboard-container {
     flex-direction: column;
-    height: auto; /* Allow the dashboard container to adjust its height based on content */
+    height: auto; 
   }
 
   .top-part,
   .expense-part {
-    flex: 1; /* Adjust the flex value to occupy the available space on mobile */
-    height: auto; /* Allow the top part and expense part to adjust their height based on content */
+    flex: 1; 
+    height: auto; 
   }
 
   .mobile-container {
     display: flex;
     flex-direction: column;
-    flex: 1; /* Allow the mobile container to occupy the available space on mobile */
+    flex: 1; 
     overflow-y: auto;
     margin: 7px;
   }
@@ -76,7 +76,6 @@
   color: #888;
 }
 
-/* Media Query for screens below 786px */
 @media screen and (max-width: 786px) {
   .footer {
     background-color: #870A3C;
