@@ -1,65 +1,84 @@
+.outer-container{
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: fit-content;
-  margin-bottom: 5%;
-  margin-bottom: 5%;
-    margin-top: 5%;
-}
 
-.flex-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: fit-content;
-  width: 90%;
-}
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: fit-content;
+    margin-bottom:0;
+    margin-top: 0;
+  }
+  
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+  }
 
 .heading {
   text-align: center;
-    color: #870A3C;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #AF144B;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .card-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
   flex-wrap: wrap;
-  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-style: solid;
+  border-width: 0.1px;
+  border-radius: 12px;
+  border-color: lightgrey;
+  width:80%;
+  height: 100%;
+  padding:0;
+  margin: 0;
+}
+
+.cardInfo{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: auto;
 }
 
 .card1 {
+  width: 35vw;
+  padding: 10px;
+  margin: 10px;
   display: flex;
-  align-items: center;
-  width: 45%;
-  padding: 0;
-  margin: 0;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-style: none;
-  min-height: 290px;
+  height: 40vh;
 }
 
 .card {
   display: flex;
   align-items: center;
-  width: 45%;
+  width: 65vw;
   padding: 0;
   margin: 0;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-style: none;
+  min-height: 5%;
 }
 
 .card-content {
@@ -72,13 +91,20 @@
 
 .card-explanation {
   color: #000;
-text-align: center;
-font-family: Roboto;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-letter-spacing: 0.048px;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  width: 100%;
+}
+
+.button-container{
+  display: flex;
+  justify-content: flex-end;
+  align-items:flex-end;
+  width:100%
 }
 
 #chartCanvas {
@@ -86,20 +112,27 @@ letter-spacing: 0.048px;
   height: 100%;
 }
 
-@media (max-width: 1024px) {
-  
+@media (max-width: 790px) {
+  .outer-container{
+   min-height: 100%;
+   
+   margin-bottom: 20%;
+  }
   .card1 {
-    width: 90%;
-    height: 290px;
+    width: 100%;
+    height: 40vh;
+    padding: 0;
+    margin: 0;
   }
   .card {
-    width: 90%;
-    height: fit-content;
+    width: 100%;
+    height: 15.5vh;
+    
   }
   
   .card-content {
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     text-align: center;
   }
 
@@ -109,16 +142,20 @@ letter-spacing: 0.048px;
   }
 
   .card-explanation {
-    font-size: 13px; /* Adjusted */
-    font-weight: lighter;
-    width: 85vw;
+    color: #000;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
   }
   .container {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     height: fit-content;
-    height: 70vh;
+    height: auto;
   }
   
   .flex-container {
@@ -130,11 +167,18 @@ letter-spacing: 0.048px;
     width: 100%;
   }
   
-  .heading {
-    font-size: 23px;
-      width: 100vw;
-      padding: 0;
-      margin: 0;
+  .heading{
+    color: #870A3C;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 100vw;
+    height:10vh;
+    margin: 0;
+    padding: 0;
   }
   
   .card-container {
@@ -143,7 +187,8 @@ letter-spacing: 0.048px;
     justify-content: center;
     width: 100%;
     flex-wrap: wrap;
-    margin-top: 20px;
-    height:100%;
+    margin:0;
+    padding:0;
+    height:auto;
   }
 }

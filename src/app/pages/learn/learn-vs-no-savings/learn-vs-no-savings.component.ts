@@ -25,7 +25,7 @@ export class LearnVsNoSavingsComponent implements OnInit, AfterViewInit {
         labels: ['12', '24', '36'],
         datasets: [
           {
-            label: '         No savings account',
+            label: 'No savings account',
             data: [4300.0, 7900.0, 11500.0],
             backgroundColor: '#000000'
           },
@@ -50,7 +50,7 @@ export class LearnVsNoSavingsComponent implements OnInit, AfterViewInit {
               }
             },
             grid: {
-              display: false
+              display: false,
             },
             ticks: {
               font: {
