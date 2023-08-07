@@ -3,30 +3,238 @@
 <mat-horizontal-stepper [linear]="true" class="custom-stepper" #stepper="matHorizontalStepper">
     <mat-step [stepControl]="step1FormGroup">
       <ng-template  matStepLabel>Step 1</ng-template>
-      <app-step1 [step1FormGroup]="step1FormGroup"></app-step1>
+
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-left h-100">
+            <h1 class="title text-center mb-2 mt-5">Welcome to SimpliSave</h1>
+            <h2 class="subtitle text-center mb-5 ">Register to create your account</h2>
+            <div class="col-12 col-md-9 col-lg-7 col-xl-4">
+              <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-3">
+                  <h3 class="create text-left mb-1">Create your account</h3>
+                  <h4 class="credentials mb-5">Enter your credentials below.</h4>
+      
+                  <form [formGroup]="step1FormGroup" (ngSubmit)="updateStep1Values()">
+      
+                    <mat-form-field class="validation mb-4" appearance="outline">
+                      <mat-label>Full name</mat-label>
+                      <input matInput type="text" class="form-control-plaintext" [(ngModel)]="newFullName" id="name" placeholder="What is your full name?" formControlName="name" required />
+                      <mat-error *ngIf="step1FormGroup.get('name')?.invalid">
+                        Name is required.
+                      </mat-error>
+                    </mat-form-field>
+      
+                    <mat-form-field class="validation mb-4" appearance="outline">
+                      <mat-label>Email</mat-label>
+                      <input matInput type="email" class="form-control-plaintext" [(ngModel)]="newEmail" id="email"  placeholder="What is your current email address?" formControlName="email" required />
+                      <mat-error *ngIf="step1FormGroup.get('email')?.invalid">
+                        Email is required.
+                      </mat-error>
+                    </mat-form-field>
+      
+                    <mat-form-field class="validation" appearance="outline">
+                      <mat-label>Phone number</mat-label>
+                      <input matInput type="text" class="form-control-plaintext"  [(ngModel)]="newPhone" id="phone" placeholder="What number can we use to reach you?" formControlName="phone" required />
+                      <mat-error *ngIf="step1FormGroup.get('phone')?.invalid">
+                        Phone Number is required.
+                      </mat-error>
+                    </mat-form-field>
+      
+      
+                    <p class="text-left text-muted mt-3 mb-2">Already have an account? <a href="login"
+                        class="fw-bold text-body"><u>Login</u></a></p>
+      
+                        <div class="buttons text-center">
+                        <button class="pbtn text-center mb-2" mat-button matStepperPrevious disabled>Previous</button>
+      
+                        <button type="submit" class="btn text-center mb-2" mat-button matStepperNext>Next</button>
+      
+                      </div>
+      
+                  </form>
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <br>
 
     </mat-step>
     <mat-step [stepControl]="step2FormGroup">
       <ng-template matStepLabel>Step 2</ng-template>
-      <app-step2 [step2FormGroup]="step2FormGroup"></app-step2>
 
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-left h-100">
+            <h1 class="title text-center mb-2 mt-5">Welcome to SimpliSave</h1>
+            <h2 class="subtitle text-center mb-5 ">Register to create your account</h2>
+            <div class="col-12 col-md-9 col-lg-7 col-xl-4">
+              <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-3">
+                  <h3 class="create text-left mb-1">Create a secure password</h3>
+                  <h4 class="credentials mb-5">Enter a secure password</h4>
+      
+                  <form [formGroup]="step2FormGroup" (ngSubmit)="updateStep2Values()">
+      
+                    <mat-form-field class="validation mb-4" appearance="outline">
+                      <mat-label>Password</mat-label>
+                      <input matInput type="password" class="form-control-plaintext"  [(ngModel)]="newPassword" id="password" placeholder="********" formControlName="password" required />
+                      <mat-error *ngIf="step2FormGroup.get('password')?.invalid">
+                        Password is required.
+                      </mat-error>
+                    </mat-form-field>
+      
+                    <mat-form-field class="validation mb-4" appearance="outline">
+                      <mat-label>Confirm Password</mat-label>
+                      <input matInput type="password" class="form-control-plaintext"  [(ngModel)]="newConfirmPassword" id="confirmPassword" placeholder="*******" formControlName="confirmPassword" required />
+                      <mat-error *ngIf="step2FormGroup.get('confirmPassword')?.invalid">
+                        Password is required.
+                      </mat-error>
+                    </mat-form-field>
+      
+                    <div class="buttons text-center">
+                      <button class="btn text-center mb-2" mat-button matStepperPrevious>Previous</button>
+      
+                      <button type="submit" class="btn text-center mb-2" mat-button matStepperNext>Next</button>
+      
+                    </div>
+      
+      
+                  </form>
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <br>
+      
     </mat-step>
-    <mat-step>
+    <mat-step [stepControl]="step4FormGroup">
       <ng-template matStepLabel>Step 3</ng-template>
-      <app-step4 [step4FormGroup]="step4FormGroup"></app-step4>
-     
+
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-left h-100">
+            <h1 class="title text-center mb-2 mt-5">Link your everyday bank account to your SimpliSave account.</h1>
+            <h2 class="subtitle text-center mb-5 ">Link your account</h2>
+            <div class="col-12 col-md-9 col-lg-7 col-xl-4">
+              <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-3">
+                  <h3 class="create text-left mb-1">Your details are encrypted</h3>
+                  <h4 class="credentials mb-5">Enter your details below</h4>
+      
+                  <form [formGroup]="step4FormGroup" (ngSubmit)="updateStep4Values()">
+      
+                    <mat-form-field class="validation mb-4" appearance="outline">
+                      <mat-label>Account Number</mat-label>
+                      <input matInput type="number" class="form-control-plaintext"  [(ngModel)]="newAccountNo" id="accountNo" placeholder="12345678" formControlName="accountNo" required />
+                      <mat-error *ngIf="step4FormGroup.get('accountNo')?.invalid">
+                        Account Number is required.
+                      </mat-error>
+                    </mat-form-field>
+      
+                    <mat-form-field class="validation mb-4" appearance="outline">
+                      <mat-label>Pin</mat-label>
+                      <input matInput type="password" class="form-control-plaintext"  [(ngModel)]="newPin" id="pin" placeholder="*******" formControlName="pin" required />
+                      <mat-error *ngIf="step4FormGroup.get('pin')?.invalid">
+                        Pin is required.
+                      </mat-error>
+                    </mat-form-field>
+      
+                    <div class="buttons text-center">
+                      <button class="btn text-center mb-2" mat-button matStepperPrevious>Previous</button>
+      
+                      <button type="submit" class="btn text-center mb-2" mat-button matStepperNext>Next</button>
+      
+                    </div>
+      
+      
+                  </form>
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <br>
+      
     </mat-step>
-    <mat-step>
+    <mat-step [stepControl]="step6FormGroup">
         <ng-template matStepLabel>Step 4</ng-template>
-        <app-step6 [step6FormGroup]="step6FormGroup"></app-step6>
+
+        <div class="mask d-flex align-items-center h-100">
+          <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-left h-100">
+              <h1 class="title text-center mb-2 mt-5">Almost Done!</h1>
+              <h2 class="subtitle text-center mb-5 ">Now to create your savings account</h2>
+              <div class="col-12 col-md-9 col-lg-7 col-xl-4">
+                <div class="card" style="border-radius: 15px;">
+                  <div class="card-body p-3">
+                    <h3 class="create text-left mb-1">Create your savings account</h3>
+                    <h4 class="credentials mb-5">Enter your credentials below.</h4>
+        
+                    <form [formGroup]="step6FormGroup" (ngSubmit)="updateStep6Values()">
+        
+                      <mat-form-field class="validation mb-4" appearance="outline">
+                        <mat-label>Identification Number</mat-label>
+                        <input matInput type="number" class="form-control-plaintext"  [(ngModel)]="newIdNo" id="idNo" placeholder="9008180934087" formControlName="idNo" required />
+                        <mat-error *ngIf="step6FormGroup.get('idNo')?.invalid">
+                          Id Number is required.
+                        </mat-error>
+                      </mat-form-field>
+        
+                      <mat-form-field class="validation mb-4" appearance="outline">
+                        <mat-label>Pin</mat-label>
+                        <input matInput type="password" class="form-control-plaintext"  [(ngModel)]="newPinNo" id="pinNo" placeholder="******" formControlName="pinNo" required />
+                        <mat-error *ngIf="step6FormGroup.get('pinNo')?.invalid">
+                          Pin is required.
+                        </mat-error>
+                      </mat-form-field>
+        
+                      <mat-form-field class="validation" appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput type="password" class="form-control-plaintext"  [(ngModel)]="newConfirmPinNo" id="confirmPinNo" placeholder="********" formControlName="confirmPinNo" required />
+                        <mat-error *ngIf="step6FormGroup.get('confirmPinNo')?.invalid">
+                          Confirmation Pin is required.
+                        </mat-error>
+                      </mat-form-field>
+        
+                      <div class="buttons text-center">
+                        <button class="btn text-center mb-2" mat-button matStepperPrevious>Previous</button>
+        
+                        <button type="submit" class="btn text-center mb-2" mat-button matStepperNext>Next</button>
+        
+                      </div>
+        
+        
+                    </form>
+        
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <br>
+        
         
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Step 5</ng-template>
         <app-step7></app-step7>
         <div class="button">
-          <button (click)="successAlert()" mat-button matStepperNext>Done</button>
-          <button mat-button matStepperPrevious>Previous</button>
+          <button (click)="successAlert()" class="btn text-center mb-2" mat-button matStepperNext>Done</button>
+          <button class="btn text-center mb-2" mat-button matStepperPrevious>Previous</button>
         </div>
       </mat-step>
       

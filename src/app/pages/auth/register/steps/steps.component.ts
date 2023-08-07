@@ -1,3 +1,4 @@
+import { RegistrationData } from './../../../../interfaces/registration-data';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/interfaces/user';
@@ -18,6 +19,9 @@ export class StepsComponent implements OnInit {
   step4FormGroup: FormGroup = new FormGroup({});
   step6FormGroup: FormGroup = new FormGroup({});
   step7FormGroup: FormGroup = new FormGroup({});
+
+  registrationData: any[] = []; //  an array to store the registration data
+
   userData: User | null;
   newFullName: string = '';
   newEmail: string = '';
@@ -92,6 +96,7 @@ export class StepsComponent implements OnInit {
     };
     
     this.step2FormGroup.patchValue(updatedValues);
+
   }
 
   //updating third step  - Thilivhali Ravhutulu 05/08/2023
@@ -102,6 +107,7 @@ export class StepsComponent implements OnInit {
     };
     
     this.step4FormGroup.patchValue(updatedValues);
+
   }
 
   //updating fourth step  - Thilivhali Ravhutulu 05/08/2023
@@ -113,6 +119,7 @@ export class StepsComponent implements OnInit {
     };
     
     this.step6FormGroup.patchValue(updatedValues);
+
   }
   
 
@@ -144,12 +151,25 @@ export class StepsComponent implements OnInit {
   }
 
   successAlert(){
+    // Store the data from each step
     this.updateStep1Values();
     this.updateStep2Values();
     this.updateStep4Values();
     this.updateStep6Values();
-    console.log("Form data", this.step6FormGroup.value, this.step4FormGroup.value,  this.step2FormGroup.value,  this.step1FormGroup.value );
+    console.log("Form data", this.step1FormGroup.value, this.step2FormGroup.value,  this.step4FormGroup.value,  this.step6FormGroup.value );
+
+    // Push the collected data into the registrationData array
+    this.registrationData.push(
+    this.step1FormGroup.value,
+    this.step2FormGroup.value,
+    this.step4FormGroup.value,
+    this.step6FormGroup.value
+    );
+    console.log("data:", this.registrationData);
+
     this.stepperService.saveRegistrationData();
+
+
     Swal.fire({
       icon: 'success',
       text: 'Successful! Please Login',
@@ -158,6 +178,12 @@ export class StepsComponent implements OnInit {
   })
     // this.completeRegistration();
     // this.navigateToLogin();
+
+    // Clear the form fields
+    this.step1FormGroup.reset();
+    this.step2FormGroup.reset();
+    this.step4FormGroup.reset();
+    this.step6FormGroup.reset();
     
   }
 

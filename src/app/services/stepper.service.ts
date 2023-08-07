@@ -8,6 +8,7 @@ import { UserService } from './user.service';
 export class StepperService {
   private currentStep = 0;
   private registrationData: any = {};
+  private registrationUrl = ' http://localhost:3000/posts'; // Mock JSON file path
 
   constructor(private http: HttpClient, private userService: UserService) {}
 
@@ -33,8 +34,9 @@ export class StepperService {
       }
     );
   }
+  
 
   getRegistrationData() {
-    return this.http.get('http://localhost:3000/posts');
+    return this.http.get<any[]>(this.registrationUrl);
   }
 }
