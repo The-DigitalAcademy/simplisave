@@ -25,6 +25,14 @@
       "Balance": 2000
     }
   ],
+  "Goal_Savings": [
+    {
+      "id": 1,
+      "Savings_Acc_No": 9898989898989898,
+      "amount": "500",
+      "Date_created": "08/08/2022"
+    }
+  ],
   "Transaction": [
     {
       "Transaction_Id": 1,
@@ -53,7 +61,7 @@
       "Description": "Takealot",
       "Transaction_Date": "2022/08/20",
       "Money_In": 0,
-      "Money_Out": 500,
+      "Money_Out": 1500,
       "Available_Balance": "1900"
     },
     {
@@ -97,7 +105,7 @@
       "Available_Balance": "1100"
     },
     {
-      "Transaction_Id": 10,
+      "Transaction_Id": 2,
       "Type_id": 2,
       "Account_No": 1234567890123456,
       "Description": "Takealot",
@@ -109,36 +117,34 @@
   ],
   "Transaction_Type": [
     {
-
       "name": "Uber",
-      "amount": "2000",
+      "amount": "500",
       "id": 1
     },
     {
       "name": "Van Schaik",
-      "amount": "2000",
+      "amount": "1000",
       "id": 2
     },
     {
       "name": "McDonalds",
-      "amount": "2000",
+      "amount": "500",
       "id": 3
     },
     {
       "name": "Uber Eats",
-      "amount": "2000",
+      "amount": "500",
       "id": 4
     },
     {
       "name": "Takealot",
-      "amount": "2000",
+      "amount": "1000",
       "id": 5
     },
     {
-      "name": "werqw",
-      "amount": "2000",
+      "name": "asdas",
+      "amount": "1000",
       "id": 6
-
     }
   ]
 }

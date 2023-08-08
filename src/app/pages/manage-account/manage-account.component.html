@@ -1,36 +1,20 @@
+<app-second-nav-bar></app-second-nav-bar>
 
 
-  <!-- eslint-disable prettier/prettier -->
-<div class="container">
-  <div class="heading">
-    <h2>Expense Allocation</h2>
-  </div>
-  <br/>
-  <h3>Saving Goal</h3>
 
-  <div class="grid-container">
-    <div class="card">
-      <div class="card-content">
-        <h6>Savings Goal</h6>
-        <mat-icon>edit</mat-icon>
-        <mat-progress-bar class="red-progress-bar" mode="determinate" value="10"></mat-progress-bar>
-        <h5 class="balance">R300</h5>
-      </div>
+<div class="expense-container">
+    <div class="sidebar">
+        <app-sidebar></app-sidebar>
     </div>
-  </div>
-  <br /><br />
 
-  <div class="cardHeading">
-    <h3>Expense Allocation Categories</h3>
-  </div>
-  <div class="grid-container">
-    <div class="card" *ngFor="let transactionType of Transaction_Type">
-      <div class="card-content">
-        <h6>{{ transactionType.name }}</h6>
-        <mat-icon >edit</mat-icon>
-        <mat-progress-bar class="red-progress-bar" mode="determinate" [value]="getTypeProgress(transactionType.name)" [bufferValue]="transactionType.amount"></mat-progress-bar>
-        <h5 class="balance">R{{ transactionType.amount }}</h5>
+    <div class="main-content">
+      <div class="manage-expense">
+        <app-manage-expense></app-manage-expense>
       </div>
-    </div>
   </div>
 </div>
+
+  <div class="footer">
+    <span><h2>Copyright @ 2023 | Made by Simplisave</h2></span>
+  </div>
+  

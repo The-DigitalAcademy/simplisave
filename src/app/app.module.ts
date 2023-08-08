@@ -40,7 +40,6 @@ import { LandingGetstartedComponent } from './pages/landing/landing-getstarted/l
 import { LandingPartnersComponent } from './pages/landing/landing-partners/landing-partners.component';
 import { LandingOpenAccountComponent } from './pages/landing/landing-open-account/landing-open-account.component';
 import { LandingNeedHelpComponent } from './pages/landing/landing-need-help/landing-need-help.component';
-// import { LinksComponent } from './pages/landing/links/links.component';
 
 import { TopPartComponent } from './pages/dashboard/top-part/top-part.component';
 import { ChecklistComponent } from './pages/dashboard/checklist/checklist.component';
@@ -53,7 +52,10 @@ import { Step8Component } from './pages/auth/register/step8/step8.component';
 import { LearnStepsComponent } from './pages/learn/learn-steps/learn-steps.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ExpenseComponent } from './pages/dashboard/expense/expense.component';
-import { MatDialogModule } from '@angular/material/dialog';
+
+import { AccountService } from './services/account.service'; 
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+
 import { ExpenseModalComponent } from './pages/dashboard/expense/expense-modal/expense-modal.component';
 import { ManageAccountComponent } from './pages/manage-account/manage-account.component';
 import { ManageExpenseComponent } from './pages/manage-account/manage-expense/manage-expense.component';
@@ -61,17 +63,24 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AdminComponent } from './components/admin/admin/admin.component';
 import { MainAdminComponent } from './components/admin/main-admin/main-admin.component';
+import { ManageModalComponent } from './pages/manage-account/manage-expense/manage-modal/manage-modal.component';
+import { GoalModalComponent } from './pages/manage-account/manage-expense/goal-modal/goal-modal.component';
+
 
 
 
 
 @NgModule({
     declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, Step1Component, Step2Component, Step3Component, Step4Component, StepsComponent, OffersComponent, Step5Component, Step6Component, Step7Component, Step8Component, TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,
+
         LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent],
 
+       
     imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule],
 
-    providers: [],
+    providers: [{
+        provide: MatDialogRef, useValue: {}
+    },],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
