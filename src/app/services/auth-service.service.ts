@@ -16,6 +16,7 @@ export class AuthService{
   */
   LOGIN_URL = "http://localhost:3000/signupUsers";
 
+//The constructor holds two parameter: http for making http request and router for navigating to different routes/components 
   constructor(private http: HttpClient, private router: Router) {}
 
 
@@ -35,8 +36,7 @@ export class AuthService{
       01-August-2023
   */
   getUserData() {
-    // Replace url with user data API endpoint
-    return this.http.get<any>('http://localhost:3000/signupUsers');
+    return this.http.get<any>(this.LOGIN_URL);
   }
 
    /*
