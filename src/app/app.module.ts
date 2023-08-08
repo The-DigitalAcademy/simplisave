@@ -77,7 +77,7 @@ import { AdminLoginComponent } from './components/admin/admin-login/admin-login.
         LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent],
 
        
-        LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent,ManageModalComponent,GoalModalComponent, AdminLoginComponent],
+       
     imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule],
 
     providers: [{
