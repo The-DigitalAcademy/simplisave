@@ -64,7 +64,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ManageModalComponent } from './pages/manage-account/manage-expense/manage-modal/manage-modal.component';
 import { GoalModalComponent } from './pages/manage-account/manage-expense/goal-modal/goal-modal.component';
 import { TransactionsComponent } from './pages/Transactions/transactions/transactions.component';
-
+import { BalanceSummaryComponent } from './pages/Transactions/transactions/balance-summary/balance-summary.component';
+import { TransactionDetailsComponent } from './pages/Transactions/transactions/transaction-details/transaction-details.component';
 
 
 
@@ -73,7 +74,7 @@ import { TransactionsComponent } from './pages/Transactions/transactions/transac
     declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, Step1Component, Step2Component, Step3Component, Step4Component, StepsComponent, OffersComponent, Step5Component, Step6Component, Step7Component, Step8Component, TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,
 
 
-        LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, ManageModalComponent, GoalModalComponent, TransactionsComponent],
+        LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, ManageModalComponent, GoalModalComponent, TransactionsComponent, BalanceSummaryComponent, TransactionDetailsComponent],
     imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule],
 
     providers: [{
