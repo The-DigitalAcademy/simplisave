@@ -73,7 +73,7 @@ import { FAQComponent } from './components/faq/faq.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BalanceSummaryComponent } from './pages/Transactions/transactions/balance-summary/balance-summary.component';
-import { TransactionDetailsComponent } from './pages/Transactions/transactions/transaction-details/transaction-details.component';
+import { TransactionDetailsComponent } from './pages/Transactions/transactions/transaction-details/transaction-details.component';import { BalanceSummaryComponent } from './pages/Transactions/transactions/balance-summary/balance-summary.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 
 
