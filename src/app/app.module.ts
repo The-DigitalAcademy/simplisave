@@ -78,6 +78,10 @@ import { TransactionsComponent } from './pages/Transactions/transactions/transac
 
 
     
+
+
+       
+       
     imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule],
 
     providers: [{
