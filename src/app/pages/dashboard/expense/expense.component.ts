@@ -32,7 +32,8 @@ export class ExpenseComponent {
   sumMoneyOutMonths: any[] = [];
   isDataFetched: boolean = false; // Flag to track data fetch completion
 
-  typeTotals: any = {}; 
+  typeTotals: any = {}; // Property to store typeTotals
+  
 
 
   //When the page is loaded, get the transactions records and different expense allocation types

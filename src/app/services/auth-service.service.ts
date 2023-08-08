@@ -9,16 +9,22 @@ import { environment } from '../../environments/environment'; // Import environm
 })
 export class AuthService {
 
+
   LOGIN_URL = `${environment.apiUrl}/signupUsers`;
 
-  constructor(private http: HttpClient, private router: Router) { }
+//The constructor holds two parameter: http for making http request and router for navigating to different routes/components 
+  constructor(private http: HttpClient, private router: Router) {}
+
+
 
   login(email: string, password: string) {
     return this.http.post<any>(`${environment.apiUrl}/login`, { email, password });
   }
 
   getUserData() {
+
     return this.http.get<any>(`${environment.apiUrl}/signupUsers`);
+
   }
 
   logout() {

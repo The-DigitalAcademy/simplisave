@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
       01-August-2023
   */
   public loginForm!: FormGroup;
-
+  
   constructor( private formBuilder: FormBuilder, private http: HttpClient, private authService : AuthService, private router: Router) {}
  
   ngOnInit() {
@@ -47,7 +47,8 @@ export class LoginComponent implements OnInit {
      }
  
  //If valid it makes an HTTP GET request to the LOGIN_URL and holds the response from the API in res.
-    this.http.get<any>(this.authService.LOGIN_URL)
+    // this.http.get<any>(this.authService.LOGIN_URL)
+    this.authService.getUserData()
       .subscribe(
         res=>{
  
@@ -66,7 +67,7 @@ export class LoginComponent implements OnInit {
             this.loginForm.reset();
             this.router.navigate(["dashboard"]);
             }
-              // Displays a failed alert if no matching user is found or if an error occurs during the request.  
+// Displays a failed alert if no matching user is found or if an error occurs during the request.  
           else{
             this.authService.failedAlert();
             }
