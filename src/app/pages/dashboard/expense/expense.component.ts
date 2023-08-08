@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Chart, ChartOptions } from 'chart.js';
-import { DashboardService } from 'src/app/dashboard.service';
+import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
 import { ExpenseModalComponent } from './expense-modal/expense-modal.component';
 import { ObjectUnsubscribedError } from 'rxjs';
