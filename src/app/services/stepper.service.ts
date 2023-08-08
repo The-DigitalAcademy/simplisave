@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from './user.service';
+import { environment } from '../../environments/environment'; // Import environment variables
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class StepperService {
   }
 
   saveRegistrationData() {
-    this.http.post('http://localhost:3000/posts', this.registrationData).subscribe(
+    this.http.post(`${environment.apiUrl}/posts`, this.registrationData).subscribe(
       (response) => {
         console.log('Registration data saved:', response);
       },
@@ -35,6 +36,6 @@ export class StepperService {
   }
 
   getRegistrationData() {
-    return this.http.get('http://localhost:3000/posts');
+    return this.http.get(`${environment.apiUrl}/posts`);
   }
 }

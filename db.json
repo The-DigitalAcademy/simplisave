@@ -61,7 +61,17 @@
       "Description": "Takealot",
       "Transaction_Date": "2022/08/20",
       "Money_In": 0,
-      "Money_Out": 1500,
+      "Money_Out": 500,
+      "Available_Balance": "1900"
+    },
+    {
+      "Transaction_Id": 3,
+      "Type_id": 2,
+      "Account_No": 1234567890123456,
+      "Description": "Takealot",
+      "Transaction_Date": "2022/08/20",
+      "Money_In": 0,
+      "Money_Out": 2500,
       "Available_Balance": "1900"
     },
     {
@@ -113,6 +123,16 @@
       "Money_In": 0,
       "Money_Out": 500,
       "Available_Balance": "1100"
+    },
+    {
+      "Transaction_Id": 2,
+      "Type_id": 2,
+      "Account_No": 1234567890123456,
+      "Description": "Takealot",
+      "Transaction_Date": "2011/05/16",
+      "Money_In": 0,
+      "Money_Out": 500,
+      "Available_Balance": "1100"
     }
   ],
   "Transaction_Type": [
@@ -122,8 +142,8 @@
       "id": 1
     },
     {
-      "name": "Van Schaik",
-      "amount": "1000",
+      "amount": "10000",
+      "name": "Uber",
       "id": 2
     },
     {
