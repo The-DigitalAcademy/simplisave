@@ -12,6 +12,9 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { LearnBannerComponent } from './pages/learn/learn-banner/learn-banner.component';
 import { ExpenseComponent } from './pages/dashboard/expense/expense.component';
 import { ManageAccountComponent } from './pages/manage-account/manage-account.component';
+import { AdminComponent } from './components/admin/admin/admin.component';
+import { MainAdminComponent } from './components/admin/main-admin/main-admin.component';
+import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 
 const routes: Routes = [
     { path: 'register', component: RegisterComponent },
@@ -25,6 +28,9 @@ const routes: Routes = [
     {path : '', component : LandingComponent},
     {path:"learnBanner",component:LearnBannerComponent},
     {path:'manage', component: ManageAccountComponent},
+    {path:'admin',component:MainAdminComponent},
+    {path:'admin2',component:AdminComponent},
+    {path:'loginAdmin',component:AdminLoginComponent},
 
 
 ];
