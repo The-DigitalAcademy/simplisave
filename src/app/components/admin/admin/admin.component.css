@@ -26,6 +26,11 @@ h1{
     color: #ccc;
     pointer-events: none;
   }
+  button{
+   border-style: solid;
+   margin: 10%;
+   
+  }
   
 .table{
 width: 95%;
@@ -44,11 +49,12 @@ width: 95%;
     padding-left: 10%;
 }
 @media (max-width: 767px) {
+    
     h1{
         padding-left: 10%;
     }
     .table{
-        width: 10px;
+        width: 5px;
         }
         .form-inline{
             width:140% ;
@@ -64,6 +70,10 @@ width: 95%;
         .container{
             width: 95%;
         }
-        
+        mat-icon{
+           
+            font-size: 20px;
+           
+        }
         
 }

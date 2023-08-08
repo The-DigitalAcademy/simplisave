@@ -1,19 +1,69 @@
-button{
+  .title{
+      color: #870A3C;
+      font-weight: bold;
+      font-size: x-large;
+  }
+  
+  .subtitle{
+    font-size: small;
+  }
+  
+  p{
+    font-size: small;
+  }
+  
+ 
+  
+  .validation{
+    width: 100%;
+    font-size: small;
+    
+  }
+  
+  .btn{
     background-color: #870A3C;
-    border: none;
-    width: 100%;
-    padding: 10px;
+    float: right;
     border-radius: 10px;
-    color: #fff;
-
-}
-.card{
-    border-color: #870A3C;
-    width: 100%;
-   margin-top: -50%;
-}
-h2{
+    background-color:#870A3C;
+    margin-right: 100px;
+    width: 50%;
+    color:white;
+    
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-label .mat-placeholder {
+    font-size: xx-small !important;
+  
+  }
+  
+  u{
     color: #870A3C;
-    padding-left: 38%;
-    margin-top: 3%;
-}
+  }
+  
+  mat-label{
+    font-size: small ;
+  }
+  
+  
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    border-color:  #870A3C!important;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 0px; 
+  }
+  h3{
+    text-align: center;
+    color: #870A3C;
+    margin-bottom: 20px;
+  }
+  
+  h4{
+    text-align:center ;
+    color: #000;
+    font-size: 15px;
+    margin-bottom: 50px;
+  }
+  
