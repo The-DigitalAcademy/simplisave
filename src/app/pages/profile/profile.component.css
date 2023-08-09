@@ -1,37 +1,36 @@
 body {
     margin: 0;
-}
-
-.outerDiv {
+  }
+  
+  .outerDiv {
     height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
-}
-
-.bottomPart {
-    display: flex;
-    flex-direction: row;
-}
-
-.banner {
-    height: 20vh;
+  }
+  
+  .banner {
+    height: 20vh; /* Set a fixed height for the banner */
     width: 100%;
     background-image: url('/assets/Images/Profile/Building banner.png');
     background-size: cover;
     background-position: center;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.banner-heading {
+  }
+  
+  .banner-heading {
     font-size: 16px;
     margin-top: 10px;
-}
+  }
+  
+  .bottomPart {
+    display: flex;
+    flex-direction: row;
+    flex: 1; /* Fill remaining vertical space */
+  }
 
 .overview {
     height: 70vh;
@@ -49,32 +48,36 @@ body {
 
 .basicInfo {
     display:flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     height: 70vh;
     width: 60%;
 }
 
+
+
 .form-row {
     display: flex;
     flex-direction: row;
-    margin-bottom: 10px;
+    margin-bottom: 1%;
 }
 
 .form-row1 {
     display: flex;
     flex-direction: row;
-    margin-bottom: 10px;
     justify-content: space-between;
     align-items: baseline;
+    margin-bottom: 1%;
 }
-.form-field{
+
+.form-field {
     display: flex;
     flex-direction: column;
     padding: 0;
     margin: 0;
 }
-.form-field1{
+
+.form-field1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -86,10 +89,9 @@ body {
 .basicInfo-form {
     display: flex;
     flex-direction: column;
-
-    padding: 20px;
-    box-sizing: border-box;
+    padding: 0;
 }
+
 .form-field1 input {
     width: 265px; /* Make all text boxes the same width */
     height: 30px;
@@ -97,6 +99,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 3px;
 }
+
 .form-field input {
     width: 645px; /* Make all text boxes the same width */
     height: 30px;
@@ -114,24 +117,24 @@ body {
     line-height: normal;
 }
 
-.save-button{
-        max-width: 10%;
-        border-radius: 20px;
-        border-style: none;
-        background-color:#AF144B;
-        color: #FFFFFF;
-        height: 30px;
-        display: flex;
-        padding: 10px 24px;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        flex: 1 0 0;
-        align-self: stretch;
-        margin: 5px;
+.save-button {
+    max-width: 10%;
+    border-radius: 20px;
+    border-style: none;
+    background-color:#AF144B;
+    color: #FFFFFF;
+    height: 30px;
+    display: flex;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    margin: 5px;
 }
 
-.cancel-button{
+.cancel-button {
     max-width: 10%;
     border-radius: 20px;
     border-style: solid;
@@ -150,6 +153,7 @@ body {
     align-self: stretch;
     margin-top: 5px;
 }
+
 h3 {
     color: #000;
     font-family: Roboto;
@@ -160,7 +164,35 @@ h3 {
 }
 
 .error-message {
-  font-size: 12px; /* Adjust the font size as needed */
+  font-size: 12px;
   color: red;
-  margin-left: 5px; /* Adjust as needed */
+  margin-left: 5px;
+}
+
+nav {
+    background-color: #333;
+    color: white;
   }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Display the list items horizontally */
+  }
+  
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s; /* Add smooth color transition */
+  }
+  
+  nav a:hover {
+    color: yellow; /* Change color on hover */
+    cursor: pointer; /* Show pointer cursor on hover */
+  }
+  

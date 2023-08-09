@@ -8,8 +8,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
   basicInfoForm!: FormGroup;
+  activeForm: string = 'form1';
 
   constructor(private formBuilder: FormBuilder) {}
+
+
+  showForm(form: string) {
+    this.activeForm = form;
+  }
 
   ngOnInit() {
     this.basicInfoForm = this.formBuilder.group({
@@ -28,4 +34,5 @@ export class ProfileComponent implements OnInit {
       // Perform form submission
     }
   }
+  
 }

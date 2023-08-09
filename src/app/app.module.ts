@@ -68,6 +68,7 @@ import { GoalModalComponent } from './pages/manage-account/manage-expense/goal-m
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { TransactionsComponent } from './pages/Transactions/transactions/transactions.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -83,7 +84,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 
        
        
-    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule],
+    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule, MatMenuModule],
 
     providers: [{
         provide: MatDialogRef, useValue: {}
