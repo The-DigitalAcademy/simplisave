@@ -67,6 +67,7 @@ import { ManageModalComponent } from './pages/manage-account/manage-expense/mana
 import { GoalModalComponent } from './pages/manage-account/manage-expense/goal-modal/goal-modal.component';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { TransactionsComponent } from './pages/Transactions/transactions/transactions.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -74,7 +75,7 @@ import { TransactionsComponent } from './pages/Transactions/transactions/transac
 
 @NgModule({
     declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, Step1Component, Step2Component, Step3Component, Step4Component, StepsComponent, OffersComponent, Step5Component, Step6Component, Step7Component, Step8Component, TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,
-        LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent,ManageModalComponent,GoalModalComponent, AdminLoginComponent, TransactionsComponent],
+        LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent,ManageModalComponent,GoalModalComponent, AdminLoginComponent, TransactionsComponent, ProfileComponent],
 
 
     

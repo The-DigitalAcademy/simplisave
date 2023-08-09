@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+}
+
+.outerDiv {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bottomPart {
+    display: flex;
+    flex-direction: row;
+}
+
+.banner {
+    height: 20vh;
+    width: 100%;
+    background-image: url('/assets/Images/Profile/Building banner.png');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-heading {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.overview {
+    height: 70vh;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overview-heading {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.basicInfo {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    width: 60%;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.form-row1 {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.form-field{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+.form-field1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    margin-right: 20px; /* Adjust as needed */
+}
+
+.basicInfo-form {
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+.form-field1 input {
+    width: 265px; /* Make all text boxes the same width */
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.form-field input {
+    width: 645px; /* Make all text boxes the same width */
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.form-field label {
+    color: #000;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.save-button{
+        max-width: 10%;
+        border-radius: 20px;
+        border-style: none;
+        background-color:#AF144B;
+        color: #FFFFFF;
+        height: 30px;
+        display: flex;
+        padding: 10px 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        flex: 1 0 0;
+        align-self: stretch;
+        margin: 5px;
+}
+
+.cancel-button{
+    max-width: 10%;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 0.1px;
+    border-color: lightgray;
+    background-color:white;
+    color: grey;
+    width:45px;
+    height: 30px;
+    display: flex;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    margin-top: 5px;
+}
+h3 {
+    color: #000;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;    
+}
+
+.error-message {
+  font-size: 12px; /* Adjust the font size as needed */
+  color: red;
+  margin-left: 5px; /* Adjust as needed */
+  }
