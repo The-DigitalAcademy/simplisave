@@ -122,11 +122,6 @@
       "id": 1
     },
     {
-      "name": "Van Schaik",
-      "amount": "1000",
-      "id": 2
-    },
-    {
       "name": "McDonalds",
       "amount": "500",
       "id": 3
@@ -137,8 +132,8 @@
       "id": 4
     },
     {
-      "name": "Takealot",
       "amount": "1000",
+      "name": "Takealot",
       "id": 5
     },
     {

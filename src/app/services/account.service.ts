@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
@@ -51,9 +51,11 @@ export class AccountService {
     return this.http.put(`${this.url}/${id}`, data);
   }
 
-  //Refreshes the page after a successful update
-  // Lebohang Mokoena
-  // 2023/08/07
+  deleteTransaction(id: any): Observable<void> {
+    const url = `${this.apiUrl}/transactionTypes/${id}`;
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
   triggerRefresh() {
     this.refreshSubject.next();
   }
