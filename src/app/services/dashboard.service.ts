@@ -10,11 +10,6 @@ export class DashboardService {
 
   constructor(private http:HttpClient) { }
 
-
-//   getTransactions(){
-//     return this.http.get('http://localhost:3000/Transaction');
-//    }
-
 private refreshSubject = new Subject<void>();
 
 // Observable to subscribe for refresh events
