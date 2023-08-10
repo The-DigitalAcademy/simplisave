@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Chart, ChartOptions } from 'chart.js';
-import { DashboardService } from 'src/app/dashboard.service';
+import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
 import { ExpenseModalComponent } from './expense-modal/expense-modal.component';
 import { ObjectUnsubscribedError } from 'rxjs';
@@ -32,7 +32,8 @@ export class ExpenseComponent {
   sumMoneyOutMonths: any[] = [];
   isDataFetched: boolean = false; // Flag to track data fetch completion
 
-  typeTotals: any = {}; 
+  typeTotals: any = {}; // Property to store typeTotals
+  
 
 
   //When the page is loaded, get the transactions records and different expense allocation types
@@ -103,7 +104,7 @@ export class ExpenseComponent {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
 
-   
+/*    
     this.filteredData = transactions.filter((record: any) => {
       const isMoneyOutPositive = record.Money_Out > 0;
       const transactionDate = record.Transaction_Date;
@@ -112,7 +113,7 @@ export class ExpenseComponent {
       return isMoneyOutPositive && isWithinCurrentMonth;
     });
 
-
+ */
      // Filter data to find records where Money_Out is greater than 0 (Expense) and Transaction_Date is within the current month
     this.sumMoneyOutMonths = Array.from({ length: 4 }, (_, i) => {
       //keep month within the javascript object range (0 to 11)
@@ -151,7 +152,7 @@ export class ExpenseComponent {
       data: {
         labels: [currentMonthName, prev1MonthName, prev2MonthName, prev3MonthName].reverse(),
         datasets: [{
-          label: 'Expense Summary',
+          label: 'Monthly expense summary',
           data: sumMoneyOutMonths,
           backgroundColor: ['#AF144B', '#AF144B', '#AF144B', '#AF144B'],
           borderWidth: 0
