@@ -1,5 +1,7 @@
 .transaction-container {
   display: flex;
+  flex-direction: row;
+  /* min-height: 100vh; */
 }
 
 .sidebar {
@@ -12,7 +14,8 @@
   flex: 4.5;
 }
 
-.balance-summary {
+/* .balance-summary, */
+.expense-part  {
   flex: 1;
 }
 
