@@ -11,7 +11,7 @@
   ],
   "User": [
     {
-        "User_ID":1,
+     "id":1,
       "First_Name": "Mohammed",
       "Last_Name": "Badat",
       "Email": "moebadat16@gmail.com",
@@ -19,7 +19,19 @@
       "Password": "Password@7",
       "Creation_Date": "",
       "Updated_Date": ""
-    }],
+    },
+    {
+      "id":2,
+       "First_Name": "Moe",
+       "Last_Name": "Badat",
+       "Email": "moe@gmail.com",
+       "Cellphone": "0849642809",
+       "Password": "Password@2",
+       "Creation_Date": "",
+       "Updated_Date": ""
+     }
+  
+  ],
   "Account": [
     {
       "Account_No": 9898989898989898,

@@ -120,6 +120,14 @@ img{
     height:40vh;
     width:70%;
 }
+.password-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  height:40vh;
+  width:70%;
+}
 .input-container{
   height: 48px;
 }
@@ -289,9 +297,11 @@ nav a.active {
 .form-field input {
   width: 86vw; /* Make all text boxes the same width */
   height: 25px;
-
 }
-.line{display: none;}
+
+.line{
+  display: none;
+}
 }
 @media screen and (min-width: 2550px) {
   .line{
