@@ -245,6 +245,7 @@ nav a:hover {
     height: 120%;
 }
 
+
 nav a.active {
     border-bottom-color:#AF144B;
 }

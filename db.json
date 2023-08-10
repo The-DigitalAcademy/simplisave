@@ -11,22 +11,14 @@
   ],
   "User": [
     {
-      "id": 1,
-      "First_Name": "Mohammed",
-      "Last_Name": "Badat",
-      "Email": "moebadat16@gmail.com",
-      "Cellphone": "0849642809",
-      "Password": "Password@7",
-      "Creation_Date": "",
-      "Updated_Date": ""
-    },
-    {
-      "First_Name": "Kareem",
-      "Last_Name": "ThePOS",
-      "Cellphone": "0849642809",
-      "Email": "kt16@gmail.com",
-      "Password": "dESTINY@2",
-      "id": 2
+      "id": 2,
+      "firstName": "string",
+      "lastName": "string",
+      "email": "string",
+      "cellphoneNumber": "string",
+      "accNumber": "string",
+      "idNo": "string",
+      "imageUrl": "string"
     }
   ],
   "Account": [

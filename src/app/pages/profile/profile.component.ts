@@ -9,7 +9,7 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class ProfileComponent implements OnInit {
   basicInfoForm!: FormGroup;
-  linkForm!: FormGroup;
+  passwordForm!: FormGroup;
   activeForm: string = 'form1';
   userInfo: any;
   userId: any = 2;
@@ -26,6 +26,11 @@ export class ProfileComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
       cellphone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
       email: ['', [Validators.required, Validators.email]],
+      accountNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
+      idNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{13}$/)]],
+    });
+
+    this.passwordForm = this.formBuilder.group({
       password: ['', [ Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]],
       newPassword: [
         '',
@@ -34,11 +39,6 @@ export class ProfileComponent implements OnInit {
         ],
       ],
      
-    });
-
-    this.linkForm = this.formBuilder.group({
-      accountNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
-      idNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{13}$/)]],
      
     });
 
@@ -51,11 +51,14 @@ export class ProfileComponent implements OnInit {
 
       // Set initial form values using patchValue
       this.basicInfoForm.patchValue({
-        firstName: this.userInfo.First_Name,
-        lastName: this.userInfo.Last_Name,
-        cellphone: this.userInfo.Cellphone,
-        email: this.userInfo.Email,
-        Password: this.userInfo.Password,
+        firstName: this.userInfo.firstName,
+        lastName: this.userInfo.lastName,
+        cellphone: this.userInfo.cellphoneNumber,
+        email: this.userInfo.email,
+      });
+
+      this.passwordForm.patchValue({
+        password: this.userInfo.password,
       });
 
       console.log(this.userInfo);
@@ -77,7 +80,8 @@ export class ProfileComponent implements OnInit {
         Last_Name: this.basicInfoForm.get('lastName')?.value,
         Cellphone: this.basicInfoForm.get('cellphone')?.value,
         Email: this.basicInfoForm.get('email')?.value,
-        Password: this.basicInfoForm.get('newPassword')?.value,
+        ID_Number: this.basicInfoForm.get('idNumber')?.value,
+        Account_Number: this.basicInfoForm.get('accountNumber')?.value,
       };
 
       this.service.updateUser(this.userId, updatedInfo).subscribe((res: any) => {
@@ -87,10 +91,10 @@ export class ProfileComponent implements OnInit {
 }
 
   updatePassword() {
-    if (this.linkForm.valid) {
+    if (this.passwordForm.valid) {
     const updatedInfo = {
-      ID_Number: this.basicInfoForm.get('idNumber')?.value,
-      Account_Number: this.basicInfoForm.get('accountNumber')?.value,
+      Password: this.basicInfoForm.get('newPassword')?.value,
+     
     };
     this.service.updateUser(this.userId, updatedInfo).subscribe((res: any) => {
       console.log('Password updated:', res);
