@@ -11,7 +11,7 @@
   ],
   "User": [
     {
-     "id":1,
+      "id": 1,
       "First_Name": "Mohammed",
       "Last_Name": "Badat",
       "Email": "moebadat16@gmail.com",
@@ -21,16 +21,13 @@
       "Updated_Date": ""
     },
     {
-      "id":2,
-       "First_Name": "Moe",
-       "Last_Name": "Badat",
-       "Email": "moe@gmail.com",
-       "Cellphone": "0849642809",
-       "Password": "Password@2",
-       "Creation_Date": "",
-       "Updated_Date": ""
-     }
-  
+      "First_Name": "Kareem",
+      "Last_Name": "ThePOS",
+      "Cellphone": "0849642809",
+      "Email": "kt16@gmail.com",
+      "Password": "dESTINY@2",
+      "id": 2
+    }
   ],
   "Account": [
     {

@@ -16,7 +16,7 @@
           <nav>
             <ul>
               <li><a (click)="showForm('form1')">Information</a></li>
-              <li><a (click)="showForm('form2')">Password</a></li>
+              <li><a (click)="showForm('form2')">Linked Info</a></li>
             </ul>
           </nav>
           <hr>
@@ -25,36 +25,69 @@
             <div class="form-field1">
               <label for="firstName">First Name:</label>
               <div class="input-container">
-                <input type="text" id="firstName" name="firstName" formControlName="firstName" required [placeholder]="userInfo.First_Name" value="{{userInfo.First_Name}}">
+                <input type="text" id="firstName" name="firstName" formControlName="firstName" required>
                 <div class="error-message" *ngIf="basicInfoForm.get('firstName')?.hasError('pattern') && (basicInfoForm.get('firstName')?.dirty || basicInfoForm.get('firstName')?.touched)">Invalid format</div>
               </div>
             </div>
             <div class="form-field1">
               <label for="lastName">Last Name:</label>
-              <input type="text" id="lastName" name="lastName" formControlName="lastName" required [placeholder]="userInfo.Last_Name" [value]="userInfo.Last_Name">
+              <input type="text" id="lastName" name="lastName" formControlName="lastName" required>
             </div>
           </div>
           <div class="form-row1">
             <div class="form-field1">
               <label for="cellphone">Cellphone:</label>
               <div class="input-container">
-                <input type="tel" id="cellphone" name="cellphone" formControlName="cellphone" required [placeholder]="userInfo.Cellphone" [value]="userInfo.Cellphone">
+                <input type="tel" id="cellphone" name="cellphone" formControlName="cellphone" required>
                 <div class="error-message" *ngIf="basicInfoForm.get('cellphone')?.hasError('pattern') && (basicInfoForm.get('cellphone')?.dirty || basicInfoForm.get('cellphone')?.touched)">Invalid format</div>
               </div>
             </div>
             <div class="form-field1">
               <label for="email">Email:</label>
               <div class="input-container">
-                <input type="email" id="email" name="email" formControlName="email" required [placeholder]="userInfo.Email" [value]="userInfo.Email">
+                <input type="email" id="email" name="email" formControlName="email" required>
                 <div class="error-message" *ngIf="basicInfoForm.get('email')?.hasError('email') && (basicInfoForm.get('email')?.dirty || basicInfoForm.get('email')?.touched)">Invalid format</div>
               </div>
             </div>
           </div>
           <div class="form-row">
             <div class="form-field">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" formControlName="password" placeholder="********">
+              <div class="error-message" *ngIf="basicInfoForm.get('password')?.hasError('pattern') && (basicInfoForm.get('password')?.dirty || basicInfoForm.get('password')?.touched)">Invalid format</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="newPassword">New Password:</label>
+              <input type="password" id="newPassword" name="newPassword" formControlName="newPassword" >
+              <div class="error-message" *ngIf="basicInfoForm.get('newPassword')?.hasError('required') && (basicInfoForm.get('newPassword')?.dirty || basicInfoForm.get('newPassword')?.touched)">New Password is required.</div>
+              <div class="error-message" *ngIf="basicInfoForm.get('newPassword')?.hasError('pattern') && (basicInfoForm.get('newPassword')?.dirty || basicInfoForm.get('newPassword')?.touched)">Invalid format for New Password.</div>
+            </div>
+          </div>
+        <div class="form-row">
+            <button class="save-button" type="submit" [disabled]="!basicInfoForm.valid">Save</button>
+            <button class="cancel-button" type="button">Cancel</button>
+        </div>
+        </form>
+      </ng-container>
+
+      <ng-template #form2>
+        <form class="password-form" [formGroup]="linkForm" (ngSubmit)="onFormSubmit()">
+          <nav>
+            <ul>
+              <li><a [class.active]="activeForm === 'form1'" (click)="showForm('form1')">Information</a></li>
+              <li><a [class.active]="activeForm === 'form2'" (click)="showForm('form2')">Linked Info</a></li>
+            </ul>
+          </nav>
+          <hr>
+          <!-- Password Form -->
+
+          <div class="form-row">
+            <div class="form-field">
               <label for="idNumber">ID Number:</label>
-              <div class="input-container">
-                <input type="text" id="idNumber" name="idNumber" formControlName="idNumber" required [value]="userInfo.User_ID" [placeholder]="userInfo.User_ID">
+              <div class="input-container1">
+                <input type="text" id="idNumber" name="idNumber" formControlName="idNumber" required>
                 <div class="error-message" *ngIf="basicInfoForm.get('idNumber')?.hasError('pattern') && (basicInfoForm.get('idNumber')?.dirty || basicInfoForm.get('idNumber')?.touched)">Invalid format</div>
               </div>
             </div>
@@ -62,46 +95,15 @@
           <div class="form-row">
             <div class="form-field">
               <label for="accountNumber">Account Number:</label>
-              <div class="input-container">
-                <input type="text" id="accountNumber" name="accountNumber" formControlName="accountNumber" required [value]="userInfo.Account_Number" [placeholder]="userInfo.Account_Number">
+              <div class="input-container1">
+                <input type="text" id="accountNumber" name="accountNumber" formControlName="accountNumber" required>
                 <div class="error-message" *ngIf="basicInfoForm.get('accountNumber')?.hasError('pattern') && (basicInfoForm.get('accountNumber')?.dirty || basicInfoForm.get('accountNumber')?.touched)">Invalid format</div>
               </div>
             </div>
           </div>
+       
           <div class="form-row">
-            <button class="save-button" type="submit" [disabled]="basicInfoForm.invalid">Save</button>
-            <button class="cancel-button" type="button">Cancel</button>
-          </div>
-        </form>
-      </ng-container>
-
-      <ng-template #form2>
-        <form class="password-form" [formGroup]="passwordForm" (ngSubmit)="onFormSubmit()">
-          <nav>
-            <ul>
-              <li><a [class.active]="activeForm === 'form1'" (click)="showForm('form1')">Information</a></li>
-              <li><a [class.active]="activeForm === 'form2'" (click)="showForm('form2')">Password</a></li>
-            </ul>
-          </nav>
-          <hr>
-          <!-- Password Form -->
-          <div class="form-row">
-            <div class="form-field">
-              <label for="password">Password:</label>
-              <input type="password" id="password" name="password" formControlName="password" required placeholder="********">
-              <div class="error-message" *ngIf="basicInfoForm.get('password')?.hasError('pattern') && (basicInfoForm.get('password')?.dirty || basicInfoForm.get('password')?.touched)">Invalid format</div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="newPassword">New Password:</label>
-              <input type="password" id="newPassword" name="newPassword" formControlName="newPassword" required>
-              <div class="error-message" *ngIf="basicInfoForm.get('newPassword')?.hasError('required') && (basicInfoForm.get('newPassword')?.dirty || basicInfoForm.get('newPassword')?.touched)">New Password is required.</div>
-              <div class="error-message" *ngIf="basicInfoForm.get('newPassword')?.hasError('pattern') && (basicInfoForm.get('newPassword')?.dirty || basicInfoForm.get('newPassword')?.touched)">Invalid format for New Password.</div>
-            </div>
-          </div>
-          <div class="form-row">
-            <button class="save-button" type="submit">Save</button>
+            <button class="save-button" type="submit" [disabled]="!linkForm.valid">Save</button>
             <button class="cancel-button" type="button">Cancel</button>
           </div>
         </form>

@@ -273,6 +273,11 @@ nav a.active {
       width: 100%;
       padding: 2% 5%;
   }
+  .password-form {
+    height: auto;
+    width: 100%;
+    padding: 2% 5%;
+}
 
   .form-field,
   .form-field1 {
@@ -297,6 +302,11 @@ nav a.active {
 .form-field input {
   width: 86vw; /* Make all text boxes the same width */
   height: 25px;
+}
+
+.input-container1 input{
+    width: 86vw; /* Make all text boxes the same width */
+    height: 25px;
 }
 
 .line{

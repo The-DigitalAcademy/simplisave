@@ -9,7 +9,7 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class ProfileComponent implements OnInit {
   basicInfoForm!: FormGroup;
-  passwordForm!: FormGroup;
+  linkForm!: FormGroup;
   activeForm: string = 'form1';
   userInfo: any;
   userId: any = 2;
@@ -26,38 +26,48 @@ export class ProfileComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
       cellphone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
       email: ['', [Validators.required, Validators.email]],
-      accountNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
-      idNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{13}$/)]],
-    });
-
-    this.passwordForm = this.formBuilder.group({
-      password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]],
+      password: ['', [ Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]],
       newPassword: [
         '',
         [
-          Validators.required,
           Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/),
         ],
       ],
+     
+    });
+
+    this.linkForm = this.formBuilder.group({
+      accountNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
+      idNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{13}$/)]],
+     
     });
 
     this.getUsersInfo();
   }
 
+  getUsersInfo() {
+    this.service.getUser(this.userId).subscribe((res: any) => {
+      this.userInfo = res;
+
+      // Set initial form values using patchValue
+      this.basicInfoForm.patchValue({
+        firstName: this.userInfo.First_Name,
+        lastName: this.userInfo.Last_Name,
+        cellphone: this.userInfo.Cellphone,
+        email: this.userInfo.Email,
+        Password: this.userInfo.Password,
+      });
+
+      console.log(this.userInfo);
+    });
+  }
+
   onFormSubmit() {
-    console.log("form has been submitted!")
     if (this.activeForm === 'form1') {
       this.updateUserInfo();
     } else if (this.activeForm === 'form2') {
       this.updatePassword();
     }
-  }
-
-  getUsersInfo() {
-    this.service.getUser(this.userId).subscribe((res: any) => {
-      this.userInfo = res;
-      console.log(this.userInfo);
-    });
   }
 
   updateUserInfo() {
@@ -67,31 +77,24 @@ export class ProfileComponent implements OnInit {
         Last_Name: this.basicInfoForm.get('lastName')?.value,
         Cellphone: this.basicInfoForm.get('cellphone')?.value,
         Email: this.basicInfoForm.get('email')?.value,
+        Password: this.basicInfoForm.get('newPassword')?.value,
       };
 
       this.service.updateUser(this.userId, updatedInfo).subscribe((res: any) => {
         console.log('User info updated:', res);
       });
-    }
   }
+}
 
   updatePassword() {
-    console.log("updating password!")
-
-
-      const updatedInfo = {
-        Password:this.passwordForm.get('newPassword')?.value
-        , First_Name: this.basicInfoForm.get('firstName')?.value,
-        Last_Name: this.basicInfoForm.get('lastName')?.value,
-        Cellphone: this.basicInfoForm.get('cellphone')?.value,
-        Email: this.basicInfoForm.get('email')?.value
-        
-      };
-      console.log(updatedInfo);
-
-      this.service.updateUser(this.userId, updatedInfo).subscribe((res: any) => {
-        console.log('Password updated:', res);
-      });
-    }
+    if (this.linkForm.valid) {
+    const updatedInfo = {
+      ID_Number: this.basicInfoForm.get('idNumber')?.value,
+      Account_Number: this.basicInfoForm.get('accountNumber')?.value,
+    };
+    this.service.updateUser(this.userId, updatedInfo).subscribe((res: any) => {
+      console.log('Password updated:', res);
+    });
   }
-
+}
+}
