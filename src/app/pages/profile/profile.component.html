@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="outerDiv">
     <div class="banner">
-        <h1 class="banner-heading">Banner Heading</h1>
+        <h1 class="banner-heading" style="color: white;">Banner Heading</h1>
     </div>
     <div class="bottomPart">
         <div class="overview">
@@ -11,13 +11,12 @@
         </div>
         <div class="basicInfo">
             <form class="basicInfo-form" [formGroup]="basicInfoForm" (ngSubmit)="onFormSubmit()">
-              <h3 style="margin-top: 5%;">Information</h3>
               <nav>
                 <ul>
-                  <li><a (click)="showForm('form1')">Information</a></li>
-                  <li><a (click)="showForm('form2')">Password</a></li>
+                    <li><a [class.active]="activeForm === 'form1'" (click)="showForm('form1')">Information</a></li>
+                    <li><a [class.active]="activeForm === 'form2'" (click)="showForm('form2')">Password</a></li>
                 </ul>
-              </nav>
+            </nav>
               <hr>
               
 
@@ -74,17 +73,21 @@
                   <div class="form-row">
                     <div class="form-field">
                       <label for="idNumber">ID Number:</label>
+                      <div class="input-container">
                       <input type="text" id="idNumber" name="idNumber" formControlName="idNumber" required>
                       <div class="error-message" *ngIf="basicInfoForm.get('idNumber')?.hasError('pattern') && (basicInfoForm.get('idNumber')?.dirty || basicInfoForm.get('idNumber')?.touched)">Invalid format</div>
                     </div>
+                  </div>
                   </div>
                   
                   <div class="form-row">
                     <div class="form-field">
                       <label for="accountNumber">Account Number:</label>
+                      <div class="input-container">
                       <input type="text" id="accountNumber" name="accountNumber" formControlName="accountNumber" required>
                       <div class="error-message" *ngIf="basicInfoForm.get('accountNumber')?.hasError('pattern') && (basicInfoForm.get('accountNumber')?.dirty || basicInfoForm.get('accountNumber')?.touched)">Invalid format</div>
                     </div>
+                  </div>
                   </div>
                   
                   <div class="form-row">

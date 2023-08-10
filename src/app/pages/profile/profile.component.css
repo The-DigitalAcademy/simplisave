@@ -48,10 +48,12 @@ body {
 
 .basicInfo {
     display:flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     height: 70vh;
     width: 60%;
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -83,17 +85,23 @@ body {
     justify-content: space-between;
     padding: 0;
     margin: 0;
-    margin-right: 20px; /* Adjust as needed */
+    margin-right: 2vw; /* Adjust as needed */
 }
 
 .basicInfo-form {
     display: flex;
     flex-direction: column;
     padding: 0;
+    margin: 0;
+    height:40vh;
+    width:70%;
+}
+.input-container{
+  height: 48px;
 }
 
 .form-field1 input {
-    width: 265px; /* Make all text boxes the same width */
+    width: 20vw; /* Make all text boxes the same width */
     height: 30px;
     padding: 5px;
     border: 1px solid #ccc;
@@ -101,7 +109,7 @@ body {
 }
 
 .form-field input {
-    width: 645px; /* Make all text boxes the same width */
+    width: 42vw; /* Make all text boxes the same width */
     height: 30px;
     padding: 5px;
     border: 1px solid #ccc;
@@ -170,7 +178,6 @@ h3 {
 }
 
 nav {
-    background-color: #333;
     color: white;
   }
   
@@ -188,11 +195,75 @@ nav {
   nav a {
     text-decoration: none;
     color: white;
-    transition: color 0.3s; /* Add smooth color transition */
-  }
+    transition: color 0.3s, border-bottom 0.3s; /* Add transition for color and border */
+    color: #000;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-bottom: 2px solid transparent; /* Add transparent border initially */
+}
+
+nav a:hover {
+    color:#AF144B;
+    cursor: pointer;
+    width: 120%;
+    height: 120%;
+}
+
+nav a.active {
+    border-bottom-color:#AF144B;
+}
   
-  nav a:hover {
-    color: yellow; /* Change color on hover */
-    cursor: pointer; /* Show pointer cursor on hover */
+@media screen and (max-width: 512px) {
+  .banner {
+      display: none;
   }
-  
+
+  .overview {
+    margin-bottom: 10%;
+    margin-top: 10%;
+    width: 100%;
+      height: auto;
+
+  }
+  .basicInfo {
+      width: 100%;
+      height: auto;
+
+      
+  }
+
+  .basicInfo-form {
+      height: auto;
+      width: 100%;
+      padding: 2% 5%;
+  }
+
+  .form-field,
+  .form-field1 {
+      margin-bottom: 3%;
+      margin-left: 2vw;
+  }
+
+  .save-button,
+  .cancel-button {
+      max-width: 100%;
+  }
+  .bottomPart{
+    flex-direction: column;
+  }
+
+.form-field1 input {
+  width: 40vw; /* Make all text boxes the same width */
+  height: 25px;
+
+}
+
+.form-field input {
+  width: 86vw; /* Make all text boxes the same width */
+  height: 25px;
+
+}
+}
