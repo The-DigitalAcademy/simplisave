@@ -30,6 +30,12 @@ body {
     margin-bottom: 0;
     border-bottom: 5px solid #AF144B;
     padding-bottom: 3px;
+    color: #FFF;
+    font-family: Helvetica;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
   
   .bottomPart {
@@ -53,6 +59,15 @@ img{
 .overview-heading {
     font-size: 16px;
     margin-bottom: 2%;
+}
+.line {
+  margin-top:7%;
+  width: 1px; /* Set the width of the line to 70% */
+  height: 65%; /* Make the line fill the height of the container */
+  border-right: 1px solid #ccc; /* Add a 1px solid gray border to the right */
+  margin-right: 15px; /* Add a bit of space between the line and basicInfo */
+  margin-left: 15px; /* Add a bit of space between the line and overview */
+  background-color: #AF144B;
 }
 
 .basicInfo {
@@ -276,4 +291,15 @@ nav a.active {
   height: 25px;
 
 }
+.line{display: none;}
+}
+@media screen and (min-width: 2550px) {
+  .line{
+    margin-top: 4%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .line{
+    margin-top: 9.9%;
+  }
 }
