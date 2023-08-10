@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
 <div class="outerDiv">
-    <div class="banner">
-        <h1 class="banner-heading" style="color: white;">Banner Heading</h1>
-    </div>
+  <div class="banner">
+    <h1 class="banner-heading" style="color: white;">Profile</h1>
+</div>
     <div class="bottomPart">
         <div class="overview">
             <h2 class="overview-heading">Student</h2>
@@ -34,6 +34,10 @@
                       <label for="newPassword">New Password:</label>
                       <input type="password" id="newPassword" name="newPassword" formControlName="newPassword" required>
                     </div>
+                  </div>
+                  <div class="form-row">
+                    <button class="save-button" type="submit" [disabled]="basicInfoForm.invalid">Save</button>
+                    <button class="cancel-button" type="button">Cancel</button>
                   </div>
               </ng-container>
               <ng-template  #form1>

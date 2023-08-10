@@ -19,12 +19,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
   
   .banner-heading {
-    font-size: 16px;
-    margin-top: 10px;
-  }
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 7vw;
+    margin-bottom: 0;
+    border-bottom: 5px solid #AF144B;
+    padding-bottom: 3px;
+}
   
   .bottomPart {
     display: flex;
@@ -40,10 +46,13 @@ body {
     justify-content: center;
     align-items: center;
 }
+img{
+  margin-bottom: 2%;
+}
 
 .overview-heading {
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 2%;
 }
 
 .basicInfo {
@@ -140,6 +149,7 @@ body {
     flex: 1 0 0;
     align-self: stretch;
     margin: 5px;
+    margin-left: 0;
 }
 
 .cancel-button {
