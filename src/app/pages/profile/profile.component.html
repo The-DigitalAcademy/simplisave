@@ -1,14 +1,15 @@
 <app-navbar></app-navbar>
 <div class="outerDiv">
-    <div class="banner">
-        <h1 class="banner-heading" style="color: white;">Banner Heading</h1>
-    </div>
+  <div class="banner">
+    <h1 class="banner-heading" style="color: white;">Profile</h1>
+</div>
     <div class="bottomPart">
         <div class="overview">
             <h2 class="overview-heading">Student</h2>
             <img src="./assets/Images/Profile/Profile icon.png" alt="Small Image" width="100" height="100">
             <h2 class="overview-heading">Mohammed Badat</h2>
         </div>
+        <div class="line"></div> <!-- New line added -->
         <div class="basicInfo">
             <form class="basicInfo-form" [formGroup]="basicInfoForm" (ngSubmit)="onFormSubmit()">
               <nav>
@@ -34,6 +35,10 @@
                       <label for="newPassword">New Password:</label>
                       <input type="password" id="newPassword" name="newPassword" formControlName="newPassword" required>
                     </div>
+                  </div>
+                  <div class="form-row">
+                    <button class="save-button" type="submit" [disabled]="basicInfoForm.invalid">Save</button>
+                    <button class="cancel-button" type="button">Cancel</button>
                   </div>
               </ng-container>
               <ng-template  #form1>
