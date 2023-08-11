@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+  }
+  
+  .outerDiv {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .banner {
+    min-height: 20vh; /* Set a fixed height for the banner */
+    width: 100%;
+    background-image: url('/assets/Images/Profile/Building banner.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .banner-heading {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 7vw;
+    margin-bottom: 0;
+    border-bottom: 5px solid #AF144B;
+    padding-bottom: 3px;
+    color: #FFF;
+    font-family: Helvetica;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.outerBottomPart{
+    display: flex;
+    justify-content: center;
+}
+  
+  .bottomPart {
+max-width: 55%;
+  }
+  h3{
+   
+    text-align: center;
+    margin-bottom:1%;
+    color: #000;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  p{
+   
+    text-align: center;
+    margin-bottom: 5%;
+    color: #000;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;}
+
+  h1{
+    margin-top: 10%;
+    text-align: center;
+    margin-bottom: 10%;
+    color: #AF144B;
+    font-family: Roboto;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  h2{
+    text-align: center;
+    margin-bottom: 3%;
+    color: #AF144B;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .section{
+    margin-bottom: 15vh;
+  }
+
+  @media screen and (max-width: 512px) {
+
+ 
+    .bottomPart{
+      flex-direction: column;
+      max-width: 90%;
+    }
+  
+
+  
+
+  }
+  
+  @media screen and (min-width: 2550px) {
+
+  }
+  @media screen and (max-width: 1024px) {
+   
+}

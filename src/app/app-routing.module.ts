@@ -16,6 +16,7 @@ import { AdminComponent } from './components/admin/admin/admin.component';
 import { MainAdminComponent } from './components/admin/main-admin/main-admin.component';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
     { path: 'register', component: RegisterComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
     {path:'admin2',component:AdminComponent},
     {path:'loginAdmin',component:AdminLoginComponent},
     {path:'profile',component:ProfileComponent},
+    {path:'privacy',component:PrivacyPolicyComponent},
 
 
 ];
