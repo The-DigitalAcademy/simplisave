@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/services/account.service';
+import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +15,7 @@ export class ProfileComponent implements OnInit {
   userInfo: any;
   userId: any = 2;
 
-  constructor(private formBuilder: FormBuilder, private service: AccountService) {}
+  constructor(private formBuilder: FormBuilder, private service: AccountService, private authService:AuthService) {}
 
   showForm(form: string) {
     this.activeForm = form;
@@ -24,10 +25,10 @@ export class ProfileComponent implements OnInit {
     this.basicInfoForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
       lastName: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
-      cellphone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
+      cellphoneNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
       email: ['', [Validators.required, Validators.email]],
-      accountNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
-      idNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{13}$/)]],
+      accNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
+      idNo: ['', [Validators.required, Validators.pattern(/^[0-9]{13}$/)]],
     });
 
     this.passwordForm = this.formBuilder.group({
@@ -53,8 +54,10 @@ export class ProfileComponent implements OnInit {
       this.basicInfoForm.patchValue({
         firstName: this.userInfo.firstName,
         lastName: this.userInfo.lastName,
-        cellphone: this.userInfo.cellphoneNumber,
+        cellphoneNumber: this.userInfo.cellphoneNumber,
         email: this.userInfo.email,
+        idNo:this.userInfo.idNo,
+        accNumber:this.userInfo.accNumber,
       });
 
       this.passwordForm.patchValue({
@@ -76,15 +79,16 @@ export class ProfileComponent implements OnInit {
   updateUserInfo() {
     if (this.basicInfoForm.valid) {
       const updatedInfo = {
-        First_Name: this.basicInfoForm.get('firstName')?.value,
-        Last_Name: this.basicInfoForm.get('lastName')?.value,
-        Cellphone: this.basicInfoForm.get('cellphone')?.value,
-        Email: this.basicInfoForm.get('email')?.value,
-        ID_Number: this.basicInfoForm.get('idNumber')?.value,
-        Account_Number: this.basicInfoForm.get('accountNumber')?.value,
+        firstName: this.basicInfoForm.get('firstName')?.value,
+        lastName: this.basicInfoForm.get('lastName')?.value,
+        cellphoneNumber: this.basicInfoForm.get('cellphoneNumber')?.value,
+        email: this.basicInfoForm.get('email')?.value,
+        idNo: this.basicInfoForm.get('idNo')?.value,
+        accNumber: this.basicInfoForm.get('accNumber')?.value,
       };
 
       this.service.updateUser(this.userId, updatedInfo).subscribe((res: any) => {
+        this.authService.successfulUpdate();
         console.log('User info updated:', res);
       });
   }

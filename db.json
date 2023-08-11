@@ -11,14 +11,13 @@
   ],
   "User": [
     {
-      "id": 2,
-      "firstName": "string",
-      "lastName": "string",
-      "email": "string",
-      "cellphoneNumber": "string",
-      "accNumber": "string",
-      "idNo": "string",
-      "imageUrl": "string"
+      "firstName": "Mohammed",
+      "lastName": "Badat",
+      "cellphoneNumber": "0849642809",
+      "email": "moebadat@gmail.com",
+      "idNo": "8787787877878",
+      "accNumber": "23425234",
+      "id": 2
     }
   ],
   "Account": [
