@@ -307,7 +307,7 @@
   </section> -->
 
   <section class="table__body">
-      <table>
+      <table *ngFor="let details of TransactionDetails">
         <thead>
           <h3>Today</h3>
       </thead>
@@ -317,135 +317,168 @@
               <td>
                   <div class="mobile-stack">
                       
-                    <p class="date">17 Dec, 2022</p>
+                    <p class="date">{{details.transactionDate}}/p>
                   </div>
               </td>
-              <td>
-                  <img src="/assets/Spending_money_wallet.png" alt="">Zinzu Chan Lee
+              <td class="break-word-mobile">
+                <div class="content-container">
+                  <img src={{details.image.imageURL}} alt="">
+                  <p>{{details.description}}</p>
+                </div>
               </td>
               <td>
                   <p class="amount cancelled">- R128.90</p>
-                  <p class="stacked-date">17 Dec, 2022</p>
+                  <p class="stacked-date"> {{details.transactionDate}}</p>
               </td>
           </tr>
           <tr>
             <td>
                 <div class="mobile-stack">
                     
-                  <p class="date">17 Dec, 2022</p>
+                  <p class="date">{{details.transactionDate}}</p>
                 </div>
             </td>
-            <td>
-                <img src="/assets/Spending_money_wallet.png" alt="">Zinzu Chan Lee
+            <td class="break-word-mobile">
+              <div class="content-container">
+                <img src={{details.image.imageURL}}  alt="">
+                <p>{{details.description}}</p>
+              </div>
             </td>
             <td>
-                <p class="amount cancelled">- R128.90</p>
-                <p class="stacked-date">17 Dec, 2022</p>
+                <p class="amount cancelled">R128.90</p>
+                <p class="stacked-date"> {{details.transactionDate}}/p>
             </td>
         </tr>
         <tr>
           <td>
               <div class="mobile-stack">
                   
-                <p class="date">17 Dec, 2022</p>
+                <p class="date">{{details.transactionDate}}</p>
               </div>
           </td>
-          <td>
-              <img src="/assets/Spending_money_wallet.png" alt="">Zinzu Chan Lee
+          <td class="break-word-mobile">
+            <div class="content-container">
+              <img src={{details.image.imageURL}} alt="">
+              <p>{{details.description}} </p>
+            </div>
           </td>
           <td>
               <p class="amount cancelled">- R128.90</p>
-              <p class="stacked-date">17 Dec, 2022</p>
+              <p class="stacked-date"> {{details.transactionDate}}</p>
           </td>
       </tr>
-      <tr>
-        <td>
-            <div class="mobile-stack">
-                
-              <p class="date">17 Dec, 2022</p>
-            </div>
-        </td>
-        <td>
-            <img src="/assets/Spending_money_wallet.png" alt="">Zinzu Chan Lee
-        </td>
-        <td>
-            <p class="amount cancelled">- R128.90</p>
-            <p class="stacked-date">17 Dec, 2022</p>
-        </td>
-    </tr>
+      <thead>
+        <h3>Yesterday</h3>
+    </thead>
     <tr>
       <td>
           <div class="mobile-stack">
               
-            <p class="date">17 Dec, 2022</p>
+            <p class="date">{{details.transactionDate}}</p>
           </div>
       </td>
-      <td>
-          <img src="/assets/Spending_money_wallet.png" alt="">Zinzu Chan Lee
+      <td class="break-word-mobile">
+        <div class="content-container">
+          <img src={{details.image.imageURL}}  alt="">
+          <p>{{details.description}} </p>
+        </div>
       </td>
       <td>
           <p class="amount cancelled">- R128.90</p>
-          <p class="stacked-date">17 Dec, 2022</p>
+          <p class="stacked-date"> {{details.transactionDate}}</p>
       </td>
   </tr>
   <tr>
     <td>
         <div class="mobile-stack">
             
-          <p class="date">17 Dec, 2022</p>
+          <p class="date">{{details.transactionDate}}</p>
         </div>
     </td>
-    <td>
-        <img src="/assets/Spending_money_wallet.png" alt="">Zinzu Chan Lee
+    <td class="break-word-mobile">
+      <div class="content-container">
+        <img src={{details.image.imageURL}}  alt="">
+        <p>{{details.description}}</p>
+      </div>
     </td>
     <td>
         <p class="amount cancelled">- R128.90</p>
-        <p class="stacked-date">17 Dec, 2022</p>
+        <p class="stacked-date"> {{details.transactionDate}}</p>
     </td>
 </tr>
+  <thead>
+    <h3>01 August, 2023</h3>
+</thead>
 <tr>
   <td>
       <div class="mobile-stack">
           
-        <p class="date">17 Dec, 2022</p>
+        <p class="date">{{details.transactionDate}}</p>
       </div>
   </td>
-  <td>
-      <img src="/assets/Spending_money_wallet.png" alt="">Zinzu Chan Lee
+  <td class="break-word-mobile">
+    <div class="content-container">
+      <img src={{details.image.imageURL}} alt="">
+      <p>{{details.description}}</p>
+    </div>
   </td>
   <td>
       <p class="amount cancelled">- R128.90</p>
-      <p class="stacked-date">17 Dec, 2022</p>
+      <p class="stacked-date"> {{details.transactionDate}}</p>
   </td>
 </tr>
 <tr>
   <td>
       <div class="mobile-stack">
           
-        <p class="date">17 Dec, 2022</p>
+        <p class="date">{{details.transactionDate}}</p>
       </div>
   </td>
-  <td>
-      <img src="/assets/Spending_money_wallet.png" alt="">Zinzu Chan Lee
+  <td class="break-word-mobile">
+    <div class="content-container">
+      <img src={{details.image.imageURL}}  alt="">
+      <p>{{details.description}}</p>
+    </div>
   </td>
   <td>
       <p class="amount cancelled">- R128.90</p>
-      <p class="stacked-date">17 Dec, 2022</p>
+      <p class="stacked-date">{{details.transactionDate}}</p>
   </td>
 </tr>
 <tr>
   <td>
       <div class="mobile-stack">
           
-        <p class="date">17 Dec, 2022</p>
+        <p class="date">{{details.transactionDate}}</p>
       </div>
   </td>
-  <td>
-      <img src="/assets/Spending_money_wallet.png" alt="">Zinzu Chan Lee
+  <td class="break-word-mobile">
+    <div class="content-container">
+      <img src={{details.image.imageURL}}  alt="">
+      <p>{{details.description}}</p>
+    </div>
   </td>
   <td>
-      <p class="amount received">+ R150.90</p>
-      <p class="stacked-date">17 Dec, 2022</p>
+      <p class="amount cancelled">- R128.90</p>
+      <p class="stacked-date"> {{details.transactionDate}}</p>
+  </td>
+</tr>
+<tr>
+  <td>
+      <div class="mobile-stack">
+          
+        <p class="date">{{details.transactionDate}}</p>
+      </div>
+  </td>
+  <td class="break-word-mobile">
+    <div class="content-container">
+      <img src={{details.image.imageURL}}  alt="">
+      <p>{{details.description}}</p>
+    </div>
+  </td>
+  <td class="staked">
+      <p class="amount received">+ R1500.00</p>
+      <p class="stacked-date">{{details.transactionDate}}</p>
   </td>
 </tr>
           </tbody>

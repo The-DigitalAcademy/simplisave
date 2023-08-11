@@ -10,7 +10,7 @@ body {
   width: 100%;
   margin-left: 0%;
   margin-top: 0;
-  background-color: red;
+  /* background-color: red; */
 }
 
 
@@ -21,7 +21,7 @@ body {
   width: 100%;
   margin-left: 0%;
   margin-top: 0;
-  background-color:aqua;
+  /* background-color:aqua; */
 }
 
 .header > div {
@@ -35,7 +35,7 @@ body {
   line-height: 10px;
   letter-spacing: 0.15px;
   word-wrap: break-word;
-  background-color: yellow;
+  /* background-color: yellow; */
 } 
 
  .flex-container > div {
