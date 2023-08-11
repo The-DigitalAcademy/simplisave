@@ -177,5 +177,37 @@
       "name": "KFC",
       "id": 6
     }
+  ],
+  "Transaction_details":[
+    {
+      "transactionDate": "2023-08-11T13:11:44.024Z",
+      "image":"/assets/Images/Landing/Spending_money_wallet.png",
+      "description": "Zinzu Chan Lee delphia sekhukhune",
+      "moneyOut": 100
+      },
+      {
+        "transactionDate": "2023-08-12T13:11:44.024Z",
+        "image":"/assets/Images/Landing/Spending_money_wallet.png",
+        "description": "Zinzu Chan Lee delphia",
+        "moneyOut": 150
+        },
+        {
+          "transactionDate": "2023-08-11T13:11:44.024Z",
+          "image":"/assets/Images/Landing/Spending_money_wallet.png",
+          "description": "Zinzu Chan Lee",
+          "moneyOut": 450
+          },
+          {
+            "transactionDate": "2023-08-12T13:11:44.024Z",
+            "image":"/assets/Images/Landing/Spending_money_wallet.png",
+            "description": "Zinzu Chan",
+            "moneyOut": 1500
+            },
+            {
+              "transactionDate": "2023-08-12T13:11:44.024Z",
+              "image":"/assets/Images/Landing/Spending_money_wallet.png",
+              "description": "Zinzu",
+              "moneyOut": 50
+              }
   ]
 }
