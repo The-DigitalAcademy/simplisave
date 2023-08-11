@@ -10,7 +10,9 @@
     <div class="card" *ngFor="let goalSavings of Goal_Savings">
       <div class="card-content">
         <h6>Savings Goal</h6>
-        <mat-icon (click)="openGoalModal(goalSavings.id)">edit</mat-icon>
+        <div class="icon-container">
+          <mat-icon (click)="openGoalModal(goalSavings.id)">edit</mat-icon>
+        </div>
         <mat-progress-bar class="red-progress-bar" mode="determinate" value="10"></mat-progress-bar>
         <h5 class="balance">R{{ goalSavings.amount }}</h5>
       </div>
@@ -25,7 +27,10 @@
     <div class="card" *ngFor="let transactionType of Transaction_Type">
       <div class="card-content">
         <h6>{{ transactionType.name }}</h6>
-        <mat-icon (click)="openExpenseModal(transactionType.id)">edit</mat-icon>
+        <div class="icon-container">
+          <mat-icon (click)="openExpenseModal(transactionType.id)" class="edit">edit</mat-icon>
+          <mat-icon (click)="deleteTransactionType(transactionType.id)">delete</mat-icon>
+        </div>
         <mat-progress-bar class="red-progress-bar" mode="determinate" [value]="getTypeProgress(transactionType.name)" [bufferValue]="transactionType.amount"></mat-progress-bar>
         <h5 class="balance">R{{ transactionType.amount }}</h5>
       </div>
