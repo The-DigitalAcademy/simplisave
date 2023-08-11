@@ -16,6 +16,8 @@ import { AdminComponent } from './components/admin/admin/admin.component';
 import { MainAdminComponent } from './components/admin/main-admin/main-admin.component';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { FAQComponent } from './components/faq/faq.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 const routes: Routes = [
     { path: 'register', component: RegisterComponent },
@@ -32,7 +34,9 @@ const routes: Routes = [
     {path:'admin',component:MainAdminComponent},
     {path:'admin2',component:AdminComponent},
     {path:'loginAdmin',component:AdminLoginComponent},
+    {path:'faq',component:FAQComponent},
     {path:'profile',component:ProfileComponent},
+    {path:'aboutus',component:AboutUsComponent},
 
 
 ];
