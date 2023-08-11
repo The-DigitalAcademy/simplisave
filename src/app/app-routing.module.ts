@@ -15,6 +15,7 @@ import { ManageAccountComponent } from './pages/manage-account/manage-account.co
 import { AdminComponent } from './components/admin/admin/admin.component';
 import { MainAdminComponent } from './components/admin/main-admin/main-admin.component';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { FAQComponent } from './components/faq/faq.component';
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
     {path:'admin2',component:AdminComponent},
     {path:'loginAdmin',component:AdminLoginComponent},
     {path:'faq',component:FAQComponent}
+    {path:'profile',component:ProfileComponent},
 
 
 ];

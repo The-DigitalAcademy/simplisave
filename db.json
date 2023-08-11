@@ -9,6 +9,17 @@
       "password": "Dee@678S9"
     }
   ],
+  "User": [
+    {
+        "User_ID":1,
+      "First_Name": "Mohammed",
+      "Last_Name": "Badat",
+      "Email": "moebadat16@gmail.com",
+      "Cellphone": "0849642809",
+      "Password": "Password@7",
+      "Creation_Date": "",
+      "Updated_Date": ""
+    }],
   "Account": [
     {
       "Account_No": 9898989898989898,
@@ -162,8 +173,8 @@
       "id": 5
     },
     {
-      "name": "asdas",
-      "amount": "1000",
+      "amount": "200",
+      "name": "KFC",
       "id": 6
     }
   ]
