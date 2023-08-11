@@ -42,7 +42,7 @@ export class StepsComponent implements OnInit {
 
   ngOnInit() {
     this.step1FormGroup = this.fb.group({
-      // Define form fields for Step 1 here
+      // Define form fields for Step 1 here for validation purposes -Thilivhali Ravhutulu 05/08/2023
       // Example:
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -51,7 +51,7 @@ export class StepsComponent implements OnInit {
     });
 
     this.step2FormGroup = this.fb.group({
-      // Define form fields for Step 2 here
+      // Define form fields for Step 2 here for validation purposes -Thilivhali Ravhutulu 05/08/2023
       // Example:
       password: [
         '',
@@ -61,21 +61,24 @@ export class StepsComponent implements OnInit {
     });
 
     this.step4FormGroup = this.fb.group({
-      // Define form fields for Step 4 here
+      // Define form fields for Step 4 here for validation purposes -Thilivhali Ravhutulu 05/08/2023
       // Example:
       accountNo: ['', Validators.required],
       pin: ['', Validators.required],
     });
 
     this.step6FormGroup = this.fb.group({
-      // Define form fields for Step 6 here
+      // Define form fields for Step 6 here for validation purposes -Thilivhali Ravhutulu 05/08/2023
       // Example:
-      idNo: ['', [], [this.validateIdNoAsync.bind(this)]],
+      idNo: ['', [
+        Validators.required, 
+        Validators.pattern('^[0-9]{13}$') //check if there are 13 numbers
+      ]],
       pinNo: ['', [
         Validators.required,
         Validators.minLength(4),  // minimum length
         Validators.maxLength(8), // maximum length
-        Validators.pattern(/^\d+$/), // Add your desired pattern
+        Validators.pattern(/^\d+$/), // Add your desired pattern, in this case making sure it is a number - Thilivhali Ravhutulu 10/08/2023
      ]],
       confirmPinNo: ['', Validators.required]
     });
@@ -109,68 +112,6 @@ export class StepsComponent implements OnInit {
   pinMatch(): boolean {
     return this.newPinNo === this.newConfirmPinNo;
   }
-
- // Custom Asynchronous validator function - Thilivhali Ravhutulu 10/08/2023
- validateIdNoAsync(control: AbstractControl): Promise<{ [key: string]: boolean } | null> {
-  const idNo = control.value;
-
-  // Simulate asynchronous validation using setTimeout - Thilivhali Ravhutulu 10/08/2023
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      if (!this.validateSouthAfricanID(idNo)) {
-        resolve({ 'invalidIdNo': true });
-      } else {
-        resolve(null);
-      }
-    }, 100); // Simulated async delay - Thilivhali Ravhutulu 10/08/2023
-  });
- }
-
-validateSouthAfricanID(idNo: string): boolean {
-   // Check if the ID number has 13 digits - Thilivhali Ravhutulu 10/08/2023
-  if (idNo.length !== 13 || isNaN(Number(idNo))) {
-    return false;
-  }
-
-  // Check if the first 6 digits represent a valid birth date -Thilivhali Ravhutulu 10/08/2023
-  const year = Number(idNo.substring(0, 2));
-  const month = Number(idNo.substring(2, 4));
-  const day = Number(idNo.substring(4, 6));
-
-  if (month < 1 || month > 12 || day < 1 || day > 31) {
-    return false;
-  }
-
-  // Check gender - Thilivhali Ravhutulu 10/08/2023
-  const genderDigit = Number(idNo.charAt(6));
-  if (genderDigit < 0 || genderDigit > 9) {
-    return false;
-  }
-
-  // Check citizenship - Thilivhali Ravhutulu 10/08/2023
-  const citizenshipDigit = Number(idNo.charAt(10));
-  if (citizenshipDigit !== 0 && citizenshipDigit !== 1) {
-    return false;
-  }
-
-   // Perform Luhn algorithm check - Thilivhali Ravhutulu 10/08/2023
-  const luhnSum = idNo
-    .slice(0, -1)
-    .split('')
-    .reverse()
-    .map((digit, index) => (index % 2 === 0 ? Number(digit) : Number(digit) * 2))
-    .map(digit => (digit > 9 ? digit - 9 : digit))
-    .reduce((acc, digit) => acc + digit, 0);
-
-  const luhnChecksum = (10 - (luhnSum % 10)) % 10;
-  const enteredChecksum = Number(idNo.charAt(12));
-
-  if (luhnChecksum !== enteredChecksum) {
-    return false;
-  }
-
-  return true;
-}
 
 
   //updating step 1 - Thilivhali Ravhutulu 05/08/2023
@@ -212,11 +153,7 @@ validateSouthAfricanID(idNo: string): boolean {
   //updating fourth step  - Thilivhali Ravhutulu 05/08/2023
   updateStep6Values() {
     if ( this.step6FormGroup.valid && this.pinMatch()){
-      const updatedValues = {
-        idNo: this.newIdNo,
-        pinNo: this.newPinNo,
-        confirmPinNo: this.newConfirmPinNo,
-      };
+      const updatedValues = this.step6FormGroup.get('idNo')?.value;
       
       this.step6FormGroup.patchValue(updatedValues);
       // Now you can navigate to the next step here if needed

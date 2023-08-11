@@ -170,7 +170,7 @@
                           <ng-container *ngIf="step6FormGroup.get('idNo')?.hasError('required')">
                             ID Number is required.
                           </ng-container>
-                          <ng-container *ngIf="step6FormGroup.get('idNo')?.hasError('invalidIdNo')">
+                          <ng-container *ngIf="step6FormGroup.get('idNo')?.hasError('pattern')">
                             Invalid South African ID Number.
                           </ng-container>
                         </mat-error>
