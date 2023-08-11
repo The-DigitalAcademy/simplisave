@@ -50,6 +50,18 @@ export class AccountService {
     return this.http.put(`${this.url}/${id}`, data);
   }
 
+  getUser(id:any){
+    return this.http.get(`${environment.apiUrl}/User/${id}`);
+  }
+
+  updateUser(id:any,data:any){
+    return this.http.put(`${environment.apiUrl}/User/${id}`,data);
+  }
+
+
+  //Refreshes the page after a successful update
+  // Lebohang Mokoena
+  // 2023/08/07
   deleteTransaction(id: any): Observable<void> {
     const url = `${this.apiUrl}/transactionTypes/${id}`;
     return this.http.delete<void>(`${this.apiUrl}/${id}`);

@@ -11,15 +11,15 @@
   ],
   "User": [
     {
-        "User_ID":1,
-      "First_Name": "Mohammed",
-      "Last_Name": "Badat",
-      "Email": "moebadat16@gmail.com",
-      "Cellphone": "0849642809",
-      "Password": "Password@7",
-      "Creation_Date": "",
-      "Updated_Date": ""
-    }],
+      "firstName": "Mohammed",
+      "lastName": "Badat",
+      "cellphoneNumber": "0849642809",
+      "email": "moebadat@gmail.com",
+      "idNo": "8787787877878",
+      "accNumber": "23425234",
+      "id": 2
+    }
+  ],
   "Account": [
     {
       "Account_No": 9898989898989898,
@@ -168,8 +168,8 @@
       "id": 4
     },
     {
-      "amount": "1000",
       "name": "Takealot",
+      "amount": "1000",
       "id": 5
     },
     {

@@ -61,4 +61,14 @@ export class AuthService {
       confirmButtonColor: '#AF144B'
     });
   }
+
+
+  successfulUpdate(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Details successfuly updated',
+      iconColor: '#AF144B',
+      confirmButtonColor: '#AF144B'
+    });
+  }
 }
