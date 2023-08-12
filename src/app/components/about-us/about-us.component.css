@@ -1,0 +1,40 @@
+.banner {
+    height: 20vh; /* Set a fixed height for the banner */
+    width: 100%;
+    background-image: url('/assets/Images/Profile/Building banner.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .banner-heading {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 7vw;
+    margin-bottom: 0;
+    border-bottom: 5px solid #AF144B;
+    padding-bottom: 3px;
+    color: #FFF;
+    font-family: Helvetica;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+  h2{
+    text-align: center;
+ 
+  }
+  h3{
+    text-align: center;
+  }
+  .card{
+    border-style: solid;
+    padding: 5%;
+    margin: 3%;
+  }

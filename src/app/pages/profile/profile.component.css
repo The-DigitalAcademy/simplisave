@@ -120,6 +120,14 @@ img{
     height:40vh;
     width:70%;
 }
+.password-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  height:40vh;
+  width:70%;
+}
 .input-container{
   height: 48px;
 }
@@ -237,6 +245,7 @@ nav a:hover {
     height: 120%;
 }
 
+
 nav a.active {
     border-bottom-color:#AF144B;
 }
@@ -265,6 +274,11 @@ nav a.active {
       width: 100%;
       padding: 2% 5%;
   }
+  .password-form {
+    height: auto;
+    width: 100%;
+    padding: 2% 5%;
+}
 
   .form-field,
   .form-field1 {
@@ -289,17 +303,58 @@ nav a.active {
 .form-field input {
   width: 86vw; /* Make all text boxes the same width */
   height: 25px;
-
 }
-.line{display: none;}
+
+.input-container1 input{
+    width: 86vw; /* Make all text boxes the same width */
+    height: 25px;
+}
+
+.line{
+  display: none;
+}
+
+.save-button {
+  max-width: 70px;
+  height: 30px;
+  margin-top: 5%;
+}
+
+.cancel-button {
+  margin-top: 5%;
+  max-width:70px;
+  height: 30px;
+}
 }
 @media screen and (min-width: 2550px) {
   .line{
     margin-top: 4%;
   }
+  .save-button {
+    max-width: 70px;
+    height: 30px;
+    margin-top: 5%;
+  }
+  
+  .cancel-button {
+    margin-top: 5%;
+    max-width:70px;
+    height: 30px;
+  }
 }
 @media screen and (max-width: 1024px) {
   .line{
     margin-top: 9.9%;
+  }
+  .save-button {
+    max-width: 70px;
+    height: 30px;
+    margin-top: 5%;
+  }
+  
+  .cancel-button {
+    margin-top: 5%;
+    max-width:70px;
+    height: 30px;
   }
 }

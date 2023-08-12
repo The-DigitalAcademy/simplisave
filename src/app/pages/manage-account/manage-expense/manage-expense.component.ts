@@ -39,7 +39,9 @@ export class ManageExpenseComponent implements OnInit {
   });
   }
 
-  // 
+  // Responsible for making an HTTP request to fetch Transaction Types data.
+   // Lebohang Mokoena
+  // 2023/07/31
   loadData() {
     this.accountService.getTypes().subscribe((account) => {
       this.Transaction_Type = account;
@@ -47,6 +49,9 @@ export class ManageExpenseComponent implements OnInit {
     });
   }
 
+   // Responsible for making an HTTP request to fetch goal savings data.
+   // Lebohang Mokoena
+  // 2023/07/31
   goalSavings() {
     this.accountService.getGoalSavings().subscribe((Amount_Set) =>{
       this.Goal_Savings = Amount_Set;
@@ -54,6 +59,8 @@ export class ManageExpenseComponent implements OnInit {
   }
 
   // triggers onclick edit icon
+   // Lebohang Mokoena
+  // 2023/07/31
   openExpenseModal(id:any): void {
     localStorage.setItem('typeId',id)
     const dialogRef = this.dialog.open(ManageModalComponent, {
@@ -61,11 +68,31 @@ export class ManageExpenseComponent implements OnInit {
     });
   }
 
+   // Responsible for saving goal modal
+  // Lebohang Mokoena
+  // 2023/07/31
   openGoalModal(id:any): void {
     localStorage.setItem('typeId',id);
     const dialogRef = this.dialog.open(GoalModalComponent, {
       width: '450px' 
     });
+  }
+
+  // Function to delete a transaction type
+  // Lebohang Mokoena
+  // 2023/08/10
+  deleteTransactionType(id: any): void {
+    this.accountService.deleteTransaction(id).subscribe(
+      () => {
+        const index = this.Transaction_Type.findIndex(type => type.id === id);
+        if (index !== -1) {
+          this.Transaction_Type.splice(index, 1);
+        }
+      },
+      error => {
+        console.error('Error deleting transaction type:', error);
+      }
+    );
   }
 
   getTransactionsFromApi() {
