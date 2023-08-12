@@ -3,15 +3,18 @@
   <div class="heading">
     <h2>Expense Allocation</h2>
   </div>
-  <br/>
-  <h3>Saving Goal</h3>
+  <div class="sub-header">
+    <h3>Saving Goal</h3>
+  </div>
 
   <div class="grid-container">
     <div class="card" *ngFor="let goalSavings of Goal_Savings">
       <div class="card-content">
-        <h6>Savings Goal</h6>
+        <div class="title">
+          <h6>Savings Goal</h6>
+        </div>
         <div class="icon-container">
-          <mat-icon (click)="openGoalModal(goalSavings.id)">edit</mat-icon>
+          <mat-icon (click)="openGoalModal(goalSavings.id)" class="edit">edit</mat-icon>
         </div>
         <mat-progress-bar class="red-progress-bar" mode="determinate" value="10"></mat-progress-bar>
         <h5 class="balance">R{{ goalSavings.amount }}</h5>
@@ -32,7 +35,9 @@
           <mat-icon (click)="deleteTransactionType(transactionType.id)">delete</mat-icon>
         </div>
         <mat-progress-bar class="red-progress-bar" mode="determinate" [value]="getTypeProgress(transactionType.name)" [bufferValue]="transactionType.amount"></mat-progress-bar>
-        <h5 class="balance">R{{ transactionType.amount }}</h5>
+        <div class="balance">
+          <h5>R{{ transactionType.amount }}</h5>
+        </div>
       </div>
     </div>
   </div>
