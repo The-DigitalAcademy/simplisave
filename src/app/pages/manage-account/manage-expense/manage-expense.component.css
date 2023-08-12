@@ -84,7 +84,7 @@ mat-progress-bar {
     flex-direction: column;
   }
 }
-
+      /* Mobile */
 @media screen and (max-width: 480px) {
 
   .container{
