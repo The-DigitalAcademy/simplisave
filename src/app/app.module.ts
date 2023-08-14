@@ -61,12 +61,12 @@ import { AdminLoginComponent } from './components/admin/admin-login/admin-login.
 import { TransactionsComponent } from './pages/Transactions/transactions/transactions.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { FAQComponent } from './components/faq/faq.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { TransactionDetailsComponent } from './pages/Transactions/transactions/transaction-details/transaction-details.component';
 import { BalanceSummaryComponent } from './pages/Transactions/transactions/balance-summary/balance-summary.component';
+import { TransactionDetailsComponent } from './pages/Transactions/transactions/transaction-details/transaction-details.component';
+
 import { AccountsBannerComponent } from './pages/accounts/accounts-banner/accounts-banner.component';
 import { AccountsSavingsAndInvestmentsComponent } from './pages/accounts/accounts-savings-and-investments/accounts-savings-and-investments.component';
 import { FaqBannerComponent } from './components/faq/faq-banner/faq-banner.component';
@@ -78,8 +78,11 @@ import { FaqContentComponent } from './components/faq/faq-content/faq-content.co
 
 
 @NgModule({
-    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, StepsComponent, OffersComponent, TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent,ManageModalComponent,GoalModalComponent, AdminLoginComponent, TransactionsComponent, ProfileComponent, PrivacyPolicyComponent,FAQComponent, AboutUsComponent, BalanceSummaryComponent, TransactionDetailsComponent, AccountsBannerComponent, AccountsSavingsAndInvestmentsComponent, FaqBannerComponent, FaqContentComponent],  
-    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule, MatMenuModule, MatExpansionModule],
+    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, StepsComponent, OffersComponent,  TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,
+        LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent,ManageModalComponent,GoalModalComponent, AdminLoginComponent, TransactionsComponent,ProfileComponent, PrivacyPolicyComponent, FAQComponent, AboutUsComponent, BalanceSummaryComponent, TransactionDetailsComponent],
+        imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule, MatMenuModule, MatExpansionModule],
+        
+
 
 
     providers: [{
