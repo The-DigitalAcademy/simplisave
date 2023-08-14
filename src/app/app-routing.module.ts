@@ -16,6 +16,7 @@ import { AdminComponent } from './components/admin/admin/admin.component';
 import { MainAdminComponent } from './components/admin/main-admin/main-admin.component';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { FAQComponent } from './components/faq/faq.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 
@@ -36,6 +37,7 @@ const routes: Routes = [
     {path:'loginAdmin',component:AdminLoginComponent},
     {path:'faq',component:FAQComponent},
     {path:'profile',component:ProfileComponent},
+    {path:'privacy',component:PrivacyPolicyComponent},
     {path:'aboutus',component:AboutUsComponent},
 
 
