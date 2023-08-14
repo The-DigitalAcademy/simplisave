@@ -9,8 +9,7 @@
       "confirmPassword": "password@123",
       "idNo": "0008180313085",
       "pinNo": "12345",
-      "confirmPinNo": "12345",
-      "imageUrl": ""
+      "confirmPinNo": "12345"
   
   }
 }
