@@ -31,6 +31,7 @@ export class TransactionDetailsComponent implements OnInit{
   filteredGroupedTransactions: any = {};
   selectedDate: Date | null = null;
 
+
   constructor(private transactionService: TransactionsService, private http: HttpClient, private formBuilder: FormBuilder)
   {
     this.searchForm = this.formBuilder.group({
@@ -38,14 +39,11 @@ export class TransactionDetailsComponent implements OnInit{
       description: [null],
       amount:[null]
     });
- 
-   
+
     this.fetchDataFromAPI();
-    // this.getCurrentBalance();
- 
-     // Toggle filter dropdown visibility on mobile devices
-     // Toggle filter dropdown visibility on mobile devices
-     $('#filterToggle').on('click', function() {
+
+    // Toggle filter dropdown visibility on mobile devices
+    $('#filterToggle').on('click', function() {
       $('#filterDropdown').toggle();
     });
   }
@@ -100,77 +98,6 @@ export class TransactionDetailsComponent implements OnInit{
 
   
 
-  // getCurrentBalance(){
-  //   this.transactionService.getCurrentBalance()
-  //     .subscribe(
-  //       res => {
-  //         this.currentBalance = res;
-  //         console.log(this.currentBalance);
-  //         this.availableBalance=this.currentBalance[0].Balance
-  //         console.log(this.availableBalance)
-  //       })
-  // }
-
-
- 
-  applyFilter(event: MatDatepickerInputEvent<Date>) {
-    if (event.value) {
-      // When a date is selected from the date picker
-      this.selectedDate = event.value;
-  
-      // Initialize an empty object to store filtered grouped transactions
-      this.filteredGroupedTransactions = {};
-  
-      // Iterate through each date in the grouped transactions
-      for (const date in this.groupedTransactions) {
-        // Filter details for the current date based on the selected date
-        const filteredDetails = this.groupedTransactions[date].filter((details: any) => {
-          const transactionDate = new Date(details.transactionDate);
-  
-          // Check if the selectedDate matches the transaction's date
-          if (this.selectedDate) {
-            return (
-              transactionDate.getFullYear() === this.selectedDate.getFullYear() &&
-              transactionDate.getMonth() === this.selectedDate.getMonth() &&
-              transactionDate.getDate() === this.selectedDate.getDate()
-            );
-          }
-  
-          return false; // Return false if selectedDate is null
-        });
-  
-        // Store the filtered details for the current date
-        if (filteredDetails.length > 0) {
-          this.filteredGroupedTransactions[date] = filteredDetails;
-        }
-      }
-    } else {
-      // When no date is selected, reset the selectedDate and show all transactions
-      this.selectedDate = null;
-      this.filteredGroupedTransactions = this.groupedTransactions;
-    }
-  }
-  
- 
- 
-  isSelectedDate(transactionDate: string): boolean {
-    // Check if a date is selected
-    if (this.selectedDate) {
-      // Convert the selected date to a string in 'YYYY-MM-DD' format
-      const selectedDateStr = this.selectedDate.toISOString().substring(0, 10);
-  
-      // Check if the transaction date starts with the selected date string
-      return transactionDate.startsWith(selectedDateStr);
-    }
-  
-    return false; // Return false if no date is selected
-  }
-  
- 
- 
- 
- 
- 
   // applyDateFilter(): void {
   //   if (this.selectedDate) {
   //     this.filteredTransactions = this.transactions.filter((transaction: { date: string; }) =>

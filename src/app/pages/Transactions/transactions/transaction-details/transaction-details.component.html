@@ -110,26 +110,26 @@
 </main> -->
 
 
-<!--
+
 
 <div class="flex-container header" style="background-color: blue;margin-top: 0px;" >
   <!-- <div class="flex-item" style="border-style:none">
     <h1>Transactions</h1>
-  </div> --
+  </div> -->
 
   <div class="flex-item"  style="border-style:none;height:50px">   
     <div class="input-group">
-      <!-- <mat-icon>search</mat-icon> --
+      <!-- <mat-icon>search</mat-icon> -->
     <!-- <input type="search" placeholder="Search Data..." class="centered-placeholder"> 
     </div> -->
 
-    <!-- <div class="search-hero"> --
+    <!-- <div class="search-hero"> -->
       <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
           placeholder="Enter text to Search">
   </div>
 
   </div>
-</div>-->
+</div>
 
 
 <!--div class="flex-container" style="background-color: orange;">
@@ -154,50 +154,43 @@
 </div> -->
 
 
-<form [formGroup]="searchForm" class="search__form"> 
-  <mat-form-field class="search__form_field" appearance="outline"> 
-    <mat-label>Choose a date</mat-label> 
-    <input matInput [matDatepicker]="picker" (dateInput)="applyFilter($event)"> 
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> 
-    <mat-datepicker #picker></mat-datepicker> 
-  </mat-form-field></form>
 
 
-  <main class="table" style="background-color: blueviolet;">
-    <section class="table__body">
-      <table>
-        <ng-container *ngFor="let date of sortedDateKeys">
-          <thead>
-            <tr>
-              <th colspan="3">
-                <h5>{{ date }}</h5>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let details of filteredGroupedTransactions[date]">
-              <td>
-                <div class="mobile-stack">
-                  <p class="date">{{ details.transactionDate }}</p>
-                </div>
-              </td>
-              <td class="break-word-mobile">
-                <div class="content-container">
-                  <img [src]="details.image" alt="">
-                  <p>{{ details.description }}</p>
-                </div>
-              </td>
-              <td>
-                <p [ngClass]="details.moneyOut ? 'amount cancelled' : 'amount received'">
-                  {{ details.moneyOut ? '- R ' + details.moneyOut + '.00' : '+ R ' + details.moneyIn + '.00' }}
-                </p>
-                <p class="stacked-date">{{ details.transactionDate }}</p>
-              </td>
-            </tr>
-          </tbody>
-        </ng-container>
-      </table>
-    </section>
-  </main>
-  
+<main class="table" style="background-color: blueviolet;">
+  <section class="table__body">
+    <table>
+      <ng-container *ngFor="let date of sortedDateKeys">
+        <thead>
+          <tr>
+            <th colspan="3">
+              <h3>{{ date }}</h3>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let details of groupedTransactions[date]">
+            <td>
+              <div class="mobile-stack">
+                <p class="date">{{ details.transactionDate }}</p>
+              </div>
+            </td>
+            <td class="break-word-mobile">
+              <div class="content-container">
+                <img [src]="details.image" alt="">
+                <p>{{ details.description }}</p>
+              </div>
+            </td>
+            <td>
+              <p [ngClass]="details.moneyOut ? 'amount cancelled' : 'amount received'">
+                {{ details.moneyOut ? '- R ' + details.moneyOut + '.00' : '+ R ' + details.moneyIn + '.00' }}
+              </p>
+              <p class="stacked-date">{{ details.transactionDate }}</p>
+            </td>
+          </tr>
+        </tbody>
+      </ng-container>
+    </table>
+  </section>
+</main>
+
 

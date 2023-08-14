@@ -29,7 +29,7 @@ import { LearnWhySAveComponent } from './pages/learn/learn-why-save/learn-why-sa
 import { LearnVsNoSavingsComponent } from './pages/learn/learn-vs-no-savings/learn-vs-no-savings.component';
 import { LearnVsInvestComponent } from './pages/learn/learn-vs-invest/learn-vs-invest.component';
 import { LearnBestSuitedComponent } from './pages/learn/learn-best-suited/learn-best-suited.component';
-import { LearnOfferComponent } from './pages/learn/learn-offer/learn-offer.component';
+import { LearnOfferComponent, LearnOfferComponent } from './pages/learn/learn-offer/learn-offer.component';
 import { StepsComponent } from './pages/auth/register/steps/steps.component';
 import { OffersComponent } from './pages/landing/offers/offers.component';
 import { LandingGetstartedComponent } from './pages/landing/landing-getstarted/landing-getstarted.component';
@@ -67,13 +67,13 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { BalanceSummaryComponent } from './pages/Transactions/transactions/balance-summary/balance-summary.component';
 import { TransactionDetailsComponent } from './pages/Transactions/transactions/transaction-details/transaction-details.component';
 
-import { AccountsBannerComponent } from './pages/accounts/accounts-banner/accounts-banner.component';
 import { AccountsSavingsAndInvestmentsComponent } from './pages/accounts/accounts-savings-and-investments/accounts-savings-and-investments.component';
 import { FaqBannerComponent } from './components/faq/faq-banner/faq-banner.component';
 import { FaqContentComponent } from './components/faq/faq-content/faq-content.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 
 
 
@@ -85,8 +85,6 @@ import { MatNativeDateModule } from '@angular/material/core';
         LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent,ManageModalComponent,GoalModalComponent, AdminLoginComponent, TransactionsComponent,ProfileComponent, PrivacyPolicyComponent, FAQComponent, AboutUsComponent, BalanceSummaryComponent, TransactionDetailsComponent],
         imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule, MatMenuModule, MatExpansionModule,  ReactiveFormsModule, MatDatepickerModule,
             MatNativeDateModule, FormsModule,],
-        
-
 
 
     providers: [{
