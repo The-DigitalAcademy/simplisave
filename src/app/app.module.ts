@@ -67,7 +67,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { BalanceSummaryComponent } from './pages/Transactions/transactions/balance-summary/balance-summary.component';
 import { TransactionDetailsComponent } from './pages/Transactions/transactions/transaction-details/transaction-details.component';
 
-import { AccountsBannerComponent } from './pages/accounts/accounts-banner/accounts-banner.component';
 import { AccountsSavingsAndInvestmentsComponent } from './pages/accounts/accounts-savings-and-investments/accounts-savings-and-investments.component';
 import { FaqBannerComponent } from './components/faq/faq-banner/faq-banner.component';
 import { FaqContentComponent } from './components/faq/faq-content/faq-content.component';
