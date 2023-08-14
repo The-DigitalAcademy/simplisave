@@ -11,7 +11,8 @@ export class BalanceSummaryComponent implements OnInit{
   transactionsList: any[] = []; // Store your transactions here
   totalIncome: number = 0; // Total income for the specific month
   totalExpenses: number = 0; // Total expenses (money out) for the specific month
-  currentBalance: number = 0; // Current balance calculated as totalIncome - totalExpenses
+  availableBalance: number = 0; // Current balance calculated as totalIncome - totalExpenses
+  currentBalance: any;
 
  
 
@@ -20,6 +21,7 @@ export class BalanceSummaryComponent implements OnInit{
 
   ngOnInit(): void {
     this.fetchDataFromAPI();
+    this.getCurrentBalance();
   }
 
   fetchDataFromAPI() {
@@ -27,7 +29,7 @@ export class BalanceSummaryComponent implements OnInit{
       .subscribe(
         res => {
           this.transactionsList = res;
-          this.calculateTotalsForMonth('08'); // Call the method with the desired month
+          // this.calculateTotalsForMonth('08'); // Call the method with the desired month
         },
         error => {
           console.error('Error fetching data:', error);
@@ -35,25 +37,36 @@ export class BalanceSummaryComponent implements OnInit{
       );
   }
 
-  calculateTotalsForMonth(month: string) {
-    const filteredTransactions = this.transactionsList.filter(transaction =>
-      transaction.transactionDate.includes(`-${month}-`)
-    );
-
-    const totalIncome = filteredTransactions.reduce((total, transaction) =>
-      total + transaction.moneyIn, 0);
-
-    const totalExpenses = filteredTransactions.reduce((total, transaction) =>
-      total + transaction.moneyOut, 0);
-
-    this.totalIncome = totalIncome;
-    this.totalExpenses = totalExpenses;
-    this.calculateCurrentBalance();
+  getCurrentBalance(){
+    this.transactionService.getCurrentBalance()
+      .subscribe(
+        res => {
+          this.currentBalance = res;
+          console.log(this.currentBalance);
+          this.availableBalance=this.currentBalance[0].Balance
+          console.log(this.availableBalance)
+        })
   }
 
-  calculateCurrentBalance() {
-    this.currentBalance = this.totalIncome - this.totalExpenses;
-  }
+  // calculateTotalsForMonth(month: string) {
+  //   const filteredTransactions = this.transactionsList.filter(transaction =>
+  //     transaction.transactionDate.includes(`-${month}-`)
+  //   );
+
+  //   const totalIncome = filteredTransactions.reduce((total, transaction) =>
+  //     total + transaction.moneyIn, 0);
+
+  //   const totalExpenses = filteredTransactions.reduce((total, transaction) =>
+  //     total + transaction.moneyOut, 0);
+
+  //   this.totalIncome = totalIncome;
+  //   this.totalExpenses = totalExpenses;
+  //   this.calculateCurrentBalance();
+  // }
+
+  // calculateCurrentBalance() {
+  //   this.currentBalance = this.totalIncome - this.totalExpenses;
+  // }
 
 
 

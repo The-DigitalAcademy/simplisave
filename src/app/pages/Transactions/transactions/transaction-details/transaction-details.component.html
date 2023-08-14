@@ -110,7 +110,53 @@
 </main> -->
 
 
-<main class="table">
+
+
+<div class="flex-container header" style="background-color: blue;margin-top: 0px;" >
+  <!-- <div class="flex-item" style="border-style:none">
+    <h1>Transactions</h1>
+  </div> -->
+
+  <div class="flex-item"  style="border-style:none;height:50px">   
+    <div class="input-group">
+      <!-- <mat-icon>search</mat-icon> -->
+    <!-- <input type="search" placeholder="Search Data..." class="centered-placeholder"> 
+    </div> -->
+
+    <!-- <div class="search-hero"> -->
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+          placeholder="Enter text to Search">
+  </div>
+
+  </div>
+</div>
+
+
+<!--div class="flex-container" style="background-color: orange;">
+  
+  <!-- <div class="flex-item">
+    <!-- <mat-icon class="info-icon" matTooltip="Current Balance on the everyday bank account">info</mat-icon> --
+   Current Balance
+    <p>R {{ this.availableBalance}}</p>  
+  </div>
+
+  <div  class="flex-item">
+    <!-- <mat-icon class="info-icon" matTooltip="Total amount that has been spent for that specific month on the everyday bank account">info</mat-icon> --
+     Total Income
+    <p>R {{this.totalIncome}}</p> 
+  </div>
+
+  <div class="flex-item">   
+    <!-- <mat-icon class="info-icon" matTooltip="Total amount that has been saved for that specific month">info</mat-icon> --
+    Total Expenses
+    <p>R {{this.totalExpenses}}</p>
+  </div> --
+</div> -->
+
+
+
+
+<main class="table" style="background-color: blueviolet;">
   <section class="table__body">
     <table>
       <ng-container *ngFor="let date of sortedDateKeys">
