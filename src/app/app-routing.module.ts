@@ -19,6 +19,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { FAQComponent } from './components/faq/faq.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { TransactionsComponent } from './pages/Transactions/transactions/transactions.component';
 
 const routes: Routes = [
     { path: 'register', component: RegisterComponent },
@@ -39,6 +40,7 @@ const routes: Routes = [
     {path:'profile',component:ProfileComponent},
     {path:'privacy',component:PrivacyPolicyComponent},
     {path:'aboutus',component:AboutUsComponent},
+    {path:'transactions',component:TransactionsComponent},
 
 
 ];
