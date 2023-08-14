@@ -59,7 +59,7 @@ import { ManageModalComponent } from './pages/manage-account/manage-expense/mana
 import { GoalModalComponent } from './pages/manage-account/manage-expense/goal-modal/goal-modal.component';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { TransactionsComponent } from './pages/Transactions/transactions/transactions.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileComponent, ProfileComponent } from './pages/profile/profile.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { FAQComponent } from './components/faq/faq.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';

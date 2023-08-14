@@ -20,31 +20,22 @@ export class TransactionDetailsComponent implements OnInit{
   transactionsList: Transaction[] = []; // Store your transactions here
   groupedTransactions: any = {}; // Grouped transactions
   sortedDateKeys: string[] = []; // Declare sortedDateKeys property
+  // transactionsList: any[] = []; // Store your transactions here
   totalIncome: number = 0; // Total income for the specific month
   totalExpenses: number = 0; // Total expenses (money out) for the specific month
   availableBalance: number = 0; // Current balance calculated as totalIncome - totalExpenses
   currentBalance: any;
   searchText: any;
-  searchForm: FormGroup = new FormGroup({});
-  filteredTransactions: Transaction[] = [];
-  filteredGroupedTransactions: any = {};
-  selectedDate: Date | null = null;
 
-  constructor(private transactionService: TransactionsService, private http: HttpClient, private formBuilder: FormBuilder)
-  {
-    this.searchForm = this.formBuilder.group({
-      transactionDate: [null],
-      description: [null],
-      amount:[null]
-    });
- 
-   
+  constructor(private transactionService: TransactionsService, private http: HttpClient) { }
+
+  ngOnInit(): void {
     this.fetchDataFromAPI();
-    // this.getCurrentBalance();
- 
-     // Toggle filter dropdown visibility on mobile devices
-     // Toggle filter dropdown visibility on mobile devices
-     $('#filterToggle').on('click', function() {
+    this.fetchDataFromAPI();
+    this.getCurrentBalance();
+
+    // Toggle filter dropdown visibility on mobile devices
+    $('#filterToggle').on('click', function() {
       $('#filterDropdown').toggle();
     });
   }
@@ -97,7 +88,16 @@ export class TransactionDetailsComponent implements OnInit{
 }
 
 
-  
+  getCurrentBalance(){
+    this.transactionService.getCurrentBalance()
+      .subscribe(
+        res => {
+          this.currentBalance = res;
+          console.log(this.currentBalance);
+          this.availableBalance=this.currentBalance[0].Balance
+          console.log(this.availableBalance)
+        })
+  }
 
   // applyDateFilter(): void {
   //   if (this.selectedDate) {
