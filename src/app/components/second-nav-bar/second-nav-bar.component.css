@@ -71,7 +71,7 @@ navbar-nav {
       display: flex;
       align-items: left;
       justify-content: left;
-      height: 95vh;
+      height: auto;
      }
 
      .white-text .nav-link {
