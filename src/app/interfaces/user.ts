@@ -1,5 +1,6 @@
 export interface User { // interface for all data - Thilivhali Ravhutulu 07/08/2023
-    name: string;
+    firstName: string;
+    lastName: string;
     email: string;
     cellphoneNumber: string;
     password: string;
