@@ -1,15 +1,46 @@
 {
-  "register": {
-    
+  "register": [
+    {
+      "id": 1,
       "firstName": "Thilivhali",
       "lastName": "Ravhutulu",
-      "email": "thili@gmail.com",
+      "email": "ravhtuluportia@gmail.com",
       "cellphoneNumber": "0812345678",
-      "password": "password@123",
-      "confirmPassword": "password@123",
-      "idNo": "0008180313085",
+      "password": "Thili123",
+      "idNo": 9908180313085,
+      "imageUrl": ""
+    },
+    {
+      "firstName": "Thilivhali",
+      "lastName": "Ravhutulu",
+      "email": "thilivhali.ravhutulu@dadevs.co.za",
+      "cellphoneNumber": "0821234567",
+      "password": "Thili123",
+      "confirmPassword": "Thili123",
+      "idNo": 9807180313098,
+      "pinNo": "1234",
+      "confirmPinNo": "1234",
+      "id": 2
+    },
+    {
+      "firstName": "Thilivhali",
+      "lastName": "Ravhutulu",
+      "email": "thilivhali.ravhutulu@dadevs.co.za",
+      "cellphoneNumber": "0721234567",
+      "password": "Thilivhali12",
+      "idNo": 9081803130865,
       "pinNo": "12345",
-      "confirmPinNo": "12345"
-  
-  }
+      "confirmPinNo": "12345",
+      "id": 3
+    },
+    {
+      "firstName": "Thilivhali",
+      "lastName": "Ravhutulu",
+      "email": "ravhtuluportia@gmail.com",
+      "cellphoneNumber": "0812345678",
+      "password": "Thili123",
+      "idNo": 9908180313085,
+      "id": 4
+    }
+  ]
 }

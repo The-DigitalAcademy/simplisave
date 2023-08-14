@@ -1,18 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from './user.service';
-import { environment } from '../../environments/environment'; // Import environment variables
+import { environment } from '../../environments/environment';
+import { User } from '../interfaces/user';
+import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StepperService {
   private currentStep = 0;
+  private data: any = {};
   private registrationData: any = {};
 
-  constructor(private http: HttpClient, private userService: UserService) {}
+  constructor(private http: HttpClient, private userService: UserService, private router: Router) {}
 
-  setCurrentStep(step: number) {
+   // Method to update data for each step - Thilivhali 14/08/2023
+   updateStepData(data: any): void {
+    this.registrationData = { ...this.registrationData, ...data };
+  }
+
+  setCurrentStep(step: number): void {
     this.currentStep = step;
   }
 
@@ -20,23 +30,36 @@ export class StepperService {
     return this.currentStep;
   }
 
-  setData(dataKey: string, data: any) {
+  setData(dataKey: keyof User, data: any): void {
     this.registrationData[dataKey] = data;
   }
+  setInfo(dataKey: string, data: any) {
+        this.data[dataKey] = data;
+      }
 
-  saveRegistrationData() {
-    this.http.post(`${environment.apiUrl}/register`, this.registrationData).subscribe(
+  saveRegistrationData(): void {
+    this.http.post(`${environment.REG_URL}`, this.registrationData).subscribe(
       (response) => {
         console.log('Registration data saved:', response);
+        Swal.fire({
+          icon: 'success',
+          text: 'Successful! Please Login',
+          iconColor: '#AF144B',
+          confirmButtonColor: '#AF144B'
+        }).then(() => {
+          // Navigate to the login page
+          this.router.navigate(['/login']);
+         })
       },
       (error) => {
         console.error('Error saving registration data:', error);
       }
     );
   }
-  
 
-  getRegistrationData() {
-    return this.http.get(`${environment.apiUrl}/register`);
+  getRegistrationData(): Observable<User> {
+    return this.http.get<User>(`${environment.REG_URL}`);
   }
 }
+
+

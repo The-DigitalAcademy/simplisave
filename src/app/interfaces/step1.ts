@@ -1,5 +1,6 @@
 export interface Step1 { // interface for step 1 data - Thilivhali Ravhutulu 07/08/2023
-   name: string;
+   firstName: string;
+   lastName: string;
    email: string;
-   phone: number;
+   cellphoneNumber: string;
 }
