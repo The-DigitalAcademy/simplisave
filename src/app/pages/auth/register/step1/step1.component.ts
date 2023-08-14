@@ -9,17 +9,34 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class Step1Component{
   @Input() step1FormGroup!: FormGroup;
+  newFullName: string = '';
+  newEmail: string = '';
+  newPhone: string = '';
 
   constructor(private dataService: DataService) {}
 
-  storeStepData() {
-    this.dataService.setUserData({
-      name: this.step1FormGroup.get('name')?.value,
-      email: this.step1FormGroup.get('email')?.value,
-      phone: this.step1FormGroup.get('phone')?.value
-    });
+  // A method to store values entered in this form - Thilivhali Ravhutulu 04/08/2023
+  // storeStepData() {
+  //   this.dataService.setUserData({
+  //     name: this.step1FormGroup.get('name')?.value,
+  //     email: this.step1FormGroup.get('email')?.value,
+  //     phone: this.step1FormGroup.get('phone')?.value
+  //   });
+  // }
+
+  // A method to update values in this step - Thilivhali Ravhutulu 05/08/2023
+  updateStep1Values() {
+    const updatedValues = {
+      fullName: this.newFullName,
+      email: this.newEmail,
+      phone: this.newPhone,
+    };
+    
+    this.step1FormGroup.patchValue(updatedValues);
+    console.log("Form data", this.step1FormGroup.value);
   }
-  
+
+  // A method to store values using localStorage  - Thilivhali Ravhutulu 05/08/2923
   // store(): void {
   //   const nameInput = document.getElementById('name') as HTMLInputElement;
   //   const emailInput = document.getElementById('email') as HTMLInputElement;

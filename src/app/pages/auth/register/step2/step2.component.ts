@@ -9,14 +9,29 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class Step2Component {
   @Input() step2FormGroup!: FormGroup;
+  newPassword: string = '';
+  newConfirmPassword: string = '';
 
   constructor(private dataService: DataService) {}
 
-  storeStepData() {
-    this.dataService.setUserData({
-      password: this.step2FormGroup.get('password')?.value,
-      confirmPassword: this.step2FormGroup.get('confirmPassword')?.value,
-    });
+  // A method to store values entered in this form - Thilivhali Ravhutulu 04/08/2023
+  // storeStepData() {
+  //   this.dataService.setUserData({
+  //     password: this.step2FormGroup.get('password')?.value,
+  //     confirmPassword: this.step2FormGroup.get('confirmPassword')?.value,
+  //   });
+  // }
+
+  // A method to update values in this step - Thilivhali Ravhutulu 05/08/2023
+  updateStep2Values() {
+    const updatedValues = {
+      password: this.newPassword,
+      confirmPassword: this.newConfirmPassword,
+    };
+    
+    this.step2FormGroup.patchValue(updatedValues);
+    console.log("Form data", this.step2FormGroup.value);
+
   }
 
 }

@@ -9,11 +9,11 @@
             <h3 class="create text-left mb-1">Create a secure password</h3>
             <h4 class="credentials mb-5">Enter a secure password</h4>
 
-            <form [formGroup]="step2FormGroup" (ngSubmit)="storeStepData()">
+            <form [formGroup]="step2FormGroup" (ngSubmit)="updateStep2Values()">
 
               <mat-form-field class="validation mb-4" appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput type="password" class="form-control-plaintext" id="password" placeholder="********" formControlName="password" required />
+                <input matInput type="password" class="form-control-plaintext"  [(ngModel)]="newPassword" id="password" placeholder="********" formControlName="password" required />
                 <mat-error *ngIf="step2FormGroup.get('password')?.invalid">
                   Password is required.
                 </mat-error>
@@ -21,7 +21,7 @@
 
               <mat-form-field class="validation mb-4" appearance="outline">
                 <mat-label>Confirm Password</mat-label>
-                <input matInput type="password" class="form-control-plaintext" id="confirmPassword" placeholder="*******" formControlName="confirmPassword" required />
+                <input matInput type="password" class="form-control-plaintext"  [(ngModel)]="newConfirmPassword" id="confirmPassword" placeholder="*******" formControlName="confirmPassword" required />
                 <mat-error *ngIf="step2FormGroup.get('confirmPassword')?.invalid">
                   Password is required.
                 </mat-error>

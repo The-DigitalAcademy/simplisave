@@ -1,28 +1,15 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "step1": {
-        "name": "Jane Smith",
-        "email": "jane@example.com",
-        "phone": "987654321"
-      },
-      "step2": {
-        "password": "anotherpassword",
-        "confirmPassword": "anotherpassword"
-      },
-      "step3": {
-        "accountNo": "87654321",
-        "pin": "5678"
-      },
-      "step4": {
-        "idNo": "9101211122334",
-        "pinNo": "8765",
-        "confirmPinNo": "8765"
-      }
-    },
-    {
-      "id": 2
-    }
-  ]
+  "register": {
+    
+      "firstName": "Thilivhali",
+      "lastName": "Ravhutulu",
+      "email": "thili@gmail.com",
+      "cellphoneNumber": "0812345678",
+      "password": "password@123",
+      "confirmPassword": "password@123",
+      "idNo": "0008180313085",
+      "pinNo": "12345",
+      "confirmPinNo": "12345"
+  
+  }
 }
