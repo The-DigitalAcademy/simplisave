@@ -112,6 +112,7 @@ export class StepsComponent implements OnInit {
   //updating third step  - Thilivhali Ravhutulu 05/08/2023
   updateStep3Values() {
     if ( this.step3FormGroup.valid){
+    if ( this.step3FormGroup.valid){
       const updatedValues = 
       this.step3FormGroup.get('idNo')?.value;
       
