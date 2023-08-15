@@ -2,6 +2,7 @@
    display: flex;
    height: 100%;
    margin-top: -60px;
+   margin-top: -60px;
 }
 .info-icon{
    color: #000;
@@ -128,6 +129,7 @@ li{
  .subHeader {
    color: #1D1B20;
    font-size: 20px;
+   font-size: 20px;
    font-family: Roboto;
    font-weight: 600;
    word-wrap: break-word;
@@ -136,7 +138,7 @@ li{
    
 
    @media (max-width: 768px) {
-      .subHeader {
+      .col h1 {
         font-size: 16px; 
       }
    
