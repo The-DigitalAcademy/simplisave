@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { environment } from '../../environments/environment'; // Import environment variables
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+
+import { BehaviorSubject, Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +21,7 @@ export class AuthService {
 
   private tokenSubject = new BehaviorSubject<string>('');
 
+
   //BehaviorSubject for managing the user's authentication state.
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
 
@@ -28,8 +31,17 @@ export class AuthService {
   }
   
 
+  
   setToken(token: string): void {
     this.tokenSubject.next(token);
+  }
+
+
+
+
+
+  login(data:any) {
+    return this.http.post<any>('https://springsimplisave-production.up.railway.app/api/auth/login', data);
   }
 
   getToken(): Observable<string> {
