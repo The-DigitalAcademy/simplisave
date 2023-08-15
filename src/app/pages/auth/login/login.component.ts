@@ -17,6 +17,11 @@ export class LoginComponent implements OnInit {
       01-August-2023
   */
   public loginForm!: FormGroup;
+  username!: string;
+  password!: string;
+  loginData:any;
+
+
   
   constructor( private formBuilder: FormBuilder, private http: HttpClient, private authService : AuthService, private router: Router) {}
  
@@ -25,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
 
       // Define form fields for login and validation requirements
-      email: ['', [Validators.required, Validators.email,Validators.pattern(
+      username: ['', [Validators.required, Validators.email,Validators.pattern(
         '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,65}$',
       ),]],
       password: ['', [Validators.required,Validators.pattern(
@@ -40,42 +45,27 @@ export class LoginComponent implements OnInit {
     01-August-2023
   */
   login() {
+    this.loginData={
+      username:this.username,
+      password:this.password
+    }
+    console.log(this.loginData)
 
-  //It checks if the loginForm is valid and returns if it's not. 
     if(!this.loginForm.valid){
       return;
      }
- 
- //If valid it makes an HTTP GET request to the LOGIN_URL and holds the response from the API in res.
-    // this.http.get<any>(this.authService.LOGIN_URL)
-    this.authService.getUserData()
-      .subscribe(
-        res=>{
- 
- /* 
-    The find() method searches through the array using the parameter user which stores the data in the variable userCredentials if found.
-    Sekhukhune Delphia
-      01-August-2023
- */
- const userCredentials = res.find((user:any)=>{
-            return user.email === this.loginForm.value.email && user.password === this.loginForm.value.password 
-          });
-          console.log(userCredentials);
-           // Displays a success alert and navigates to the dashboard if a match is found.
-          if(userCredentials){
-            this.authService.successAlert();
-            this.loginForm.reset();
-            this.router.navigate(["dashboard"]);
-            }
-// Displays a failed alert if no matching user is found or if an error occurs during the request.  
-          else{
-            this.authService.failedAlert();
-            }
-          },
-          // Displays a failed alert if there is no connection to the server.  
-      err=>{
-        this.authService.failedConnAlert();
-        })
+    this.authService.login(this.loginData).subscribe((res: any) => {
+      const token = res['JWT Token'].token;
+      this.authService.setToken(token);
+      console.log("This is the token that is stored in a behavior subject\n\n\n"+ token);
+      console.log('logged in:', res);
+      this.authService.successAlert();
+      this.loginForm.reset();
+      this.router.navigate(["dashboard"])
+    });
+
+
+    
     } 
  }
 
