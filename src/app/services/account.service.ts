@@ -20,6 +20,7 @@ export class AccountService {
   constructor(private http: HttpClient, private authService:AuthService) { }
 
   getAccountData() {
+    console.log(this.authService.getToken())
     return this.authService.getToken().pipe(
       switchMap(token => {
         const headers = new HttpHeaders({

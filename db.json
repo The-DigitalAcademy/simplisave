@@ -163,11 +163,6 @@
       "id": 1
     },
     {
-      "amount": "10000",
-      "name": "Uber",
-      "id": 2
-    },
-    {
       "name": "McDonalds",
       "amount": "500",
       "id": 3
@@ -196,49 +191,47 @@
       "moneyIn": 0,
       "moneyOut": 100
     },
-      {
-        "transactionDate": "2023-08-01T13:11:44.024Z",
-        "image":"/assets/Images/Landing/Spending_money_wallet.png",
-        "description": "Zinzu Chan Lee delphia",
-        "moneyIn": 2000,
-        "moneyOut": 0
-        },
-        {
-          "transactionDate": "2023-08-02T13:11:44.024Z",
-          "image":"/assets/Images/Landing/Spending_money_wallet.png",
-          "description": "Zinzu Chan Lee",
-          "moneyIn": 0,
-          "moneyOut": 450
-          },
-          {
-            "transactionDate": "2023-07-01T13:11:44.024Z",
-            "image":"/assets/Images/Landing/Spending_money_wallet.png",
-            "description": "Zinzu Chan",
-            "moneyIn": 1500,
-            "moneyOut": 0
-            },
-            {
-              "transactionDate": "2023-08-11T13:11:44.024Z",
-              "image":"/assets/Images/Landing/Spending_money_wallet.png",
-              "description": "Zinzu",
-              "moneyIn": 0,
-              "moneyOut": 50
-              },
-              {
-                "transactionDate": "2023-08-12T13:11:44.024Z",
-                "image":"/assets/Images/Landing/Spending_money_wallet.png",
-                "description": "Zinzu Chan",
-                "moneyIn": 1000,
-                "moneyOut": 0
-                }
-                ,
-          {
-            "transactionDate": "2023-08-12T13:11:44.024Z",
-            "image":"/assets/Images/Landing/Spending_money_wallet.png",
-            "description": "Zinzu Chan",
-            "moneyIn": 0,
-            "moneyOut": 155
-            }
-
+    {
+      "transactionDate": "2023-08-01T13:11:44.024Z",
+      "image": "/assets/Images/Landing/Spending_money_wallet.png",
+      "description": "Zinzu Chan Lee delphia",
+      "moneyIn": 2000,
+      "moneyOut": 0
+    },
+    {
+      "transactionDate": "2023-08-02T13:11:44.024Z",
+      "image": "/assets/Images/Landing/Spending_money_wallet.png",
+      "description": "Zinzu Chan Lee",
+      "moneyIn": 0,
+      "moneyOut": 450
+    },
+    {
+      "transactionDate": "2023-07-01T13:11:44.024Z",
+      "image": "/assets/Images/Landing/Spending_money_wallet.png",
+      "description": "Zinzu Chan",
+      "moneyIn": 1500,
+      "moneyOut": 0
+    },
+    {
+      "transactionDate": "2023-08-11T13:11:44.024Z",
+      "image": "/assets/Images/Landing/Spending_money_wallet.png",
+      "description": "Zinzu",
+      "moneyIn": 0,
+      "moneyOut": 50
+    },
+    {
+      "transactionDate": "2023-08-12T13:11:44.024Z",
+      "image": "/assets/Images/Landing/Spending_money_wallet.png",
+      "description": "Zinzu Chan",
+      "moneyIn": 1000,
+      "moneyOut": 0
+    },
+    {
+      "transactionDate": "2023-08-12T13:11:44.024Z",
+      "image": "/assets/Images/Landing/Spending_money_wallet.png",
+      "description": "Zinzu Chan",
+      "moneyIn": 0,
+      "moneyOut": 155
+    }
   ]
 }

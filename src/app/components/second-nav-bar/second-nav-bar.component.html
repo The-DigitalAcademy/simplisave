@@ -8,11 +8,11 @@
     <div class="dropdown">
       <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <img src="./assets/Images/Profile/Profile icon.png" alt="Small Image" width="30" height="30">
-        <p style="margin-left: 1%;" class="profileText">Welcome, User</p>
-        <mat-icon style="color: white;margin-left: 1%;" width="30" height="30">keyboard_arrow_down</mat-icon>
+        <p style="margin-left: 3%;" class="profileText">Welcome {{this.name}}</p>
+        <mat-icon style="color: white;margin-left: 3%;margin: 0;" width="30" height="30">keyboard_arrow_down</mat-icon>
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Profile</a>
+        <a class="dropdown-item" routerLink="/profile">Profile</a>
         <a class="dropdown-item" href="#">Logout</a>
       </div>
     </div>

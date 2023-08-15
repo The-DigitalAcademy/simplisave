@@ -63,10 +63,10 @@
           </div>
           <div class="form-row">
             <div class="form-field">
-              <label for="accNumber">Account Number:</label>
+              <label for="accountNo">Account Number:</label>
               <div class="input-container1">
-                <input type="text" id="accNumber" name="accNumber" formControlName="accNumber" required>
-                <div class="error-message" *ngIf="basicInfoForm.get('accNumber')?.hasError('pattern') && (basicInfoForm.get('accNumber')?.dirty || basicInfoForm.get('accNumber')?.touched)">Invalid format</div>
+                <input type="text" id="accountNo" name="accountNo" formControlName="accountNo" required>
+                <div class="error-message" *ngIf="basicInfoForm.get('accountNo')?.hasError('pattern') && (basicInfoForm.get('accountNo')?.dirty || basicInfoForm.get('accountNo')?.touched)">Invalid format</div>
               </div>
             </div>
           </div>

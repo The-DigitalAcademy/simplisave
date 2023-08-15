@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   activeForm: string = 'form1';
   userInfo: any;
   userId: any = 2;
+  items1:any;
 
   constructor(private formBuilder: FormBuilder, private service: AccountService, private authService:AuthService) {}
 
@@ -27,7 +28,7 @@ export class ProfileComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
       cellphoneNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
       email: ['', [Validators.required, Validators.email]],
-      accNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
+      accountNo: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
       idNo: ['', [Validators.required, Validators.pattern(/^[0-9]{13}$/)]],
     });
 
@@ -44,10 +45,18 @@ export class ProfileComponent implements OnInit {
     });
 
     this.getUsersInfo();
+
+    
+      this.service.getTransactions2()
+        .subscribe(res => {
+          this.items1 = res;
+          console.log(this.items1);
+        });
+    
   }
 
   getUsersInfo() {
-    this.service.getUser(this.userId).subscribe((res: any) => {
+    this.service.getAccountData().subscribe((res: any) => {
       this.userInfo = res;
 
       // Set initial form values using patchValue
@@ -57,7 +66,7 @@ export class ProfileComponent implements OnInit {
         cellphoneNumber: this.userInfo.cellphoneNumber,
         email: this.userInfo.email,
         idNo:this.userInfo.idNo,
-        accNumber:this.userInfo.accNumber,
+        accountNo:this.userInfo.accounts[0].accountNo,
       });
 
       this.passwordForm.patchValue({
@@ -84,7 +93,7 @@ export class ProfileComponent implements OnInit {
         cellphoneNumber: this.basicInfoForm.get('cellphoneNumber')?.value,
         email: this.basicInfoForm.get('email')?.value,
         idNo: this.basicInfoForm.get('idNo')?.value,
-        accNumber: this.basicInfoForm.get('accNumber')?.value,
+        accountNo: this.basicInfoForm.get('accountNo')?.value,
       };
 
       this.service.updateUser(this.userId, updatedInfo).subscribe((res: any) => {
