@@ -23,6 +23,25 @@ navbar-nav {
   text-align: center;
   margin: 5px;
 }
+.dropdown{
+  width: auto;
+}
+.profile{
+  display: flex;
+  width:100%;
+  height: 100%;
+  justify-content: right;
+  align-items: center;
+  margin: 0;
+  padding:0;
+  margin-right: 2%;
+}
+.profileText{
+  width: auto;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
 .logout {
   background-color: #870A3C;
   color: #ffffff;
