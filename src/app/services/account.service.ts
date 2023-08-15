@@ -25,7 +25,6 @@ export class AccountService {
         const headers = new HttpHeaders({
           Authorization: `Bearer ${token}`
         });
-
         // Make the authenticated API request using HttpClient
         return this.http.get(`${environment.backendUrl}/auth/9`, { headers });
       })

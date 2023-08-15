@@ -37,11 +37,13 @@ navbar-nav {
   margin-right: 2%;
 }
 .profileText{
-  width: auto;
+  width: 100%;
   margin: 0;
   padding: 0;
   color: #ffffff;
+  white-space: nowrap;
 }
+
 .logout {
   background-color: #870A3C;
   color: #ffffff;
@@ -51,6 +53,7 @@ navbar-nav {
   letter-spacing: 0.15px;
   display: flex;
 }
+
 .navbar-nav .nav-link {
   margin-right: 10px; 
   display: flex;
