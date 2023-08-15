@@ -29,6 +29,12 @@ export class AuthService {
 
 
 
+  // login(data:any) {
+  //   return this.http.post<any>('https://springsimplisave-production.up.railway.app/api/auth/login', data);
+  // }
+
+
+
   login(data:any) {
     return this.http.post<any>(`${environment.backendUrl}/auth/login`, data);
   }
