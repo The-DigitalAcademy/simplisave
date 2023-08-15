@@ -28,8 +28,14 @@ export class TopPartComponent implements OnInit {
     this.accountService.getAccountData()
           .subscribe(res => {
             this.items = res;
+            console.log(this.items);
             this.availableBalance=this.items.accounts[0].accountBalance;
             console.log(this.items.accounts[0].accountBalance);
+            this.totalSaved=this.items.accounts[0].savingsAccount.currentSavingsBalance;
+            if(this.totalSaved===null){
+              this.totalSaved=0;
+            }
+            console.log(this.items.accounts[0].savingsAccount.currentSavingsBalance);
 
 });
   }
@@ -49,9 +55,6 @@ export class TopPartComponent implements OnInit {
     this.accountService.getSimplisaveData()
                .subscribe(res=>{
                 this.items1 = res;
-                console.log(this.items1);
-                this.totalSaved=this.items1[0].Balance
-                console.log(this.totalSaved)
                })
   }
   filterData() {

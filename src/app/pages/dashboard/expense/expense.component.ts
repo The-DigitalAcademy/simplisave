@@ -53,7 +53,7 @@ export class ExpenseComponent {
   -Mohammed Badat
   - 2023/08/01*/
   getTransactionsFromApi() {
-    this.service.getTransactions().subscribe((res: any) => {
+    this.service.getTransactions2().subscribe((res: any) => {
       this.items1 = res;
       console.log(this.items1);
       this.filterAndCalculateSumMoneyOut();
@@ -97,7 +97,7 @@ export class ExpenseComponent {
     // Change dates from strings to JavaScript objects
     const transactions = this.items1.map((record: any) => ({
       ...record,
-      Transaction_Date: new Date(record.Transaction_Date),
+      transactionDate: new Date(record.transactionDate),
     }));
 
     // Get the current month and year
@@ -119,13 +119,13 @@ export class ExpenseComponent {
       //keep month within the javascript object range (0 to 11)
       const prevMonth = (currentMonth - i + 12) % 12;
       const filteredPrevMonthData = transactions.filter((record: any) => {
-        const isMoneyOutPositive = record.Money_Out > 0;
-        const transactionDate = record.Transaction_Date;
+        const isMoneyOutPositive = record.moneyOut > 0;
+        const transactionDate = record.transactionDate;
         const isWithinPrevMonth = transactionDate.getMonth() === prevMonth;
         return isMoneyOutPositive && isWithinPrevMonth;
       });
       /* Add the money out amount for each of the transactions that matches the conditions */
-      return filteredPrevMonthData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
+      return filteredPrevMonthData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
     });
 
     this.sumMoneyOutMonths.reverse(); // Reverse the array here
