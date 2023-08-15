@@ -30,10 +30,6 @@ import { LearnVsNoSavingsComponent } from './pages/learn/learn-vs-no-savings/lea
 import { LearnVsInvestComponent } from './pages/learn/learn-vs-invest/learn-vs-invest.component';
 import { LearnBestSuitedComponent } from './pages/learn/learn-best-suited/learn-best-suited.component';
 import { LearnOfferComponent } from './pages/learn/learn-offer/learn-offer.component';
-import { Step1Component } from './pages/auth/register/step1/step1.component';
-import { Step2Component } from './pages/auth/register/step2/step2.component';
-import { Step3Component } from './pages/auth/register/step3/step3.component';
-import { Step4Component } from './pages/auth/register/step4/step4.component';
 import { StepsComponent } from './pages/auth/register/steps/steps.component';
 import { OffersComponent } from './pages/landing/offers/offers.component';
 import { LandingGetstartedComponent } from './pages/landing/landing-getstarted/landing-getstarted.component';
@@ -45,10 +41,6 @@ import { TopPartComponent } from './pages/dashboard/top-part/top-part.component'
 import { ChecklistComponent } from './pages/dashboard/checklist/checklist.component';
 import { SecondNavBarComponent } from './components/second-nav-bar/second-nav-bar.component';
 import { GraphComponent } from './pages/dashboard/graph/graph.component';
-import { Step5Component } from './pages/auth/register/step5/step5.component';
-import { Step6Component } from './pages/auth/register/step6/step6.component';
-import { Step7Component } from './pages/auth/register/step7/step7.component';
-import { Step8Component } from './pages/auth/register/step8/step8.component';
 import { LearnStepsComponent } from './pages/learn/learn-steps/learn-steps.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ExpenseComponent } from './pages/dashboard/expense/expense.component';
