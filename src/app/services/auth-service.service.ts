@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { environment } from '../../environments/environment'; // Import environment variables
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +11,26 @@ import { environment } from '../../environments/environment'; // Import environm
 export class AuthService {
 
 
-  LOGIN_URL = `${environment.apiUrl}/signupUsers`;
+  LOGIN_URL = /* `${environment.apiUrl}/signupUsers` */ 'https://springsimplisave-production.up.railway.app/api/auth/login';
 
 //The constructor holds two parameter: http for making http request and router for navigating to different routes/components 
   constructor(private http: HttpClient, private router: Router) {}
 
 
+  private tokenSubject = new BehaviorSubject<string>('');
 
-  login(email: string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}/login`, { email, password });
+  setToken(token: string): void {
+    this.tokenSubject.next(token);
+  }
+
+  getToken(): Observable<string> {
+    return this.tokenSubject.asObservable();
+  }
+
+
+
+  login(data:any) {
+    return this.http.post<any>('https://springsimplisave-production.up.railway.app/api/auth/login', data);
   }
 
   getUserData() {
