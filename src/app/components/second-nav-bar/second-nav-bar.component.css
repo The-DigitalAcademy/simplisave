@@ -12,7 +12,6 @@ navbar-nav {
   border-radius: 12px;
   border: none;
   margin-top: auto;
-  font-family: Roboto;
   word-wrap: break-word;
   font-size: 16px;
   font-weight: 400;
@@ -72,7 +71,7 @@ navbar-nav {
       display: flex;
       align-items: left;
       justify-content: left;
-      height: 95vh;
+      height: auto;
      }
 
      .white-text .nav-link {

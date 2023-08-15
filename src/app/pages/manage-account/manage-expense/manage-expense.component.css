@@ -71,11 +71,13 @@ mat-progress-bar {
  max-width: auto;
 }
 
+
 @media screen and (max-width: 1024px) {
   .card{
     flex-basis: calc(50% - 20px); 
   }
 }
+
 
 @media screen and (max-width: 768px) {
   .grid-container {
@@ -86,9 +88,7 @@ mat-progress-bar {
     flex-basis: calc(50% - 20px);  
   }
 
-  /* .container {
-    flex-direction: column;
-  } */
+
 }
       /* Mobile */
 @media screen and (max-width: 480px) {

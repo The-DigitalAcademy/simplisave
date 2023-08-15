@@ -34,6 +34,9 @@
 
 /* Media query for mobile devices */
  @media (max-width: 780px) {
+  .navbar{
+    height: auto;
+  }
     .img-fluid {
       max-width: 70%;
       min-width: auto;

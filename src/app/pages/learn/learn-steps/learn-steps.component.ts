@@ -37,9 +37,9 @@ export class LearnStepsComponent implements OnInit {
   onNext() {
     const currentStep = this.stepperService.getCurrentStep();
     if (currentStep === 0) {
-      this.stepperService.setData('step1Data', this.step1FormGroup.value);
+      this.stepperService.setInfo('step1Data', this.step1FormGroup.value);
     } else if (currentStep === 1) {
-      this.stepperService.setData('step2Data', this.step2FormGroup.value);
+      this.stepperService.setInfo('step2Data', this.step2FormGroup.value);
     }
 
     this.stepperService.setCurrentStep(currentStep + 1);
