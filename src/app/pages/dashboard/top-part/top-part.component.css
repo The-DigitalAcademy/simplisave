@@ -10,11 +10,12 @@ margin-left: 2%;
 }
 
 .flex-item:hover {
-  background-color: #f0f0f0; /* Change this color to your desired hover color */
-  cursor: pointer; /* Change cursor to indicate interactivity */
-
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transform: scale(1.09);
 
 }
+
 
 .info-container {
   display: flex;
@@ -116,3 +117,4 @@ word-wrap: break-word
   }
  
 }
+
