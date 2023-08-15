@@ -29,7 +29,7 @@ import { LearnWhySAveComponent } from './pages/learn/learn-why-save/learn-why-sa
 import { LearnVsNoSavingsComponent } from './pages/learn/learn-vs-no-savings/learn-vs-no-savings.component';
 import { LearnVsInvestComponent } from './pages/learn/learn-vs-invest/learn-vs-invest.component';
 import { LearnBestSuitedComponent } from './pages/learn/learn-best-suited/learn-best-suited.component';
-import { LearnOfferComponent, LearnOfferComponent } from './pages/learn/learn-offer/learn-offer.component';
+import { LearnOfferComponent } from './pages/learn/learn-offer/learn-offer.component';
 import { StepsComponent } from './pages/auth/register/steps/steps.component';
 import { OffersComponent } from './pages/landing/offers/offers.component';
 import { LandingGetstartedComponent } from './pages/landing/landing-getstarted/landing-getstarted.component';
