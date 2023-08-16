@@ -20,18 +20,18 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 import { FAQComponent } from './components/faq/faq.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { TransactionsComponent } from './pages/Transactions/transactions/transactions.component';
+import { EmptyBehaviorGuardGuard } from './empty-behavior-guard.guard'; // Import your guard
 
 const routes: Routes = [
-    { path: 'register', component: RegisterComponent },
+    { path: 'register', component: RegisterComponent},
     { path: 'login', component: LoginComponent},
     { path: 'forgot', component: ForgotPasswordComponent},
-    { path: 'steps', component: StepsComponent },
+    { path: 'steps', component: StepsComponent},
     {path: 'accounts', component: AccountsComponent},
     {path : 'learn', component : LearnComponent},
-    {path : 'dashboard', component : DashboardComponent},
-    {path: 'expense', component : ExpenseComponent},
+    {path : 'dashboard', component : DashboardComponent, canActivate: [EmptyBehaviorGuardGuard]},
     {path : '', component : LandingComponent},
-    {path:"learnBanner",component:LearnBannerComponent},
+    {path:'learnBanner',component:LearnBannerComponent},
     {path:'manage', component: ManageAccountComponent},
     {path:'admin',component:MainAdminComponent},
     {path:'admin2',component:AdminComponent},
@@ -40,7 +40,7 @@ const routes: Routes = [
     {path:'profile',component:ProfileComponent},
     {path:'privacy',component:PrivacyPolicyComponent},
     {path:'aboutus',component:AboutUsComponent},
-    {path:'transactions',component:TransactionsComponent},
+    {path:'transactions',component:TransactionsComponent, canActivate: [EmptyBehaviorGuardGuard]},
 
 
 ];
