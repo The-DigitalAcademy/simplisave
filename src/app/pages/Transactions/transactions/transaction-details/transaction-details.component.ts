@@ -31,7 +31,6 @@ export class TransactionDetailsComponent implements OnInit{
   filteredGroupedTransactions: any = {};
   selectedDate: Date | null = null;
 
-
   constructor(private transactionService: TransactionsService, private http: HttpClient, private formBuilder: FormBuilder)
   {
     this.searchForm = this.formBuilder.group({
@@ -39,11 +38,14 @@ export class TransactionDetailsComponent implements OnInit{
       description: [null],
       amount:[null]
     });
-
+ 
+   
     this.fetchDataFromAPI();
-
-    // Toggle filter dropdown visibility on mobile devices
-    $('#filterToggle').on('click', function() {
+    // this.getCurrentBalance();
+ 
+     // Toggle filter dropdown visibility on mobile devices
+     // Toggle filter dropdown visibility on mobile devices
+     $('#filterToggle').on('click', function() {
       $('#filterDropdown').toggle();
     });
   }
