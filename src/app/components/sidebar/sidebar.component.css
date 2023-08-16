@@ -89,6 +89,6 @@ body {
     display: block;
     margin: 10px auto;
     margin-top: 0;
-    position: static; /* Reset position to static */
+    position: static; 
   }
 }
