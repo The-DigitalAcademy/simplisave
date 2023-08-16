@@ -29,8 +29,6 @@ export class StepsComponent implements OnInit {
   newPassword: string = '';
   newConfirmPassword: string = '';
   newIdNo: string ='';
-  newPinNo: any = '';
-  newConfirmPinNo: any ='';
   
   selectedFile: File | null = null;
 
@@ -65,13 +63,6 @@ export class StepsComponent implements OnInit {
         Validators.required, 
         Validators.pattern('^[0-9]{13}$') //check if there are 13 numbers
       ]],
-      pinNo: ['', [
-        Validators.required,
-        Validators.minLength(4),  // minimum length
-        Validators.maxLength(8), // maximum length
-        Validators.pattern(/^\d+$/), // Add your desired pattern, in this case making sure it is a number - Thilivhali Ravhutulu 10/08/2023
-     ]],
-      confirmPinNo: ['', Validators.required]
     });
 
     // Initialize the stepper with the first step - Thilivhali Ravhutulu 07/08/2023
@@ -86,22 +77,10 @@ export class StepsComponent implements OnInit {
     return this.step2FormGroup.get('confirmPassword');
   }
 
-  get pin() {
-    return this.step3FormGroup.get('pin');
-  }
-
-  get confirmPinNo() {
-    return this.step3FormGroup.get('confirmPinNo');
-  }
 
   //to verify that the passwords match - Thilivhali Ravhutulu 10/08/2023
   passwordMatch(): boolean {
     return this.newPassword === this.newConfirmPassword;
-  }
-
-  //to verify that the pins match - Thilivhali Ravhutulu 10/08/2023
-  pinMatch(): boolean {
-    return this.newPinNo === this.newConfirmPinNo;
   }
 
 
@@ -131,7 +110,7 @@ export class StepsComponent implements OnInit {
 
   //updating third step  - Thilivhali Ravhutulu 05/08/2023
   updateStep3Values() {
-    if ( this.step3FormGroup.valid && this.pinMatch()){
+    if ( this.step3FormGroup.valid){
       const updatedValues = 
       this.step3FormGroup.get('idNo')?.value;
       
@@ -173,7 +152,7 @@ export class StepsComponent implements OnInit {
       ...this.registrationData,
       ...this.step1FormGroup.value,
       password: this.step2FormGroup.value.password, // Store only the password - Thilivhali Ravhutulu 14/08/2023
-      idNo: this.step3FormGroup.value.idNo,  // Store only the ID number - Thilivhali Ravhutulu 14/08/2023
+      ...this.step3FormGroup.value,  // Store only the ID number - Thilivhali Ravhutulu 14/08/2023
     };
     console.log("data:", this.registrationData);
 

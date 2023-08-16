@@ -1,22 +1,3 @@
-<!--<section class="table__header">
-    <h1>Transactions</h1>
-    <div class="input-group">
-        <input type="search" placeholder="Search Data...">
-    </div>
-    <<div class="export__file">
-        <label for="export-file" class="export__file-btn" title="Export File"></label>
-        <input type="checkbox" id="export-file">
-        <div class="export__file-options">
-            <label>Export As &nbsp; &#10140;</label>
-            <label for="export-file" id="toPDF">PDF <img src="images/pdf.png" alt=""></label>
-            <label for="export-file" id="toJSON">JSON <img src="images/json.png" alt=""></label>
-            <label for="export-file" id="toCSV">CSV <img src="images/csv.png" alt=""></label>
-            <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png" alt=""></label>
-        </div>
-    </div> 
-</section>-->
-
-
 <div class="flex-container header" >
   <div class="flex-item" style="border-style:none">
     <h1>Transactions</h1>
@@ -35,19 +16,19 @@
   
   <div class="flex-item">
     <!-- <mat-icon class="info-icon" matTooltip="Current Balance on the everyday bank account">info</mat-icon> -->
-   Current Balance
+   <h6>Current Balance</h6>
     <p>R {{ this.currentBalance}}</p>  
   </div>
 
   <div  class="flex-item">
     <!-- <mat-icon class="info-icon" matTooltip="Total amount that has been spent for that specific month on the everyday bank account">info</mat-icon> -->
-     Total Income
+     <h6>Total Income</h6>
     <p>R {{this.totalIncome}}</p> 
   </div>
 
   <div class="flex-item">   
     <!-- <mat-icon class="info-icon" matTooltip="Total amount that has been saved for that specific month">info</mat-icon> -->
-    Total Expenses
+    <h6>Total Expenses</h6>
     <p>R {{this.totalExpenses}}</p>
   </div>
 </div>
