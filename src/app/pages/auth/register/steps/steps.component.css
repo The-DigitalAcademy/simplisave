@@ -67,6 +67,48 @@ mat-label{
   font-size: small ;
 }
 
+.cloudUpload{
+  color: #870A3C;
+  width: 50px;
+  height: 50px;
+  font-size: 48px;
+}
+
+.image-preview {
+  margin-top: 20px; /* Adjust the margin to create space between the preview and buttons */
+  text-align: center;
+  
+}
+
+.drop-zone {
+  border: 2px dashed #ccc;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  height: 150px;
+  position: relative;
+}
+
+.drop-zone p {
+  margin: 0;
+}
+
+.drop-zone.drag-over {
+  border-color: rgb(45, 233, 45);
+}
+
+.upload-link {
+  display: inline-block;
+  color: #870A3C;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.upload-link input[type="file"] {
+  display: none;
+}
 
 
 .mat-mdc-button:not(:disabled){
