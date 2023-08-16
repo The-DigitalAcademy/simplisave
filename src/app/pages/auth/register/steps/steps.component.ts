@@ -30,7 +30,8 @@ export class StepsComponent implements OnInit {
   newConfirmPassword: string = '';
   newIdNo: string ='';
   
-  selectedFile: File | null = null;
+  //For image upload - Thilivhali Ravhutulu 16/08/2023
+  previewImage: string | null = null;
 
 
   constructor(private fb: FormBuilder, private stepperService: StepperService, private router: Router, private fileUploaderService: FileUploaderService) {}
@@ -153,6 +154,7 @@ export class StepsComponent implements OnInit {
       ...this.step1FormGroup.value,
       password: this.step2FormGroup.value.password, // Store only the password - Thilivhali Ravhutulu 14/08/2023
       ...this.step3FormGroup.value,  // Store only the ID number - Thilivhali Ravhutulu 14/08/2023
+      image: this.previewImage // The image URL - Thilivhali Ravhutulu 16/08/2023
     };
     console.log("data:", this.registrationData);
 
@@ -167,24 +169,40 @@ export class StepsComponent implements OnInit {
     
   }
 
-  onFileSelected(event: Event) {
-    const inputElement = event.target as HTMLInputElement;
-    if (inputElement.files && inputElement.files.length) {
-      this.selectedFile = inputElement.files[0];
-    }
+  //functions to handle file upload - Thilivhali Ravhutulu 16/08/2023
+  onDrop(event: any) {
+    event.preventDefault();
+    const files = event.dataTransfer.files;
+    this.handleFiles(files);
   }
 
-  upload() {
-    if (this.selectedFile) {
-      this.fileUploaderService.uploadFile(this.selectedFile).subscribe(
-        (uploadedUrl) => {
-          // Handle the uploaded URL or any other response from the service.
-          console.log('File uploaded successfully:', uploadedUrl);
-        },
-        (error) => {
-          console.error('Error uploading file:', error);
-        }
-      );
+  onDragOver(event: any) {
+    event.preventDefault();
+    event.stopPropagation();
+    event.currentTarget.classList.add('drag-over');
+  }
+
+  onDragExit(event: any) { 
+    event.currentTarget.classList.remove('drag-over');
+  }
+
+  //option to browse images from device - Thilivhali Ravhutulu 16/08/2023
+  onFileSelected(event: any) {
+    const files = event.target.files;
+    this.handleFiles(files);
+  }
+
+  handleFiles(files: FileList) {
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (file.type.startsWith('image/')) {
+        // Process the valid image file - Thilivhali Ravhutulu 16/08/2023
+      this.previewImage = URL.createObjectURL(file);
+    } else {
+      console.log('Invalid file type:', file.type);
+    }
+      // Perform any necessary actions with the uploaded file (e.g., upload to server)
+      console.log('Uploaded file:', file);
     }
   }
 
