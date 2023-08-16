@@ -1,28 +1,52 @@
 
 .container {
-  width: 1000px;
-  margin-top: 30px; 
+  width: 1140px;
+  margin: 0;
 }
 
 .heading {
   color: #870A3C;
 }
 
-.sub-header{
+h1 {
+  color: #870A3C;
+  font-size: 36px;
+  font-family: Roboto;
+  font-weight: 600;
+  line-height: 20px;
+  word-wrap: break-word;
   margin-top: 30px;
+  padding-bottom:2%;
+  }
+
+  h4{
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+  h5{
+    font-size: 16px;
+    font-weight: 900;
+  }
+
+  h6{
+    font-size: 14px;
+  }
+
+
+.sub-header{
+  margin-top: 3%;
+  padding-bottom: 2%;
 }
 
 .grid-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 35px;
 }
 
 .cardHeading { 
-  padding-left: 10px;
-  height: 40px; 
-  width: 450px;
-  position: relative;
+  padding-bottom: 2%;
 }
 
 .card {
@@ -31,16 +55,17 @@
   border-radius: 15px;
   padding: 10px;
   height: 90px; 
-  max-width: 300px; 
+  max-width: 31.197%; 
 }
 
 .card-content {
   position: relative;
+  padding: 2%;
 }
 
 .icon-container {
   position: absolute;
-  top: -5px;
+  top: 0;
   right: 5px;
   color: grey;
   cursor: pointer;
@@ -65,10 +90,9 @@ mat-progress-bar {
 .balance {
   position: absolute;
   right: 5px;
+  padding-top: 3%;
   color: black;
-}
-.title{
- max-width: auto;
+  
 }
 
 
@@ -80,29 +104,23 @@ mat-progress-bar {
 
 
 @media screen and (max-width: 768px) {
-  .grid-container {
-    justify-content: left; 
-  }
-  
-  .card {
-    flex-basis: calc(50% - 20px);  
-  }
-
-
-}
-      /* Mobile */
-@media screen and (max-width: 480px) {
 
   .container{
-    width: 300px;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+
   }
 
-  .heading h2{
-    font-size: 20px;
+  .heading h1{
+    font-size: 24px;
+    padding-bottom:5%;
   }
 
-  .sub-header h3{
-    font-size: 17px;
+  .sub-header h4{
+    font-size: 18px;
+    padding-bottom:2%;
+
   }
 
   .grid-container {
@@ -111,29 +129,23 @@ mat-progress-bar {
 
   .card {
     flex-basis: 100%; 
-    height: 65px; 
+    max-width: 100%;
   }
 
-  .title h6{
-    font-size: 14px;
+  .title h5{
+    font-size: 16px;
   }
 
-  .cardHeading { 
-    padding-left: 10px;
-    height: 40px; 
-    width: auto;
-    position: relative;
+  .cardHeading h4{
+    font-size: 18px;
+    padding-bottom:2%;
+
   }
 
-  .cardHeading h3{
-    font-size: 17px;
-  }
-
-  .balance h5{
+  .balance h6{
     position: absolute;
     color: black;
-    right: 1px;
-    font-size: 15px;
-    margin-top: 6px;
+    right: 0px;
+    font-size: 14px;
   }
 }

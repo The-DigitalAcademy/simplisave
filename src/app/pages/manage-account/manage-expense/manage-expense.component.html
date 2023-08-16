@@ -1,24 +1,24 @@
 <!-- eslint-disable prettier/prettier -->
-<div class="container">
+<div class="container text-left">
   <div class="heading">
-    <h2>Expense Allocation</h2>
+    <h1>Expense Allocation</h1>
   </div>
   <div class="sub-header">
-    <h3>Saving Goal</h3>
+    <h4>Savings Goal</h4>
   </div>
 
   <div class="grid-container">
     <div class="card" *ngFor="let goalSavings of Goal_Savings">
       <div class="card-content">
         <div class="title">
-          <h6>Goal</h6>
+          <h5>Goal</h5>
         </div>
         <div class="icon-container">
-          <mat-icon (click)="openGoalModal(goalSavings.id)" class="edit">edit</mat-icon>
+          <mat-icon (click)="openGoalModal(goalSavings.id)" class="ediit">edit</mat-icon>
         </div>
         <mat-progress-bar class="red-progress-bar" mode="determinate" value="10"></mat-progress-bar>
         <div class="balance">
-          <h5>R{{ goalSavings.amount }}</h5>
+          <h6>R{{ goalSavings.amount }}</h6>
         </div>
       </div>
     </div>
@@ -26,13 +26,13 @@
   <br /><br />
 
   <div class="cardHeading">
-    <h3>Expense Allocation Categories</h3>
+    <h4>Expense Allocation Categories</h4>
   </div>
   <div class="grid-container">
     <div class="card" *ngFor="let transactionType of Transaction_Type">
       <div class="card-content">
         <div class="title">
-          <h6>{{ transactionType.name }}</h6>
+          <h5>{{ transactionType.name }}</h5>
         </div>
         <div class="icon-container">
           <mat-icon (click)="openExpenseModal(transactionType.id)" class="edit">edit</mat-icon>
@@ -40,7 +40,7 @@
         </div>
         <mat-progress-bar class="red-progress-bar" mode="determinate" [value]="getTypeProgress(transactionType.name)" [bufferValue]="transactionType.amount"></mat-progress-bar>
         <div class="balance">
-          <h5>R{{ transactionType.amount }}</h5>
+          <h6>R{{ transactionType.amount }}</h6>
         </div>
       </div>
     </div>
