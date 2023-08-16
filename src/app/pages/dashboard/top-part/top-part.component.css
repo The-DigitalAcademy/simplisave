@@ -1,4 +1,4 @@
-h1 {
+.heading {
 color: #870A3C;
 font-size: 36px;
 font-family: Roboto;
@@ -10,11 +10,10 @@ padding-left:2%;
 padding-bottom:2%;
 }
 
-.flex-item:hover {
+.item:hover {
   background-color: #f0f0f0;
   cursor: pointer;
   
-
 }
 
 
@@ -38,7 +37,7 @@ mat-icon{
  
 }
 
-.flex-container {
+.top-container {
   display: flex;
   gap: 20px;
   padding:2%;
@@ -47,7 +46,7 @@ mat-icon{
   margin-top: 0;
 }
 
- .flex-container > div {
+ .top-container > div {
   
   padding: 1%;
   font-size: 20px;
@@ -76,7 +75,7 @@ h6{
   font-weight: 800;
 }
 
-.flex-item {
+.item {
   position: relative;
   flex: 50%;
   border-style: solid;
@@ -94,12 +93,12 @@ h6{
 }
 @media (max-width: 800px) {
 
-  .flex-container {
+  .top-container {
     flex-wrap: wrap;
   }
 
-  .flex-item:nth-child(2),
-  .flex-item:nth-child(3) {
+  .item:nth-child(2),
+  .item:nth-child(3) {
     flex-basis: calc(50% - 10px);
     font-size: 16px;
     margin-bottom: 20px;
@@ -116,13 +115,13 @@ h6{
 }
 
 @media (max-width: 500px) {
-  h1 {
+  .heading {
     font-size: 24px;
     margin-top: 10px;
 
   }
 
-  .flex-container > div {
+  .top-container > div {
     font-size: 16px;
     padding: 3%;
 
