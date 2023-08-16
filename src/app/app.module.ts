@@ -25,7 +25,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LearnBannerComponent } from './pages/learn/learn-banner/learn-banner.component';
-import { LearnWhySAveComponent } from './pages/learn/learn-why-save/learn-why-save.component';
+import { LearnWhySAveComponent, LearnWhySAveComponent } from './pages/learn/learn-why-save/learn-why-save.component';
 import { LearnVsNoSavingsComponent, LearnVsNoSavingsComponent } from './pages/learn/learn-vs-no-savings/learn-vs-no-savings.component';
 import { LearnVsInvestComponent } from './pages/learn/learn-vs-invest/learn-vs-invest.component';
 import { LearnBestSuitedComponent } from './pages/learn/learn-best-suited/learn-best-suited.component';
@@ -73,6 +73,9 @@ import { FaqBannerComponent } from './components/faq/faq-banner/faq-banner.compo
 import { FaqContentComponent } from './components/faq/faq-content/faq-content.component';
 import { TransferModalComponent } from './pages/dashboard/top-part/transfer-modal/transfer-modal.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 
