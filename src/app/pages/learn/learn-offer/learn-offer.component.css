@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 .container {
 
@@ -111,7 +112,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    width:65vw;
+    width:55vw;
   }
 
   .button-container{
