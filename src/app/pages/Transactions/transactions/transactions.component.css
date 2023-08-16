@@ -17,17 +17,17 @@
 /* .balance-summary, */
 .expense-part  {
   flex: 1;
+  padding-left: 2%;
+  padding: 1%;
 }
 
-/* .expense-part {
-  flex: 1;
-} */
 
 
 @media (max-width: 768px) {
   .transaction-container {
     flex-direction: column;
     height: auto; 
+    padding: 5%;
   }
 
   .balance-summary{
