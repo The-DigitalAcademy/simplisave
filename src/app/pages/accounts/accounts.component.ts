@@ -13,24 +13,24 @@ export class AccountsComponent {
     //     window.open(externalUrl, '_blank');
     //   }
 
-      redirectToEasyAccessPage(): void {
-        const externalUrl = 'https://www.absa.co.za/personal/save-invest/products/absa-trusave/';
-        window.open(externalUrl, '_blank');
-      }
+      // redirectToEasyAccessPage(): void {
+      //   const externalUrl = 'https://www.absa.co.za/personal/save-invest/products/absa-trusave/';
+      //   window.open(externalUrl, '_blank');
+      // }
 
-      redirectToSavingsPlanPage(): void {
-        const externalUrl = 'https://www.absa.co.za/personal/save-invest/products/futureplan/';
-        window.open(externalUrl, '_blank');
-      }
+      // redirectToSavingsPlanPage(): void {
+      //   const externalUrl = 'https://www.absa.co.za/personal/save-invest/products/futureplan/';
+      //   window.open(externalUrl, '_blank');
+      // }
 
-      redirectToNoticeDepositPage(): void {
-        const externalUrl = 'https://www.absa.co.za/business/saving-and-investing/notice-deposits/';
-        window.open(externalUrl, '_blank');
-      }
+      // redirectToNoticeDepositPage(): void {
+      //   const externalUrl = 'https://www.absa.co.za/business/saving-and-investing/notice-deposits/';
+      //   window.open(externalUrl, '_blank');
+      // }
 
-      redirectToUnitTrustPage(): void {
-        const externalUrl = 'https://www.absa.co.za/personal/save-invest/products/absa-income-enhancer-fund/';
-        window.open(externalUrl, '_blank');
-      }
+      // redirectToUnitTrustPage(): void {
+      //   const externalUrl = 'https://www.absa.co.za/personal/save-invest/products/absa-income-enhancer-fund/';
+      //   window.open(externalUrl, '_blank');
+      // }
 
 }
