@@ -20,3 +20,14 @@
     margin-top: 30px;
     margin-left: 10%;
 }
+
+/* Media Query for screens below 786px */
+@media (max-width: 786px) {
+    .banner-heading {
+      max-width: 80%; /* Updated max-width for better responsiveness */
+      font-size: 2rem; /* Default font size */
+      font-weight: bold;
+      text-align: left;
+      margin-left: 7%;  /* Updated margin for better responsiveness */
+    }
+}
