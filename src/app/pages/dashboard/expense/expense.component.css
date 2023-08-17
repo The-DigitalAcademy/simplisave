@@ -23,7 +23,7 @@
    padding-bottom: -10px;
    
  }
- 
+
  div.accordion-body{
    margin-left: -30px;
    margin-top: 0%;
@@ -85,12 +85,10 @@
    width: 65%;
    color: white;
    border-radius: 20px;
-   margin-left: 20%;
    margin-bottom: 10%;
    border: none;
    font-size: 14px;
    font-family: Roboto;
-   font-weight: 500;
    line-height: 20px;
    letter-spacing: 0.10px;
    margin-top: 0%;
