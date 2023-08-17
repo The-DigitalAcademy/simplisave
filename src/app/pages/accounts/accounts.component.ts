@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AccountsComponent {
 
-    redirectToTaxFreePage(): void {
-        const externalUrl = 'https://www.absa.co.za/personal/save-invest/products/absa-tax-free-savings-account/?cmpid=SGOOGL_wrWbd&gad=1&gclid=Cj0KCQjw8NilBhDOARIsAHzpbLCdK_DzqhYpCmSlW9dk2oa6Q9PGSBWkuYoi6Bn2ChFgBJO0xCyffAMaAinuEALw_wcB';
-        window.open(externalUrl, '_blank');
-      }
+    // redirectToTaxFreePage(): void {
+    //     const externalUrl = 'https://www.absa.co.za/personal/save-invest/products/absa-tax-free-savings-account/?cmpid=SGOOGL_wrWbd&gad=1&gclid=Cj0KCQjw8NilBhDOARIsAHzpbLCdK_DzqhYpCmSlW9dk2oa6Q9PGSBWkuYoi6Bn2ChFgBJO0xCyffAMaAinuEALw_wcB';
+    //     window.open(externalUrl, '_blank');
+    //   }
 
       redirectToEasyAccessPage(): void {
         const externalUrl = 'https://www.absa.co.za/personal/save-invest/products/absa-trusave/';

@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+  }
+  
+  .heading {
+    color: #870A3C;
+    text-align: center;
+    margin-bottom: 100px;
+    font-weight: Regular;
+    font-size: 48px;
+    letter-spacing: 0% ;
+  }
+  
