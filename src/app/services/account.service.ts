@@ -14,7 +14,7 @@ export class AccountService {
 
   refreshObservable = this.refreshSubject.asObservable();
 
-  private apiUrl = `${environment.apiUrl}/Transaction_Type`;
+ 
   private url = `${environment.apiUrl}/Goal_Savings`;
 
   constructor(private http: HttpClient, private authService:AuthService) { }
@@ -43,7 +43,7 @@ export class AccountService {
   }
 
   getTypes(): Observable<any[]> {
-    return this.http.get<any[]>(`${environment.apiUrl}/Transaction_Type`);
+    return this.http.get<any[]>(`${environment.apiUrl}/Budget`);
   }
 
   getSimplisaveData(){
@@ -59,7 +59,7 @@ export class AccountService {
   }
 
   updateGoalSavings(data: any, id: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, data);
+    return this.http.put(`${environment.apiUrl}/Budget/${id}`, data);
   }
 
   updateGoalSaving(data: any, id: any): Observable<any> {
@@ -73,14 +73,16 @@ export class AccountService {
   updateUser(id:any,data:any){
     return this.http.put(`${environment.apiUrl}/User/${id}`,data);
   }
+  getOneTransaction(id: any): Observable<void> {
+    return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
+  }
 
 
   //Refreshes the page after a successful update
   // Lebohang Mokoena
   // 2023/08/07
   deleteTransaction(id: any): Observable<void> {
-    const url = `${this.apiUrl}/transactionTypes/${id}`;
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${environment.apiUrl}/Budget/${id}`);
   }
 
   triggerRefresh() {
