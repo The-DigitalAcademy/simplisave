@@ -15,10 +15,10 @@
         <div *ngIf="isTypesEmpty; else emptyValue">
           <ul class="checklist">
             <li *ngFor="let type of types">
-       <input type="checkbox" [(ngModel)]="type.isChecked" disabled id="{{type.name}}" style="opacity: 0; "> 
+       <input type="checkbox" [(ngModel)]="type.isChecked" disabled id="{{type.transactionType}}" style="opacity: 0; "> 
             
-              <label class="checkbox-label" for="{{type.name}}">
-                {{ type.name }} - {{ type.amount }}
+              <label class="checkbox-label" for="{{type.transactionType}}">
+                {{ type.transactionType }} - {{ type.amountSet }}
               </label>
             </li>
           </ul>
