@@ -8,36 +8,28 @@
     </div>
 
     <div class="col">
-      <div class="heading"> <mat-icon class="info-icon" matTooltip="Checklist">error</mat-icon><h1 class="subHeader">Checklist</h1></div>
+      <div class="heading">
+        <mat-icon class="info-icon" matTooltip="Checklist">error</mat-icon>
+        <h1 class="subHeader">Budget Summary</h1>
+      </div>
       <div class="expense-container">
-  
-
-        <div *ngIf="isTypesEmpty; else emptyValue">
-          <ul class="checklist">
-            <li *ngFor="let type of types">
-       <input type="checkbox" [(ngModel)]="type.isChecked" disabled id="{{type.name}}" style="opacity: 0; "> 
-            
-              <label class="checkbox-label" for="{{type.name}}">
-                {{ type.name }} - {{ type.amount }}
-              </label>
-            </li>
-          </ul>
-          <button (click)="openExpenseModal()" mat-button>	<mat-icon>add</mat-icon>Add To Checklist</button>
-        </div>
-
-        <ng-template #emptyValue>
-          <div *ngIf="isTypesEmpty===''">
- 
-            <div class="emptyChecklist">
-
-
-                <p>Your checklist is empty</p> 
-                <button (click)="openExpenseModal()" mat-button><mat-icon>add</mat-icon>Add To Checklist</button>
-
+        <div class="accordion-content">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item" *ngFor="let type of types; let i = index">
+              <p class="accordion-button"  data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="false" [attr.aria-controls]="'collapse' + i">
+                {{ type.name }}
+              </p>
+          
+            <div [id]="'collapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'heading' + i" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>{{ type.amount }}</strong>
+               
+                <br>
+                <code>{{ type.status }} Completed</code>
+              </div>
             </div>
           </div>
-        </ng-template>
+        </div>
+        <button class="btn" (click)="openExpenseModal()" mat-button><mat-icon>add</mat-icon>Add To Checklist</button>
       </div>
     </div>
-  </div>
-</div>
