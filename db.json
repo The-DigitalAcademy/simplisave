@@ -233,5 +233,49 @@
       "moneyIn": 0,
       "moneyOut": 155
     }
+  ],
+  "Budget": [
+    {
+      "Budget_Id": 1,
+      "Account_No": "927970904",
+      "Amount_Set": 500,
+      "Status": "In-Progress",
+      "Transaction_Type": "FOOD",
+      "Progress_Amount": "23425234"
+    },
+    {
+      "Budget_Id": 2,
+      "Account_No": "927970904",
+      "Amount_Set": 500,
+      "Status": "In-Progress",
+      "Transaction_Type": "TRANSPORT",
+      "Progress_Amount": "23425234"
+    }, 
+    {
+      "Budget_Id": 3,
+      "Account_No": "927970904",
+      "Amount_Set": 500,
+      "Status": "In-Progress",
+      "Transaction_Type": "BOOKS",
+      "Progress_Amount": "23425234"
+    }, 
+    {
+      "Budget_Id": 4,
+      "Account_No": "927970904",
+      "Amount_Set": 500,
+      "Status": "In-Progress",
+      "Transaction_Type": "TUITION",
+      "Progress_Amount": "23425234"
+    },
+    {
+      "Budget_Id": 5,
+      "Account_No": "927970904",
+      "Amount_Set": 500,
+      "Status": "In-Progress",
+      "Transaction_Type": "Acc",
+      "Progress_Amount": "23425234"
+    }
   ]
+
+
 }
