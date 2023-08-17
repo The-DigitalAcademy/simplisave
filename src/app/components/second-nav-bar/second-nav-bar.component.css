@@ -17,6 +17,7 @@ navbar-nav {
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.15px;
+   cursor: pointer;
 }
 .mat-icon {
   font-size: 25px;
@@ -61,6 +62,7 @@ navbar-nav {
   display: flex;
   align-items: left;
   justify-content: left;
+  cursor: pointer;
 }
 
 .img-fluid{
