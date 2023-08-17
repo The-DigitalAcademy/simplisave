@@ -1,5 +1,6 @@
 .expense-container{
   display: flex;
+  flex-direction: row;
 
 }
 
@@ -11,7 +12,6 @@
 .footer {
   background-color: #870A3C;
   text-align: center;
-  padding-top: 1px;
   position:relative;
   bottom: 0;
   left: 0;
