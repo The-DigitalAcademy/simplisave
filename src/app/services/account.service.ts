@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Subject, switchMap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from '../../environments/environment'; // Import environment variables
+import { AuthService } from './auth-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,14 +17,29 @@ export class AccountService {
   private apiUrl = `${environment.apiUrl}/Transaction_Type`;
   private url = `${environment.apiUrl}/Goal_Savings`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService:AuthService) { }
 
   getAccountData() {
-    return this.http.get(`${environment.apiUrl}/Account`);
+    return this.authService.getToken().pipe(
+      switchMap(token => {
+        const headers = new HttpHeaders({
+          Authorization: `Bearer ${token}`
+        });
+
+        // Make the authenticated API request using HttpClient
+        return this.http.get(`${environment.backendUrl}/auth/9`, { headers });
+      })
+    );
+    
+    
   }
 
   getTransactions(){
     return this.http.get(`${environment.apiUrl}/Transaction`);
+  }
+
+  getTransactions2(){
+    return this.http.get(`${environment.backendUrl}/transactions/listTransactions/8`);
   }
 
   getTypes(): Observable<any[]> {
