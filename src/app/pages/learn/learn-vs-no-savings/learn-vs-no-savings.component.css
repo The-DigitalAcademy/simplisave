@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 .container {
 
@@ -31,6 +32,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  
 }
 
 .card-container {
@@ -97,7 +99,8 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  width: 100%;
+   width:55vw;
+  /* width: 100%; */
 }
 
 .button-container{

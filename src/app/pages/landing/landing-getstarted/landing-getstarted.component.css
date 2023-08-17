@@ -11,7 +11,7 @@ body {
   align-items: flex-start;
   justify-content: center;
   width: 100vw;
-  height: 67vh !important;  /* Updated height for better responsiveness */
+  height: 77vh !important;  /* Updated height for better responsiveness */
   margin-top: 0vh;
   background-image: url('/assets/Images/Landing/Frame 629341.png');
   background-size: cover;
@@ -20,11 +20,11 @@ body {
 }
 
 .banner-heading {
-  font-weight: Light;
   font-Size: 60px;
   letter-spacing: -0.5% ;
   max-width: 70%;
   text-align: left;
+  margin-top: 30px;
   margin-left: 10%; /*Updated margin for better responsiveness */
 }
 
@@ -36,12 +36,12 @@ body {
   background-color: #870A3C;
   width: 20vw;
   height: 60px;
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 10%; /* Updated margin for better responsiveness */
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   border-style: none;
 }
 
@@ -58,11 +58,12 @@ body {
   .banner-button {
     width: auto;
     height: auto;
-    font-size: 1.5rem; /* Default font size */
+    font-size: 1.6rem; /* Default font size */
     padding-left: 8%;
     padding-right: 8%;
     padding-top: 1%;
     padding-bottom: 1%;
+    margin-top: 65px;
     margin-left: 7%;  /* Updated margin for better responsiveness */
   }
 }
