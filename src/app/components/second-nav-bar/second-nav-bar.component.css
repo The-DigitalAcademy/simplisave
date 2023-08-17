@@ -126,3 +126,11 @@ navbar-nav {
     display: none;
   }
 }
+@media (max-width: 790px) {
+  .profile, .profile * {
+    display: none; /* Hide the profile div and all its descendants */
+  }
+  .profile{
+    display:none;
+  }
+}
