@@ -9,15 +9,28 @@
    margin-top: 1%;
    align-items: center;
 }
-.accordion-container {
-   max-height: 400px; /* Adjust the maximum height as needed */
+.accordion-content {
+   max-height: 400px; 
    overflow-y: auto;
-   border: 1px solid #ccc; /* Add a border for clarity */
+   border: 1px solid #ccc; 
    padding: 10px;
    box-sizing: border-box;
+   height: 35vh;
  }
-
- 
+ div.accordion-item {
+   margin: 2%;
+   padding: 0px;
+ }
+ .accordion-item {
+   margin: -20px;
+ }
+ .accordion-body{
+margin-left: 20%;
+ }
+ div.accordion-body{
+   margin-left: -30px;
+   margin-top: 0%;
+    }
 .col {
    background-color: #ffffff;
    border-radius: 12px;
@@ -26,6 +39,7 @@
    position: relative; 
    border-style: solid;
    border-width: 0.5px;
+   height: 50vh;
   
 }
 .mdc-button__label{
@@ -74,7 +88,7 @@
    width: 65%;
    color: white;
    border-radius: 20px;
-   margin-left: 2%;
+   margin-left: 20%;
    margin-bottom: 10%;
    border: none;
    font-size: 14px;
