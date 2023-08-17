@@ -67,6 +67,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { BalanceSummaryComponent } from './pages/Transactions/transactions/balance-summary/balance-summary.component';
 import { TransactionDetailsComponent } from './pages/Transactions/transactions/transaction-details/transaction-details.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 
 
 
