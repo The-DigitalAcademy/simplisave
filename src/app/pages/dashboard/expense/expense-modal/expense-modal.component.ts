@@ -13,6 +13,17 @@ import { AccountService } from 'src/app/services/account.service';
 export class ExpenseModalComponent {
   formData: any = {}; // This will store the form data
   expenseForm!: FormGroup; // Add a FormGroup to hold the form controls
+  selectedCategory: string = '';
+  categoryOptions: any = [
+    { value: 'FOOD', label: 'Food' },
+    { value: 'ACCOMMODATION', label: 'Accommodation' },
+    { value: 'TRANSPORT', label: 'Transport' },
+    { value: 'BOOKS', label: 'Books' },
+    { value: 'TUITION', label: 'Tuition' },
+    { value: 'OTHER', label: 'Other' },
+    { value: 'BANK_CHARGES', label: 'Bank Charges' },
+    { value: 'WITHDRAWAL', label: 'Withdrawal' }
+  ];
 
   constructor(private dashService:DashboardService,
     private formBuilder: FormBuilder,
@@ -21,7 +32,7 @@ export class ExpenseModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: any ,private router: Router
   ) {
     this.expenseForm = this.formBuilder.group({
-      categoryName: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('[a-zA-Z ]*')]],
+      category: [this.selectedCategory, Validators.required],
       amount: ['', [Validators.required, Validators.pattern('^[0-9]*$')]]
     });
   }
@@ -48,7 +59,11 @@ export class ExpenseModalComponent {
   saveExpense() {
     // Call the API service to post the form data
     if (this.expenseForm.valid) {
-      this.service.createType(this.formData).subscribe(
+      const updatedData = {
+        amountSet: this.expenseForm.value.amount,
+        transactionType: this.expenseForm.value.category
+      };
+      this.service.createType(updatedData).subscribe(
         (response: any) => {
           // Handle the API response as needed
           console.log('API Response:', response);

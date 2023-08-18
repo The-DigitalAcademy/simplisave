@@ -12,7 +12,7 @@ import { GoalModalComponent } from './goal-modal/goal-modal.component';
   styleUrls: ['./manage-expense.component.css']
 })
 export class ManageExpenseComponent implements OnInit {
-  Transaction_Type: any[] = [];
+  transactionType: any[] = [];
   Goal_Savings: any[] = [];
   items1: any = [];
   data: any;
@@ -44,7 +44,7 @@ export class ManageExpenseComponent implements OnInit {
   // 2023/07/31
   loadData() {
     this.accountService.getTypes().subscribe((account) => {
-      this.Transaction_Type = account;
+      this.transactionType = account;
 
     });
   }
@@ -84,9 +84,9 @@ export class ManageExpenseComponent implements OnInit {
   deleteTransactionType(id: any): void {
     this.accountService.deleteTransaction(id).subscribe(
       () => {
-        const index = this.Transaction_Type.findIndex(type => type.id === id);
+        const index = this.transactionType.findIndex(type => type.id === id);
         if (index !== -1) {
-          this.Transaction_Type.splice(index, 1);
+          this.transactionType.splice(index, 1);
         }
       },
       error => {
@@ -95,19 +95,26 @@ export class ManageExpenseComponent implements OnInit {
     );
   }
 
+  /* call http get function in the service to get all the transaction records
+  -Mohammed Badat
+  - 2023/08/01*/
   getTransactionsFromApi() {
-    this.accountService.getTransactions().subscribe((res) => {
+    this.accountService.getTransactions2().subscribe((res) => {
       this.items1 = res;
       console.log(this.items1);
       this.checkDataFetched(); // Call checkDataFetched after items1 is populated
     });
   }
 
+  /* call http get function in the service file to fetch the types of expense allocation categories
+  set by the user to populqte the checklist
+  -Mohammed Badat
+  -2023/08/01 */
   getTypes() {
     this.accountService.getTypes().subscribe(res => {
-      this.Transaction_Type = res;
-      console.log("Types:"+this.Transaction_Type);
-      if (this.Transaction_Type.length === 0) {
+      this.transactionType = res;
+      console.log(this.transactionType);
+      if (this.transactionType.length === 0) {
         this.isTypesEmpty = '';
       } else {
         this.isTypesEmpty = 'full';
@@ -116,11 +123,17 @@ export class ManageExpenseComponent implements OnInit {
     });
   }
 
+  /*  for each user set expense allocation, fiter the transaction records to find records in the current month
+  , records with only money going and the description of the transaction should match the name of the expense allocation type, 
+  then add the total money out for all these records giving us a sum that is the amount a user has for a certain expense 
+  allocation type for the month 
+  -Mohammed Badat
+  -2023/08/03*/
   calculateTotalForEachType() {
     // Change dates from strings to JavaScript objects
     const transactions = this.items1.map((record: any) => ({
       ...record,
-      Transaction_Date: new Date(record.Transaction_Date),
+      transactionDate: new Date(record.transactionDate),
     }));
 
     // Get the current month and year
@@ -129,19 +142,19 @@ export class ManageExpenseComponent implements OnInit {
 
     this.typeTotals = {}; // Reset typeTotals before calculating
 
-    this.Transaction_Type.forEach((type: any) => {
-      const typeName = type.name; // Extract typeName correctly from the type object
+    this.transactionType.forEach((type: any) => {
+      const typeName = type.transactionType; // Extract typeName correctly from the type object
       const filteredData = transactions.filter((record: any) => {
-        const isMoneyOutPositive = record.Money_Out > 0;
-        const transactionDate = record.Transaction_Date;
+        const isMoneyOutPositive = record.moneyOut > 0;
+        const transactionDate = record.transactionDate;
         const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
-        const isDescriptionMatching = record.Description === typeName;
-        console.log(record.Money_Out);
+        const isDescriptionMatching = record.transactionType === typeName;
+        console.log(record.moneyOut);
 
         return isMoneyOutPositive && isWithinCurrentMonth && isDescriptionMatching;
       });
       console.log(filteredData);
-      const typeTotal = filteredData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
+      const typeTotal = filteredData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
       
       this.typeTotals[typeName] = typeTotal; // Store the typeTotal in the typeTotals object
     });
@@ -149,21 +162,28 @@ export class ManageExpenseComponent implements OnInit {
     console.log(this.typeTotals);
   }
 
+  /* check whether both methods fetching data have successfully retreived it
+  -Mohammed Badat
+  -2023/08/03 */
   checkDataFetched() {
-    // Check if both items1 and types are populated
-    if (this.items1 && this.Transaction_Type) {
+    if (this.items1 && this.transactionType) {
       this.calculateTotalForEachType();
     }
   }
 
+    /* This function takes the calculated total spent for each type and then
+    compares the total amount spent to the total amount set by the user to find
+    out their progress as a percentage, thus there progress can be displayed as a
+    progress bar
+  -2023/08/10 */
   getTypeProgress(typeName: string): number {
-    const type = this.Transaction_Type.find((t: any) => t.name === typeName);
+    const type = this.transactionType.find((t: any) => t.transactionType === typeName);
     if (!type) {
-      return 0; // Type not found in the types array
+      return 0; 
     }
 
     const typeTotal = this.typeTotals[typeName] || 0;
-    const percentage = (typeTotal / type.amount) * 100;
+    const percentage = (typeTotal / type.amountSet) * 100;
     return percentage;
   }
 
