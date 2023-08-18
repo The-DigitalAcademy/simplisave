@@ -34,8 +34,8 @@
         </ul>
         <br><br><br>
         <ul class="navbar-nav ml-auto white-text">
-            <ng-container *ngIf="token; else showLoginSignUp">
-                <div class="profile">
+            <!-- <ng-container *ngIf="token; else showLoginSignUp"> -->
+           <!--      <div class="profile">
                     <div class="dropdown">
                       <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="./assets/Images/Profile/Profile icon.png" alt="Small Image" width="30" height="30">
@@ -47,9 +47,9 @@
                         <a class="dropdown-item" href="#">Logout</a>
                       </div>
                     </div>
-                </div>
-            </ng-container>
-            <ng-template #showLoginSignUp>
+                </div> -->
+            <!-- </ng-container> -->
+            <!-- <ng-template #showLoginSignUp> -->
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/login" routerLinkActive="active"><span class="mobile-only"><img src="/assets/Icons/Dropdown nav/loginIcon.png" alt="Login icon"
                         class="img-fluid" width="35px"></span>
@@ -62,7 +62,7 @@
                         Sign up
                     </a>
                 </li>
-            </ng-template>
+            <!-- </ng-template> -->
         </ul>
     </div>
 </nav>
