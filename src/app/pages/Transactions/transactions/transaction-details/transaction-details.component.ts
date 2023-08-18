@@ -17,10 +17,9 @@ import { Transaction } from 'src/app/interfaces/transactions.model';
 })
 export class TransactionDetailsComponent implements OnInit{
 
-  transactionsList: Transaction[] = [];
+  transactionsList: Transaction[] = []; // Store your transactions here
   groupedTransactions: any = {}; // Grouped transactions
   sortedDateKeys: string[] = []; // Declare sortedDateKeys property
-  // transactionsList: any[] = []; // Store your transactions here
   totalIncome: number = 0; // Total income for the specific month
   totalExpenses: number = 0; // Total expenses (money out) for the specific month
   availableBalance: number = 0; // Current balance calculated as totalIncome - totalExpenses
@@ -89,7 +88,7 @@ export class TransactionDetailsComponent implements OnInit{
     }
 
     // Get an array of sorted date keys in descending order
-    this.sortedDateKeys = Object.keys(this.groupedTransactions).sort((a, b) => {
+    this.sortedDateKeys = Object.keys(this.transactionsList).sort((a, b) => {
       // Compare the dates in reverse order to sort in descending order
       return new Date(b).getTime() - new Date(a).getTime();
     });
