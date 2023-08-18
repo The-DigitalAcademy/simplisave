@@ -32,8 +32,6 @@ export class StepsComponent implements OnInit {
   
   //For image upload - Thilivhali Ravhutulu 16/08/2023
   previewImage: string | null = null;
-  //For image upload - Thilivhali Ravhutulu 16/08/2023
-  previewImage: string | null = null;
 
 
   constructor(private fb: FormBuilder, private stepperService: StepperService, private router: Router, private fileUploaderService: FileUploaderService) {}
