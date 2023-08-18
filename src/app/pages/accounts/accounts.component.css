@@ -1,132 +1,117 @@
-.image-container{
-    width: 1000rem;
-    height: 50rem;
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.image-container {
+  width: 1000rem;
+  height: 50rem;
 }
 
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .banner {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    width: 100vw;
-    height: 67vh; /* Updated height for better responsiveness */
-    margin-top: 0vh;
-    background-image: url('/assets/Images/Accounts/Frame 629341.png');
-    background-size: cover;
-    background-position: bottom;
-    color: white;
-  }
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+}
 
+.heading {
+  color: #870A3C;
+  text-align: center;
+  font-weight: Regular;
+  font-size: 32px;
+  letter-spacing: 0%;
+}
+
+.card-container {
+  padding-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.card-explanation {
+  max-width: 220px;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.card-heading {
+  color: white;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 10px 0;
+}
+
+.card {
+  background-color: #870A3C;
+  color: #ffffff;
+  width: 24%;
+  height: auto;
+  padding: 10px;
+  margin: 10px 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-style: none;
+  font-size: 1.1vw;
+  font-weight: lighter;
+  padding: 30px 10px 30px 10px;
+}
+
+.btn {
+  background-color: #ffffff;
+  border-radius: 50px;
+  padding: 2px 30px 2px 30px;
+}
+
+/* Media Query for screens below 786px */
+@media (max-width: 786px) {
   .banner-heading {
-    font-weight: Light;
-    font-Size: 60px;
-    letter-spacing: -0.5% ;
-    max-width: 70%;
+    max-width: 80%;
+    /* Updated max-width for better responsiveness */
+    font-size: 2rem;
+    /* Default font size */
+    font-weight: bold;
     text-align: left;
-    margin-left: 10%; /*Updated margin for better responsiveness */
+    margin-left: 7%;
+    /* Updated margin for better responsiveness */
   }
-  
-  
-  .flex-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 60px;
-  }
-  
+
   .heading {
-    color: #870A3C;
-    text-align: center;
-    margin-bottom: 100px;
-    font-weight: Regular;
-    font-Size: 60px;
-    letter-spacing: 0% ;
-  }
-  
-  .card-container {
-    padding-top: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
+    font-size: 1.5rem;
+    ;
   }
 
-  .card-explanation{
-   max-width: 220px;
-   text-align: center;
-   font-family: Roboto;
-   font-size: 16px;
-   font-style: normal;
-   font-weight: 400;
-   line-height: normal;
-  }
-   
-  .card-heading {
-    color: white;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin: 10px 0;
-  }
-  
   .card {
-    background-color: #870A3C;
-    color: #ffffff;
-    width: 24%;
-    height: auto;
-    padding: 10px;
-    margin: 10px 10px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    border-style: none;
-    font-size: 1.1vw; 
-    font-weight:lighter;
-    padding: 30px 10px 30px 10px ;
-  }
-  
-  .btn{
-    background-color: #ffffff;
-    border-radius: 50px;
-    padding: 2px 30px 2px 30px;
-  }
-  
-  /* Media Query for screens below 786px */
-  @media (max-width: 786px) {
-    .banner-heading {
-        max-width: 80%; /* Updated max-width for better responsiveness */
-        font-size: 2rem; /* Default font size */
-        font-weight: bold;
-        text-align: left;
-        margin-left: 7%; /* Updated margin for better responsiveness */
-      }
-
-    .heading{
-        font-size: 1.5rem;;
-    }
-
-    .card {
-      width: 90%;
-      min-width: auto;
-    }
-  
-    .card-heading {
-      font-size: 18px; /* Adjusted */
-    }
-  
-    .card-explanation {
-      font-size: 14px; /* Adjusted */
-    }
+    width: 90%;
+    min-width: auto;
   }
 
-  
+  .card-heading {
+    font-size: 18px;
+    /* Adjusted */
+  }
+
+  .card-explanation {
+    font-size: 14px;
+    /* Adjusted */
+  }
+}

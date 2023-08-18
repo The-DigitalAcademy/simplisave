@@ -29,14 +29,20 @@ export class TopPartComponent implements OnInit {
           .subscribe(res => {
             this.items = res;
             console.log(this.items);
-            this.availableBalance=this.items[0].Balance
-            console.log(this.availableBalance)
+            this.availableBalance=this.items.accounts[0].accountBalance;
+            console.log(this.items.accounts[0].accountBalance);
+            this.totalSaved=this.items.accounts[0].savingsAccount.currentSavingsBalance;
+            if(this.totalSaved===null){
+              this.totalSaved=0;
+            }
+            console.log(this.items.accounts[0].savingsAccount.currentSavingsBalance);
+
 });
   }
 
  // Fetches transaction data from the API , Mukosi Budeli 01/08/2023
   getDataFromApi() {
-    this.accountService.getTransactions()
+    this.accountService.getTransactions2()
       .subscribe(res => {
         this.items1 = res;
         console.log(this.items1);
@@ -49,16 +55,13 @@ export class TopPartComponent implements OnInit {
     this.accountService.getSimplisaveData()
                .subscribe(res=>{
                 this.items1 = res;
-                console.log(this.items1);
-                this.totalSaved=this.items1[0].Balance
-                console.log(this.totalSaved)
                })
   }
   filterData() {
     // Step 1: Parse the date strings in the JSON data to JavaScript Date objects , Mohammed Badat 01/08/2023
     const transactions = this.items1.map((record: any) => ({
       ...record,
-      Transaction_Date: new Date(record.Transaction_Date)
+      transactionDate: new Date(record.transactionDate)
     }));
   
     // Step 2: Get the current month and year , Mohammed Badat 01/08/2023
@@ -67,15 +70,15 @@ export class TopPartComponent implements OnInit {
   
     // Step 3: Filter records where Money_Out is greater than 0 and Transaction_Date is within the current month , Moe 01/08/2023
     this.filteredData = transactions.filter((record: any) => {
-      const isMoneyOutPositive = record.Money_Out > 0;
-      const transactionDate = record.Transaction_Date;
+      const isMoneyOutPositive = record.moneyOut > 0;
+      const transactionDate = record.transactionDate;
       const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
   
       return isMoneyOutPositive && isWithinCurrentMonth;
     });
   
     // Step 4: Calculate the sum of Money_Out for the filtered records , Mohammed Badat 01/08/2023
-    this.sumMoneyOut = this.filteredData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
+    this.sumMoneyOut = this.filteredData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
     console.log(this.sumMoneyOut);
   
     // Step 5: Log the filtered data ,Mohammed Badat 01/08/2028

@@ -40,7 +40,8 @@ export class LoginComponent implements OnInit {
    }
 
   /* 
-    login() is a method for handling the login process.  
+    login() is a method for handling the login process, once a user is logged in, we store the JWT token received in the response
+    in a behavior subject so that it can be used in future.  
     Sekhukhune Delphia
     01-August-2023
   */

@@ -29,18 +29,18 @@
     <h4>Expense Allocation Categories</h4>
   </div>
   <div class="grid-container">
-    <div class="card" *ngFor="let transactionType of Transaction_Type">
+    <div class="card" *ngFor="let transactionType of transactionType">
       <div class="card-content">
         <div class="title">
-          <h5>{{ transactionType.name }}</h5>
+          <h5>{{ transactionType.transactionType }}</h5>
         </div>
         <div class="icon-container">
           <mat-icon (click)="openExpenseModal(transactionType.id)" class="edit">edit</mat-icon>
           <mat-icon (click)="deleteTransactionType(transactionType.id)">delete</mat-icon>
         </div>
-        <mat-progress-bar class="red-progress-bar" mode="determinate" [value]="getTypeProgress(transactionType.name)" [bufferValue]="transactionType.amount"></mat-progress-bar>
+        <mat-progress-bar class="red-progress-bar" mode="determinate" [value]="getTypeProgress(transactionType.transactionType)" [bufferValue]="transactionType.amountSet"></mat-progress-bar>
         <div class="balance">
-          <h6>R{{ transactionType.amount }}</h6>
+          <h6>R{{ transactionType.amountSet }}</h6>
         </div>
       </div>
     </div>
