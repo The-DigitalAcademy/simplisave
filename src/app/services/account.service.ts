@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Subject, switchMap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from '../../environments/environment'; // Import environment variables
+import { AuthService } from './auth-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,21 +14,36 @@ export class AccountService {
 
   refreshObservable = this.refreshSubject.asObservable();
 
-  private apiUrl = `${environment.apiUrl}/Transaction_Type`;
+ 
   private url = `${environment.apiUrl}/Goal_Savings`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService:AuthService) { }
 
   getAccountData() {
-    return this.http.get(`${environment.apiUrl}/Account`);
+    console.log(this.authService.getToken())
+    return this.authService.getToken().pipe(
+      switchMap(token => {
+        const headers = new HttpHeaders({
+          Authorization: `Bearer ${token}`
+        });
+        // Make the authenticated API request using HttpClient
+        return this.http.get(`${environment.backendUrl}/auth/9`, { headers });
+      })
+    );
+    
+    
   }
 
   getTransactions(){
     return this.http.get(`${environment.apiUrl}/Transaction`);
   }
 
+  getTransactions2(){
+    return this.http.get(`${environment.backendUrl}/transactions/listTransactions/8`);
+  }
+
   getTypes(): Observable<any[]> {
-    return this.http.get<any[]>(`${environment.apiUrl}/Transaction_Type`);
+    return this.http.get<any[]>(`${environment.apiUrl}/Budget`);
   }
 
   getSimplisaveData(){
@@ -35,7 +51,7 @@ export class AccountService {
   }
 
   createType(body: any): Observable<any>{
-    return this.http.post<any>(`${environment.apiUrl}/Transaction_Type`, body);
+    return this.http.post<any>(`${environment.apiUrl}/Budget`, body);
   }
 
   getGoalSavings(): Observable<any[]> {
@@ -43,7 +59,7 @@ export class AccountService {
   }
 
   updateGoalSavings(data: any, id: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, data);
+    return this.http.put(`${environment.apiUrl}/Budget/${id}`, data);
   }
 
   updateGoalSaving(data: any, id: any): Observable<any> {
@@ -57,14 +73,16 @@ export class AccountService {
   updateUser(id:any,data:any){
     return this.http.put(`${environment.apiUrl}/User/${id}`,data);
   }
+  getOneTransaction(id: any): Observable<void> {
+    return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
+  }
 
 
   //Refreshes the page after a successful update
   // Lebohang Mokoena
   // 2023/08/07
   deleteTransaction(id: any): Observable<void> {
-    const url = `${this.apiUrl}/transactionTypes/${id}`;
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${environment.apiUrl}/Budget/${id}`);
   }
 
   triggerRefresh() {
