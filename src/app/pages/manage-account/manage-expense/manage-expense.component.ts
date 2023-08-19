@@ -95,6 +95,9 @@ export class ManageExpenseComponent implements OnInit {
     );
   }
 
+  /* call http get function in the service to get all the transaction records
+  -Mohammed Badat
+  - 2023/08/01*/
   getTransactionsFromApi() {
     this.accountService.getTransactions2().subscribe((res) => {
       this.items1 = res;
@@ -103,6 +106,10 @@ export class ManageExpenseComponent implements OnInit {
     });
   }
 
+  /* call http get function in the service file to fetch the types of expense allocation categories
+  set by the user to populqte the checklist
+  -Mohammed Badat
+  -2023/08/01 */
   getTypes() {
     this.accountService.getTypes().subscribe(res => {
       this.transactionType = res;
@@ -116,6 +123,12 @@ export class ManageExpenseComponent implements OnInit {
     });
   }
 
+  /*  for each user set expense allocation, fiter the transaction records to find records in the current month
+  , records with only money going and the description of the transaction should match the name of the expense allocation type, 
+  then add the total money out for all these records giving us a sum that is the amount a user has for a certain expense 
+  allocation type for the month 
+  -Mohammed Badat
+  -2023/08/03*/
   calculateTotalForEachType() {
     // Change dates from strings to JavaScript objects
     const transactions = this.items1.map((record: any) => ({
@@ -149,17 +162,24 @@ export class ManageExpenseComponent implements OnInit {
     console.log(this.typeTotals);
   }
 
+  /* check whether both methods fetching data have successfully retreived it
+  -Mohammed Badat
+  -2023/08/03 */
   checkDataFetched() {
-    // Check if both items1 and types are populated
     if (this.items1 && this.transactionType) {
       this.calculateTotalForEachType();
     }
   }
 
+    /* This function takes the calculated total spent for each type and then
+    compares the total amount spent to the total amount set by the user to find
+    out their progress as a percentage, thus there progress can be displayed as a
+    progress bar
+  -2023/08/10 */
   getTypeProgress(typeName: string): number {
     const type = this.transactionType.find((t: any) => t.transactionType === typeName);
     if (!type) {
-      return 0; // Type not found in the types array
+      return 0; 
     }
 
     const typeTotal = this.typeTotals[typeName] || 0;
