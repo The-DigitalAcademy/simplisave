@@ -28,13 +28,13 @@ body {
     left: 0;
     margin-left: 7vw;
     margin-bottom: 0;
-    border-bottom: 5px solid #AF144B;
+    border-bottom: 5px solid var(--primary-lighter);
     padding-bottom: 3px;
-    color: #FFF;
-    font-family: Helvetica;
-    font-size: 48px;
+    color: white;
+    font-family:  var(--base-font);
+    font-size:  var(--font-xxx-large);
     font-style: normal;
-    font-weight: 400;
+    font-weight:  var(--regular);
     line-height: normal;
 }
   
@@ -57,17 +57,17 @@ img{
 }
 
 .overview-heading {
-    font-size: 16px;
+    font-size:  var(--font-normal);
     margin-bottom: 2%;
 }
 .line {
   margin-top:7%;
   width: 1px; /* Set the width of the line to 70% */
   height: 65%; /* Make the line fill the height of the container */
-  border-right: 1px solid #ccc; /* Add a 1px solid gray border to the right */
+  border-right: 1px solid var(--gray); /* Add a 1px solid gray border to the right */
   margin-right: 15px; /* Add a bit of space between the line and basicInfo */
   margin-left: 15px; /* Add a bit of space between the line and overview */
-  background-color: #AF144B;
+  background-color: var(--primary-lighter);
 }
 
 .basicInfo {
@@ -136,7 +136,7 @@ img{
     width: 20vw; /* Make all text boxes the same width */
     height: 30px;
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--gray);
     border-radius: 3px;
 }
 
@@ -144,16 +144,16 @@ img{
     width: 42vw; /* Make all text boxes the same width */
     height: 30px;
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--gray);
     border-radius: 3px;
 }
 
 .form-field label {
-    color: #000;
-    font-family: Roboto;
-    font-size: 14px;
+    color: black;
+    font-family:  var(--base-font);
+    font-size:  var(--font-small);
     font-style: normal;
-    font-weight: 400;
+    font-weight:  var(--regular);
     line-height: normal;
 }
 
@@ -161,8 +161,8 @@ img{
     max-width: 10%;
     border-radius: 20px;
     border-style: none;
-    background-color:#AF144B;
-    color: #FFFFFF;
+    background-color:var(--primary-lighter);
+    color: white;
     height: 30px;
     display: flex;
     padding: 10px 24px;
@@ -196,16 +196,16 @@ img{
 }
 
 h3 {
-    color: #000;
-    font-family: Roboto;
-    font-size: 18px;
+    color: black;
+    font-family:  var(--base-font);
+    font-size:  var(--font-medium);
     font-style: normal;
-    font-weight: 700;
+    font-weight:  var(--bold);
     line-height: normal;    
 }
 
 .error-message {
-  font-size: 12px;
+  font-size:  var(--font-x-small);
   color: red;
   margin-left: 5px;
 }
@@ -229,17 +229,17 @@ nav {
     text-decoration: none;
     color: white;
     transition: color 0.3s, border-bottom 0.3s; /* Add transition for color and border */
-    color: #000;
-    font-family: Roboto;
-    font-size: 18px;
+    color: black;
+    font-family:  var(--base-font);
+    font-size:  var(--font-medium);
     font-style: normal;
-    font-weight: 700;
+    font-weight: var(--bold);
     line-height: normal;
     border-bottom: 2px solid transparent; /* Add transparent border initially */
 }
 
 nav a:hover {
-    color:#AF144B;
+    color:var(--primary-lighter);
     cursor: pointer;
     width: 120%;
     height: 120%;
@@ -247,7 +247,7 @@ nav a:hover {
 
 
 nav a.active {
-    border-bottom-color:#AF144B;
+    border-bottom-color:var(--primary-lighter);
 }
   
 @media screen and (max-width: 512px) {

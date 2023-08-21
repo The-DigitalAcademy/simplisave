@@ -13,7 +13,7 @@
   .heading{
   text-align: center;
   padding-top: 20px;
-  font-family: lato;
+  font-family: var(--base-font);
   }
   
   .header {
@@ -38,8 +38,8 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #870A3C;
-    color: #FFFFFF;
+    background-color: var(--primary-color);
+    color: white;
     margin-bottom: 20px
   }
   
@@ -60,7 +60,7 @@
   }
   
   .btn{
-    background-color: #FFFFFF;
+    background-color: white;
    
     width: 80px;
     border-radius: 10px;
