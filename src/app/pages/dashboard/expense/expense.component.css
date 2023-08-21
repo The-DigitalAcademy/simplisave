@@ -38,6 +38,11 @@
    height: 50vh;
   
 }
+.bigger-icon{
+   color: #AF144B!important;
+   margin-left: 3%;
+   
+}
 .mdc-button__label{
    color: white!important;
  }
@@ -106,7 +111,7 @@
    border-width: 0.5px;
    padding: 4%;
    width: 100%;
-   background: url('../../../../assets/Images/dashboard/marissa-grootes-vdaJJbls3xE-unsplash.jpg') no-repeat center center;
+   /* background: url('../../../../assets/Images/dashboard/marissa-grootes-vdaJJbls3xE-unsplash.jpg') no-repeat center center; */
    background-size: cover;
   padding-left: 15%;  
   list-style-type: none;
@@ -141,16 +146,18 @@ li{
    
       .col {
          flex-direction: column; 
-         width: 95%; 
+         width: 100%; 
          
        }
      
        .row {
          flex-direction: column; 
- 
          margin-top: -20px;
        }
    
-     
+     div.dashboard-container{
+      width: 105%;
+      margin-left: -13.5px;
+     }
     }
  
