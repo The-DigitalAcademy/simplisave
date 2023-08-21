@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
@@ -54,7 +55,9 @@ export class ManageModalComponent {
       console.log(this.Type);
     });
   }
-
+  //Responsible for closing a modal dialog
+  // Lebohang Mokoena
+  // 2023/08/10
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -64,6 +67,9 @@ export class ManageModalComponent {
     return control?.touched && control?.hasError(errorName);
   }
 
+  // Responsible for updating manage page modal
+  //Lebohang Mokoena
+  // 2023/08/18
   updateExpensePage() {
     console.log(this.expenseForm.value.category);
 
@@ -89,6 +95,9 @@ export class ManageModalComponent {
     }
   }
 
+  //Responsible for refreshing a page after a successful update
+  //Lebohang Mokoena
+  // 2023/08/10
   refreshManagePage() {
     this.service.triggerRefresh();
   }
