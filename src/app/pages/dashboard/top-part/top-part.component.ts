@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
+import { DashboardService } from 'src/app/services/dashboard.service';
+import { ExpenseModalComponent } from '../expense/expense-modal/expense-modal.component';
+import { TransferModalComponent } from './transfer-modal/transfer-modal.component';
 
 @Component({
   selector: 'app-top-part',
@@ -15,12 +20,23 @@ export class TopPartComponent implements OnInit {
   filteredData: any[] = []; 
   sumMoneyOut: any;
   
-  constructor(private accountService: AccountService) {}
+
+  constructor(
+    private dashService: DashboardService,
+    private route: ActivatedRoute,
+    private accountService: AccountService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.getAccountData();
     this.getDataFromApi()
     this. getSimplisaveData();
+
+    this.dashService.refreshObservable$.subscribe(() => {
+      this.refreshComponent();
+    });
   }
 
   // function to fetch account data , Mukosi Budeli 01/08/2023
@@ -83,6 +99,24 @@ export class TopPartComponent implements OnInit {
   
     // Step 5: Log the filtered data ,Mohammed Badat 01/08/2028
     console.log(this.filteredData);
+  }
+
+  openTransferModal(): void {
+    const dialogRef = this.dialog.open(TransferModalComponent, {
+      width: '450px' 
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result) {
+        console.log('Amount:', result.amount);
+      }
+    });
+  }
+
+  //called by above observable when the checklist needs to be refreshed
+  private refreshComponent() {
+    location.reload();
   }
 
 }

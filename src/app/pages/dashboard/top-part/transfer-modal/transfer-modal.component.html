@@ -1,0 +1,14 @@
+<!-- expense-modal.component.html -->
+<h2 mat-dialog-title>Transfer money to SimpliSave savings account</h2>
+<mat-dialog-content>
+  <form [formGroup]="transferForm" (ngSubmit)="transfer()">
+    <div class="form-group">
+      <label for="category">Amount to transfer (R)</label>
+      <input matInput formControlName="amount" name="amount"><br>
+    </div>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button type="submit" style="margin-left: 2%;">Transfer</button>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  

@@ -29,7 +29,7 @@ const routes: Routes = [
     { path: 'steps', component: StepsComponent},
     {path: 'accounts', component: AccountsComponent},
     {path : 'learn', component : LearnComponent},
-    {path : 'dashboard', component : DashboardComponent, canActivate: [EmptyBehaviorGuardGuard]},
+    {path : 'dashboard', component : DashboardComponent},
     {path : '', component : LandingComponent},
     {path:'learnBanner',component:LearnBannerComponent},
     {path:'manage', component: ManageAccountComponent, canActivate: [EmptyBehaviorGuardGuard]},
