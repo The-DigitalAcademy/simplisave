@@ -16,7 +16,7 @@
 }
 
 .heading{
-color:#870A3C;
+color:var(--primary-color);
 text-align: center;
 }
 

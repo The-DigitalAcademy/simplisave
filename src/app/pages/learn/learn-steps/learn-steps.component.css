@@ -6,13 +6,13 @@
   }
   
   .flex-item-right {
-    background-color: #FFFFFF;
+    background-color: white;
     align-self: center;
     flex: 60%;
   }
 
   .text-center{
-    color: #870A3C;
+    color: var(--primary-color);
   }
 
    button{
@@ -22,17 +22,17 @@
   button{
       max-width: 10%;
       border-radius: 15px;
-      background-color:#AF144B;
+      background-color:var(--primary-lighter);
   }
   
   .mat-mdc-button:not(:disabled){
-      color: #ffffff;
+      color: white;
   }
   
   /* Style for the custom buttons */
 
   .mdc-button__label{
-    color: #FFFFFF!important;
+    color: white!important;
   }
 /* Flexbox container for buttons */
 .button-container {
@@ -58,20 +58,20 @@ mat-icon{
   height: 50px;
 }
 ::ng-deep .mat-step-header .mat-step-icon-selected {
-  background-color: #AF144B;; 
+  background-color: var(--primary-lighter); 
 }
 
 ::ng-deep .mat-step-header .mat-step-icon-state-edit {
-  background-color: #AF144B;; 
+  background-color: var(--primary-lighter); 
 }
 
   .btn{
-    background-color: #870A3C;
-    color: #FFFFFF;
+    background-color: var(--primary-color);
+    color: white;
   }
 
   input{
-    border-bottom: 0.5px solid  #870A3C;
+    border-bottom: 0.5px solid  var(--primary-color);
     font-size: large;
   }
   
@@ -90,9 +90,9 @@ mat-icon{
     
   button{
     min-width: 35%;
-    font-size: 14px;
-    background-color: #870A3C;
-    color: #FFFFFF;
+    font-size: var(--font-small);
+    background-color: var(--primary-color);
+    color: white;
     
 
     /* Center the buttons horizontally */

@@ -3,7 +3,7 @@
  
 }
 h1{
-    color: #870A3C;
+    color: var(--primary-color);
     padding-left: 5%;
     padding-top: 4%;
 }
@@ -23,7 +23,7 @@ h1{
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
-    color: #ccc;
+    color: var(--gray);
     pointer-events: none;
   }
   button{
@@ -72,7 +72,7 @@ width: 95%;
         }
         mat-icon{
            
-            font-size: 20px;
+            font-size: var(--font-large);
            
         }
         

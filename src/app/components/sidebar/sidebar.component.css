@@ -1,20 +1,20 @@
 body {
   margin: 0;
   display: flex;
-  min-height: 100vh; /* Ensure the body covers at least the full viewport height */
 }
 .sidebar {
-  background-color: #ffffff;
+  background-color: white;
   width: 15rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   box-shadow: 2px 0px 2px gray;
+  height: 100%;
   min-height: 86vh; /* Make the sidebar take up the full height */
 }
 
 .mat-icon {
-  font-size: 25px;
+  font-size: var(--font-x-large);
   text-align: center;
   margin: 10px;
 }
@@ -22,17 +22,16 @@ body {
 
 
 .sidebar > div {
-  background-color: #870A3C;
-  color: #ffffff;
+  background-color: var(--primary-color);
+  color: white;
   width: 90%;
   text-align: center;
   line-height: 40px;
   border-radius: 12px;
   margin: 3% auto;
   color: white;
-  font-size: 16px;
-  font-family: Roboto;
-  font-weight: 400;
+  font-size: var(--font-normal);
+  font-weight: var(--regular);
   line-height: 24px;
   letter-spacing: 0.15px;
   word-wrap: break-word;
@@ -43,19 +42,17 @@ body {
 }
 
 .sidebar .logout {
-  background-color: #870A3C;
-  color: #ffffff;
+  background-color: var(--primary-color);
+  color: white;
   width: 90%;
   margin: 10px auto;
   line-height: 40px;
-  font-size: 18px;
+  font-size: var(--font-medium);
   border-radius: 12px;
   border: none;
   margin-top: auto;
-  font-family: Roboto;
   word-wrap: break-word;
-  font-size: 16px;
-  font-weight: 400;
+  font-weight: var(--regular);
   line-height: 24px;
   letter-spacing: 0.15px;
 

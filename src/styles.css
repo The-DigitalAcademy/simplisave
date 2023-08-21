@@ -1,6 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+:root {
+
+    /*------------------
+        COLOUR PALETTE - Thilivhali Ravhutulu - 21 August 2023
+    --------------------*/   
+    --primary-color: #870A3C;
+    --primary-lighter: #AF144B;
+    /* --primary-darker:  #6c0730; */
+     /*graph colors*/
+    --graph-background: #F5F5F5;
+    /*dashboard colors*/
+    --hover: #f0f0f0;
+    /*drag and drop*/
+    --gray:  #ccc;
+    --green: rgb(45, 233, 45);
+    /*transactions*/
+    --table-gray: #fff4;
+    --table-hover: #fff8;
+    --success: #18d955;
+    --cancel: #f60b36;
+
+    /*------------------
+        FONTS - Thilivhali Ravhutulu - 21 August 2023
+    --------------------*/
+    --base-font: 'Roboto';
+
+     /*------------------
+        FONT SIZES - Thilivhali Ravhutulu - 21 August 2023
+    --------------------*/
+    --font-xxxx-large: 60px;
+    --font-xxx-large: 48px;
+    --font-xx-large: 36px;
+    --font-x-large: 24px;
+    --font-large: 22px;
+    --font-medium: 18px;
+    --font-normal: 16px;
+    --font-small: 14px;
+    --font-x-small: 12px;
+
+    /*------------------
+        FONT Weights - Thilivhali Ravhutulu - 21 August 2023
+    --------------------*/
+    --thin: 100;
+    --light-font: 300;
+    --regular: 400;
+    --semi-bold: 600;
+    --bold: 800;
+
+}
+
 * {
     margin: 0;
     font-family: 'Roboto'; 

@@ -48,6 +48,7 @@ export class ExpenseComponent {
       this.refreshComponent();
     });
   }
+  
 
   /* call http get function in the service to get all the transaction records
   -Mohammed Badat
