@@ -1,26 +1,26 @@
 .create{
   color:var(--primary-color);
-  font-weight: bold;
-  font-size: larger;
+  font-weight: var(--bold);
+  font-size: var(--font-medium);
 }
 
 .credentials{
   color: black;
-  font-size: small;
+  font-size: var(--font-x-small);
 }
 
 .title{
     color: var(--primary-color);
-    font-weight: bold;
-    font-size: x-large;
+    font-weight:var(--bold);
+    font-size: var(--font-x-large);
 }
 
 .subtitle{
-  font-size: small;
+  font-size:var(--font-small);
 }
 
 p{
-  font-size: small;
+  font-size: var(--font-small);
 }
 
  button{
@@ -32,7 +32,7 @@ p{
 
 .validation{
   width: 100%;
-  font-size: small;
+  font-size: var(--font-x-small);
   
 }
 
@@ -64,14 +64,14 @@ u{
 }
 
 mat-label{
-  font-size: small ;
+  font-size: var(--font-x-small);
 }
 
 .cloudUpload{
   color:var(--primary-color);
   width: 50px;
   height: 50px;
-  font-size: 48px;
+  font-size: var(--font-xxx-large);
 }
 
 .image-preview {

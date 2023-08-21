@@ -24,13 +24,13 @@
 }
 
 .footer h2 {
-  font-size: 15px;
+  font-size: var(--font-normal);
   color: white;
 }
 
 .footer span {
   display: block;
-  font-size: 12px;
+  font-size: var(--font-x-small);
 }
 
 @media screen and (max-width: 480px) {

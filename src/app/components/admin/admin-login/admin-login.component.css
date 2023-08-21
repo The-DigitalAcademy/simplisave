@@ -51,7 +51,7 @@
   
   .error-message {
     color: red;
-    font-size: 12px;
+    font-size: var(--font-x-small);
     margin-top: 0px; 
   }
   h3{
@@ -63,7 +63,7 @@
   h4{
     text-align:center ;
     color: black;
-    font-size: 15px;
+    font-size: var(--font-normal);
     margin-bottom: 50px;
   }
   

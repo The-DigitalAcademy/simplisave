@@ -1,8 +1,8 @@
 .heading {
 color:var(--primary-color);
-font-size: 36px;
+font-size: var(--font-xx-large);
 font-family: Roboto;
-font-weight: 600;
+font-weight:var(--semi-bold);
 line-height: 20px;
 word-wrap: break-word;
 margin-top: 30px;
@@ -24,7 +24,7 @@ padding-bottom:2%;
 
 .info-icon {
   cursor: pointer;
-  font-size: 20px; 
+  font-size: var(--font-large);
 }
 
 
@@ -49,11 +49,10 @@ mat-icon{
  .top-container > div {
   
   padding: 1%;
-  font-size: 20px;
+  font-size: var(--font-large);
   color: black;
-  font-size: 16px;
-  font-family: Roboto;
-  font-weight: 500;
+  font-family: var(--base-font);
+  font-weight: var(--semi-bold);
   line-height: 24px;
   letter-spacing: 0.15px;
   word-wrap: break-word
@@ -62,17 +61,17 @@ mat-icon{
 
 p{
 color: black;
-font-size: 14px;
-font-family: Roboto;
-font-weight: 400;
+font-size: var(--font-small);
+font-family: var(--base-font);
+font-weight: var(--regular);
 line-height: 20px;
 letter-spacing: 0.25px;
 word-wrap: break-word
 }
 
 h6{
-  font-size: 16px;
-  font-weight: 800;
+  font-size: var(--font-normal);
+  font-weight: var(--bold);
 }
 
 .item {
@@ -86,7 +85,7 @@ h6{
 @media (max-width: 600px) {
   
   .info-icon {
-    font-size: 15px;
+    font-size: var(--font-normal);
     margin-right: 0px;
   }
  
@@ -101,29 +100,29 @@ h6{
   .item:nth-child(2),
   .item:nth-child(3) {
     flex-basis: calc(50% - 10px);
-    font-size: 16px;
+    font-size: var(--font-normal);
     margin-bottom: 20px;
   }
 
   h6{
-    font-size: 14px;
+    font-size: var(--font-small);
   }
 
   p{
-    font-size: 12px;
+    font-size: var(--font-x-small);
   }
  
 }
 
 @media (max-width: 500px) {
   .heading {
-    font-size: 24px;
+    font-size: var(--font-x-large);
     margin-top: 10px;
 
   }
 
   .top-container > div {
-    font-size: 16px;
+    font-size: var(--font-normal);
     padding: 2%;
 
 

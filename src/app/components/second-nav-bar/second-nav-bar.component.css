@@ -8,19 +8,18 @@ navbar-nav {
   width: 90%;
   margin: 10px auto;
   line-height: 40px;
-  font-size: 18px;
   border-radius: 12px;
   border: none;
   margin-top: auto;
   word-wrap: break-word;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: var(--font-normal);
+  font-weight: var(--regular);
   line-height: 24px;
   letter-spacing: 0.15px;
    cursor: pointer;
 }
 .mat-icon {
-  font-size: 25px;
+  font-size: var(--font-x-large);
   text-align: center;
   height: auto;
   width:auto;
@@ -42,7 +41,7 @@ navbar-nav {
   margin: 0;
   padding: 0;
   color: white;
-  font-size: 16px;
+  font-size: var(--font-normal);
   white-space: nowrap;
 }
 
@@ -75,7 +74,6 @@ navbar-nav {
 }
 
 .nav-link{
-  font-family: roboto;
   display: flex; 
   align-items: center;
   justify-content: center;

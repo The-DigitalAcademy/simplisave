@@ -24,10 +24,10 @@
 }
 .content-paragraph {
   color: black;
-    font-family: Roboto;
-    font-size: 16px;
+    font-family:var(--base-font);
+    font-size: var(--font-normal);
     font-style: normal;
-    font-weight: 400;
+    font-weight:var(--regular);
     line-height: normal;
 }
 

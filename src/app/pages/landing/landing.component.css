@@ -13,7 +13,7 @@
   .heading{
   text-align: center;
   padding-top: 20px;
-  font-family: lato;
+  font-family: var(--base-font);
   }
   
   .header {

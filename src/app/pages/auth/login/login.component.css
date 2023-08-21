@@ -1,26 +1,26 @@
 .create{
   color: var(--primary-color);
-  font-weight: bold;
-  font-size: larger;
+  font-weight: var(--bold);
+  font-size: var(--font-medium);
 }
 
 .credentials{
   color: black;
-  font-size: small;
+  font-size: var(--font-x-small);
 }
 
 .title{
     color: var(--primary-color);
-    font-weight: bold;
-    font-size: x-large;
+    font-weight: var(--bold);
+    font-size: var(--font-x-large);
 }
 
 .subtitle{
-  font-size: small;
+  font-size: var(--font-small);
 }
 
 p{
-  font-size: small;
+  font-size: var(--font-small);
 }
 
  button{
@@ -29,7 +29,7 @@ p{
 
 .validation{
   width: 100%;
-  font-size: small;
+  font-size:var(--font-x-small);
   
 }
 
@@ -53,7 +53,7 @@ u{
 }
 
 mat-label{
-  font-size: small ;
+  font-size: var(--font-x-small);
 }
 
 
@@ -63,7 +63,7 @@ mat-label{
 
 .error-message {
   color: red;
-  font-size: 12px;
+  font-size: var(--font-x-small);
   margin-top: 0px; 
 }
 

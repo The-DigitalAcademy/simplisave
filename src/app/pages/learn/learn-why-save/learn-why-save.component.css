@@ -27,10 +27,10 @@
     text-align: center;
     color: var(--primary-lighter);
     text-align: center;
-    font-family: Roboto;
-    font-size: 32px;
+    font-family: var(--base-font);
+    font-size: var(--font-xx-large);
     font-style: normal;
-    font-weight: 500;
+    font-weight:var(--semi-bold);
     line-height: normal;
     margin-bottom: 5%;
   }
@@ -73,10 +73,10 @@
   .card-heading {
     color: var(--primary-color);
     text-align: center;
-    font-family: Roboto;
-    font-size: 16px;
+    font-family: var(--base-font);
+    font-size: var(--font-normal);
     font-style: normal;
-    font-weight: 500;
+    font-weight: var(--semi-bold);
     line-height: normal;
     
   }
@@ -84,10 +84,10 @@
   .card-explanation {
     color: black;
     text-align: center;
-    font-family: Roboto;
-    font-size: 16px;
+    font-family: var(--base-font);
+    font-size: var(--font-normal);
     font-style: normal;
-    font-weight: 400;
+    font-weight:var(--regular);
     line-height: normal;
   }
   .button-container{
@@ -146,10 +146,10 @@
     .heading{
       color: var(--primary-color);
       text-align: center;
-      font-family: Roboto;
-      font-size: 24px;
+      font-family: var(--base-font);
+      font-size: var(--font-x-large);
       font-style: normal;
-      font-weight: 400;
+      font-weight: var(--regular);
       line-height: normal;
       width: 100vw;
       margin: 0;
@@ -160,20 +160,20 @@
     .card-heading {
       color:var(--primary-color);
       text-align: center;
-      font-family: Roboto;
-      font-size: 16px;
+      font-family: var(--base-font);
+      font-size: var(--font-normal);
       font-style: normal;
-      font-weight: 700;
+      font-weight: var(--bold);
       line-height: normal;
     }
   
     .card-explanation {
       color: black;
       text-align: center;
-      font-family: Roboto;
-      font-size: 12px;
+      font-family: var(--base-font);
+      font-size: var(--font-x-small);
       font-style: normal;
-      font-weight: 400;
+      font-weight: var(--regular);
       line-height: normal;
     }
     .container{
@@ -189,7 +189,7 @@
       padding: 10px 24px;
       margin: 20px;
       margin-left: 10px;
-      font-size: 12px;
+      font-size: var(--font-x-small);
     }
     
   }

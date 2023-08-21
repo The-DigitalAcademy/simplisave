@@ -90,7 +90,7 @@ mat-icon{
     
   button{
     min-width: 35%;
-    font-size: 14px;
+    font-size: var(--font-small);
     background-color: var(--primary-color);
     color: white;
     

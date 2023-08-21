@@ -8,8 +8,8 @@
   }
   
   :host ::ng-deep .mat-dialog-title {
-    font-size: 24px;
-    font-weight: 500;
+    font-size: var(--font-x-large);
+    font-weight:var(--semi-bold);
     margin-bottom: 20px;
   }
   
@@ -23,7 +23,7 @@
   
   :host ::ng-deep label {
     display: block;
-    font-weight: 500;
+    font-weight:var(--semi-bold);
     margin-bottom: 5px;
   }
   
@@ -33,7 +33,7 @@
     padding: 10px;
     border: 1px solid var(--primary-color);
     border-radius: 4px;
-    font-size: 16px;
+    font-size: var(--font-normal);
   }
   
   :host ::ng-deep .mat-dialog-actions {
@@ -45,14 +45,14 @@
   :host ::ng-deep button {
     padding: 10px 20px;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: var(--font-normal);
     cursor: pointer;
     transition: background-color 0.2s;
     background-color: var(--primary-color);
   }
 
   .error-message {
-    font-size: 12px; /* Set the font size to your desired value */
+    font-size: var(--font-x-small); /* Set the font size to your desired value */
     color: red; /* Set the color for the error message */
     margin-top: 5px; /* Add some margin above the error message */
   }

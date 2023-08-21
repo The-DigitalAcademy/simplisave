@@ -25,13 +25,13 @@
 
 .card-heading {
     font-size: 2.0vw;
-    font-weight: bold;
+    font-weight: var(--bold);
     margin: 10px 0;
 }
 
 .card-heading1 {
-    font-size: 35px;
-    font-weight: bold;
+    font-size: var(--font-xx-large);
+    font-weight: var(--bold);
     color: var(--primary-color);
     margin: 10px 0;
 }
@@ -45,7 +45,7 @@
 .nav-link {
     color: var(--primary-color);
     font-weight: lighter;
-    font-size: 21px;
+    font-size: var(--font-large);
     text-decoration: none;
     display: block;
     margin-bottom: 10px;
@@ -60,14 +60,14 @@
 }
 
 .footer h2 {
-    font-size: 19px;
+    font-size: var(--font-medium);
     color: white;
     margin: 0px;
 }
 
 .footer span {
     display: block;
-    font-size: 12px;
+    font-size: var(--font-x-small);
 }
 
 
@@ -97,14 +97,14 @@
     }
 
     .card-heading {
-        font-size: 22px;
-        font-weight: bold;
+        font-size: var(--font-large);
+        font-weight: var(--bold);
         margin: 10px 0;
     }
 
     .card-heading1 {
-        font-size: 29px;
-        font-weight: bold;
+        font-size: var(--font-x-large);
+        font-weight: var(--bold);
         color: var(--primary-color);
         margin: 10px 0;
     }
@@ -115,8 +115,8 @@
 
     .nav-link {
         color: var(--primary-color);
-        font-weight: lighter;
-        font-size: 19px;
+        font-weight: var(--light-font);
+        font-size: var(--font-medium);
         text-decoration: none;
         display: flex;
         margin-bottom: 10px;
@@ -131,14 +131,14 @@
 
 
     .footer h2 {
-        font-size: 16px;
+        font-size: var(--font-normal);
         color: white;
         margin: 0px;
     }
 
     .footer span {
         display: block;
-        font-size: 12px;
+        font-size: var(--font-x-small);
     }
 }
 
@@ -166,14 +166,14 @@
     }
 
     .card-heading {
-        font-size: 18px;
-        font-weight: bold;
+        font-size: var(--font-medium);
+        font-weight: var(--bold);
         margin: 10px 0;
     }
 
     .card-heading1 {
-        font-size: 22px;
-        font-weight: bold;
+        font-size: var(--font-large);
+        font-weight: var(--bold);
         color: var(--primary-color);
         margin: 10px 0;
     }
@@ -184,8 +184,8 @@
 
     .nav-link {
         color: var(--primary-color);
-        font-weight: lighter;
-        font-size: 19px;
+        font-weight: var(--light-font);
+        font-size: var(--font-medium);
         text-decoration: none;
         display: flex;
         margin-bottom: 10px;
@@ -194,19 +194,19 @@
 
     .footer {
         background-color: var(--primary-color);
-        padding: 17px;
+        padding: var(--font-medium);
         text-align: center;
     }
 
 
     .footer h2 {
-        font-size: 16px;
+        font-size: var(--font-normal);
         color: white;
         margin: 0px;
     }
 
     .footer span {
         display: block;
-        font-size: 12px;
+        font-size: var(--font-x-small);
     }
 }

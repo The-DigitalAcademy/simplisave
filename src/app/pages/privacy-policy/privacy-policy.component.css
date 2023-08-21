@@ -31,10 +31,10 @@ body {
     border-bottom: 5px solid var(--primary-lighter);
     padding-bottom: 3px;
     color: white;
-    font-family: Helvetica;
-    font-size: 48px;
+    font-family:  var(--base-font);
+    font-size:  var(--font-xxx-large);
     font-style: normal;
-    font-weight: 400;
+    font-weight:  var(--regular);
     line-height: normal;
 }
 
@@ -94,10 +94,10 @@ body {
     margin-bottom:1%;
     color: black;
     text-align: center;
-    font-family: Roboto;
-    font-size: 24px;
+    font-family:  var(--base-font);
+    font-size:  var(--font-x-large);
     font-style: normal;
-    font-weight: 500;
+    font-weight:  var(--semi-bold);
     line-height: normal;
   }
   p{
@@ -106,10 +106,10 @@ body {
     margin-bottom: 5%;
     color: black;
     text-align: center;
-    font-family: Roboto;
-    font-size: 16px;
+    font-family:  var(--base-font);
+    font-size:  var(--font-normal);
     font-style: normal;
-    font-weight: 500;
+    font-weight:  var(--semi-bold);
     line-height: normal;}
 
   h1{
@@ -117,10 +117,10 @@ body {
     text-align: center;
     margin-bottom: 10%;
     color: var(--primary-lighter);
-    font-family: Roboto;
-    font-size: 48px;
+    font-family:  var(--base-font);
+    font-size:  var(--font-xxx-large);
     font-style: normal;
-    font-weight: 400;
+    font-weight:  var(--regular);
     line-height: normal;
   }
 
@@ -129,10 +129,10 @@ body {
     margin-bottom: 3%;
     color: var(--primary-lighter);
     text-align: center;
-    font-family: Roboto;
-    font-size: 32px;
+    font-family:  var(--base-font);
+    font-size:  var(--font-xx-large);
     font-style: normal;
-    font-weight: 500;
+    font-weight:  var(--semi-bold);
     line-height: normal;
   }
 
@@ -155,7 +155,7 @@ body {
 }
 .mat-expansion-panel-header-title {
   font-size: 16px;
-  font-family: roboto;
+  font-family:  var(--base-font);
 }
 
 
@@ -173,12 +173,12 @@ body {
     }
 
     .mat-expansion-panel-header-title {
-      font-size: 12px;
-      font-family: roboto;
+      font-size:  var(--font-x-small);
+      font-family:  var(--base-font);
     }
     .banner-heading {
    
-      font-size: 32px;
+      font-size:  var(--font-xx-large);
 
   }
 
@@ -190,10 +190,10 @@ body {
     margin-bottom:1%;
     color: black;
     text-align: center;
-    font-family: Roboto;
-    font-size: 16px;
+    font-family:  var(--base-font);
+    font-size:  var(--font-normal);
     font-style: normal;
-    font-weight: 500;
+    font-weight: var(--semi-bold);
     line-height: normal;
   }
   p{
@@ -202,10 +202,10 @@ body {
     margin-bottom: 5%;
     color: black;
     text-align: center;
-    font-family: Roboto;
-    font-size: 12px;
+    font-family:  var(--base-font);
+    font-size:  var(--font-x-small);
     font-style: normal;
-    font-weight: 500;
+    font-weight:  var(--semi-bold);
     line-height: normal;}
 
   h1{
@@ -213,10 +213,10 @@ body {
     text-align: center;
     margin-bottom: 10%;
     color: var(--primary-lighter);
-    font-family: Roboto;
-    font-size: 24px;
+    font-family:  var(--base-font);
+    font-size: var(--font-x-large);
     font-style: normal;
-    font-weight: 400;
+    font-weight:  var(--regular);
     line-height: normal;
   }
 
@@ -225,10 +225,10 @@ body {
     margin-bottom: 3%;
     color: var(--primary-lighter);
     text-align: center;
-    font-family: Roboto;
-    font-size: 18px;
+    font-family:  var(--base-font);
+    font-size:  var(--font-medium);
     font-style: normal;
-    font-weight: 500;
+    font-weight:  var(--semi-bold);
     line-height: normal;
   }
 
@@ -248,13 +248,12 @@ body {
     }
 
     .mat-expansion-panel-header-title {
-      font-size: 13px;
-      font-family: roboto;
+      font-size:  var(--font-x-small);
     }
 
     .banner-heading {
    
-      font-size: 32px;
+      font-size:  var(--font-xx-large);
 
   }
 
@@ -266,10 +265,9 @@ body {
     margin-bottom:1%;
     color: black;
     text-align: center;
-    font-family: Roboto;
-    font-size: 16px;
+    font-size:  var(--font-normal);
     font-style: normal;
-    font-weight: 400;
+    font-weight:  var(--regular);
     line-height: normal;
   }
   p{
@@ -278,10 +276,9 @@ body {
     margin-bottom: 5%;
     color: black;
     text-align: center;
-    font-family: Roboto;
-    font-size: 13px;
+    font-size:  var(--font-x-small);
     font-style:normal;
-    font-weight:100;
+    font-weight: var(--thin);
     line-height: normal;}
 
   h1{
@@ -289,10 +286,9 @@ body {
     text-align: center;
     margin-bottom: 10%;
     color: var(--primary-lighter);
-    font-family: Roboto;
-    font-size: 24px;
+    font-size:  var(--font-x-large);
     font-style: normal;
-    font-weight: 400;
+    font-weight: var(--regular);
     line-height: normal;
   }
 
@@ -301,10 +297,9 @@ body {
     margin-bottom: 3%;
     color: var(--primary-lighter);
     text-align: center;
-    font-family: Roboto;
-    font-size: 18px;
+    font-size: var(--font-medium);
     font-style: normal;
-    font-weight: 400;
+    font-weight:  var(--regular);
     line-height: normal;
   }
    

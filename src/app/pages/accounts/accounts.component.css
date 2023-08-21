@@ -26,8 +26,8 @@ body {
 .heading {
   color:var(--primary-color);
   text-align: center;
-  font-weight: Regular;
-  font-size: 32px;
+  font-weight:var(--regular);
+  font-size: var(--font-xx-large);
   letter-spacing: 0%;
 }
 
@@ -42,20 +42,20 @@ body {
 .card-explanation {
   max-width: 220px;
   text-align: center;
-  font-family: Roboto;
-  font-size: 16px;
+  font-family: var(--base-font);
+  font-size: var(--font-normal);
   font-style: normal;
-  font-weight: 400;
+  font-weight:var(--regular);
   line-height: normal;
 }
 
 .card-heading {
   color: white;
   text-align: center;
-  font-family: Roboto;
-  font-size: 24px;
+  font-family: var(--base-font);
+  font-size: var(--font-x-large);
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--semi-bold);
   line-height: normal;
   margin: 10px 0;
 }
@@ -72,7 +72,7 @@ body {
   text-align: center;
   border-style: none;
   font-size: 1.1vw;
-  font-weight: lighter;
+  font-weight: var(--thin);
   padding: 30px 10px 30px 10px;
 }
 
@@ -89,7 +89,7 @@ body {
     /* Updated max-width for better responsiveness */
     font-size: 2rem;
     /* Default font size */
-    font-weight: bold;
+    font-weight: var(--bold);
     text-align: left;
     margin-left: 7%;
     /* Updated margin for better responsiveness */
@@ -106,12 +106,12 @@ body {
   }
 
   .card-heading {
-    font-size: 18px;
+    font-size: var(--font-medium);
     /* Adjusted */
   }
 
   .card-explanation {
-    font-size: 14px;
+    font-size: var(--font-small);
     /* Adjusted */
   }
 }

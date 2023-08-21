@@ -10,9 +10,9 @@
 
 h1 {
   color: var(--primary-color);
-  font-size: 36px;
-  font-family: Roboto;
-  font-weight: 600;
+  font-size:var(--font-xx-large);
+  font-family: var(--base-font);
+  font-weight: var(--semi-bold);
   line-height: 20px;
   word-wrap: break-word;
   margin-top: 30px;
@@ -20,17 +20,17 @@ h1 {
   }
 
   h4{
-    font-size: 24px;
-    font-weight: 800;
+    font-size: var(--font-x-large);
+    font-weight:  var(--bold);
   }
 
   h5{
-    font-size: 16px;
-    font-weight: 900;
+    font-size:  var(--font-normal);
+    font-weight:  var(--bold);
   }
 
   h6{
-    font-size: 14px;
+    font-size:  var(--font-small);
   }
 
 
@@ -113,12 +113,12 @@ mat-progress-bar {
   }
 
   .heading h1{
-    font-size: 24px;
+    font-size:  var(--font-x-large);
     padding-bottom:5%;
   }
 
   .sub-header h4{
-    font-size: 18px;
+    font-size:  var(--font-medium);
     padding-bottom:2%;
 
   }
@@ -133,11 +133,11 @@ mat-progress-bar {
   }
 
   .title h5{
-    font-size: 16px;
+    font-size:  var(--font-normal);
   }
 
   .cardHeading h4{
-    font-size: 18px;
+    font-size:  var(--font-medium);
     padding-bottom:2%;
 
   }
@@ -146,6 +146,6 @@ mat-progress-bar {
     position: absolute;
     color: black;
     right: 0px;
-    font-size: 14px;
+    font-size:  var(--font-small);
   }
 }

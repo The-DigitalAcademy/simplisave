@@ -21,10 +21,9 @@
 .white-text .nav-link {
   color: white;
   text-align: center;
-  font-family: Roboto;
-  font-size: 18px;
+  font-size: var(--font-medium);
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--regular);
   line-height: normal;
 }
 
@@ -32,7 +31,7 @@
   display: none;
 }
 .mat-icon {
-  font-size: 25px;
+  font-size: var(--font-x-large);
   text-align: center;
   height: auto;
   width:auto;
@@ -54,11 +53,10 @@
   margin: 0;
   padding: 0;
   color: white;
-  font-size: 16px;
+  font-size: var(--font-normal);
   white-space: nowrap;
 }
 .nav-link{
-  font-family: roboto;
   display: flex; 
   align-items: center;
   justify-content: center;

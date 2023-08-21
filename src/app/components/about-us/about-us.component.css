@@ -20,10 +20,9 @@
   border-bottom: 5px solid var(--primary-lighter);
   padding-bottom: 3px;
   color: white;
-  font-family: Helvetica;
-  font-size: 48px;
+  font-size:var(--font-xxx-large);
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--regular);
   line-height: normal;
 }
 

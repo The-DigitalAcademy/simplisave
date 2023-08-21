@@ -56,13 +56,13 @@
   }
   
   .footer h2 {
-    font-size: 15px;
+    font-size: var(--font-normal);
     color: white;
   }
   
   .footer span {
     display: block;
-    font-size: 12px;
+    font-size: var(--font-x-small);
   }
   
    @media screen and (max-width: 786px) {
@@ -73,13 +73,13 @@
     }
   
     .footer h2 {
-      font-size: 16px;
+      font-size: var(--font-normal);
       color: white;
       margin: 0px;
     }
   
     .footer span {
       display: block;
-      font-size: 12px;
+      font-size: var(--font-x-small);
     }
   }

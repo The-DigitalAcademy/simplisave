@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Roboto;
+    font-family:  var(--base-font);
 }
 
 body {
@@ -29,7 +29,7 @@ main.table {
 }
 
 h5{
-    font-weight: 800;
+    font-weight:  var(--bold);
 }
 
 .table__header {
@@ -184,7 +184,7 @@ tbody tr.hide td img {
 
 p{
     text-align: start;
-    font-size: 14px;
+    font-size:  var(--font-small);
 }
 
 /* Adjust for mobile screens  */
@@ -207,7 +207,7 @@ p{
         font-size: medium;
     }
     p{
-        font-size: 12px;
+        font-size:  var(--font-x-small);
     }
 
     td img {

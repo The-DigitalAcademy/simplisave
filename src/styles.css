@@ -22,6 +22,32 @@
     --success: #18d955;
     --cancel: #f60b36;
 
+    /*------------------
+        FONTS
+    --------------------*/
+    --base-font: 'Roboto';
+
+     /*------------------
+        FONT SIZES
+    --------------------*/
+    --font-xxxx-large: 60px;
+    --font-xxx-large: 48px;
+    --font-xx-large: 36px;
+    --font-x-large: 24px;
+    --font-large: 22px;
+    --font-medium: 18px;
+    --font-normal: 16px;
+    --font-small: 14px;
+    --font-x-small: 12px;
+
+    /*------------------
+        FONT Weights
+    --------------------*/
+    --thin: 100;
+    --light-font: 300;
+    --regular: 400;
+    --semi-bold: 600;
+    --bold: 800;
 
 }
 

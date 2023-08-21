@@ -27,10 +27,10 @@
   text-align: center;
   color: var(--primary-lighter);
   text-align: center;
-  font-family: Roboto;
-  font-size: 32px;
+  font-family: var(--base-font);
+  font-size: var(--font-xx-large);
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--semi-bold);
   line-height: normal;
 }
 
@@ -91,20 +91,20 @@
 .card-explanation {
   color: black;
   text-align: center;
-  font-family: Roboto;
-  font-size: 16px;
+  font-family: var(--base-font);
+  font-size: var(--font-normal);
   font-style: normal;
-  font-weight:100;
+  font-weight:var(--thin);
   line-height: normal;
   width: 100%;
 }
 .bottomParagraph{
   color: black;
 text-align: center;
-font-family: Roboto;
-font-size: 16px;
+font-family: var(--base-font);
+font-size: var(--font-normal);
 font-style: normal;
-font-weight: 400;
+font-weight: var(--regular);
 line-height: normal;
   width:55vw;
   height: 13vh;
@@ -209,25 +209,25 @@ color: white!important;
       width:100%;
       color: black;
       text-align: center;
-      font-family: Roboto;
-      font-size: 12px;
+      font-family: var(--base-font);
+      font-size: var(--font-x-small);
       font-style: normal;
-      font-weight: 400;
+      font-weight: var(--regular);
       line-height: normal;
     }
   
   
     .card-heading {
-      font-size: 18px; /* Adjusted */
+      font-size: var(--font-medium);
     }
   
     .card-explanation {
       color: black;
       text-align: center;
-      font-family: Roboto;
-      font-size: 12px;
+      font-family: var(--base-font);
+      font-size: var(--font-x-small);
       font-style: normal;
-      font-weight: 500;
+      font-weight: var(--semi-bold);
       line-height: normal;
     }
     .container {
@@ -250,10 +250,10 @@ color: white!important;
     .heading{
       color: var(--primary-color);
       text-align: center;
-      font-family: Roboto;
-      font-size: 24px;
+      font-family: var(--base-font);
+      font-size: var(--font-x-larrge);
       font-style: normal;
-      font-weight: 400;
+      font-weight: var(--regular);
       line-height: normal;
       width: 100vw;
       height:10vh;
@@ -279,7 +279,7 @@ color: white!important;
       padding: 10px 24px;
       margin: 20px;
       margin-left: 10px;
-      font-size: 12px;
+      font-size: var(--font-x-small);
     }
     
     .previous-button{
@@ -288,6 +288,6 @@ color: white!important;
       height: 30px;
       padding: 10px 24px;
       margin-top: 20px;
-      font-size: 12px;
+      font-size:var(--font-x-small);
     }
 }

@@ -31,10 +31,10 @@ body {
     border-bottom: 5px solid var(--primary-lighter);
     padding-bottom: 3px;
     color: white;
-    font-family: Helvetica;
-    font-size: 48px;
+    font-family:  var(--base-font);
+    font-size:  var(--font-xxx-large);
     font-style: normal;
-    font-weight: 400;
+    font-weight:  var(--regular);
     line-height: normal;
 }
   
@@ -57,7 +57,7 @@ img{
 }
 
 .overview-heading {
-    font-size: 16px;
+    font-size:  var(--font-normal);
     margin-bottom: 2%;
 }
 .line {
@@ -150,10 +150,10 @@ img{
 
 .form-field label {
     color: black;
-    font-family: Roboto;
-    font-size: 14px;
+    font-family:  var(--base-font);
+    font-size:  var(--font-small);
     font-style: normal;
-    font-weight: 400;
+    font-weight:  var(--regular);
     line-height: normal;
 }
 
@@ -197,15 +197,15 @@ img{
 
 h3 {
     color: black;
-    font-family: Roboto;
-    font-size: 18px;
+    font-family:  var(--base-font);
+    font-size:  var(--font-medium);
     font-style: normal;
-    font-weight: 700;
+    font-weight:  var(--bold);
     line-height: normal;    
 }
 
 .error-message {
-  font-size: 12px;
+  font-size:  var(--font-x-small);
   color: red;
   margin-left: 5px;
 }
@@ -230,10 +230,10 @@ nav {
     color: white;
     transition: color 0.3s, border-bottom 0.3s; /* Add transition for color and border */
     color: black;
-    font-family: Roboto;
-    font-size: 18px;
+    font-family:  var(--base-font);
+    font-size:  var(--font-medium);
     font-style: normal;
-    font-weight: 700;
+    font-weight: var(--bold);
     line-height: normal;
     border-bottom: 2px solid transparent; /* Add transparent border initially */
 }
