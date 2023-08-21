@@ -17,25 +17,24 @@
   left: 0;
   margin-left: 7vw;
   margin-bottom: 0;
-  border-bottom: 5px solid #AF144B;
+  border-bottom: 5px solid var(--primary-lighter);
   padding-bottom: 3px;
-  color: #FFF;
-  font-family: Helvetica;
-  font-size: 48px;
+  color: white;
+  font-size:var(--font-xxx-large);
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--regular);
   line-height: normal;
 }
 
 h2 {
   text-align: center;
-  color: #870A3C;
+  color: var(--primary-color);
 
 }
 
 h3 {
   text-align: center;
-  color: #870A3C;
+  color: var(--primary-color);
 }
 
 .card-container {
@@ -54,7 +53,7 @@ h3 {
   align-items: center;
   text-align: center;
   justify-content: center;
-  border-color: rgb(132, 126, 126);
+  border-color: var(--gray);
   border-width: 0.5px;
   border-style: solid;
 }

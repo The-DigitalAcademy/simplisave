@@ -1,26 +1,26 @@
 .create{
-  color: #870A3C;
-  font-weight: bold;
-  font-size: larger;
+  color: var(--primary-color);
+  font-weight: var(--bold);
+  font-size: var(--font-medium);
 }
 
 .credentials{
   color: black;
-  font-size: small;
+  font-size: var(--font-x-small);
 }
 
 .title{
-    color: #870A3C;
-    font-weight: bold;
-    font-size: x-large;
+    color: var(--primary-color);
+    font-weight: var(--bold);
+    font-size: var(--font-x-large);
 }
 
 .subtitle{
-  font-size: small;
+  font-size: var(--font-small);
 }
 
 p{
-  font-size: small;
+  font-size: var(--font-small);
 }
 
  button{
@@ -29,15 +29,15 @@ p{
 
 .validation{
   width: 100%;
-  font-size: small;
+  font-size:var(--font-x-small);
   
 }
 
 .btn{
-  background-color: #870A3C;
+  background-color: var(--primary-color);
   float: right;
   border-radius: 10px;
-  background-color:#870A3C;
+  background-color:var(--primary-color);
   margin-right: 10px;
   width: 30%;
   color:white;
@@ -49,21 +49,21 @@ p{
 }
 
 u{
-  color: #870A3C;
+  color:var(--primary-color);
 }
 
 mat-label{
-  font-size: small ;
+  font-size: var(--font-x-small);
 }
 
 
 .mat-form-field-appearance-outline .mat-form-field-outline {
-  border-color:  #870A3C!important;
+  border-color: var(--primary-color)!important;
 }
 
 .error-message {
   color: red;
-  font-size: 12px;
+  font-size: var(--font-x-small);
   margin-top: 0px; 
 }
 

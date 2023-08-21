@@ -1,0 +1,39 @@
+.graph {
+  background-color: var(--graph-background); 
+  border-radius: 5px;
+  
+}
+
+
+  @media (min-width: 770px) {
+    .graph {
+      background-color: var(--graph-background);
+      padding-top: 10%;
+      margin-top: -25%;
+      width: 100%;
+      margin-right: 25%;
+   
+
+    }
+ :host {
+    display: block;
+    width: 100%;
+    max-width: 500px; /* Increase the maximum width for larger screens */
+    height: 35%; 
+    position: absolute;
+    bottom: 60px;
+    left: 300px;
+    
+  } 
+  }
+  @media (max-width: 320px) {
+    .graph {
+      height: 200px; /* Adjust the height for small screens */
+      width: 100%; /* Set the width to fill the available space */
+      position: static; /* Reset the position to normal flow */
+      margin-bottom: 20px; /* Add some margin at the bottom for spacing */
+      margin: 0%;
+      height: 10%;
+    }
+  }
+  

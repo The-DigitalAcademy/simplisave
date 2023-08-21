@@ -77,8 +77,8 @@ export class AuthService {
   successAlert(){
     Swal.fire({
       icon: 'success',
-      title: 'Login Successful!!!',
-      text: 'Welcome to simpliSave',
+      title: 'Login Successful',
+      text: 'Welcome to SimpliSave',
       iconColor: '#AF144B',
       confirmButtonColor: '#AF144B'
     });
@@ -88,7 +88,7 @@ export class AuthService {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'User not found or incorrect credentials. Please try again!!!',
+      text: 'User not found or incorrect credentials. Please try again',
       iconColor: '#AF144B',
       confirmButtonColor: '#AF144B'
     });

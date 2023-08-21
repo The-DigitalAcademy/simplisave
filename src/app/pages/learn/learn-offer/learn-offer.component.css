@@ -25,12 +25,12 @@
 
 .heading {
   text-align: center;
-  color: #AF144B;
+  color: var(--primary-lighter);
   text-align: center;
-  font-family: Roboto;
-  font-size: 32px;
+  font-family: var(--base-font);
+  font-size: var(--font-xx-large);
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--semi-bold);
   line-height: normal;
   margin-bottom: 5%;
   padding: 0;
@@ -86,12 +86,12 @@
   }
   
   .card-heading {
-    color: #870A3C;
+    color: var(--primary-color);
     text-align: center;
-    font-family: Roboto;
-    font-size: 24px;
+    font-family: var(--base-font);
+    font-size: var(--font-x-large);
     font-style: normal;
-    font-weight: 500;
+    font-weight: var(--semi-bold);
     line-height: normal;
   }
   .card-explanation {
@@ -105,12 +105,12 @@
     margin-bottom: 10px;
   }
   .bottomParagraph{
-    color: #000;
+    color: black;
     text-align: center;
-    font-family: Roboto;
-    font-size: 16px;
+    font-family: var(--base-font);
+    font-size: var(--font-normal);
     font-style: normal;
-    font-weight: 400;
+    font-weight: var(--regular);
     line-height: normal;
     width:55vw;
   }
@@ -124,8 +124,8 @@
     max-width: 10%;
     border-radius: 20px;
     border-style: none;
-    background-color:#AF144B;
-    color: #FFFFFF;
+    background-color:var(--primary-lighter);
+    color: white;
     width:45px;
     height: 40px;
     display: flex;
@@ -181,7 +181,7 @@
       padding: none;
     }
     .bottomParagraph{
-      font-size: 14px;
+      font-size: var(--font-small);
       font-weight: lighter;
       margin-top: auto;
       margin-bottom: auto;
@@ -195,12 +195,12 @@
       height: 38%;
     }
     .card-heading {
-      color:#870A3C;
+      color:var(--primary-color);
       text-align: center;
-      font-family: Roboto;
-      font-size: 16px;
+      font-family: var(--base-font);
+      font-size: var(--font-normal);
       font-style: normal;
-      font-weight: 700;
+      font-weight: var(--bold);
       line-height: normal;
     }
     .topCards{
@@ -227,12 +227,12 @@
       
     }
     .heading{
-      color: #870A3C;
+      color: var(--primary-color);
       text-align: center;
-      font-family: Roboto;
-      font-size: 24px;
+      font-family: var(--base-font);
+      font-size: var(--font-x-large);
       font-style: normal;
-      font-weight: 400;
+      font-weight: var(--regular);
       line-height: normal;
       width: 100vw;
       height:10vh;
@@ -256,12 +256,12 @@
   padding:0;
 }
 .bottomParagraph{
-  color: #000;
+  color: black;
       text-align: center;
-      font-family: Roboto;
-      font-size: 12px;
+      font-family: var(--base-font);
+      font-size: var(--font-x-small);
       font-style: normal;
-      font-weight: 400;
+      font-weight: var(--regular);
       line-height: normal;
 }
 .custom-button{
@@ -271,7 +271,7 @@
   padding: 10px 24px;
   margin: 20px;
   margin-left: 10px;
-  font-size: 12px;
+  font-size: var(--font-x-small);
 }
 
 .previous-button{
@@ -280,7 +280,7 @@
   height: 30px;
   padding: 10px 24px;
   margin-top: 20px;
-  font-size: 12px;
+  font-size: var(--font-x-small);
 }
 }
 
