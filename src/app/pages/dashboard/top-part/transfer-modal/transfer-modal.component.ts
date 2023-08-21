@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { ExpenseModalComponent } from '../../expense/expense-modal/expense-modal.component';
+import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-transfer-modal',
@@ -14,9 +15,9 @@ import { ExpenseModalComponent } from '../../expense/expense-modal/expense-modal
 export class TransferModalComponent {
   transferForm: FormGroup;
  
-  constructor(private dashService:DashboardService,
+  constructor(private authService:AuthService,private dashService:DashboardService,
     private fb: FormBuilder,
-    private service: AccountService,
+    private accountService: AccountService,
     public dialogRef: MatDialogRef<ExpenseModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any ,private router: Router
   ) {
@@ -30,6 +31,24 @@ export class TransferModalComponent {
     if (this.transferForm.valid) {
       // Handle form submission
       console.log(this.transferForm.value.amount)
+
+      const amount = {
+        amount: this.transferForm.value.amount,
+        description:"Amount to be saved"
+      };
+      this.accountService.transferToSavings(amount)
+      .subscribe(res=>{
+
+        console.log(res)
+
+        this.dialogRef.close();
+        this.router.navigate(['/dashboard']);
+        this.refresh();
+        this.authService.successfulMoneyTransfer();
+        
+
+
+      })
     }
   }
 
