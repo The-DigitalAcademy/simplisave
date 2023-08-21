@@ -39,6 +39,10 @@
    height: 50vh;
   
 }
+mat-icon{
+   color: #AF144B!important;
+   
+}
 .mdc-button__label{
    color: #FFFFFF!important;
  }
