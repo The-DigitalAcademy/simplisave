@@ -39,10 +39,9 @@
    height: 50vh;
   
 }
-mat-icon{
+.bigger-icon{
    color: #AF144B!important;
    margin-left: 5%;
-  
 }
 .mdc-button__label{
    color: #FFFFFF!important;
