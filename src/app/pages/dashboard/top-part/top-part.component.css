@@ -176,6 +176,7 @@ h6{
       flex-basis: calc(50% - 10px);
       font-size: var(--font-normal);
       margin-bottom: 20px;
+      
     }
   
     h6{
@@ -216,7 +217,7 @@ h6{
       }
       .info-icon {
         font-size: 15px;
-        margin-right: 0px;
+       
       }
    
   
@@ -239,7 +240,46 @@ h6{
 
   }
 
-    
+
+    .top-container {
+      flex-wrap: wrap;
+      width: 104%;
+      margin-left: -1px;
+    }
+  
+    .item:nth-child(2),
+    .item:nth-child(3) {
+      flex-basis: calc(50% - 10px);
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+  
+    h6{
+      font-size: 14px;
+    }
+  
+    p{
+      font-size: 12px;
+    }
+  
+    .Transfer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #AF144B;
+      width: 48%;
+      height: 30px;
+      color: white;
+      border-radius: 20px;
+      border: none;
+      font-size: 12px;
+      font-family: Roboto;
+      line-height: 20px;
+      letter-spacing: 0.10px;
+      margin: 0;
+      padding: 0;
+    }
+
    
   
  
