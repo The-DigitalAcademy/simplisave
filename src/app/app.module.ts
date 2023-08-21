@@ -81,6 +81,8 @@ import { MatNativeDateModule } from '@angular/material/core';
         LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent,ManageModalComponent,GoalModalComponent, AdminLoginComponent, TransactionsComponent,ProfileComponent, PrivacyPolicyComponent, FAQComponent, AboutUsComponent, BalanceSummaryComponent, TransactionDetailsComponent],
         imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule, MatMenuModule, MatExpansionModule,  ReactiveFormsModule, MatDatepickerModule,
             MatNativeDateModule, FormsModule,],
+        
+
 
 
     providers: [{

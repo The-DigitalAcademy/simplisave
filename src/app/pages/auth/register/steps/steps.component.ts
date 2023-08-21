@@ -119,7 +119,6 @@ export class StepsComponent implements OnInit {
       // Now you can navigate to the next step here if needed
     } 
   }
-}
 
   onNext() {
     const currentStep = this.stepperService.getCurrentStep();
