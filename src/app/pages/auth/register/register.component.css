@@ -10,7 +10,8 @@
 }
 
 .btn{
-  background-color: #870A3C;
+  color: var(--dark);
+  background-color: var(--primary-color);
   color: white;
   border-radius: 20px;
   padding: 9px;
@@ -28,5 +29,5 @@
   opacity: 0.7; /* Set the opacity to 50% */
 }
 u{
-  color: #870A3C;
+  color: var(--primary-color);
 }

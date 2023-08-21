@@ -1,5 +1,5 @@
   .title{
-      color: #870A3C;
+      color: var(--primary-color);
       font-weight: bold;
       font-size: x-large;
   }
@@ -21,10 +21,10 @@
   }
   
   .btn{
-    background-color: #870A3C;
+    background-color: var(--primary-color);
     float: right;
     border-radius: 10px;
-    background-color:#870A3C;
+    background-color:var(--primary-color);
     margin-right: 100px;
     width: 50%;
     color:white;
@@ -37,7 +37,7 @@
   }
   
   u{
-    color: #870A3C;
+    color: var(--primary-color);
   }
   
   mat-label{
@@ -46,7 +46,7 @@
   
   
   .mat-form-field-appearance-outline .mat-form-field-outline {
-    border-color:  #870A3C!important;
+    border-color:  var(--primary-color)!important;
   }
   
   .error-message {
@@ -56,13 +56,13 @@
   }
   h3{
     text-align: center;
-    color: #870A3C;
+    color: var(--primary-color);
     margin-bottom: 20px;
   }
   
   h4{
     text-align:center ;
-    color: #000;
+    color: black;
     font-size: 15px;
     margin-bottom: 50px;
   }

@@ -1,6 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+:root {
+
+    /*------------------
+        COLOUR PALETTE - Thilivhali Ravhutulu - 21 August 2023
+    --------------------*/   
+    --primary-color: #870A3C;
+    --primary-lighter: #AF144B;
+    /* --primary-darker:  #6c0730; */
+     /*graph colors*/
+    --graph-background: #F5F5F5;
+    /*dashboard colors*/
+    --hover: #f0f0f0;
+    /*drag and drop*/
+    --gray:  #ccc;
+    --green: rgb(45, 233, 45);
+    /*transactions*/
+    --table-gray: #fff4;
+    --table-hover: #fff8;
+    --success: #18d955;
+    --cancel: #f60b36;
+
+
+}
+
 * {
     margin: 0;
     font-family: 'Roboto'; 

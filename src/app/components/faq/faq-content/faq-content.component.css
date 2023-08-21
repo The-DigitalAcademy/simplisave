@@ -13,7 +13,7 @@ body {
 }
 
 .heading {
-  color: #870A3C;
+  color: var(--primary-color);
   text-align: center;
   margin-bottom: 100px;
   font-weight: Regular;
@@ -36,7 +36,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #FFFFFF;
+  background-color: white;
   color: black;
   margin-top: 40px;
   border-radius: 8px;
@@ -54,7 +54,7 @@ body {
 }
 
 .card-title {
-  color: #870A3C;
+  color: var(--primary-color);
   font-weight: Medium;
   font-size: 24px;
   letter-spacing: 0%;

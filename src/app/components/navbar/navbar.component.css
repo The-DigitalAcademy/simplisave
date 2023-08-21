@@ -53,7 +53,7 @@
 .profileText{
   margin: 0;
   padding: 0;
-  color: #ffffff;
+  color: white;
   font-size: 16px;
   white-space: nowrap;
 }
@@ -83,7 +83,7 @@
      }
 
     #navbarNav{
-      background-color: #870A3C;
+      background-color: var(--primary-color);
       height: 95vh;
     }
 
@@ -100,7 +100,7 @@
     }
 
     hr {
-      border: 1px solid #ffffff;
+      border: 1px solid white;
     }
 
   }

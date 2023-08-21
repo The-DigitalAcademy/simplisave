@@ -25,7 +25,7 @@
 
 .heading {
   text-align: center;
-  color: #AF144B;
+  color: var(--primary-lighter);
   text-align: center;
   font-family: Roboto;
   font-size: 32px;
@@ -92,7 +92,7 @@
 }
 
 .card-explanation {
-  color: #000;
+  color: black;
   text-align: center;
   font-family: Roboto;
   font-size: 16px;
@@ -114,8 +114,8 @@
   max-width: 10%;
   border-radius: 20px;
   border-style: none;
-  background-color:#AF144B;
-  color: #FFFFFF;
+  background-color:var(--primary-lighter);
+  color: white;
   width:45px;
   height: 40px;
   display: flex;
@@ -185,7 +185,7 @@
   }
 
   .card-explanation {
-    color: #000;
+    color: black;
     text-align: center;
     font-family: Roboto;
     font-size: 12px;
@@ -211,7 +211,7 @@
   }
   
   .heading{
-    color: #870A3C;
+    color: var(--primary-color);
     text-align: center;
     font-family: Roboto;
     font-size: 24px;

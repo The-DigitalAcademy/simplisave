@@ -5,7 +5,7 @@
 }
 
 .section{
-  border: 1px solid #870A3C;
+  border: 1px solid var(--primary-color);
   max-width: 1300px;
   margin: 130px auto;
   height: 65vh;
@@ -16,7 +16,6 @@
 }
 
 .container {
-  /* background-color: antiquewhite; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -31,7 +30,7 @@
     align-items: center;
     justify-content: center;
     margin: 34px 20px;
-    color: #870A3C;
+    color: var(--primary-color);
   }
 
 .card {
@@ -39,8 +38,8 @@
   width: 17rem;
   display: flex;
   flex-direction: column;
-  background-color: #870A3C;
-  color: #FFFFFF;
+  background-color: var(--primary-color);
+  color: white;
   border-radius: 10px;
 }
 
@@ -59,7 +58,7 @@
   justify-content: center;
   height: 100%;
   padding-top: 22px;
-  background-color: #FFFFFF;
+  background-color: white;
   color: black;
 }
 
@@ -94,7 +93,7 @@
 }
 
 .btn {
-  background-color: #870A3C;
+  background-color: var(--primary-color);
   width: 200px;
   border-radius: 15px;
   text-align: center;

@@ -25,7 +25,7 @@
 
 .heading {
   text-align: center;
-  color: #AF144B;
+  color: var(--primary-lighter);
   text-align: center;
   font-family: Roboto;
   font-size: 32px;
@@ -99,7 +99,7 @@
   width: 100%;
 }
 .bottomParagraph{
-  color: #000;
+  color: black;
 text-align: center;
 font-family: Roboto;
 font-size: 16px;
@@ -128,8 +128,8 @@ line-height: normal;
   max-width: 10%;
   border-radius: 20px;
   border-style: none;
-  background-color:#AF144B;
-  color: #FFFFFF;
+  background-color:var(--primary-lighter);
+  color: white;
   width:45px;
   height: 40px;
   display: flex;
@@ -163,7 +163,7 @@ line-height: normal;
   margin-top: 20px;
 }
 .mdc-button__label{
-color: #FFFFFF!important;
+color: white!important;
 }
 
 #chartCanvas {
@@ -173,7 +173,7 @@ color: #FFFFFF!important;
 .custom-tooltip {
   /* Set a wider width for the tooltip */
   min-width: 200%;
-  color: #870A3C;
+  color: var(--primary-color);
 }
   
   @media (max-width: 790px) {
@@ -207,7 +207,7 @@ color: #FFFFFF!important;
     }
     .bottomParagraph{
       width:100%;
-      color: #000;
+      color: black;
       text-align: center;
       font-family: Roboto;
       font-size: 12px;
@@ -222,7 +222,7 @@ color: #FFFFFF!important;
     }
   
     .card-explanation {
-      color: #000;
+      color: black;
       text-align: center;
       font-family: Roboto;
       font-size: 12px;
@@ -248,7 +248,7 @@ color: #FFFFFF!important;
     }
     
     .heading{
-      color: #870A3C;
+      color: var(--primary-color);
       text-align: center;
       font-family: Roboto;
       font-size: 24px;

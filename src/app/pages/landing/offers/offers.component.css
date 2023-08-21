@@ -14,7 +14,7 @@ body {
 }
 
 .heading {
-  color: #870A3C;
+  color: var(--primary-color);
   text-align: center;
   margin-bottom: 100px;
   font-weight: Regular;
@@ -37,8 +37,8 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #870A3C;
-  color: #FFFFFF;
+  background-color: var(--primary-color);
+  color: white;
   margin-top: 20px;
 }
 

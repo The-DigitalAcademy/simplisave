@@ -2,8 +2,8 @@
 :host ::ng-deep .mat-dialog-container {
     padding: 20px;
     border-radius: 4px;
-    box-shadow: 0 0 10px #0000001a;
-    background-color: #fff;
+    box-shadow: 0 0 10px black;
+    background-color: white;
     max-width: 400px;
   }
   
@@ -31,7 +31,7 @@
   :host ::ng-deep input[type='number'] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #870A3C;
+    border: 1px solid var(--primary-color);
     border-radius: 4px;
     font-size: 16px;
   }
@@ -48,18 +48,7 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.2s;
-    background-color: #870A3C;
-  }
-  
-  :host ::ng-deep button.cancel-button {
-    margin-right: 10px;
-    background-color: #e0e0e0;
-    color: pink;
-  }
-  
-  :host ::ng-deep button.save-button {
-    background-color: #007bff;
-    color: pink;
+    background-color: var(--primary-color);
   }
 
  

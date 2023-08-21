@@ -31,9 +31,9 @@ body {
 .banner-button {
   margin-top: 5%;
   padding: 0;
-  color: #FFFFFF;
+  color: white;
   text-align: center;
-  background-color: #870A3C;
+  background-color: var(--primary-color);
   width: 20vw;
   height: 60px;
   border-radius: 20px;

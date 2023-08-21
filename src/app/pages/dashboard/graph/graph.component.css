@@ -1,5 +1,5 @@
 .graph {
-  background-color: 	#F5F5F5; 
+  background-color: var(--graph-background); 
   border-radius: 5px;
   
 }
@@ -7,7 +7,7 @@
 
   @media (min-width: 770px) {
     .graph {
-      background-color: #E5E5E5;
+      background-color: var(--graph-background);
       padding-top: 10%;
       margin-top: -25%;
       width: 100%;

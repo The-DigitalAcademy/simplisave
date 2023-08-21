@@ -34,7 +34,7 @@ h5{
 
 .table__header {
     width: 100%;
-    background-color: #fff4;
+    background-color: var(--table-gray);
     padding: .8rem .6rem;
     display: flex;
     justify-content: space-between;
@@ -43,7 +43,7 @@ h5{
 
 .table__header .input-group {
      height: auto;
-    background-color: #fff5;
+    background-color: var(--table-gray);
     padding: 0 .8rem;
     border-radius: 2rem;
 
@@ -55,8 +55,8 @@ h5{
 }
 
 .table__header .input-group:hover {
-    background-color: #fff8;
-    box-shadow: 0 .1rem .4rem #0002;
+    background-color: var(--table-hover);
+    box-shadow: 0 .1rem .4rem black;
 }
 
 .table__header .input-group img {
@@ -86,7 +86,7 @@ h5{
 
 .table__body::-webkit-scrollbar-thumb{
     border-radius: .5rem;
-    background-color: #0004;
+    background-color: black;
     visibility: hidden;
 }
 
@@ -117,7 +117,7 @@ thead th {
     position: sticky;
     top: 0;
     left: 0;
-    background-color: #ffffff;
+    background-color: white;
     cursor: pointer;
     text-transform: capitalize;
 }
@@ -130,9 +130,8 @@ thead th {
 .break-word-mobile img {
     margin-right: 0.5rem; /* Add some spacing between image and text */
 }
-
-tbody tr:nth-child(even) {
-    background-color: #0000000b;
+tbody tr:hover {
+    background-color: var(--table-hover);
 }
 
 tbody tr {
@@ -146,7 +145,7 @@ tbody tr.hide {
 }
 
 tbody tr:hover {
-    background-color: #fff6 !important;
+    background-color: var(--table-hover) !important;
 }
 
 tbody tr td,
@@ -176,11 +175,11 @@ tbody tr.hide td img {
 }
 
 .amount.received {
-    color: #18d955;
+    color: var(--success);
 }
 
 .amount.cancelled {
-    color: #f60b36;
+    color: var(--cancel);
 }
 
 p{
@@ -317,21 +316,18 @@ thead th span.icon-arrow {
 }
 
 thead th:hover span.icon-arrow{
-    border: 1.4px solid #870A3C;
+    border: 1.4px solid var(--primary-color);
 }
 
 thead th:hover {
-    color: #870A3C;
+    color: var(--primary-color);
 }
 
 thead th.active span.icon-arrow{
-    color: #fff;
+    color: white;
 }
 
 thead th.asc span.icon-arrow{
     transform: rotate(180deg);
 }
 
-thead th.active,tbody td.active {
-    color: #6c00bd;
-}
