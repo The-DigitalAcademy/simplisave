@@ -9,7 +9,7 @@
 }
 
 .card {
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 8px;
     margin-top: 250px;
     padding-left: 90px;
@@ -18,21 +18,21 @@
 }
 
 .vl {
-    border-left: 7px solid #870A3C;
+    border-left: 7px solid var(--primary-color);
     padding-left: 30px;
 }
 
 
 .card-heading {
     font-size: 2.0vw;
-    font-weight: bold;
+    font-weight: var(--bold);
     margin: 10px 0;
 }
 
 .card-heading1 {
-    font-size: 35px;
-    font-weight: bold;
-    color: #870A3C;
+    font-size: var(--font-xx-large);
+    font-weight: var(--bold);
+    color: var(--primary-color);
     margin: 10px 0;
 }
 
@@ -43,9 +43,9 @@
 }
 
 .nav-link {
-    color: #870A3C;
+    color: var(--primary-color);
     font-weight: lighter;
-    font-size: 21px;
+    font-size: var(--font-large);
     text-decoration: none;
     display: block;
     margin-bottom: 10px;
@@ -53,22 +53,21 @@
 }
 
 .footer {
-    background-color: #870A3C;
+    background-color: var(--primary-color);
     padding: 5px;
     text-align: center;
     margin-top: 130px;
 }
 
 .footer h2 {
-    font-size: 19px;
-    color: #ffffff;
+    font-size: var(--font-medium);
+    color: white;
     margin: 0px;
 }
 
 .footer span {
     display: block;
-    font-size: 12px;
-    color: #888;
+    font-size: var(--font-x-small);
 }
 
 
@@ -85,28 +84,28 @@
     }
 
     .card {
-        background-color: #ffffff;
+        background-color: white;
         border-radius: 8px;
         margin: 20px;
         padding: 20px;
     }
 
     .vl {
-        border-left: 7px solid #870A3C;
+        border-left: 7px solid var(--primary-color);
         height: 100%;
         margin-right: 10px;
     }
 
     .card-heading {
-        font-size: 22px;
-        font-weight: bold;
+        font-size: var(--font-large);
+        font-weight: var(--bold);
         margin: 10px 0;
     }
 
     .card-heading1 {
-        font-size: 29px;
-        font-weight: bold;
-        color: #870A3C;
+        font-size: var(--font-x-large);
+        font-weight: var(--bold);
+        color: var(--primary-color);
         margin: 10px 0;
     }
 
@@ -115,9 +114,9 @@
     }
 
     .nav-link {
-        color: #870A3C;
-        font-weight: lighter;
-        font-size: 19px;
+        color: var(--primary-color);
+        font-weight: var(--light-font);
+        font-size: var(--font-medium);
         text-decoration: none;
         display: flex;
         margin-bottom: 10px;
@@ -125,21 +124,89 @@
 
 
     .footer {
-        background-color: #870A3C;
+        background-color: var(--primary-color);
         padding: 20px;
         text-align: center;
     }
 
 
     .footer h2 {
-        font-size: 16px;
-        color: #ffffff;
+        font-size: var(--font-normal);
+        color: white;
         margin: 0px;
     }
 
     .footer span {
         display: block;
-        font-size: 12px;
-        color: #888;
+        font-size: var(--font-x-small);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 40px 20px;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        background-color: white;
+        border-radius: 8px;
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .vl {
+        border-left: 7px solid var(--primary-color);
+        height: 100%;
+        margin-right: 10px;
+    }
+
+    .card-heading {
+        font-size: var(--font-medium);
+        font-weight: var(--bold);
+        margin: 10px 0;
+    }
+
+    .card-heading1 {
+        font-size: var(--font-large);
+        font-weight: var(--bold);
+        color: var(--primary-color);
+        margin: 10px 0;
+    }
+
+    .scroll-up-btn {
+        position: static;
+    }
+
+    .nav-link {
+        color: var(--primary-color);
+        font-weight: var(--light-font);
+        font-size: var(--font-medium);
+        text-decoration: none;
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+
+    .footer {
+        background-color: var(--primary-color);
+        padding: var(--font-medium);
+        text-align: center;
+    }
+
+
+    .footer h2 {
+        font-size: var(--font-normal);
+        color: white;
+        margin: 0px;
+    }
+
+    .footer span {
+        display: block;
+        font-size: var(--font-x-small);
     }
 }
