@@ -1,14 +1,19 @@
-<!-- expense-modal.component.html -->
+<!-- transfer-modal.component.html -->
 <h2 mat-dialog-title>Transfer money to SimpliSave savings account</h2>
 <mat-dialog-content>
   <form [formGroup]="transferForm" (ngSubmit)="transfer()">
     <div class="form-group">
       <label for="category">Amount to transfer (R)</label>
-      <input matInput formControlName="amount" name="amount"><br>
+      <input matInput formControlName="amount" name="amount">
+      <div *ngIf="transferForm.get('amount')?.invalid && (transferForm.get('amount')?.dirty || transferForm.get('amount')?.touched)">
+        <mat-error *ngIf="transferForm.get('amount')?.errors?.['required']">Amount is required.</mat-error>
+        <mat-error *ngIf="transferForm.get('amount')?.errors?.['min']">Amount must be greater than or equal to 0.</mat-error>
+        <mat-error *ngIf="transferForm.get('amount')?.errors?.['pattern']">Invalid amount format.</mat-error>
+      </div>
     </div>
-  <button mat-button (click)="onNoClick()">Close</button>
-  <button mat-button type="submit" style="margin-left: 2%;">Transfer</button>
+    <button mat-button (click)="onNoClick()" [disabled]="!transferForm.valid">Cancel</button>
+    <button mat-button type="submit" style="margin-left: 2%;">Transfer</button>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  
+</mat-dialog-actions>
