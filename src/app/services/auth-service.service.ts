@@ -113,4 +113,15 @@ export class AuthService {
       confirmButtonColor: '#AF144B'
     });
   }
+
+  successfulMoneyTransfer(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Money successfully transferred',
+      iconColor: '#AF144B',
+      confirmButtonColor: '#AF144B'
+    });
+  }
+
+
 }

@@ -35,7 +35,9 @@ export class GoalModalComponent {
   get formControls() {
     return this.goalForm.controls;
   }
-
+  //Responsible for closing a modal dialog
+  //Lebohang Mokoena
+  //2023/08/18
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -45,7 +47,9 @@ export class GoalModalComponent {
     return control?.touched && control?.hasError(errorName);
   }
 
-  // updatr the set saving goal
+  // updating the set saving goal then saves a modal dialog
+  //Lebohang Mokoena
+  // 2023/08/18
   updateGoalSaving() {
     //Call the API service to post the form data
     if (this.goalForm.valid){
@@ -65,6 +69,9 @@ export class GoalModalComponent {
     }
   }
 
+  //Responsible for refreshing a made after a successful save
+  //Lebohang Mokoena
+  //2023/08/18
   refreshManagePage() {
     //Trigger the refresh for component two
     this.service.triggerRefresh();
