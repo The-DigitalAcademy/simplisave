@@ -22,7 +22,7 @@ export class TransferModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: any ,private router: Router
   ) {
     this.transferForm = this.fb.group({
-      amount: ['', [Validators.required, Validators.min(0)]]
+      amount: ['', [Validators.required, Validators.min(0), Validators.pattern(/^\d+(\.\d{1,2})?$/)]]
     });
 
   }
