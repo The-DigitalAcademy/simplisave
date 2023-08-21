@@ -98,7 +98,7 @@ navbar-nav {
       display: flex;
       align-items: left;
       justify-content: left;
-      height: auto;
+      height: 95vh;
      }
 
      .white-text .nav-link {
@@ -116,9 +116,15 @@ navbar-nav {
     hr {
       border: 1px solid white;
     }
+    .logout{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
   }
 /*Media query for desktop devices */
+
 @media (min-width: 781px) {
   .hide-on-desktop {
     display: none;
