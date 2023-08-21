@@ -85,6 +85,23 @@ export class AccountService {
     return this.http.delete<void>(`${environment.apiUrl}/Budget/${id}`);
   }
 
+
+
+  transferToSavings(data:any) {
+    console.log(this.authService.getToken())
+    return this.authService.getToken().pipe(
+      switchMap(token => {
+        const headers = new HttpHeaders({
+          Authorization: `Bearer ${token}`
+        });
+        // Make the authenticated API request using HttpClient
+        return this.http.post(`${environment.backendUrl}/accounts/transfer/8`, data, { headers });
+      })
+    );
+  }
+
+
+
   triggerRefresh() {
     this.refreshSubject.next();
   }
