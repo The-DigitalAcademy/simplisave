@@ -15,6 +15,27 @@ padding-bottom:2%;
   cursor: pointer;
   
 }
+.Transfer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #AF144B;
+  width: 20%;
+  height: 40px;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  font-family: Roboto;
+  line-height: 20px;
+  letter-spacing: 0.10px;
+}
+
+.firstPart{
+  display: flex;
+  align-items: center;
+  padding-right:2%;
+}
 
 
 .info-container {
@@ -26,6 +47,11 @@ padding-bottom:2%;
   cursor: pointer;
   font-size: 20px; 
 }
+
+.material-icons{
+margin-left: 0.5vw;
+}
+
 
 
 mat-icon{
