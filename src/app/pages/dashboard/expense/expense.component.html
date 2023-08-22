@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div class="col">
+    <div class="col ">
       <div class="heading">
         <mat-icon class="info-icon" matTooltip="Set the budget here ">error</mat-icon>
         <h1 class="subHeader">Budget Summary <mat-icon class="bigger-icon" (click)="openExpenseModal()">add_circle</mat-icon>
@@ -15,7 +15,7 @@
       </div>
       <div class="expense-container">
         <div class="accordion-content">
-          <div class="accordion" id="accordionExample">
+          <div class="accordion " id="accordionExample">
             <div class="accordion-item" *ngFor="let type of types; let i = index">
               <p class="accordion-button"  data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="false" [attr.aria-controls]="'collapse' + i">
                 {{ type.transactionType }}
@@ -32,6 +32,6 @@
             </div>
           </div>
         </div>
-        <button class="btn" (click)="openExpenseModal()" mat-button><mat-icon>add</mat-icon>Add To Checklist</button>
+        <button (click)="openExpenseModal()" mat-button><mat-icon>add</mat-icon>Add To Checklist</button>
       </div>
     </div>

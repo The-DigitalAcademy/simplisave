@@ -1,41 +1,20 @@
-<nav
-    class="navbar navbar-expand-lg"
-    style="background-color: #870a3c; font-family: 'Lato'; font-size: 20px">
-    <a class="navbar-brand" routerLink="">
-        <img
-            src="/assets/Icons/Navbar/Screenshot_2023-07-18_at_09.13.14-removebg-preview (1).png"
-            alt="Simplisave Logo"
-            class="img-fluid"
-            width="65px" />
-    </a>
-    <div class="profile">
-        <div class="dropdown">
-            <a
-                class="nav-link"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false">
-                <img
-                    src="./assets/Images/Profile/Profile icon.png"
-                    alt="Small Image"
-                    width="30"
-                    height="30" />
-                <p style="margin-left: 3%" class="profileText">
-                    Welcome {{ this.name }}
-                </p>
-                <mat-icon
-                    style="color: white; margin-left: 3%; margin: 0"
-                    width="30"
-                    height="30"
-                    >keyboard_arrow_down</mat-icon
-                >
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" routerLink="/profile">Profile</a>
-                <a class="dropdown-item" href="#">Logout</a>
-            </div>
-        </div>
+
+<nav class="navbar navbar-expand-lg" style="background-color: #870A3C; font-size: 20px; width: 100%;">
+  <a class="navbar-brand" routerLink="">
+    <img src="/assets/Icons/Navbar/Screenshot_2023-07-18_at_09.13.14-removebg-preview (1).png" alt="Simplisave Logo"
+      class="img-fluid" width="65px">
+  </a>
+  <div class="profile">
+    <div class="dropdown">
+      <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="./assets/Images/Profile/Profile icon.png" alt="Small Image" width="30" height="30">
+        <p style="margin-left: 3%;" class="profileText">Welcome {{this.name}}</p>
+        <mat-icon style="color: white;margin-left: 3%;margin: 0;" width="30" height="30">keyboard_arrow_down</mat-icon>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="/profile">Profile</a>
+        <a class="dropdown-item" href="#">Logout</a>
+      </div>
     </div>
     <button
         class="navbar-toggler"
