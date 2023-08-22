@@ -56,7 +56,8 @@ export class TopPartComponent implements OnInit {
 });
   }
 
- // Fetches transaction data from the API , Mukosi Budeli 01/08/2023
+ // Fetches transaction data from the API 
+ // Mukosi Budeli 01/08/2023
   getDataFromApi() {
     this.accountService.getTransactions2()
       .subscribe(res => {
@@ -66,7 +67,8 @@ export class TopPartComponent implements OnInit {
       });
   }
 
- // Fetches account data (such as available balance for a simplisave savings account) from an AP , Mukosi Budeli 01/08/2023
+ // Fetches account data (such as available balance for a simplisave savings account) from an AP 
+ // Mukosi Budeli 01/08/2023
   getSimplisaveData(){
     this.accountService.getSimplisaveData()
                .subscribe(res=>{

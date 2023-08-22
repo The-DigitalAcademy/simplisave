@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from './user.service';
 import { environment } from '../../environments/environment';
 import { User } from '../interfaces/user';
 import { Observable } from 'rxjs';
@@ -15,7 +14,7 @@ export class StepperService {
   private data: any = {};
   private registrationData: any = {};
 
-  constructor(private http: HttpClient, private userService: UserService, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
    // Method to update data for each step - Thilivhali 14/08/2023
    updateStepData(data: any): void {
@@ -40,7 +39,6 @@ export class StepperService {
   saveRegistrationData(): void {
     this.http.post(`${environment.REG_URL}`, this.registrationData).subscribe(
       (response) => {
-        console.log('Registration data saved:', response);
         Swal.fire({
           icon: 'success',
           text: 'Successful! Please Login',
@@ -52,7 +50,12 @@ export class StepperService {
          })
       },
       (error) => {
-        console.error('Error saving registration data:', error);
+        Swal.fire({
+          icon: 'error',
+          text: 'An error occurred',
+          iconColor: '#AF144B',
+          confirmButtonColor: '#AF144B'
+        });
       }
     );
   }

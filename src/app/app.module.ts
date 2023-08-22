@@ -74,6 +74,7 @@ import { FaqContentComponent } from './components/faq/faq-content/faq-content.co
 import { TransferModalComponent } from './pages/dashboard/top-part/transfer-modal/transfer-modal.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ResetComponent } from './pages/auth/forgot-password/reset/reset.component';
 
 
 

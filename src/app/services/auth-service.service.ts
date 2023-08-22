@@ -48,21 +48,11 @@ export class AuthService {
   }
   
 
-  // login(data:any) {
-  //   return this.http.post<any>(`${environment.backendUrl}/auth/login`, data);
-  // }
   getUserData() {
 
     return this.http.get<any>(`${environment.apiUrl}/signupUsers`);
 
   }
-
-
-
-  // logout() {
-  //   sessionStorage.clear();
-  //   this.router.navigate(['/login']);
-  // }
 
   //set the authentication state to false when the user logs out.
   logout() {
@@ -70,9 +60,6 @@ export class AuthService {
     this.isAuthenticatedSubject.next(false); // Set authentication state to false
     this.router.navigate(['/login']);
   }
-  
-
-
 
   successAlert(){
     Swal.fire({
