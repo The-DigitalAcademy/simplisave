@@ -1,10 +1,11 @@
 .navbar-nav {
-  margin-left: 400px;
+  margin-left: 389px;
  
 }
 
 .navbar{
   height: 70px;
+  padding: 15px;
 }
 
 .navbar-nav .nav-link {
