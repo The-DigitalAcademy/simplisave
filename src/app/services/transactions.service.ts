@@ -18,4 +18,8 @@ export class TransactionsService {
       return res;
     }))
   }
+
+  getCurrentBalance(){
+    return this.http.get<any>(`${environment.apiUrl}/Account`);
+}
 }
