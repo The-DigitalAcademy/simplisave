@@ -124,7 +124,6 @@ navbar-nav {
     }
 
   }
-/*Media query for desktop devices */
 
 @media (min-width: 781px) {
   .hide-on-desktop {
@@ -133,7 +132,7 @@ navbar-nav {
 }
 @media (max-width: 790px) {
   .profile, .profile * {
-    display: none; /* Hide the profile div and all its descendants */
+    display: none; 
   }
   .profile{
     display:none;

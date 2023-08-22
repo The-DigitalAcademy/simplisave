@@ -143,6 +143,7 @@ h6{
 @media (max-width: 800px) {
   .heading {
     font-size: 24px;
+    margin-left: 1%;
   }
 
   .item:nth-child(2),
