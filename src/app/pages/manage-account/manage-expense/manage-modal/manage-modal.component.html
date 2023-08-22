@@ -1,5 +1,6 @@
 <!-- eslint-disable prettier/prettier -->
 <!-- expense-modal.component.html -->
+<div class="container text-center">
 <h2 mat-dialog-title>Edit Monthly Expense Allocation</h2>
 <mat-dialog-content>
   <form [formGroup]="expenseForm" (ngSubmit)="updateExpensePage()">
@@ -16,9 +17,10 @@
       <mat-error class="error-message" *ngIf="shouldShowError('amount', 'pattern')">Amount can only contain numbers</mat-error>
     </div>
     <button mat-button (click)="onNoClick()">Close</button>
-    <button mat-button type="submit" [disabled]="!expenseForm.valid">Save</button>
+    <button mat-button type="submit" style="margin-left: 2%;" [disabled]="!expenseForm.valid">Save</button>
   </form>
 </mat-dialog-content>
+</div>
 <mat-dialog-actions>
   
 
