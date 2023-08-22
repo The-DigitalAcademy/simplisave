@@ -126,7 +126,6 @@
         margin-bottom: 10px;
     }
 
-
     .footer {
         background-color: var(--primary-color);
         padding: 20px;
@@ -144,20 +143,6 @@
         display: block;
         font-size: var(--font-x-small);
     }
-
-    /* .accordion{
-        display: flex;
-        width: auto !important;
-    }
-
-    .accordion-item{
-        
-    }
-
-    .accordion-header{
-
-    } */
-
 }
 
 @media screen and (max-width: 480px) {
@@ -229,15 +214,18 @@
     }
 
     .accordion{
-        display: flex;
+        color:#ffffff;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-        
-        /* width: auto !important; */
+    }
+
+    .accordion-body a{
+        color: black;
     }
 
     .accordion-item{
-        color:#ffffff;
+        width: 33.3vw;
     }
 
     .accordion-header{
@@ -248,5 +236,6 @@
     font-size: var(--font-x-small);
     color: #ffffff;
     background-color: #870A3C;
+    min-height: 7vh;
    }
 }
