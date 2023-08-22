@@ -70,6 +70,10 @@
     font-size: var(--font-x-small);
 }
 
+.accordion{
+    display: none;
+}
+
 
 /* Media Query for screens below 786px */
 @media screen and (max-width: 786px) {
@@ -140,6 +144,12 @@
         display: block;
         font-size: var(--font-x-small);
     }
+
+    .accordion{
+        display: flex;
+        width: auto;
+    }
+
 }
 
 @media screen and (max-width: 480px) {
@@ -148,7 +158,7 @@
     }
 
     .card-container {
-        display: flex;
+        display: none;
         flex-wrap: wrap;
     }
 
@@ -209,4 +219,8 @@
         display: block;
         font-size: var(--font-x-small);
     }
+
+    /* .accordion{
+        display: flex;
+    } */
 }
