@@ -7,7 +7,7 @@
 
 
 .flex-item-left {
-  background-color: #FFFFFF;
+  background-color: white;
   flex: 40%;
 }
 .moneyImg{
@@ -23,16 +23,16 @@
     color: white;
 }
 .content-paragraph {
-  color: #000;
-    font-family: Roboto;
-    font-size: 16px;
+  color: black;
+    font-family:var(--base-font);
+    font-size: var(--font-normal);
     font-style: normal;
-    font-weight: 400;
+    font-weight:var(--regular);
     line-height: normal;
 }
 
 .flex-item-right {
-  background-color: #FFFFFF;
+  background-color: white;
   padding: 20px;
   align-self: center;
   flex: 60%;
@@ -42,10 +42,10 @@
 button{
   width: 17%;
   height: 40px;
-  background-color: #AF144B;
+  background-color: var(--primary-lighter);
   border-radius: 15px;
   border-color: transparent;
-  color: #FFFFFF;
+  color: white;
 }
 
 /* Responsive layout */

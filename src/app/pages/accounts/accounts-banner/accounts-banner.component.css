@@ -1,0 +1,33 @@
+.banner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100vw;
+    height: 77vh !important;
+    margin-top: 0vh;
+    background-image: url('/assets/Images/Landing/Frame 629341.png');
+    background-size: cover;
+    background-position: bottom;
+    color: white;
+}
+
+.banner-heading {
+    font-Size: var(--font-xxxx-large);
+    letter-spacing: -0.5%;
+    max-width: 70%;
+    text-align: left;
+    margin-top: 30px;
+    margin-left: 10%;
+}
+
+/* Media Query for screens below 786px */
+@media (max-width: 786px) {
+    .banner-heading {
+      max-width: 80%; /* Updated max-width for better responsiveness */
+      font-size: 2rem; /* Default font size */
+      font-weight: var(--bold);
+      text-align: left;
+      margin-left: 7%;  /* Updated margin for better responsiveness */
+    }
+}

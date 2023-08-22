@@ -14,20 +14,22 @@ export class ProfileComponent implements OnInit {
   activeForm: string = 'form1';
   userInfo: any;
   userId: any = 2;
+  items1:any;
 
   constructor(private formBuilder: FormBuilder, private service: AccountService, private authService:AuthService) {}
 
-  showForm(form: string) {
-    this.activeForm = form;
-  }
+
 
   ngOnInit() {
+    /*    When the form is loaded, initialize the form fields and add validation rules to them
+        2023/08/14
+ */
     this.basicInfoForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
       lastName: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
       cellphoneNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
       email: ['', [Validators.required, Validators.email]],
-      accNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
+      accountNo: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
       idNo: ['', [Validators.required, Validators.pattern(/^[0-9]{13}$/)]],
     });
 
@@ -43,11 +45,24 @@ export class ProfileComponent implements OnInit {
      
     });
 
+    
+      this.service.getTransactions2()
+        .subscribe(res => {
+          this.items1 = res;
+          console.log(this.items1);
+        });
+
     this.getUsersInfo();
+    
   }
 
+
+
+      /* This function fetches a ceratin users info and assigns it to the form fields so that they display in the input boxes
+      when the form is loaded
+        2023/08/14 */
   getUsersInfo() {
-    this.service.getUser(this.userId).subscribe((res: any) => {
+    this.service.getAccountData().subscribe((res: any) => {
       this.userInfo = res;
 
       // Set initial form values using patchValue
@@ -57,7 +72,7 @@ export class ProfileComponent implements OnInit {
         cellphoneNumber: this.userInfo.cellphoneNumber,
         email: this.userInfo.email,
         idNo:this.userInfo.idNo,
-        accNumber:this.userInfo.accNumber,
+        accountNo:this.userInfo.accounts[0].accountNo,
       });
 
       this.passwordForm.patchValue({
@@ -68,14 +83,30 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  
+  
+  /* When a form is submitted, this function checks which form was submitted and then executes the method associated
+  with that form
+        2023/08/14*/
   onFormSubmit() {
     if (this.activeForm === 'form1') {
       this.updateUserInfo();
     } else if (this.activeForm === 'form2') {
-      this.updatePassword();
+     // this.updatePassword();
     }
   }
 
+
+  /* This function is used to switch between the Info and password forms, when the value of activeForm is changed it
+     stores the a new value, triggering the html to display another form
+        2023/08/14*/
+  showForm(form: string) {
+    this.activeForm = form;
+  }
+
+   /* This function fetches and stores form values when the form is submitted and then calls and http post method,
+    to update stored values, passing in the stored values
+        2023/08/15*/
   updateUserInfo() {
     if (this.basicInfoForm.valid) {
       const updatedInfo = {
@@ -84,7 +115,7 @@ export class ProfileComponent implements OnInit {
         cellphoneNumber: this.basicInfoForm.get('cellphoneNumber')?.value,
         email: this.basicInfoForm.get('email')?.value,
         idNo: this.basicInfoForm.get('idNo')?.value,
-        accNumber: this.basicInfoForm.get('accNumber')?.value,
+        accountNo: this.basicInfoForm.get('accountNo')?.value,
       };
 
       this.service.updateUser(this.userId, updatedInfo).subscribe((res: any) => {
@@ -94,7 +125,7 @@ export class ProfileComponent implements OnInit {
   }
 }
 
-  updatePassword() {
+  /* updatePassword() {
     if (this.passwordForm.valid) {
     const updatedInfo = {
       Password: this.basicInfoForm.get('newPassword')?.value,
@@ -104,5 +135,5 @@ export class ProfileComponent implements OnInit {
       console.log('Password updated:', res);
     });
   }
-}
+} */
 }

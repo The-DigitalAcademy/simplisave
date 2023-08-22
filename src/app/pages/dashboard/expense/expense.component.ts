@@ -48,12 +48,13 @@ export class ExpenseComponent {
       this.refreshComponent();
     });
   }
+  
 
   /* call http get function in the service to get all the transaction records
   -Mohammed Badat
   - 2023/08/01*/
   getTransactionsFromApi() {
-    this.service.getTransactions().subscribe((res: any) => {
+    this.service.getTransactions2().subscribe((res: any) => {
       this.items1 = res;
       console.log(this.items1);
       this.filterAndCalculateSumMoneyOut();
@@ -97,7 +98,7 @@ export class ExpenseComponent {
     // Change dates from strings to JavaScript objects
     const transactions = this.items1.map((record: any) => ({
       ...record,
-      Transaction_Date: new Date(record.Transaction_Date),
+      transactionDate: new Date(record.transactionDate),
     }));
 
     // Get the current month and year
@@ -119,13 +120,13 @@ export class ExpenseComponent {
       //keep month within the javascript object range (0 to 11)
       const prevMonth = (currentMonth - i + 12) % 12;
       const filteredPrevMonthData = transactions.filter((record: any) => {
-        const isMoneyOutPositive = record.Money_Out > 0;
-        const transactionDate = record.Transaction_Date;
+        const isMoneyOutPositive = record.moneyOut > 0;
+        const transactionDate = record.transactionDate;
         const isWithinPrevMonth = transactionDate.getMonth() === prevMonth;
         return isMoneyOutPositive && isWithinPrevMonth;
       });
       /* Add the money out amount for each of the transactions that matches the conditions */
-      return filteredPrevMonthData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
+      return filteredPrevMonthData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
     });
 
     this.sumMoneyOutMonths.reverse(); // Reverse the array here
@@ -217,7 +218,7 @@ export class ExpenseComponent {
     // Change dates from strings to JavaScript objects
     const transactions = this.items1.map((record: any) => ({
       ...record,
-      Transaction_Date: new Date(record.Transaction_Date),
+      transactionDate: new Date(record.transactionDate),
     }));
 
     // Get the current month and year
@@ -227,18 +228,18 @@ export class ExpenseComponent {
     this.typeTotals = {}; 
 
     this.types.forEach((type: any) => {
-      const typeName = type.name;
+      const typeName = type.transactionType;
       const filteredData = transactions.filter((record: any) => {
-        const isMoneyOutPositive = record.Money_Out > 0;
-        const transactionDate = record.Transaction_Date;
+        const isMoneyOutPositive = record.moneyOut > 0;
+        const transactionDate = record.transactionDate;
         const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
-        const isDescriptionMatching = record.Description === typeName;
-        console.log(record.Money_Out);
+        const isDescriptionMatching = record.transactionType === typeName;
+        console.log(record.moneyOut);
 
         return isMoneyOutPositive && isWithinCurrentMonth && isDescriptionMatching;
       });
       console.log(filteredData);
-      const typeTotal = filteredData.reduce((sum: number, record: any) => sum + record.Money_Out, 0);
+      const typeTotal = filteredData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
       
       this.typeTotals[typeName] = typeTotal; // Store the typeTotal in the typeTotals object
     });
@@ -257,10 +258,10 @@ export class ExpenseComponent {
     }
 
     for (const type of this.types) {
-      const typeName = type.name;
+      const typeName = type.transactionType;
       const typeTotal = this.typeTotals[typeName] || 0;
-      const typeAmount = type.amount || 0;
-      console.log(type.name);
+      const typeAmount = type.amountSet || 0;
+      console.log(type.transactionType);
       console.log("Amount spent: "+this.typeTotals[typeName]);
       console.log("Amount set: "+typeAmount);
 

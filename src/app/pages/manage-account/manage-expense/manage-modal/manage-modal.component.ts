@@ -6,6 +6,10 @@ import { Router } from '@angular/router';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
 
+interface CategoryOption {
+  value: string;
+  label: string;
+}
 
 @Component({
   selector: 'app-manage-modal',
@@ -13,29 +17,47 @@ import { AccountService } from 'src/app/services/account.service';
   styleUrls: ['./manage-modal.component.css']
 })
 export class ManageModalComponent {
-  formData: any = {}; // This will store the form data
-  expenseForm!: FormGroup; // Add a FormGroup to hold the form controls
-  id:any;
-  
-  constructor(private dashService:DashboardService,
+  formData: any = {};
+  expenseForm!: FormGroup;
+  id: any;
+  Type: any;
+  selectedCategory: string = '';
+  categoryOptions: CategoryOption[] = [
+    { value: 'FOOD', label: 'Food' },
+    { value: 'ACCOMMODATION', label: 'Accommodation' },
+    { value: 'TRANSPORT', label: 'Transport' },
+    { value: 'BOOKS', label: 'Books' },
+    { value: 'TUITION', label: 'Tuition' },
+    { value: 'OTHER', label: 'Other' },
+    { value: 'BANK_CHARGES', label: 'Bank Charges' },
+    { value: 'WITHDRAWAL', label: 'Withdrawal' }
+  ];
+
+  constructor(
+    private dashService: DashboardService,
     private formBuilder: FormBuilder,
     private service: AccountService,
     public dialogRef: MatDialogRef<ManageModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any ,private router: Router
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private router: Router
   ) {
     this.expenseForm = this.formBuilder.group({
-      categoryName: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('[a-zA-Z ]*')]],
+      category: [this.selectedCategory, Validators.required],
       amount: ['', [Validators.required, Validators.pattern('^[0-9]*$')]]
     });
   }
-  ngOnInit(){
-    this.id=localStorage.getItem('typeId');
-  }
 
-  get formControls() {
-    return this.expenseForm.controls;
-  }
+  ngOnInit() {
+    this.id = localStorage.getItem('typeId');
 
+    this.service.getOneTransaction(this.id).subscribe((res) => {
+      this.Type = res;
+      console.log(this.Type);
+    });
+  }
+  //Responsible for closing a modal dialog
+  // Lebohang Mokoena
+  // 2023/08/10
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -45,30 +67,38 @@ export class ManageModalComponent {
     return control?.touched && control?.hasError(errorName);
   }
 
+  // Responsible for updating manage page modal
+  //Lebohang Mokoena
+  // 2023/08/18
   updateExpensePage() {
-    // Call the API service to post the form data
+    console.log(this.expenseForm.value.category);
+
     if (this.expenseForm.valid) {
-      const updatedData = { ...this.data, amount: this.formData.amount, name: this.formData.name };
+      const updatedData = {
+        amountSet: this.expenseForm.value.amount,
+        transactionType: this.expenseForm.value.category,
+        accountNo: this.Type.accountNo,
+        progressAmount: this.Type.progressAmount,
+        Status: this.Type.Status
+      };
+
       this.service.updateGoalSavings(updatedData, this.id).subscribe(
         (response) => {
-          // Handle the API response as needed
           console.log('API Response:', response);
-          // Optionally, you can close the dialog after successful API call
           this.dialogRef.close();
           this.refreshManagePage();
         },
         (error) => {
-          // Handle API errors if necessary
           console.error('API Error:', error);
         }
       );
     }
   }
-  
+
+  //Responsible for refreshing a page after a successful update
+  //Lebohang Mokoena
+  // 2023/08/10
   refreshManagePage() {
-    // Trigger the refresh for ComponentTwo
     this.service.triggerRefresh();
   }
-  
 }
-

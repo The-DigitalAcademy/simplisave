@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataService } from './data.service';
+import { ResetPasswordService } from './reset-password.service';
 
-describe('DataService', () => {
-  let service: DataService;
+describe('ResetPasswordService', () => {
+  let service: ResetPasswordService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DataService);
+    service = TestBed.inject(ResetPasswordService);
   });
 
   it('should be created', () => {

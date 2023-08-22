@@ -1,9 +1,22 @@
 <!-- eslint-disable prettier/prettier -->
 <nav class="navbar navbar-expand-lg" style="background-color: #870A3C; font-family: 'Lato'; font-size: 20px">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" routerLink="">
     <img src="/assets/Icons/Navbar/Screenshot_2023-07-18_at_09.13.14-removebg-preview (1).png" alt="Simplisave Logo"
       class="img-fluid" width="65px">
   </a>
+  <div class="profile">
+    <div class="dropdown">
+      <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="./assets/Images/Profile/Profile icon.png" alt="Small Image" width="30" height="30">
+        <p style="margin-left: 3%;" class="profileText">Welcome {{this.name}}</p>
+        <mat-icon style="color: white;margin-left: 3%;margin: 0;" width="30" height="30">keyboard_arrow_down</mat-icon>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="/profile">Profile</a>
+        <a class="dropdown-item" href="#">Logout</a>
+      </div>
+    </div>
+</div>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,14 +28,13 @@
         <a class="nav-link" routerLink="/dashboard"><mat-icon>dashboard</mat-icon>Dashboard</a>
       </li>
       <hr>
-      <!-- <hr class="hide-on-desktop"> -->
+  
       <li class="nav-item hide-on-desktop">
         <a class="nav-link" routerLink="/transactions"><mat-icon>compare_arrows</mat-icon>Transactions</a>
       </li>
       <hr>
-      <!-- <hr class="hide-on-desktop"> -->
-      <!-- Add other nav-items that you want to hide on desktop with the class "hide-on-desktop" -->
-      <!-- <hr class="hide-on-desktop"> -->
+     
+
       <li class="nav-item hide-on-desktop">
         <a class="nav-link" routerLink="/manage"><mat-icon>account_circle</mat-icon>Manage</a>
       </li>
@@ -31,9 +43,9 @@
       
       <li class="nav-item hide-on-desktop">
         <br><br><br><br><br><br><br><br><br><br>
-        <a class="nav-link" routerLink="" > <div class="logout"><mat-icon>logout</mat-icon>Logout</div> </a>
+        <a class="nav-link" routerLink='' > <div class="logout"><mat-icon>logout</mat-icon>Logout</div> </a>
       </li>
-      <!-- <hr class="hide-on-desktop"> -->
+     
     </ul>
 
 

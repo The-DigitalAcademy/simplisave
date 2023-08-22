@@ -1,22 +1,24 @@
-
+<div class="firstPart" style="display: flex;flex-direction: row;justify-content: space-between;">
 <h1 class="heading">Dashboard</h1>
+<div class="Transfer" (click)="openTransferModal()">Transfer to savings<span class='material-icons'>add_circle</span></div>
+</div>
 <div class="top-container">
   
   
   <div class="item">
-    <!-- <mat-icon class="info-icon" matTooltip="Current Balance on the everyday bank account">info</mat-icon> -->
+   
    <h6>Available Balance</h6>
     <p>R {{ this.availableBalance }}</p>  
   </div>
 
   <div  class="item">
-    <!-- <mat-icon class="info-icon" matTooltip="Total amount that has been spent for that specific month on the everyday bank account">info</mat-icon> -->
+ 
      <h6>Monthly Spending</h6>
     <p>R {{this.sumMoneyOut}}</p> 
   </div>
 
   <div class="item">   
-    <!-- <mat-icon class="info-icon" matTooltip="Total amount that has been saved for that specific month">info</mat-icon> -->
+   
     <h6>Total Saved</h6>
     <p>R {{this.totalSaved}}</p>
   </div>
