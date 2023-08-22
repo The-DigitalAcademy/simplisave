@@ -22,11 +22,6 @@ export class LoginComponent implements OnInit {
   loginData:any;
 
 
-  username!: string;
-  password!: string;
-  loginData:any;
-
-
   
   constructor( private formBuilder: FormBuilder, private http: HttpClient, private authService : AuthService, private router: Router) {}
  
