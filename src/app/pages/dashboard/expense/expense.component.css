@@ -87,7 +87,7 @@
 .expense-container button {
    background-color: var(--primary-lighter);
    width: 65%;
-   border-radius: 20px;
+   border-radius: 12px;
    margin-bottom: 10%;
    border: none;
    font-size: var(--font-small);
