@@ -11,8 +11,8 @@
         <mat-error *ngIf="transferForm.get('amount')?.errors?.['pattern']">Invalid amount format.</mat-error>
       </div>
     </div>
-    <button mat-button (click)="onNoClick()" [disabled]="!transferForm.valid">Cancel</button>
-    <button mat-button type="submit" style="margin-left: 2%;">Transfer</button>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button type="submit" style="margin-left: 2%;"  [disabled]="!transferForm.valid">Transfer</button>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>

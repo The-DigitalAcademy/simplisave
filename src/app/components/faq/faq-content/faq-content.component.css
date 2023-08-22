@@ -15,7 +15,7 @@ body {
 .heading {
   color: #870A3C;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 0.5%;
   font-weight: Regular;
   font-size: 48px;
   letter-spacing: 0%;
@@ -31,6 +31,7 @@ body {
 .card {
   margin: 10px;
   max-width: 28%;
+  height:37vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,9 +45,12 @@ body {
 }
 
 .card-body {
-  padding-top: 10px;
   flex-grow: 1;
-  padding-bottom: 20px;
+  padding:18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-body > *:not(:last-child) {
@@ -66,26 +70,25 @@ body {
   letter-spacing: 0%;
 }
 
-@media (max-width: 280px) {
+@media (max-width: 1280px) {
   .card {
-    width: 100%;
-  }
-
-  .heading {
-    font-size: 32px;
+    min-width:31%;
+    height: 45vh;
   }
 }
 
-@media (max-width: 576px) {
+@media (min-width: 992px) {
   .card {
-    max-width: 80%;
+    width: calc(50% - 20px);
+  }
+}
+@media (min-width: 912px) {
+  .card {
+    width: calc(50% - 20px);
   }
 
-  .header {
-    text-align: center;
-  }
-  .heading {
-    font-size: 24px;
+  .section {
+    margin-top: 200px;
   }
 }
 
@@ -99,24 +102,83 @@ body {
   }
 }
 
-@media (min-width: 912px) {
-  .card {
-    width: calc(50% - 20px);
+@media (max-width: 800px) {
+  .container{
+    width: 100%;
+    justify-content: center;
   }
-
-  .section {
-    margin-top: 200px;
+  .card{
+    min-width: 100%;
+    justify-content: center;
+    height: 23vh;
   }
+  .card-body{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 0;
+    height: auto;
+  }
+  .heading {
+    margin-top: 1%;
+    font-size: 32px;
+    margin-bottom: 0;
+  }
+ 
 }
 
-@media (min-width: 992px) {
+
+
+@media (max-width: 576px) {
   .card {
-    width: calc(50% - 20px);
+    min-width: 90%;
+    height:28vh;
+  }
+
+  .card-body{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 0;
+    height: auto;
+    font-size: 16px;
+  }
+  .heading {
+    margin-top: 3%;
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+  .card-title {
+    color: #870A3C;
+    font-weight: Medium;
+    font-size: 16px;
+    letter-spacing: 0%;
+  }
+  
+  .card-text {
+    font-weight: Regular;
+    font-size: 12px;
+    letter-spacing: 0%;
   }
 }
+@media (max-width: 321px) {
 
-@media (min-width: 1024px), (min-width: 1280px) {
   .card {
-    width: calc(33.33% - 20px);
+    width: 100%;
+    min-height:30vh;
+    padding-bottom: 0;
+  }
+
+  .heading {
+    font-size: 24px;
   }
 }
