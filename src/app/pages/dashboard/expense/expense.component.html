@@ -15,7 +15,7 @@
       </div>
       <div class="expense-container">
         <div class="accordion-content">
-          <div class="accordion" id="accordionExample">
+          <div class="accordion " id="accordionExample">
             <div class="accordion-item" *ngFor="let type of types; let i = index">
               <p class="accordion-button"  data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="false" [attr.aria-controls]="'collapse' + i">
                 {{ type.transactionType }}
