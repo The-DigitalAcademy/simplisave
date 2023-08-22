@@ -219,7 +219,7 @@
 
     .footer h2 {
         font-size: var(--font-normal);
-        color: white;
+        color:#ffffff;
         margin: 0px;
     }
 
@@ -237,15 +237,15 @@
     }
 
     .accordion-item{
-        
+        color:#ffffff;
     }
 
     .accordion-header{
-        
+       
     }
 
    .accordion-button{
-    font-size: 12px;
+    font-size: var(--font-x-small);
     color: #ffffff;
     background-color: #870A3C;
    }
