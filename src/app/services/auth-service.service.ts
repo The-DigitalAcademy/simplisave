@@ -48,9 +48,6 @@ export class AuthService {
   }
   
 
-  // login(data:any) {
-  //   return this.http.post<any>(`${environment.backendUrl}/auth/login`, data);
-  // }
   getUserData() {
 
     return this.http.get<any>(`${environment.apiUrl}/signupUsers`);
