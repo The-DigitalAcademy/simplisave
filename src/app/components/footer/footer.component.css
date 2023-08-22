@@ -70,10 +70,6 @@
     font-size: var(--font-x-small);
 }
 
-.accordion{
-    display: none;
-}
-
 
 /* Media Query for screens below 786px */
 @media screen and (max-width: 786px) {
@@ -152,7 +148,7 @@
     }
 
     .card-container {
-        display: none;
+        display: block !important;
         flex-wrap: wrap;
     }
 
@@ -184,6 +180,7 @@
 
     .scroll-up-btn {
         position: static;
+        width: 60px;
     }
 
     .nav-link {
@@ -213,30 +210,4 @@
         display: block;
         font-size: var(--font-x-small);
     }
-
-    .accordion{
-        color:#ffffff;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .accordion-body a{
-        color: black;
-    }
-
-    .accordion-item{
-        width: 33.3vw;
-    }
-
-    .accordion-header{
-       
-    }
-
-   .accordion-button{
-    font-size: var(--font-x-small);
-    color: #ffffff;
-    background-color: #870A3C;
-    min-height: 7vh;
-   }
 }
