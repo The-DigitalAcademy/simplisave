@@ -54,16 +54,12 @@ export class AuthService {
 
   }
 
-
   //set the authentication state to false when the user logs out.
   logout() {
     sessionStorage.clear();
     this.isAuthenticatedSubject.next(false); // Set authentication state to false
     this.router.navigate(['/login']);
   }
-  
-
-
 
   successAlert(){
     Swal.fire({
