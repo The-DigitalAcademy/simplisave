@@ -87,7 +87,6 @@
 .expense-container button {
    background-color: var(--primary-lighter);
    width: 65%;
-   
    border-radius: 20px;
    margin-bottom: 10%;
    border: none;
@@ -95,7 +94,7 @@
    font-family: var(--base-font);
    line-height: 20px;
    letter-spacing: 0.10px;
-  
+   margin-top: 5%;
 }
 
 .text-center {
