@@ -24,8 +24,7 @@ navbar-nav {
   height: auto;
   width:auto;
 }
-.dropdown{
-}
+
 .profile{
   display: flex;
   width:100%;
@@ -112,7 +111,9 @@ navbar-nav {
     .mobile-only {
       display: flex;
     }
-
+.navbar-toggler{
+  margin-right: 1%;
+}
     hr {
       border: 1px solid white;
     }
