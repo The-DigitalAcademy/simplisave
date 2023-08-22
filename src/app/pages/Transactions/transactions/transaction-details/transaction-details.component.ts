@@ -40,9 +40,11 @@ export class TransactionDetailsComponent implements OnInit{
  
    
     this.fetchDataFromAPI();
-
-    // Toggle filter dropdown visibility on mobile devices
-    $('#filterToggle').on('click', function() {
+    // this.getCurrentBalance();
+ 
+     // Toggle filter dropdown visibility on mobile devices
+     // Toggle filter dropdown visibility on mobile devices
+     $('#filterToggle').on('click', function() {
       $('#filterDropdown').toggle();
     });
   }

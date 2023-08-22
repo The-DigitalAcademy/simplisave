@@ -43,6 +43,12 @@ export class AuthService {
     return this.tokenSubject.asObservable();
   }
 
+
+
+  // login(data:any) {
+  //   return this.http.post<any>('https://springsimplisave-production.up.railway.app/api/auth/login', data);
+  // }
+
 //the login method to set the authentication state to true when the login is successful
   login(data: any) {
     return this.http.post<any>(`${environment.backendUrl}/auth/login`, data).pipe(
