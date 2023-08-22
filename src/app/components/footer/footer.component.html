@@ -1,7 +1,10 @@
-<!-- eslint-disable prettier/prettier -->
 <div class="container">
     <div class="card-container">
-        <img class="scroll-up-btn" src="\assets\Icons\Footer\arrow (1) 1.png" *ngIf="showScrollButton" (click)="scrollToTop()">
+        <img
+            class="scroll-up-btn"
+            src="\assets\Icons\Footer\arrow (1) 1.png"
+            *ngIf="showScrollButton"
+            (click)="scrollToTop()" />
         <div class="card">
             <div class="vl">
                 <h2 class="card-heading1">Simplisave</h2>
@@ -11,21 +14,51 @@
             <div class="vl">
                 <h2 class="card-heading">Useful links</h2>
             </div>
-            <h3><a class="nav-link" routerLink="/aboutus" routerLinkActive="active">About us</a></h3>
-            <h3><a class="nav-link" routerLink="/login" routerLinkActive="active">Sign-in</a></h3>
-            <h3><a class="nav-link" routerLink="/privacy" routerLinkActive="active">Privacy policy</a></h3>
+            <h3>
+                <a
+                    class="nav-link"
+                    routerLink="/aboutus"
+                    routerLinkActive="active"
+                    >About us</a
+                >
+            </h3>
+            <h3>
+                <a
+                    class="nav-link"
+                    routerLink="/login"
+                    routerLinkActive="active"
+                    >Sign-in</a
+                >
+            </h3>
+            <h3>
+                <a
+                    class="nav-link"
+                    routerLink="/privacy"
+                    routerLinkActive="active"
+                    >Privacy policy</a
+                >
+            </h3>
         </div>
         <div class="card">
             <div class="vl">
                 <h2 class="card-heading">Connect with us</h2>
             </div>
-            <h3><a class="nav-link" routerLink="/register" routerLinkActive="active">Create an account</a></h3>
-            <h3><a class="nav-link" routerLink="/faq" routerLinkActive="active">Help me</a></h3>
+            <h3>
+                <a
+                    class="nav-link"
+                    routerLink="/register"
+                    routerLinkActive="active"
+                    >Create an account</a
+                >
+            </h3>
+            <h3>
+                <a class="nav-link" routerLink="/faq" routerLinkActive="active"
+                    >Help me</a
+                >
+            </h3>
         </div>
     </div>
 </div>
-<br><br><br>
 <div class="footer">
     <span><h2>Copyright @ 2023 | Made by Simplisave</h2></span>
 </div>
-

@@ -21,6 +21,7 @@ import { FAQComponent } from './components/faq/faq.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { TransactionsComponent } from './pages/Transactions/transactions/transactions.component';
 import { EmptyBehaviorGuardGuard } from './empty-behavior-guard.guard'; // Import your guard
+import { ResetComponent } from './pages/auth/forgot-password/reset/reset.component';
 
 const routes: Routes = [
     { path: 'register', component: RegisterComponent},
@@ -41,6 +42,7 @@ const routes: Routes = [
     {path:'privacy',component:PrivacyPolicyComponent},
     {path:'aboutus',component:AboutUsComponent},
     {path:'transactions',component:TransactionsComponent, canActivate: [EmptyBehaviorGuardGuard]},
+    {path: 'reset', component:ResetComponent}
 
 
 ];

@@ -122,7 +122,6 @@
         margin-bottom: 10px;
     }
 
-
     .footer {
         background-color: var(--primary-color);
         padding: 20px;
@@ -148,7 +147,7 @@
     }
 
     .card-container {
-        display: flex;
+        display: block !important;
         flex-wrap: wrap;
     }
 
@@ -180,6 +179,7 @@
 
     .scroll-up-btn {
         position: static;
+        width: 60px;
     }
 
     .nav-link {
@@ -201,7 +201,7 @@
 
     .footer h2 {
         font-size: var(--font-normal);
-        color: white;
+        color:#ffffff;
         margin: 0px;
     }
 
