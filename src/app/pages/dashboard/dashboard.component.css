@@ -51,7 +51,7 @@
 
 /* Footer css */
 .footer {
-  background-color: #870A3C;
+  background-color:var(--primary-color);
   padding-bottom: 5px;
   text-align: center;
   padding-top: 10px;
@@ -67,32 +67,30 @@
 }
 
 .footer h2 {
-  font-size: 15px;
-  color: #ffffff;
+  font-size: var(--font-normal);
+  color: white;
 }
 
 .footer span {
   display: block;
-  font-size: 12px;
-  color: #888;
+  font-size: var(--font-x-small);
 }
 
 @media screen and (max-width: 786px) {
   .footer {
-    background-color: #870A3C;
+    background-color:var(--primary-color);
     padding: 5px;
     text-align: center;
   }
 
   .footer h2 {
-    font-size: 16px;
-    color: #ffffff;
+    font-size: var(--font-normal);
+    color: white;
     margin: 0px;
   }
 
   .footer span {
     display: block;
-    font-size: 12px;
-    color: #888;
+    font-size: var(--font-x-small);
   }
 }

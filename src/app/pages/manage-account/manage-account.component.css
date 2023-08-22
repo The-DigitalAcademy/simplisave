@@ -10,7 +10,7 @@
 
 /* Footer css */
 .footer {
-  background-color: #870A3C;
+  background-color: var(--primary-color);
   text-align: center;
   position:relative;
   bottom: 0;
@@ -24,14 +24,13 @@
 }
 
 .footer h2 {
-  font-size: 15px;
-  color: #ffffff;
+  font-size: var(--font-normal);
+  color: white;
 }
 
 .footer span {
   display: block;
-  font-size: 12px;
-  color: #888;
+  font-size: var(--font-x-small);
 }
 
 @media screen and (max-width: 480px) {

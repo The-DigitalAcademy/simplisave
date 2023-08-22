@@ -3,7 +3,7 @@
    height: 100%;
 }
 .info-icon{
-   color:#AF144B;
+   color: black;
    margin-left: 95%;
    margin-top: 1%;
    align-items: center;
@@ -11,7 +11,7 @@
 .accordion-content {
    max-height: 400px; 
    overflow-y: auto;
-   border: 1px solid #ccc; 
+   border: 1px solid var(--gray); 
    padding: 10px;
    box-sizing: border-box;
    height: 35vh;
@@ -28,7 +28,7 @@
    margin-top: 0%;
     }
 .col {
-   background-color: #ffffff;
+   background-color: white;
    border-radius: 12px;
    margin: 2%;
    width: 20%;
@@ -38,15 +38,20 @@
    height: 50vh;
   
 }
+.bigger-icon{
+   color: #AF144B!important;
+   margin-left: 3%;
+   
+}
 .mdc-button__label{
-   color: #FFFFFF!important;
+   color: white!important;
  }
 .subHeader::after {
    content: "";
    display: block;
    width: calc(100% + 4%); 
    height: 0.5px; 
-   background-color: #000; 
+   background-color:black; 
    margin-top: 25px; 
    margin-left: -2%; 
 }
@@ -80,21 +85,21 @@
    }
 
 .expense-container button {
-   background-color: #AF144B;
+   background-color: var(--primary-lighter);
    width: 65%;
    color: white;
    border-radius: 20px;
    margin-bottom: 10%;
    border: none;
-   font-size: 14px;
-   font-family: Roboto;
+   font-size: var(--font-small);
+   font-family: var(--base-font);
    line-height: 20px;
    letter-spacing: 0.10px;
    margin-top: 0%;
 }
 
 .text-center {
-   background-color: #ffff;
+   background-color: white;
 }
 .checklist{
    display: flex;
@@ -106,7 +111,7 @@
    border-width: 0.5px;
    padding: 4%;
    width: 100%;
-   background: url('../../../../assets/Images/dashboard/marissa-grootes-vdaJJbls3xE-unsplash.jpg') no-repeat center center;
+   /* background: url('../../../../assets/Images/dashboard/marissa-grootes-vdaJJbls3xE-unsplash.jpg') no-repeat center center; */
    background-size: cover;
   padding-left: 15%;  
   list-style-type: none;
@@ -114,7 +119,7 @@
 }
 
 .checkbox{
-   color: #AF144B;
+   color: var(--primary-lighter);
 }
 .checkbox input[type="checkbox"] {
    opacity: 0;
@@ -125,10 +130,10 @@ li{
 
  
  .subHeader {
-   color: #1D1B20;
-   font-size: 20px;
-   font-family: Roboto;
-   font-weight: 600;
+   color: black;
+   font-size: var(--font-large);
+   font-family: var(--base-font);
+   font-weight: var(--semi-bold);
    word-wrap: break-word;
    
    }
@@ -136,21 +141,23 @@ li{
 
    @media (max-width: 768px) {
       .subHeader {
-        font-size: 16px; 
+        font-size: var(--font-normal);
       }
    
       .col {
          flex-direction: column; 
-         width: 95%; 
+         width: 100%; 
          
        }
      
        .row {
          flex-direction: column; 
- 
          margin-top: -20px;
        }
    
-     
+     div.dashboard-container{
+      width: 105%;
+      margin-left: -13.5px;
+     }
     }
  
