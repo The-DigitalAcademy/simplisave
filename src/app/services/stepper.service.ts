@@ -39,7 +39,6 @@ export class StepperService {
   saveRegistrationData(): void {
     this.http.post(`${environment.REG_URL}`, this.registrationData).subscribe(
       (response) => {
-        console.log('Registration data saved:', response);
         Swal.fire({
           icon: 'success',
           text: 'Successful! Please Login',
@@ -51,7 +50,12 @@ export class StepperService {
          })
       },
       (error) => {
-        console.error('Error saving registration data:', error);
+        Swal.fire({
+          icon: 'error',
+          text: 'An error occurred',
+          iconColor: '#AF144B',
+          confirmButtonColor: '#AF144B'
+        });
       }
     );
   }
