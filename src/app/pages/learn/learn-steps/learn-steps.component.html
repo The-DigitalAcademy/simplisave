@@ -1,34 +1,33 @@
 <app-navbar></app-navbar>
 <br />
 <mat-horizontal-stepper class="custom-stepper" #stepper>
-  <!-- Step 1: Why save? -->
-  <mat-step [stepControl]="step1FormGroup">
-    <ng-template matStepLabel #stepperLabel>Why save?</ng-template>
-    <app-learn-why-save></app-learn-why-save>
-  </mat-step>
+    <!-- Step 1: Why save? -->
+    <mat-step [stepControl]="step1FormGroup">
+        <ng-template matStepLabel #stepperLabel>Why save?</ng-template>
+        <app-learn-why-save></app-learn-why-save>
+    </mat-step>
 
-  <!-- Step 2: No savings account -->
-  <mat-step [stepControl]="step2FormGroup">
-    <ng-template matStepLabel>No savings account</ng-template>
-    <app-learn-vs-no-savings></app-learn-vs-no-savings>
-    
-  </mat-step>
+    <!-- Step 2: No savings account -->
+    <mat-step [stepControl]="step2FormGroup">
+        <ng-template matStepLabel>No savings account</ng-template>
+        <app-learn-vs-no-savings></app-learn-vs-no-savings>
+    </mat-step>
 
-  <!-- Step 3: Investing -->
-  <mat-step>
-    <ng-template matStepLabel>Investing</ng-template>
-    <app-learn-vs-invest></app-learn-vs-invest>
-  </mat-step>
+    <!-- Step 3: Investing -->
+    <mat-step>
+        <ng-template matStepLabel>Investing</ng-template>
+        <app-learn-vs-invest></app-learn-vs-invest>
+    </mat-step>
 
-  <!-- Step 4: Best Account -->
-  <mat-step>
-    <ng-template matStepLabel>Best Account</ng-template>
-    <app-learn-best-suited></app-learn-best-suited>
-  </mat-step>
+    <!-- Step 4: Best Account -->
+    <mat-step>
+        <ng-template matStepLabel>Best Account</ng-template>
+        <app-learn-best-suited></app-learn-best-suited>
+    </mat-step>
 
-  <!-- Step 5: What we offer -->
-  <mat-step>
-    <ng-template matStepLabel>What we offer</ng-template>
-    <app-learn-offer></app-learn-offer>
-  </mat-step>
+    <!-- Step 5: What we offer -->
+    <mat-step>
+        <ng-template matStepLabel>What we offer</ng-template>
+        <app-learn-offer></app-learn-offer>
+    </mat-step>
 </mat-horizontal-stepper>

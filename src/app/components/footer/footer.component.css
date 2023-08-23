@@ -111,6 +111,7 @@
 
     .scroll-up-btn {
         position: static;
+        width: 60px;
     }
 
     .nav-link {
