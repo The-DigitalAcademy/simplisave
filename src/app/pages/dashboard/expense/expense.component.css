@@ -2,49 +2,55 @@
    display: flex;
    height: 100%;
 }
-.info-icon{
+
+.info-icon {
    color: black;
    margin-left: 95%;
    margin-top: 1%;
    align-items: center;
 }
+
 .accordion-content {
-   max-height: 400px; 
+   max-height: 400px;
    overflow-y: auto;
    height: 35vh;
- }
- div.accordion-item {
+}
+
+div.accordion-item {
    margin: 10px;
-   
- }
+
+}
 
 .col {
    background-color: white;
    border-radius: 12px;
    margin: 2%;
    width: 20%;
-   position: relative; 
+   position: relative;
    border-style: solid;
    border-width: 0.5px;
    height: 50vh;
-  
+
 }
-.bigger-icon{
-   color: var(--primary-lighter)!important;
+
+.bigger-icon {
+   color: var(--primary-lighter) !important;
    margin-left: 3%;
-   
+
 }
-.mdc-button__label{
-   color: white!important;
- }
+
+.mdc-button__label {
+   color: white !important;
+}
+
 .subHeader::after {
    content: "";
    display: block;
-   width: calc(100% + 4%); 
-   height: 0.5px; 
-   background-color:black; 
-   margin-top: 25px; 
-   margin-left: -2%; 
+   width: calc(100% + 4%);
+   height: 0.5px;
+   background-color: black;
+   margin-top: 25px;
+   margin-left: -2%;
 }
 
 .graph {
@@ -55,25 +61,25 @@
 
 .expense-container {
    margin-bottom: 1%;
-  
+
 }
 
-.emptyChecklist{
-      height: 30vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-size: cover;
-      margin-top: 10%;
-      margin: 0%;
-      max-width: 100%; 
-   
-   }
+.emptyChecklist {
+   height: 30vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-size: cover;
+   margin-top: 10%;
+   margin: 0%;
+   max-width: 100%;
 
-   .emptyChecklist img {
-      width: 100%;
-      height: 40vh;
-   }
+}
+
+.emptyChecklist img {
+   width: 100%;
+   height: 40vh;
+}
 
 .expense-container button {
    background-color: var(--primary-lighter);
@@ -91,21 +97,22 @@
 .text-center {
    background-color: white;
 }
-.checklist{
+
+.checklist {
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
    align-items: flex-start;
-   border-style: solid ;
+   border-style: solid;
    border-radius: 2px;
    border-width: 0.5px;
    padding: 4%;
    width: 100%;
    /* background: url('../../../../assets/Images/dashboard/marissa-grootes-vdaJJbls3xE-unsplash.jpg') no-repeat center center; */
    background-size: cover;
-  padding-left: 15%;  
-  list-style-type: none;
-   
+   padding-left: 15%;
+   list-style-type: none;
+
 }
 
 .accordion-button:not(.collapsed) {
@@ -120,45 +127,46 @@
 }
 
 
-.checkbox{
+.checkbox {
    color: var(--primary-lighter);
 }
+
 .checkbox input[type="checkbox"] {
    opacity: 0;
 }
-li{
+
+li {
    text-decoration: none;
 }
 
 
- .subHeader {
+.subHeader {
    color: black;
    font-size: var(--font-large);
    font-family: var(--base-font);
    font-weight: var(--semi-bold);
    word-wrap: break-word;
-   
+
+}
+
+@media (max-width: 768px) {
+   .subHeader {
+      font-size: var(--font-normal);
    }
-   
-   @media (max-width: 768px) {
-      .subHeader {
-        font-size: var(--font-normal);
-      }
-   
-      .col {
-         flex-direction: column; 
-         width: 100%; 
-         
-       }
-     
-       .row {
-         flex-direction: column; 
-         margin-top: -20px;
-       }
-   
-     div.dashboard-container{
+
+   .col {
+      flex-direction: column;
+      width: 100%;
+
+   }
+
+   .row {
+      flex-direction: column;
+      margin-top: -20px;
+   }
+
+   div.dashboard-container {
       width: 105%;
       margin-left: -13px;
-     }
-    }
- 
+   }
+}
