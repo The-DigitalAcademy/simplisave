@@ -1,6 +1,7 @@
-<div class="container text-center">
+<div class="body">
+<div class="container text-center" fxLayout="row wrap" fxLayoutGap="20px">
   <div class="row">
-    <div class="col">
+    <div class="col" fxFlex="calc(100% - 20px)">
       <div class="head"><mat-icon class="info-icon"
           matTooltip="The graph displays how much was spent per month">error</mat-icon>
         <h1 class="subHeader">Monthly Expense summary</h1>
@@ -10,7 +11,7 @@
       </div>
     </div>
 
-    <div class="col ">
+    <div class="col " fxFlex="calc(100% - 20px)">
       <div class="heading">
         <mat-icon class="info-icon" matTooltip="Set the budget here ">error</mat-icon>
         <h1 class="subHeader">Budget Summary <mat-icon class="bigger-icon"
@@ -41,3 +42,4 @@
           <button (click)="openExpenseModal()" mat-button><mat-icon>add</mat-icon>Add To Checklist</button>
         </div>
       </div>
+    </div>

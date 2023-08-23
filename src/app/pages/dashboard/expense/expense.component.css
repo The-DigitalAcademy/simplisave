@@ -2,7 +2,10 @@
    display: flex;
    height: 100%;
 }
-
+#myChart {
+   max-width: 100%;
+   height: auto;
+ }
 .info-icon {
    color: black;
    margin-left: 95%;
@@ -153,20 +156,27 @@ li {
    .subHeader {
       font-size: var(--font-normal);
    }
-
+div.row{
+   width: 115%;
+  
+}
    .col {
       flex-direction: column;
-      width: 100%;
-
+     
    }
-
-   .row {
+   .container {
       flex-direction: column;
-      margin-top: -20px;
-   }
+      width: 104%;
 
+    }
+  
    div.dashboard-container {
       width: 105%;
       margin-left: -13px;
+   }
+   .body{
+      background-color: blue;
+      height: 100%;
+      width: 100%;
    }
 }
