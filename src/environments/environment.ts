@@ -1,9 +1,10 @@
 export const environment = {
     production: true,
-    REG_URL: 'https://springsimplisave-production.up.railway.app/api/auth/register',
-    LOGIN_URL: 'http://localhost:8080/api/users/login',
+    // REG_URL: 'https://simplisave.software/api/v1/student/registration',
+    REG_URL: ' http://localhost:3000/register',
+    LOGIN_URL: 'https://simplisave.software/api/v1/auth/login',
     apiUrl: 'http://localhost:3000',
-    backendUrl: 'https://springsimplisave-production.up.railway.app/api',
-    FORGOT_URL:'https://springsimplisave-production.up.railway.app/api/auth/forgot-password',
-    RESET_URL:'https://springsimplisave-production.up.railway.app/api/auth/reset-passsword'
+    backendUrl: 'https://simplisave.software/api/v1/',
+    FORGOT_URL:'https://simplisave.software/api/v1/auth/forgot-password',
+    RESET_URL:'https://simplisave.software/api/v1/auth/reset-password'
 };

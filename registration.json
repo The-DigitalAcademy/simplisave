@@ -23,24 +23,31 @@
       "id": 2
     },
     {
-      "firstName": "Thilivhali",
-      "lastName": "Ravhutulu",
-      "email": "thilivhali.ravhutulu@dadevs.co.za",
-      "cellphoneNumber": "0721234567",
-      "password": "Thilivhali12",
-      "idNo": 9081803130865,
-      "pinNo": "12345",
-      "confirmPinNo": "12345",
+      "firstName": "Mukosi",
+      "lastName": "Budeli",
+      "email": "mukosi@gmail.com",
+      "cellphoneNumber": "0876543212",
+      "password": "Mukosi987*",
+      "idNo": 9876545676556,
+      "image": "blob:http://localhost:4200/b9b9cda4-b7bc-4d45-b715-4e14b57a09ca",
       "id": 3
     },
     {
-      "firstName": "Thilivhali",
-      "lastName": "Ravhutulu",
-      "email": "ravhtuluportia@gmail.com",
-      "cellphoneNumber": "0812345678",
-      "password": "Thili123",
-      "idNo": 9908180313085,
+      "firstName": "Lebohang",
+      "lastName": "Mokoena",
+      "email": "frgrg@fjnv",
+      "cellphoneNumber": "0987656767",
+      "password": "Lebza12!",
+      "idNo": 9876543234578,
+      "image": null,
       "id": 4
+    }
+  ],
+  "reset": [
+    {
+      "email": "user@example.com",
+      "newPassword": "hashed_password",
+      "otp": ""
     }
   ]
 }

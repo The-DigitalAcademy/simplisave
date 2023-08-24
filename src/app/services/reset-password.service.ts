@@ -19,4 +19,11 @@ export class ResetPasswordService {
   verifyOtpAndResetPassword(email:string, otp: string, newPassword: string, confirmPassword: string) {
     return this.http.post(`${environment.RESET_URL}`, {email, otp, newPassword, confirmPassword });
   }
+
+  resetPassword(otp: string, newPassword: string) {
+    const resetData = { otp, newPassword };
+
+    // Adjust the API endpoint URL
+    return this.http.post(`${environment.apiUrl}/reset`, resetData);
+  }
 }
