@@ -41,21 +41,26 @@ export class TopPartComponent implements OnInit {
     getAccountData() {
         this.accountService.getAccountData().subscribe(res => {
             this.items = res;
-            console.log(this.items);
-            this.availableBalance = this.items.accounts[0].accountBalance;
-            console.log(this.items.accounts[0].accountBalance);
-            this.totalSaved =
-                this.items.accounts[0].savingsAccount.currentSavingsBalance;
+            this.availableBalance = this.items[0].Balance;
             if (this.totalSaved === null) {
                 this.totalSaved = 0;
             }
-            console.log(
-                this.items.accounts[0].savingsAccount.currentSavingsBalance
-            );
+          
         });
     }
 
-    // Fetches transaction data from the API
+  
+
+    // Fetches account data (such as available balance for a simplisave savings account) from an AP
+    // Mukosi Budeli 01/08/2023
+    getSimplisaveData() {
+        this.accountService.getSimplisaveData().subscribe(res => {
+            this.items1 = res;
+            this.totalSaved = this.items1[0].Balance;
+        });
+    }
+
+      // Fetches transaction data from the API
     // Mukosi Budeli 01/08/2023
     getDataFromApi() {
         this.accountService.getTransactions2().subscribe(res => {
@@ -65,13 +70,7 @@ export class TopPartComponent implements OnInit {
         });
     }
 
-    // Fetches account data (such as available balance for a simplisave savings account) from an AP
-    // Mukosi Budeli 01/08/2023
-    getSimplisaveData() {
-        this.accountService.getSimplisaveData().subscribe(res => {
-            this.items1 = res;
-        });
-    }
+    
     filterData() {
         // Step 1: Parse the date strings in the JSON data to JavaScript Date objects , Mohammed Badat 01/08/2023
         const transactions = this.items1.map((record: any) => ({
@@ -98,10 +97,10 @@ export class TopPartComponent implements OnInit {
             (sum: number, record: any) => sum + record.moneyOut,
             0
         );
-        console.log(this.sumMoneyOut);
+        // console.log(this.sumMoneyOut);
 
         // Step 5: Log the filtered data ,Mohammed Badat 01/08/2028
-        console.log(this.filteredData);
+        // console.log(this.filteredData);
     }
 
     openTransferModal(): void {
@@ -112,7 +111,7 @@ export class TopPartComponent implements OnInit {
         dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed');
             if (result) {
-                console.log('Amount:', result.amount);
+                // console.log('Amount:', result.amount);
             }
         });
     }
