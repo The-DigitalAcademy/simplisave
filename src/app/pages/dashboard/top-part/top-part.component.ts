@@ -97,7 +97,7 @@ export class TopPartComponent implements OnInit {
             (sum: number, record: any) => sum + record.moneyOut,
             0
         );
-        // console.log(this.sumMoneyOut);
+         console.log("sum1",this.sumMoneyOut);
 
         // Step 5: Log the filtered data ,Mohammed Badat 01/08/2028
         // console.log(this.filteredData);

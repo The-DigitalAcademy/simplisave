@@ -117,6 +117,8 @@ export class ExpenseComponent {
      */
     // Filter data to find records where Money_Out is greater than 0 (Expense) and Transaction_Date is within the current month
     this.sumMoneyOutMonths = Array.from({ length: 4 }, (_, i) => {
+      
+      
       //keep month within the javascript object range (0 to 11)
       const prevMonth = (currentMonth - i + 12) % 12;
       const filteredPrevMonthData = transactions.filter((record: any) => {
@@ -130,12 +132,14 @@ export class ExpenseComponent {
     });
 
     this.sumMoneyOutMonths.reverse(); // Reverse the array here
+    console.log("sum",this.sumMoneyOutMonths);
   }
 
   //create the chart using chart js, display current and three previous months, use the sumMoneyOut created array to populate values
   //Mohammed Badat
   //2023/08/02
   createChart(...sumMoneyOutMonths: number[]) {
+  
     const canvas: HTMLCanvasElement = document.getElementById('myChart') as HTMLCanvasElement;
     const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
 
@@ -220,7 +224,7 @@ export class ExpenseComponent {
       ...record,
       transactionDate: new Date(record.transactionDate),
     }));
-
+  
     // Get the current month and year
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
@@ -241,7 +245,7 @@ export class ExpenseComponent {
       console.log(filteredData);
       const typeTotal = filteredData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
 
-      this.typeTotals[typeName] = typeTotal; // Store the typeTotal in the typeTotals object
+      this.typeTotals[typeName] = typeTotal; // Store the   in the typeTotals object
     });
 
     console.log("Type Totals1" + this.typeTotals);
