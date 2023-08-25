@@ -1,3 +1,4 @@
+
 import { Component, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,20 +21,19 @@ export class ExpenseComponent {
     private service: AccountService,
     private router: Router,
     public dialog: MatDialog
-  ) { }
+  ) {}
 
-  chart!: Chart;
+  chart!: Chart; 
   items1: any = [];
   data: any;
   types: any;
   isTypesEmpty: any;
-  filteredData: any[] = [];
+  filteredData: any[] = []; 
   sumMoneyOut: any;
   sumMoneyOutMonths: any[] = [];
   isDataFetched: boolean = false; // Flag to track data fetch completion
 
-  typeTotals: any = {}; // Property to store typeTotals
-
+  typeTotals: any = {}; 
 
 
   //When the page is loaded, get the transactions records and different expense allocation types
@@ -49,17 +49,16 @@ export class ExpenseComponent {
     });
   }
 
-
   /* call http get function in the service to get all the transaction records
   -Mohammed Badat
   - 2023/08/01*/
   getTransactionsFromApi() {
-    this.service.getTransactions2().subscribe((res: any) => {
+    this.service.getTransactions().subscribe((res: any) => {
       this.items1 = res;
       console.log(this.items1);
       this.filterAndCalculateSumMoneyOut();
       this.createChart(...this.sumMoneyOutMonths);
-      this.checkDataFetched();
+      this.checkDataFetched(); 
     });
   }
 
@@ -70,13 +69,13 @@ export class ExpenseComponent {
   getTypes() {
     this.service.getTypes().subscribe((res: any) => {
       this.types = res;
-      console.log("Types:" + this.types);
+      console.log("Types:"+this.types);
       if (this.types.length === 0) {
         this.isTypesEmpty = '';
       } else {
         this.isTypesEmpty = 'full';
       }
-      this.checkDataFetched();
+      this.checkDataFetched(); 
     });
   }
 
@@ -98,32 +97,30 @@ export class ExpenseComponent {
     // Change dates from strings to JavaScript objects
     const transactions = this.items1.map((record: any) => ({
       ...record,
-      transactionDate: new Date(record.transactionDate),
+      Transaction_Date: new Date(record.Transaction_Date),
     }));
 
     // Get the current month and year
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
 
-    /*    
-        this.filteredData = transactions.filter((record: any) => {
-          const isMoneyOutPositive = record.Money_Out > 0;
-          const transactionDate = record.Transaction_Date;
-          const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
-    
-          return isMoneyOutPositive && isWithinCurrentMonth;
-        });
-    
-     */
-    // Filter data to find records where Money_Out is greater than 0 (Expense) and Transaction_Date is within the current month
+   
+    this.filteredData = transactions.filter((record: any) => {
+      const isMoneyOutPositive = record.moneyOut > 0;
+      const transactionDate = record.Transaction_Date;
+      const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
+
+      return isMoneyOutPositive && isWithinCurrentMonth;
+    });
+
+
+     // Filter data to find records where moneyOut is greater than 0 (Expense) and Transaction_Date is within the current month
     this.sumMoneyOutMonths = Array.from({ length: 4 }, (_, i) => {
-      
-      
       //keep month within the javascript object range (0 to 11)
       const prevMonth = (currentMonth - i + 12) % 12;
       const filteredPrevMonthData = transactions.filter((record: any) => {
         const isMoneyOutPositive = record.moneyOut > 0;
-        const transactionDate = record.transactionDate;
+        const transactionDate = record.Transaction_Date;
         const isWithinPrevMonth = transactionDate.getMonth() === prevMonth;
         return isMoneyOutPositive && isWithinPrevMonth;
       });
@@ -132,14 +129,12 @@ export class ExpenseComponent {
     });
 
     this.sumMoneyOutMonths.reverse(); // Reverse the array here
-    console.log("sum",this.sumMoneyOutMonths);
   }
 
   //create the chart using chart js, display current and three previous months, use the sumMoneyOut created array to populate values
   //Mohammed Badat
   //2023/08/02
   createChart(...sumMoneyOutMonths: number[]) {
-  
     const canvas: HTMLCanvasElement = document.getElementById('myChart') as HTMLCanvasElement;
     const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
 
@@ -157,7 +152,7 @@ export class ExpenseComponent {
       data: {
         labels: [currentMonthName, prev1MonthName, prev2MonthName, prev3MonthName].reverse(),
         datasets: [{
-          label: 'Monthly expense summary',
+          label: 'Expense Summary',
           data: sumMoneyOutMonths,
           backgroundColor: ['#AF144B', '#AF144B', '#AF144B', '#AF144B'],
           borderWidth: 0
@@ -195,7 +190,7 @@ export class ExpenseComponent {
   //Modal to add to checklist, we pecify which component modal is in to open it
   openExpenseModal(): void {
     const dialogRef = this.dialog.open(ExpenseModalComponent, {
-      width: '450px'
+      width: '450px' 
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -212,62 +207,62 @@ export class ExpenseComponent {
     location.reload();
   }
 
-  /*  for each user set expense allocation, fiter the transaction records to find records in the current month
-   , records with only money going and the description of the transaction should match the name of the expense allocation type, 
-   then add the total money out for all these records giving us a sum that is the amount a user has for a certain expense 
-   allocation type for the month 
-   -Mohammed Badat
-   -2023/08/03*/
+ /*  for each user set expense allocation, fiter the transaction records to find records in the current month
+  , records with only money going and the description of the transaction should match the name of the expense allocation type, 
+  then add the total money out for all these records giving us a sum that is the amount a user has for a certain expense 
+  allocation type for the month 
+  -Mohammed Badat
+  -2023/08/03*/
   calculateTotalForEachType() {
     // Change dates from strings to JavaScript objects
     const transactions = this.items1.map((record: any) => ({
       ...record,
-      transactionDate: new Date(record.transactionDate),
+      Transaction_Date: new Date(record.Transaction_Date),
     }));
-  
+
     // Get the current month and year
     const currentDate = new Date();
-    const currentMonth = currentDate.getMonth();
+    const currentMonth = currentDate.getMonth(); 
 
-    this.typeTotals = {};
+    this.typeTotals = {}; 
 
     this.types.forEach((type: any) => {
-      const typeName = type.transactionType;
+      const typeName = type.name;
       const filteredData = transactions.filter((record: any) => {
         const isMoneyOutPositive = record.moneyOut > 0;
-        const transactionDate = record.transactionDate;
+        const transactionDate = record.Transaction_Date;
         const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
-        const isDescriptionMatching = record.transactionType === typeName;
+        const isDescriptionMatching = record.Description === typeName;
         console.log(record.moneyOut);
 
         return isMoneyOutPositive && isWithinCurrentMonth && isDescriptionMatching;
       });
       console.log(filteredData);
       const typeTotal = filteredData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
-
-      this.typeTotals[typeName] = typeTotal; // Store the   in the typeTotals object
+      
+      this.typeTotals[typeName] = typeTotal; // Store the typeTotal in the typeTotals object
     });
 
     console.log("Type Totals1" + this.typeTotals);
     this.compareTypesAndTypeTotals(); // Call the new function to compare types and typeTotals
   }
 
-  /*   compare the total monthly spending amounts for the different transaction types with the expense allocation limits
-    set by the user and then indicate on the checklist whether have exceeded their set limits or not
-    -Mohammed Badat
-    -2023/08/03 */
+/*   compare the total monthly spending amounts for the different transaction types with the expense allocation limits
+  set by the user and then indicate on the checklist whether have exceeded their set limits or not
+  -Mohammed Badat
+  -2023/08/03 */
   compareTypesAndTypeTotals() {
     if (!this.types || !this.typeTotals) {
       return;
     }
 
     for (const type of this.types) {
-      const typeName = type.transactionType;
+      const typeName = type.name;
       const typeTotal = this.typeTotals[typeName] || 0;
-      const typeAmount = type.amountSet || 0;
-      console.log(type.transactionType);
-      console.log("Amount spent: " + this.typeTotals[typeName]);
-      console.log("Amount set: " + typeAmount);
+      const typeAmount = type.amount || 0;
+      console.log(type.name);
+      console.log("Amount spent: "+this.typeTotals[typeName]);
+      console.log("Amount set: "+typeAmount);
 
       if (typeTotal > typeAmount) {
         type.isChecked = true;

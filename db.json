@@ -9,7 +9,7 @@
       "password": "Dee@678S9"
     }
   ],
-  "User": [ 
+  "User": [
     {
       "firstName": "Mohammed",
       "lastName": "Badat",
@@ -193,71 +193,66 @@
       "availableBalance": 0,
       "image": "/assets/Images/Landing/Spending_money_wallet.png"
     },
-      {
-        "transactionId": 0,
-        "transactionType": "DEPOSIT",
-        "transactionDate": "2023-08-01T13:11:44.024Z",
-        "description": "Zinzu Chan Lee delphia",
-        "moneyIn": 2000,
-        "moneyOut": 0,
-        "availableBalance": 0,
-        "image":"/assets/Images/Landing/Spending_money_wallet.png"
-        },
-        {
-          "transactionId": 0,
-          "transactionType": "DEPOSIT",
-          "transactionDate": "2023-08-02T13:11:44.024Z",
-          "description": "Zinzu Chan Lee",
-          "moneyIn": 0,
-          "moneyOut": 450,
-          "availableBalance": 0,
-          "image":"/assets/Images/Landing/Spending_money_wallet.png"
-          },
-          {
-            "transactionId": 0,
-            "transactionType": "DEPOSIT",
-            "transactionDate": "2023-07-01T13:11:44.024Z",
-            "description": "Zinzu Chan",
-            "moneyIn": 1500,
-            "moneyOut": 0,
-            "availableBalance": 0,
-            "image":"/assets/Images/Landing/Spending_money_wallet.png"
-            },
-            {
-              "transactionId": 0,
-              "transactionType": "DEPOSIT",
-              "transactionDate": "2023-08-11T13:11:44.024Z",
-              "description": "Zinzu",
-              "moneyIn": 0,
-              "moneyOut": 50,
-              "availableBalance": 0,
-              "image":"/assets/Images/Landing/Spending_money_wallet.png"
-             
-              },
-              {
-                "transactionId": 0,
-                "transactionType": "DEPOSIT",
-                "transactionDate": "2023-08-12T13:11:44.024Z",
-                "description": "Lefa",
-                "moneyIn": 1000,
-                "moneyOut": 0,
-                "availableBalance": 0,
-                "image":"/assets/Images/Landing/Spending_money_wallet.png"
-               
-                }
-                ,
-          {
-            "transactionId": 0,
-            "transactionType": "DEPOSIT",
-            "transactionDate": "2023-08-12T13:11:44.024Z",
-            "description": "Mildred",
-            "moneyIn": 0,
-            "moneyOut": 155,
-            "availableBalance": 0,
-            "image":"/assets/Images/Landing/Spending_money_wallet.png"
-         
-           
-            }
+    {
+      "transactionId": 0,
+      "transactionType": "DEPOSIT",
+      "transactionDate": "2023-08-01T13:11:44.024Z",
+      "description": "Zinzu Chan Lee delphia",
+      "moneyIn": 2000,
+      "moneyOut": 0,
+      "availableBalance": 0,
+      "image": "/assets/Images/Landing/Spending_money_wallet.png"
+    },
+    {
+      "transactionId": 0,
+      "transactionType": "DEPOSIT",
+      "transactionDate": "2023-08-02T13:11:44.024Z",
+      "description": "Zinzu Chan Lee",
+      "moneyIn": 0,
+      "moneyOut": 450,
+      "availableBalance": 0,
+      "image": "/assets/Images/Landing/Spending_money_wallet.png"
+    },
+    {
+      "transactionId": 0,
+      "transactionType": "DEPOSIT",
+      "transactionDate": "2023-07-01T13:11:44.024Z",
+      "description": "Zinzu Chan",
+      "moneyIn": 1500,
+      "moneyOut": 0,
+      "availableBalance": 0,
+      "image": "/assets/Images/Landing/Spending_money_wallet.png"
+    },
+    {
+      "transactionId": 0,
+      "transactionType": "DEPOSIT",
+      "transactionDate": "2023-08-11T13:11:44.024Z",
+      "description": "Zinzu",
+      "moneyIn": 0,
+      "moneyOut": 50,
+      "availableBalance": 0,
+      "image": "/assets/Images/Landing/Spending_money_wallet.png"
+    },
+    {
+      "transactionId": 0,
+      "transactionType": "DEPOSIT",
+      "transactionDate": "2023-08-12T13:11:44.024Z",
+      "description": "Lefa",
+      "moneyIn": 1000,
+      "moneyOut": 0,
+      "availableBalance": 0,
+      "image": "/assets/Images/Landing/Spending_money_wallet.png"
+    },
+    {
+      "transactionId": 0,
+      "transactionType": "DEPOSIT",
+      "transactionDate": "2023-08-12T13:11:44.024Z",
+      "description": "Mildred",
+      "moneyIn": 0,
+      "moneyOut": 155,
+      "availableBalance": 0,
+      "image": "/assets/Images/Landing/Spending_money_wallet.png"
+    }
   ],
   "Budget": [
     {
