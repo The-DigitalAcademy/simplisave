@@ -15,7 +15,8 @@
 
               <mat-form-field class="validation mb-4" appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput type="email" class="form-control-plaintext" id="username" [(ngModel)]="username" formControlName="username" required />
+                <input matInput type="email" class="form-control-plaintext" id="username" formControlName="email" required />
+                <!--  [(ngModel)]="username" -->
                 <mat-error *ngIf="!loginForm.get('username')?.errors?.['required'] && (loginForm.get('username')?.errors?.['pattern'])">
                   Please enter a valid email address
                 </mat-error>
@@ -25,7 +26,8 @@
               </mat-form-field>
               <mat-form-field class="validation mb-4" appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput type="password" class="form-control-plaintext" [(ngModel)]="password" id="password" formControlName="password" required />
+                <input matInput type="password" class="form-control-plaintext"  id="password" formControlName="password" required />
+                <!-- [(ngModel)]="password" -->
                  <mat-error *ngIf="!loginForm.get('password')?.errors?.['required']" class="error-message">
                 
                   Password requires 8 characters, upper & lowercase, special characters & digits.
@@ -49,3 +51,5 @@
   </div>
 </div>
 <br>
+
+

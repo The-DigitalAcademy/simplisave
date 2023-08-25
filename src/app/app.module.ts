@@ -75,6 +75,7 @@ import { TransferModalComponent } from './pages/dashboard/top-part/transfer-moda
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ResetComponent } from './pages/auth/forgot-password/reset/reset.component';
+import { FilterPipePipe } from './Filter/filter-pipe.pipe';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 
@@ -82,7 +83,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
-    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, StepsComponent, OffersComponent, TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent,ManageModalComponent,GoalModalComponent, AdminLoginComponent, TransactionsComponent, ProfileComponent, PrivacyPolicyComponent,FAQComponent, AboutUsComponent, BalanceSummaryComponent, TransactionDetailsComponent, AccountsBannerComponent, AccountsSavingsAndInvestmentsComponent, FaqBannerComponent, FaqContentComponent, TransferModalComponent, ResetComponent, LearnBannerComponent, ],  
+    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, StepsComponent, OffersComponent, TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent,ManageModalComponent,GoalModalComponent, AdminLoginComponent, TransactionsComponent, ProfileComponent, PrivacyPolicyComponent,FAQComponent, AboutUsComponent, BalanceSummaryComponent, TransactionDetailsComponent, AccountsBannerComponent, AccountsSavingsAndInvestmentsComponent, FaqBannerComponent, FaqContentComponent, TransferModalComponent, ResetComponent, LearnBannerComponent, FilterPipePipe],  
     imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule, MatMenuModule, MatExpansionModule, MatDatepickerModule, MatNativeDateModule,FlexLayoutModule],
 
 
