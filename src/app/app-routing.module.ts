@@ -33,7 +33,7 @@ const routes: Routes = [
     {path : 'dashboard', component : DashboardComponent},
     {path : '', component : LandingComponent},
     {path:'learnBanner',component:LearnBannerComponent},
-    {path:'manage', component: ManageAccountComponent},
+    {path:'manage', component: ManageAccountComponent, canActivate: [EmptyBehaviorGuardGuard]},
     {path:'admin',component:MainAdminComponent},
     {path:'admin2',component:AdminComponent},
     {path:'loginAdmin',component:AdminLoginComponent},
@@ -41,7 +41,7 @@ const routes: Routes = [
     {path:'profile',component:ProfileComponent},
     {path:'privacy',component:PrivacyPolicyComponent},
     {path:'aboutus',component:AboutUsComponent},
-    {path:'transactions',component:TransactionsComponent},
+    {path:'transactions',component:TransactionsComponent, canActivate: [EmptyBehaviorGuardGuard]},
     {path: 'reset', component:ResetComponent}
 
 
