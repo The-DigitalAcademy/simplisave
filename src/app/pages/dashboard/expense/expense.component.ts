@@ -56,10 +56,11 @@ export class ExpenseComponent {
   getTransactionsFromApi() {
     this.service.getTransactions2().subscribe((res: any) => {
       this.items1 = res;
-      console.log(this.items1);
+      console.log("Transactions:", this.items1); // Add this line
       this.filterAndCalculateSumMoneyOut();
       this.createChart(...this.sumMoneyOutMonths);
       this.checkDataFetched();
+      
     });
   }
 
@@ -95,102 +96,101 @@ export class ExpenseComponent {
   -Mohammed Badat
   -2023/08/02 */
   filterAndCalculateSumMoneyOut() {
-    // Change dates from strings to JavaScript objects
     const transactions = this.items1.map((record: any) => ({
       ...record,
       transactionDate: new Date(record.transactionDate),
     }));
-
-    // Get the current month and year
+    
     const currentDate = new Date();
-    const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
-
-    /*    
-        this.filteredData = transactions.filter((record: any) => {
-          const isMoneyOutPositive = record.Money_Out > 0;
-          const transactionDate = record.Transaction_Date;
-          const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
+    const currentMonth = currentDate.getMonth();
     
-          return isMoneyOutPositive && isWithinCurrentMonth;
-        });
-    
-     */
-    // Filter data to find records where Money_Out is greater than 0 (Expense) and Transaction_Date is within the current month
     this.sumMoneyOutMonths = Array.from({ length: 4 }, (_, i) => {
-      
-      
-      //keep month within the javascript object range (0 to 11)
       const prevMonth = (currentMonth - i + 12) % 12;
       const filteredPrevMonthData = transactions.filter((record: any) => {
         const isMoneyOutPositive = record.moneyOut > 0;
         const transactionDate = record.transactionDate;
-        const isWithinPrevMonth = transactionDate.getMonth() === prevMonth;
+        const transactionMonth = transactionDate.getMonth();
+        const isWithinPrevMonth = transactionMonth === prevMonth;
         return isMoneyOutPositive && isWithinPrevMonth;
       });
-      /* Add the money out amount for each of the transactions that matches the conditions */
-      return filteredPrevMonthData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
+      
+      const sumMoneyOut = filteredPrevMonthData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
+      console.log("Month:", prevMonth);
+      console.log("Filtered Data:", filteredPrevMonthData);
+      console.log("Sum Money Out:", sumMoneyOut);
+      
+      return sumMoneyOut;
     });
-
-    this.sumMoneyOutMonths.reverse(); // Reverse the array here
-    console.log("sum",this.sumMoneyOutMonths);
+    
+    this.sumMoneyOutMonths.reverse();
+    console.log("Reversed Sums:", this.sumMoneyOutMonths);
   }
+  
 
   //create the chart using chart js, display current and three previous months, use the sumMoneyOut created array to populate values
   //Mohammed Badat
   //2023/08/02
   createChart(...sumMoneyOutMonths: number[]) {
-  
-    const canvas: HTMLCanvasElement = document.getElementById('myChart') as HTMLCanvasElement;
-    const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
+  const canvas: HTMLCanvasElement | null = document.getElementById('myChart') as HTMLCanvasElement;
 
-    if (!ctx) {
-      throw new Error("Canvas context is null.");
-    }
+  if (!canvas) {
+    console.error("Canvas element not found.");
+    return;
+  }
 
-    const currentMonthName = new Date().toLocaleString('default', { month: 'long' });
-    const prev1MonthName = new Date(new Date().setMonth(new Date().getMonth() - 1)).toLocaleString('default', { month: 'long' });
-    const prev2MonthName = new Date(new Date().setMonth(new Date().getMonth() - 2)).toLocaleString('default', { month: 'long' });
-    const prev3MonthName = new Date(new Date().setMonth(new Date().getMonth() - 3)).toLocaleString('default', { month: 'long' });
+  const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    console.error("Canvas context is null.");
+    return;
+  }
 
-    this.chart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: [currentMonthName, prev1MonthName, prev2MonthName, prev3MonthName].reverse(),
-        datasets: [{
-          label: 'Monthly expense summary',
-          data: sumMoneyOutMonths,
-          backgroundColor: ['#AF144B', '#AF144B', '#AF144B', '#AF144B'],
-          borderWidth: 0
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          x: {
-            display: true
-          },
-          y: {
-            display: true,
-            suggestedMin: 0,
-            suggestedMax: 2000,
-            ticks: {
-              stepSize: 500
-            },
-            grid: {
-              display: false
-            }
-          }
+  const currentMonthName = new Date().toLocaleString('default', { month: 'long' });
+  const prev1MonthName = new Date(new Date().setMonth(new Date().getMonth() - 1)).toLocaleString('default', { month: 'long' });
+  const prev2MonthName = new Date(new Date().setMonth(new Date().getMonth() - 2)).toLocaleString('default', { month: 'long' });
+  const prev3MonthName = new Date(new Date().setMonth(new Date().getMonth() - 3)).toLocaleString('default', { month: 'long' });
+  console.log("Labels:", [prev3MonthName, prev2MonthName, prev1MonthName, currentMonthName]);
+  console.log("Data:", sumMoneyOutMonths.reverse());
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: [prev3MonthName, prev2MonthName, prev1MonthName, currentMonthName], // Reversed order
+      datasets: [{
+        label: 'Monthly expense summary',
+        data: sumMoneyOutMonths.reverse(), // Reversed order
+        backgroundColor: ['#AF144B', '#AF144B', '#AF144B', '#AF144B'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: {
+          display: true
         },
-        plugins: {
-          legend: {
-            display: true,
-            position: 'bottom'
+        y: {
+          display: true,
+          suggestedMin: 0,
+          suggestedMax: 2000,
+          ticks: {
+            stepSize: 500
+          },
+          grid: {
+            display: false
           }
         }
-      } as ChartOptions
-    });
-  }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          position: 'bottom'
+        }
+      }
+    } as ChartOptions
+  });
+  
+}
+
 
   //Modal to add to checklist, we pecify which component modal is in to open it
   openExpenseModal(): void {
@@ -242,8 +242,9 @@ export class ExpenseComponent {
 
         return isMoneyOutPositive && isWithinCurrentMonth && isDescriptionMatching;
       });
-      console.log(filteredData);
+      // console.log(filteredData);
       const typeTotal = filteredData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
+       console.log(filteredData);
 
       this.typeTotals[typeName] = typeTotal; // Store the   in the typeTotals object
     });
