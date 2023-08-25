@@ -11,7 +11,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 export class AuthService {
 
 
-  LOGIN_URL = /* `${environment.apiUrl}/signupUsers` */ 'https://springsimplisave-production.up.railway.app/api/auth/login';
+  LOGIN_URL =  `${environment.apiUrl}/signupUsers`; /* 'https://springsimplisave-production.up.railway.app/api/auth/login'*/
 
 //The constructor holds two parameter: http for making http request and router for navigating to different routes/components 
   constructor(private http: HttpClient, private router: Router) {}
@@ -37,14 +37,19 @@ export class AuthService {
   }
 
 //the login method to set the authentication state to true when the login is successful
-  login(data: any) {
-    return this.http.post<any>(`${environment.backendUrl}/auth/login`, data).pipe(
-      tap((res: any) => {
-        const token = res['JWT Token'].token;
-        this.setToken(token);
-        this.isAuthenticatedSubject.next(true); // Set authentication state to true
-      })
-    );
+  // login(data: any) {
+  //   return this.http.post<any>(`${environment.backendUrl}/auth/login`, data).pipe(
+  //     tap((res: any) => {
+  //       const token = res['JWT Token'].token;
+  //       this.setToken(token);
+  //       this.isAuthenticatedSubject.next(true); // Set authentication state to true
+  //     })
+  //   );
+  // }
+
+  login(email: string, password: string) {
+    // Replace url with login API endpoint
+    return this.http.post<any>(`${environment.apiUrl}/signupUsers`, { email, password });
   }
   
 
@@ -54,10 +59,16 @@ export class AuthService {
 
   }
 
+
+  // getUserData() {
+  //   // Replace url with user data API endpoint
+  //   return this.http.get<any>('http://localhost:3000/signupUsers');
+  // }
+
   //set the authentication state to false when the user logs out.
   logout() {
     sessionStorage.clear();
-    this.isAuthenticatedSubject.next(false); // Set authentication state to false
+    // this.isAuthenticatedSubject.next(false); // Set authentication state to false
     this.router.navigate(['/login']);
   }
 
@@ -112,3 +123,8 @@ export class AuthService {
 
 
 }
+
+
+
+
+
