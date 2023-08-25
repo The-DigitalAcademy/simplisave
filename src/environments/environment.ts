@@ -7,4 +7,5 @@ export const environment = {
     backendUrl: 'https://simplisave.software/api/v1/',
     FORGOT_URL:'https://simplisave.software/api/v1/auth/forgot-password',
     RESET_URL:'https://simplisave.software/api/v1/auth/reset-password'
+
 };

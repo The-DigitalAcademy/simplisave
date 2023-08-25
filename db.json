@@ -9,7 +9,7 @@
       "password": "Dee@678S9"
     }
   ],
-  "User": [
+  "User": [ 
     {
       "firstName": "Mohammed",
       "lastName": "Badat",
@@ -52,7 +52,7 @@
       "Description": "Uber",
       "Transaction_Date": "2022/08/28",
       "Money_In": 0,
-      "Money_Out": 200,
+      "moneyOut": 200,
       "Available_Balance": "1600"
     },
     {
@@ -62,7 +62,7 @@
       "Description": "Uber",
       "Transaction_Date": "2022/08/28",
       "Money_In": 0,
-      "Money_Out": 50,
+      "moneyOut": 50,
       "Available_Balance": "1900"
     },
     {
@@ -72,7 +72,7 @@
       "Description": "Takealot",
       "Transaction_Date": "2022/08/20",
       "Money_In": 0,
-      "Money_Out": 500,
+      "moneyOut": 500,
       "Available_Balance": "1900"
     },
     {
@@ -82,7 +82,7 @@
       "Description": "Takealot",
       "Transaction_Date": "2022/08/28",
       "Money_In": 0,
-      "Money_Out": 500,
+      "moneyOut": 500,
       "Available_Balance": "1900"
     },
     {
@@ -92,7 +92,7 @@
       "Description": "Takealot",
       "Transaction_Date": "2022/08/20",
       "Money_In": 0,
-      "Money_Out": 2500,
+      "moneyOut": 2500,
       "Available_Balance": "1900"
     },
     {
@@ -102,7 +102,7 @@
       "Description": "Uber",
       "Transaction_Date": "2022/07/08",
       "Money_In": 0,
-      "Money_Out": 100,
+      "moneyOut": 100,
       "Available_Balance": "1100"
     },
     {
@@ -112,7 +112,7 @@
       "Description": "Uber",
       "Transaction_Date": "2022/07/03",
       "Money_In": 0,
-      "Money_Out": 300,
+      "moneyOut": 300,
       "Available_Balance": "1100"
     },
     {
@@ -122,7 +122,7 @@
       "Description": "Uber",
       "Transaction_Date": "2022/06/23",
       "Money_In": 0,
-      "Money_Out": 200,
+      "moneyOut": 200,
       "Available_Balance": "1100"
     },
     {
@@ -132,7 +132,7 @@
       "Description": "Van Schaik",
       "Transaction_Date": "2022/06/12",
       "Money_In": 0,
-      "Money_Out": 200,
+      "moneyOut": 200,
       "Available_Balance": "1100"
     },
     {
@@ -142,7 +142,7 @@
       "Description": "Takealot",
       "Transaction_Date": "2011/05/16",
       "Money_In": 0,
-      "Money_Out": 500,
+      "moneyOut": 500,
       "Available_Balance": "1100"
     },
     {
@@ -152,7 +152,7 @@
       "Description": "Takealot",
       "Transaction_Date": "2011/05/16",
       "Money_In": 0,
-      "Money_Out": 500,
+      "moneyOut": 500,
       "Available_Balance": "1100"
     }
   ],
