@@ -7,6 +7,58 @@
     {
       "email": "dee@gmail.com",
       "password": "Dee@678S9"
+    },
+    {
+      "email": "trav@da.co.za",
+      "password": "Thili123@"
+    },
+    {
+      "email": "lebo@gmail.com",
+      "password": "Brian@12345"
+    }
+  ],
+  "register": [
+    {
+      "id": 1,
+      "firstName": "Thilivhali",
+      "lastName": "Ravhutulu",
+      "email": "ravhtuluportia@gmail.com",
+      "cellphoneNumber": "0812345678",
+      "password": "Thili123",
+      "idNo": 9908180313085,
+      "imageUrl": ""
+    },
+    {
+      "firstName": "Thilivhali",
+      "lastName": "Ravhutulu",
+      "email": "thilivhali.ravhutulu@dadevs.co.za",
+      "cellphoneNumber": "0821234567",
+      "password": "Thili123",
+      "confirmPassword": "Thili123",
+      "idNo": 9807180313098,
+      "pinNo": "1234",
+      "confirmPinNo": "1234",
+      "id": 2
+    },
+    {
+      "firstName": "Mukosi",
+      "lastName": "Budeli",
+      "email": "mukosi@gmail.com",
+      "cellphoneNumber": "0876543212",
+      "password": "Mukosi987*",
+      "idNo": 9876545676556,
+      "image": "blob:http://localhost:4200/b9b9cda4-b7bc-4d45-b715-4e14b57a09ca",
+      "id": 3
+    },
+    {
+      "firstName": "Lebohang",
+      "lastName": "Mokoena",
+      "email": "lebo@gmail.com",
+      "cellphoneNumber": "0812348765",
+      "password": "Brian@12345",
+      "idNo": 6709086754089,
+      "image": "blob:http://localhost:4200/8d05e949-25eb-4c06-8deb-59b384206615",
+      "id": 4
     }
   ],
   "User": [
@@ -38,10 +90,8 @@
   ],
   "Goal_Savings": [
     {
-      "id": 1,
-      "Savings_Acc_No": 9898989898989898,
-      "amount": "500",
-      "Date_created": "08/08/2022"
+      "amount": "2000",
+      "id": 1
     }
   ],
   "Transaction": [
@@ -187,17 +237,17 @@
       "transactionId": 0,
       "transactionType": "DEPOSIT",
       "transactionDate": "2023-08-11T13:11:44.024Z",
-      "description": "Zinzu Chan Lee delphia sekhukhune",
+      "description": "Van Schaik",
       "moneyIn": 0,
-      "moneyOut": 100,
+      "moneyOut": 450,
       "availableBalance": 0,
-      "image": "/assets/Images/Landing/Spending_money_wallet.png"
+      "image": "/assets/Images/Transactions/Van Schaik.png"
     },
     {
       "transactionId": 0,
       "transactionType": "DEPOSIT",
-      "transactionDate": "2023-08-01T13:11:44.024Z",
-      "description": "Zinzu Chan Lee delphia",
+      "transactionDate": "2023-08-12T13:11:44.024Z",
+      "description": "Allowance",
       "moneyIn": 2000,
       "moneyOut": 0,
       "availableBalance": 0,
@@ -207,98 +257,84 @@
       "transactionId": 0,
       "transactionType": "DEPOSIT",
       "transactionDate": "2023-08-02T13:11:44.024Z",
-      "description": "Zinzu Chan Lee",
+      "description": "Uber Eats",
       "moneyIn": 0,
-      "moneyOut": 450,
+      "moneyOut": 100,
       "availableBalance": 0,
-      "image": "/assets/Images/Landing/Spending_money_wallet.png"
+      "image": "/assets/Images/Transactions/UberEats.png"
     },
     {
       "transactionId": 0,
       "transactionType": "DEPOSIT",
       "transactionDate": "2023-07-01T13:11:44.024Z",
-      "description": "Zinzu Chan",
+      "description": "NSFAS",
       "moneyIn": 1500,
       "moneyOut": 0,
       "availableBalance": 0,
-      "image": "/assets/Images/Landing/Spending_money_wallet.png"
+      "image": "/assets/Images/Transactions/NSFAS.png"
     },
     {
       "transactionId": 0,
       "transactionType": "DEPOSIT",
       "transactionDate": "2023-08-11T13:11:44.024Z",
-      "description": "Zinzu",
+      "description": "Bolt",
       "moneyIn": 0,
       "moneyOut": 50,
       "availableBalance": 0,
-      "image": "/assets/Images/Landing/Spending_money_wallet.png"
+      "image": "/assets/Images/Transactions/Bolt.png"
     },
     {
       "transactionId": 0,
       "transactionType": "DEPOSIT",
-      "transactionDate": "2023-08-12T13:11:44.024Z",
-      "description": "Lefa",
-      "moneyIn": 1000,
-      "moneyOut": 0,
+      "transactionDate": "2023-08-01T13:11:44.024Z",
+      "description": "Zara",
+      "moneyIn": 0,
+      "moneyOut": 1000,
       "availableBalance": 0,
-      "image": "/assets/Images/Landing/Spending_money_wallet.png"
+      "image": "/assets/Images/Transactions/zara.png"
     },
     {
       "transactionId": 0,
       "transactionType": "DEPOSIT",
       "transactionDate": "2023-08-12T13:11:44.024Z",
-      "description": "Mildred",
+      "description": "McDonalds",
       "moneyIn": 0,
       "moneyOut": 155,
       "availableBalance": 0,
-      "image": "/assets/Images/Landing/Spending_money_wallet.png"
+      "image": "/assets/Images/Transactions/McDonalds.png"
     }
   ],
   "Budget": [
     {
-      "id": 1,
-      "accountNo": "927970904",
-      "amountSet": 500,
-      "Status": "In-Progress",
+      "amountSet": "700",
       "transactionType": "FOOD",
-      "progressAmount": "23425234"
-    },
-    {
-      "id": 2,
-      "accountNo": "927970904",
-      "amountSet": 500,
-      "Status": "In-Progress",
-      "transactionType": "TRANSPORT",
-      "progressAmount": "23425234"
-    },
-    {
-      "id": 3,
-      "accountNo": "927970904",
-      "amountSet": 500,
-      "Status": "In-Progress",
-      "transactionType": "BOOKS",
-      "progressAmount": "23425234"
-    },
-    {
-      "amountSet": "500",
-      "transactionType": "OTHER",
       "accountNo": "927970904",
       "progressAmount": "23425234",
       "Status": "In-Progress",
-      "id": 4
+      "id": 1
     },
     {
-      "id": 5,
+      "amountSet": "300",
+      "transactionType": "TRANSPORT",
       "accountNo": "927970904",
-      "amountSet": 500,
+      "progressAmount": "23425234",
       "Status": "In-Progress",
-      "transactionType": "ACCOMMODATION",
-      "progressAmount": "23425234"
+      "id": 2
     },
     {
       "amountSet": "200",
       "transactionType": "TUITION",
       "id": 6
+    },
+    {
+      "amountSet": "5000",
+      "transactionType": "BANK_CHARGES",
+      "id": 7
+    },
+    {
+      "amountSet": "5000",
+      "transactionType": "TRANSPORT",
+      "id": 8
     }
   ]
 }
