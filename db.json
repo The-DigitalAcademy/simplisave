@@ -308,6 +308,30 @@
     {
       "amountSet": "700",
       "transactionType": "FOOD",
+<<<<<<< HEAD
+=======
+      "progressAmount": "23425234"
+    },
+    {
+      "id": 2,
+      "accountNo": "927970904",
+      "amountSet": 500,
+      "Status": "In-Progress",
+      "transactionType": "TRANSPORT",
+      "progressAmount": "23425234"
+    },
+    {
+      "id": 3,
+      "accountNo": "927970904",
+      "amountSet": 500,
+      "Status": "In-Progress",
+      "transactionType": "BOOKS",
+      "progressAmount": "23425234"
+    },
+    {
+      "amountSet": "300",
+      "transactionType": "BANK_CHARGES",
+>>>>>>> 4899e42693b9109b36fba8b7b2407c13d1f2786b
       "accountNo": "927970904",
       "progressAmount": "23425234",
       "Status": "In-Progress",
