@@ -19,19 +19,20 @@ export class AccountService {
 
   constructor(private http: HttpClient, private authService:AuthService) { }
 
-  getAccountData() {
-    console.log(this.authService.getToken())
-    return this.authService.getToken().pipe(
-      switchMap(token => {
-        const headers = new HttpHeaders({
-          Authorization: `Bearer ${token}`
-        });
-        // Make the authenticated API request using HttpClient
-        return this.http.get(`${environment.backendUrl}/auth/9`, { headers });
-      })
-    );
+  // getAccountData() {
+  //   console.log(this.authService.getToken())
+  //   return this.authService.getToken().pipe(
+  //     switchMap(token => {
+  //       const headers = new HttpHeaders({
+  //         Authorization: `Bearer ${token}`
+  //       });
+  //       // Make the authenticated API request using HttpClient
+  //       return this.http.get(`${environment.backendUrl}/accounts/account-balance`, { headers });
+  //     })
+  //   );
     
-    
+  getAccountData(){
+    return this.http.get(`${environment.apiUrl}/Account`);
   }
 
   getTransactions(){
@@ -39,7 +40,7 @@ export class AccountService {
   }
 
   getTransactions2(){
-    return this.http.get(`${environment.backendUrl}/transactions/listTransactions/8`);
+    return this.http.get(`${environment.apiUrl}/Transaction`);
   }
 
   getTypes(): Observable<any[]> {
