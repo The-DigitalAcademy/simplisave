@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl} from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import * as $ from 'jquery'; // Import jQuery library
 import { TransactionsService } from 'src/app/services/transactions.service';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
@@ -25,18 +25,20 @@ export class TransactionDetailsComponent implements OnInit{
   displayedTransactions: Transaction[] = [];
   
   constructor(private transactionService: TransactionsService, private http: HttpClient, private formBuilder: FormBuilder){
-    // this.searchForm = this.formBuilder.group({
-    //   selectedDate: [null],
-    //   description: [null],
-    //   amount: [null]
-    //   });
-
     this.searchForm = this.formBuilder.group({
       selectedDate: [null],
       description: [null],
       amount: [null]
-    });
+      });
       
+      this.fetchDataFromAPI();
+      this.searchForm.get('description')?.valueChanges
+      .pipe(debounceTime(300), distinctUntilChanged())
+      .subscribe(() => this.applyFilter());
+      
+      this.searchForm.get('amount')?.valueChanges
+      .pipe(debounceTime(300), distinctUntilChanged())
+      .subscribe(() => this.applyFilter());
     }
 
    
@@ -46,6 +48,9 @@ export class TransactionDetailsComponent implements OnInit{
 
     this.fetchDataFromAPI();
     
+
+    
+   
   }
 
   fetchDataFromAPI() {
@@ -69,7 +74,6 @@ export class TransactionDetailsComponent implements OnInit{
     // Iterate through each transaction
     for (const details of this.transactionsList) {
       const date = details.transactionDate.slice(0, 10); // Extract date in 'YYYY-MM-DD' format
-      
  
        // If the date group doesn't exist, create an empty array for it
       if (!this.groupedTransactions[date]) {
@@ -116,29 +120,22 @@ for (const transaction of this.displayedTransactions) {
 
   }
  
-
   applyFilter() {
-    console.log("Filtering transactions...");
-  
     const descriptionFilter = this.searchForm.get('description')?.value;
-    const amountFilter = this.searchForm.get('amount')?.value;
   
-    // Rest of your filtering logic
+    // Filter data based on selected date
     this.displayedTransactions = this.transactionsList.filter((transaction: Transaction) => {
       const dateMatch = !this.selectedDate || format(new Date(transaction.transactionDate), 'yyyy-MM-dd') === this.selectedDate;
       const descriptionMatch = !descriptionFilter || transaction.description.toLowerCase().includes(descriptionFilter.toLowerCase());
-      const amountMatch = isNaN(amountFilter) || 
-        (transaction.moneyIn && transaction.moneyIn.toString().includes(amountFilter)) || 
-        (transaction.moneyOut && transaction.moneyOut.toString().includes(amountFilter));
   
-      return dateMatch && descriptionMatch && amountMatch;
+      return dateMatch && descriptionMatch;
     });
   
-    // Debugging: Display the filtered transactions
-    console.log("Filtered Transactions:", this.displayedTransactions);
-  }
-  
-  
-
-  
+    console.log('Filtered Transactions:');
+    for (const transaction of this.displayedTransactions) {
+      console.log('Date:', transaction.transactionDate);
+      console.log('Description:', transaction.description);
+      console.log('Amount:', transaction.moneyOut ? `- R ${transaction.moneyOut}.00` : `+ R ${transaction.moneyIn}.00`);
+    }
+}
 }
