@@ -20,30 +20,22 @@ export class AccountService {
   constructor(private http: HttpClient, private authService:AuthService) { }
 
   getAccountData() {
-    console.log(this.authService.getToken())
-    return this.authService.getToken().pipe(
-      switchMap(token => {
-        const headers = new HttpHeaders({
-          Authorization: `Bearer ${token}`
-        });
+
         // Make the authenticated API request using HttpClient
-        return this.http.get(`${environment.backendUrl}/auth/9`, { headers });
-      })
-    );
-    
-    
+        return this.http.get(`${environment.backendUrl}/student/details`);
+      
   }
 
   getTransactions(){
-    return this.http.get(`${environment.apiUrl}/Transaction`);
+    return this.http.get(`${environment.backendUrl}/Transaction`);
   }
 
   getTransactions2(){
-    return this.http.get(`${environment.backendUrl}/transactions/listTransactions/8`);
+    return this.http.get(`${environment.backendUrl}/transactions/transactions`);
   }
 
   getTypes(): Observable<any[]> {
-    return this.http.get<any[]>(`${environment.apiUrl}/Budget`);
+    return this.http.get<any[]>(`${environment.backendUrl}/Budget`);
   }
 
   getSimplisaveData(){
