@@ -5,8 +5,8 @@ export const environment = {
     LOGIN_URL: 'http://localhost:8080/api/users/login',
     apiUrl: 'http://localhost:3000',
     backendUrl: 'https://simplisave.software/api/v1',
-    // FORGOT_URL:'https://springsimplisave-production.up.railway.app/api/auth/forgot-password',
+    // FORGOT_URL:'https://simplisave.software/api/v1/auth/forgot-password',
     FORGOT_URL: 'http://localhost:3000/forgot',
-    // RESET_URL:'https://springsimplisave-production.up.railway.app/api/auth/reset-passsword'
+    // RESET_URL:'https://simplisave.software/api/v1/auth/reset-password'
     RESET_URL: 'http://localhost:3000/reset'
 };
