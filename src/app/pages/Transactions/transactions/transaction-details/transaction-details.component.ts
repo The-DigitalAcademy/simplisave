@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import * as $ from 'jquery'; // Import jQuery library
 import { TransactionsService } from 'src/app/services/transactions.service';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
@@ -10,86 +10,81 @@ import { format } from 'date-fns';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
-    selector: 'app-transaction-details',
-    templateUrl: './transaction-details.component.html',
-    styleUrls: ['./transaction-details.component.css'],
+  selector: 'app-transaction-details',
+  templateUrl: './transaction-details.component.html',
+  styleUrls: ['./transaction-details.component.css'],
 })
 export class TransactionDetailsComponent implements OnInit {
-    transactionsList: any;
-    groupedTransactions: any = {}; // Grouped transactions
-    sortedDateKeys: string[] = []; // Declare sortedDateKeys property selectedDate: Date | null = null;
-    selectedDate: string | null = null;
-    searchForm: FormGroup = new FormGroup({});
-    displayedTransactions: Transaction[] = [];
+  transactionsList: any;
+  groupedTransactions: any = {}; // Grouped transactions
+  sortedDateKeys: string[] = []; // Declare sortedDateKeys property selectedDate: Date | null = null;
+  selectedDate: string | null = null;
+  searchForm: FormGroup = new FormGroup({});
+  displayedTransactions: Transaction[] = [];
 
-    constructor(
-        private transactionService: TransactionsService,
-        private http: HttpClient,
-        private formBuilder: FormBuilder
-    ) {
-        this.searchForm = this.formBuilder.group({
-            selectedDate: [null],
-            description: [null],
-            amount: [null],
-        });
+  constructor(
+    private transactionService: TransactionsService,
+    private http: HttpClient,
+    private formBuilder: FormBuilder
+  ) {
+    // this.searchForm = this.formBuilder.group({
+    //   selectedDate: [null],
+    //   description: [null],
+    //   amount: [null]
+    //   });
 
-        this.fetchDataFromAPI();
-        this.searchForm
-            .get('description')
-            ?.valueChanges.pipe(debounceTime(300), distinctUntilChanged())
-            .subscribe(() => this.applyFilter());
+    this.searchForm = this.formBuilder.group({
+      selectedDate: [null],
+      description: [null],
+      amount: [null],
+    });
+  }
 
-        this.searchForm
-            .get('amount')
-            ?.valueChanges.pipe(debounceTime(300), distinctUntilChanged())
-            .subscribe(() => this.applyFilter());
+  ngOnInit(): void {
+    this.fetchDataFromAPI();
+    // this.getCurrentBalance();
+
+    this.fetchDataFromAPI();
+  }
+
+  fetchDataFromAPI() {
+    this.transactionService.getTransactionsList().subscribe(
+      (res: Transaction[]) => {
+        console.log('API Response:', res);
+        this.transactionsList = res; // Assign the response array directly
+        this.groupTransactions();
+      },
+      error => {
+        console.error('Error fetching data:', error);
+      }
+    );
+  }
+
+  groupTransactions() {
+    this.groupedTransactions = {};
+
+    // Iterate through each transaction
+    for (const details of this.transactionsList) {
+      const date = details.transactionDate.slice(0, 10); // Extract date in 'YYYY-MM-DD' format
+
+      // If the date group doesn't exist, create an empty array for it
+      if (!this.groupedTransactions[date]) {
+        this.groupedTransactions[date] = [];
+      }
+
+      // Push the transaction details into the appropriate date group
+      this.groupedTransactions[date].push(details);
     }
+    console.log('selected transaction date', this.selectedDate);
+    console.log('Grouped transaction' + this.groupedTransactions);
 
-    ngOnInit(): void {
-        this.fetchDataFromAPI();
-        // this.getCurrentBalance();
-
-        this.fetchDataFromAPI();
-    }
-
-    fetchDataFromAPI() {
-        this.transactionService.getTransactionsList().subscribe(
-            (res: Transaction[]) => {
-                console.log('API Response:', res);
-                this.transactionsList = res; // Assign the response array directly
-                this.groupTransactions();
-            },
-            error => {
-                console.error('Error fetching data:', error);
-            }
-        );
-    }
-
-    groupTransactions() {
-        this.groupedTransactions = {};
-
-        // Iterate through each transaction
-        for (const details of this.transactionsList) {
-            const date = details.transactionDate.slice(0, 10); // Extract date in 'YYYY-MM-DD' format
-
-            // If the date group doesn't exist, create an empty array for it
-            if (!this.groupedTransactions[date]) {
-                this.groupedTransactions[date] = [];
-            }
-
-            // Push the transaction details into the appropriate date group
-            this.groupedTransactions[date].push(details);
-        }
-        console.log('selected transaction date', this.selectedDate);
-        console.log('Grouped transaction' + this.groupedTransactions);
-
-        // Sort the keys in reverse chronological order
-        this.sortedDateKeys = Object.keys(this.groupedTransactions).sort(
-            (a, b) => {
-                return new Date(b).getTime() - new Date(a).getTime();
-            }
-        );
-    }
+    // Sort the keys in reverse chronological order
+    this.sortedDateKeys = Object.keys(this.groupedTransactions).sort(
+      (a, b) => {
+        return new Date(b).getTime() - new Date(a).getTime();
+      }
+    );
+  }
 
     // This function is called when a date is selected from the date picker
     handleDateSelection(event: MatDatepickerInputEvent<Date>) {
@@ -162,3 +157,4 @@ export class TransactionDetailsComponent implements OnInit {
         }
     }
 }
+
