@@ -16,7 +16,7 @@ export class ResetComponent {
   constructor(private reset : ResetPasswordService) {}
 
   resetPassword() {
-    this.reset.verifyOtpAndResetPassword(this.email, this.otp, this.newPassword, this.confirmPassword).subscribe(
+    this.reset.verifyOtpAndResetPassword( this.otp, this.newPassword, this.confirmPassword).subscribe(
       () => {
         // Handle success (password reset) - Thilivhali Ravhutulu  22 August 2023
         Swal.fire({

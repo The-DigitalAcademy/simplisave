@@ -12,11 +12,12 @@ export class ResetPasswordService {
 
   //For sending otp to user's email - Thilivhali Ravhutulu  22 August 2023
   sendForgotPasswordEmail(email: string) {
+    console.log("Email sent to: " + email);
     return this.http.post(`${environment.FORGOT_URL}`, { email });
   }
 
   //For resetting password - Thilivhali Ravhutulu  22 August 2023
-  verifyOtpAndResetPassword(email:string, otp: string, newPassword: string, confirmPassword: string) {
-    return this.http.post(`${environment.RESET_URL}`, {email, otp, newPassword, confirmPassword });
+  verifyOtpAndResetPassword(otp: string, newPassword: string, confirmPassword: string) {
+    return this.http.post(`${environment.RESET_URL}`, { otp, newPassword, confirmPassword });
   }
 }
