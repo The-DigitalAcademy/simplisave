@@ -17,3 +17,39 @@
     text-align: center;
     padding-top: 50px;
   }
+  /* Media query for screens up to 320px wide */
+@media (max-width: 320px) {
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .responsive-table {
+    width: 100%;
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    padding: 4px;
+    text-align: left;
+    font-size: 12px;
+  }
+
+  
+
+  .responsive-table th {
+    background-color: #f8f1f1;
+    font-weight: bold;
+  }
+
+  .responsive-table td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  /* Adjust paginator styles */
+  .mat-paginator {
+    display: flex;
+    justify-content: center;
+  }
+}

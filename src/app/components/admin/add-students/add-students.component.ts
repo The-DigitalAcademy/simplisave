@@ -46,30 +46,30 @@ studentForm: FormGroup;
 
       if(this.data){
        
-        this.studentsService.updateStudents(this.data.id ,this.studentForm.value).subscribe({
-          next: (val: any)=>{
-        alert('Student Updated Successfully')
-        this.dialogRef.close(true);
-          },
-          error: (err: any)=>{
-            console.error(err);
+        // this.studentsService.updateStudents(this.data.id ,this.studentForm.value).subscribe({
+        //   next: (val: any)=>{
+        // alert('Student Updated Successfully')
+        // this.dialogRef.close(true);
+        //   },
+        //   error: (err: any)=>{
+        //     console.error(err);
             
-          }
-         })
+        //   }
+        //  })
 
       }
       else{
-     this.studentsService.addStudents(this.studentForm.value).subscribe({
-      next: (val: any)=>{
-    alert('Student Added Successfully')
-    this.dialogRef.close(true);
-      },
-      error: (err: any)=>{
-        console.error(err);
+    //  this.studentsService.addStudents(this.studentForm.value).subscribe({
+    //   next: (val: any)=>{
+    // alert('Student Added Successfully')
+    // this.dialogRef.close(true);
+    //   },
+    //   error: (err: any)=>{
+    //     console.error(err);
         
-      }
-     })
-    }
-    }
+    //   }
+    //  })
+    // }
+    // }
   }
-}
+    }}}
