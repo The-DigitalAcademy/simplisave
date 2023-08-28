@@ -61,7 +61,7 @@
       "id": 4
     }
   ],
-  "User": [ 
+  "User": [
     {
       "firstName": "Mohammed",
       "lastName": "Badat",
@@ -96,112 +96,101 @@
   ],
   "Transaction": [
     {
-      "Transaction_Id": 1,
-      "Type_id": 1,
+      "transactionId": 1,
       "Account_No": 1234567890123456,
-      "Description": "Uber",
-      "Transaction_Date": "2022/08/28",
-      "Money_In": 0,
+      "transactionType": "FOOD",
+      "transactionDate": "2022/08/28",
+      "moneyIn": 0,
       "moneyOut": 200,
       "Available_Balance": "1600"
     },
     {
-      "Transaction_Id": 2,
-      "Type_id": 1,
+      "transactionId": 2,
       "Account_No": 1234567890123456,
-      "Description": "Uber",
-      "Transaction_Date": "2022/08/28",
-      "Money_In": 0,
+      "transactionType": "TRANSPORT",
+      "transactionDate": "2022/08/28",
+      "moneyIn": 0,
       "moneyOut": 50,
       "Available_Balance": "1900"
     },
     {
-      "Transaction_Id": 3,
-      "Type_id": 2,
+      "transactionId": 3,
       "Account_No": 1234567890123456,
-      "Description": "Takealot",
-      "Transaction_Date": "2022/08/20",
-      "Money_In": 0,
+      "transactionType": "ACCOMMODATION",
+      "transactionDate": "2022/08/20",
+      "moneyIn": 0,
       "moneyOut": 500,
       "Available_Balance": "1900"
     },
     {
-      "Transaction_Id": 2,
-      "Type_id": 1,
+      "transactionId": 2,
       "Account_No": 1234567890123456,
-      "Description": "Takealot",
-      "Transaction_Date": "2022/08/28",
-      "Money_In": 0,
+      "transactionType": "BOOKS",
+      "transactionDate": "2022/08/28",
+      "moneyIn": 0,
       "moneyOut": 500,
       "Available_Balance": "1900"
     },
     {
-      "Transaction_Id": 3,
-      "Type_id": 2,
+      "transactionId": 3,
       "Account_No": 1234567890123456,
-      "Description": "Takealot",
-      "Transaction_Date": "2022/08/20",
-      "Money_In": 0,
-      "moneyOut": 2500,
+      "transactionType": "TRANSPORT",
+      "transactionDate": "2022/08/20",
+      "moneyIn": 0,
+      "moneyOut": 21,
       "Available_Balance": "1900"
     },
     {
-      "Transaction_Id": 4,
-      "Type_id": 1,
+      "transactionId": 4,
       "Account_No": 1234567890123456,
-      "Description": "Uber",
-      "Transaction_Date": "2022/07/08",
-      "Money_In": 0,
+      "transactionType": "WITHDRAWALS",
+      "transactionDate": "2022/07/08",
+      "moneyIn": 0,
       "moneyOut": 100,
       "Available_Balance": "1100"
     },
     {
-      "Transaction_Id": 6,
-      "Type_id": 1,
+      "transactionId": 6,
       "Account_No": 1234567890123456,
-      "Description": "Uber",
-      "Transaction_Date": "2022/07/03",
-      "Money_In": 0,
+      "transactionType": "BANK_CHARGES",
+      "transactionDate": "2022/07/03",
+      "moneyIn": 0,
       "moneyOut": 300,
       "Available_Balance": "1100"
     },
     {
-      "Transaction_Id": 7,
-      "Type_id": 1,
+      "transactionId": 7,
       "Account_No": 1234567890123456,
-      "Description": "Uber",
-      "Transaction_Date": "2022/06/23",
+      "transactionType": "TUITION",
+      "transactionDate": "2022/06/23",
       "Money_In": 0,
       "moneyOut": 200,
       "Available_Balance": "1100"
     },
     {
-      "Transaction_Id": 8,
-      "Type_id": 3,
+      "transactionId": 8,
       "Account_No": 1234567890123456,
-      "Description": "Van Schaik",
-      "Transaction_Date": "2022/06/12",
+      "transactionType": "TUITION",
+      "transactionDate": "2022/06/12",
       "Money_In": 0,
       "moneyOut": 200,
       "Available_Balance": "1100"
     },
     {
-      "Transaction_Id": 2,
-      "Type_id": 2,
+      "transactionId": 9,
       "Account_No": 1234567890123456,
-      "Description": "Takealot",
-      "Transaction_Date": "2011/05/16",
+      "transactionType": "FOOD",
+      "transactionDate": "2011/05/16",
       "Money_In": 0,
       "moneyOut": 500,
       "Available_Balance": "1100"
     },
     {
-      "Transaction_Id": 2,
-      "Type_id": 2,
+      "transactionId": 10,
       "Account_No": 1234567890123456,
-      "Description": "Takealot",
-      "Transaction_Date": "2011/05/16",
-      "Money_In": 0,
+      "transactionType": "TUITION",
+      "transactionDate": "2011/05/16",
+      "moneyIn": 0,
       "moneyOut": 500,
       "Available_Balance": "1100"
     }
@@ -308,40 +297,15 @@
     {
       "amountSet": "700",
       "transactionType": "FOOD",
-
       "progressAmount": "23425234"
     },
     {
-      "id": 2,
-      "accountNo": "927970904",
-      "amountSet": 500,
-      "Status": "In-Progress",
-      "transactionType": "TRANSPORT",
-      "progressAmount": "23425234"
-    },
-    {
-      "id": 3,
-      "accountNo": "927970904",
-      "amountSet": 500,
-      "Status": "In-Progress",
+      "amountSet": "5000",
       "transactionType": "BOOKS",
-      "progressAmount": "23425234"
-    },
-    {
-      "amountSet": "300",
-      "transactionType": "BANK_CHARGES",
       "accountNo": "927970904",
       "progressAmount": "23425234",
       "Status": "In-Progress",
-      "id": 1
-    },
-    {
-      "amountSet": "300",
-      "transactionType": "TRANSPORT",
-      "accountNo": "927970904",
-      "progressAmount": "23425234",
-      "Status": "In-Progress",
-      "id": 2
+      "id": 3
     },
     {
       "amountSet": "200",
@@ -349,12 +313,7 @@
       "id": 6
     },
     {
-      "amountSet": "5000",
-      "transactionType": "BANK_CHARGES",
-      "id": 7
-    },
-    {
-      "amountSet": "5000",
+      "amountSet": "100",
       "transactionType": "TRANSPORT",
       "id": 8
     }
