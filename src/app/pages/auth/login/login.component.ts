@@ -30,12 +30,8 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
 
       // Define form fields for login and validation requirements
-      username: ['', [Validators.required, Validators.email,Validators.pattern(
-        '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,65}$',
-      ),]],
-      password: ['', [Validators.required,Validators.pattern(
-        '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,65}$'
-      )]]
+      username: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
     });
    }
 
@@ -65,6 +61,7 @@ login() {
       this.router.navigate(['dashboard']);
     },
     (error: any) => {
+      console.log('Not logged in:', error);
       this.authService.failedAlert(); // Show failed login alert
     }
   );

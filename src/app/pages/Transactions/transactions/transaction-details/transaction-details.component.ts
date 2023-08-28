@@ -88,81 +88,77 @@ export class TransactionDetailsComponent implements OnInit {
     );
   }
 
-  // This function is called when a date is selected from the date picker
-  handleDateSelection(event: MatDatepickerInputEvent<Date>) {
-    if (event.value) {
-      const selectedDate = format(event.value, 'yyyy-MM-dd'); // Format the selected date in this format
-      this.selectedDate = selectedDate;
-      console.log(
-        'selected transaction displayed date: ' + this.selectedDate
-      );
+    // This function is called when a date is selected from the date picker
+    handleDateSelection(event: MatDatepickerInputEvent<Date>) {
+        if (event.value) {
+            const selectedDate = format(event.value, 'yyyy-MM-dd'); // Format the selected date in this format
+            this.selectedDate = selectedDate;
+            console.log(
+                'selected transaction displayed date: ' + this.selectedDate
+            );
 
-      // Filter data based on selected date
-      this.displayedTransactions = this.transactionsList.filter(
-        (transaction: Transaction) =>
-          // Format the transaction date in 'yyyy-MM-dd' format and compare with selected date
-          format(
-            new Date(transaction.transactionDate),
-            'yyyy-MM-dd'
-          ) === this.selectedDate
-      );
-    } else {
-      // If no date is selected, reset the selectedDate and show all transactions
-      this.selectedDate = null;
-      this.displayedTransactions = this.transactionsList; // Show all data
+            // Filter data based on selected date
+            this.displayedTransactions = this.transactionsList.filter(
+                (transaction: Transaction) =>
+                    // Format the transaction date in 'yyyy-MM-dd' format and compare with selected date
+                    format(
+                        new Date(transaction.transactionDate),
+                        'yyyy-MM-dd'
+                    ) === this.selectedDate
+            );
+        } else {
+            // If no date is selected, reset the selectedDate and show all transactions
+            this.selectedDate = null;
+            this.displayedTransactions = this.transactionsList; // Show all data
+        }
+        console.log('Displayed Transactions:');
+        for (const transaction of this.displayedTransactions) {
+            console.log('Date:', transaction.transactionDate);
+            console.log('Description:', transaction.description);
+            console.log(
+                'Amount:',
+                transaction.moneyOut
+                    ? `- R ${transaction.moneyOut}.00`
+                    : `+ R ${transaction.moneyIn}.00`
+            );
+        }
     }
-    console.log('Displayed Transactions:');
-    for (const transaction of this.displayedTransactions) {
-      console.log('Date:', transaction.transactionDate);
-      console.log('Description:', transaction.description);
-      console.log(
-        'Amount:',
-        transaction.moneyOut
-          ? `- R ${transaction.moneyOut}.00`
-          : `+ R ${transaction.moneyIn}.00`
-      );
+
+    applyFilter() {
+        const descriptionFilter = this.searchForm.get('description')?.value;
+
+        // Filter data based on selected date
+        this.displayedTransactions = this.transactionsList.filter(
+            (transaction: Transaction) => {
+                const dateMatch =
+                    !this.selectedDate ||
+                    format(
+                        new Date(transaction.transactionDate),
+                        'yyyy-MM-dd'
+                    ) === this.selectedDate;
+                const descriptionMatch =
+                    !descriptionFilter ||
+                    transaction.description
+                        .toLowerCase()
+                        .includes(descriptionFilter.toLowerCase());
+
+                return dateMatch && descriptionMatch;
+            }
+        );
+
+        console.log('Filtered Transactions:');
+        for (const transaction of this.displayedTransactions) {
+            console.log('Date:', transaction.transactionDate);
+            console.log('Description:', transaction.description);
+            console.log(
+                'Amount:',
+                transaction.moneyOut
+                    ? `- R ${transaction.moneyOut}.00`
+                    : `+ R ${transaction.moneyIn}.00`
+            );
+        }
     }
-  }
 
-  applyFilter() {
-    const selectedDate = this.searchForm.get('selectedDate')?.value;
-    const descriptionFilter = this.searchForm.get('description')?.value;
-    const amountFilter = parseFloat(this.searchForm.get('amount')?.value);
-
-    this.displayedTransactions = this.transactionsList.filter(
-      (transaction: Transaction) => {
-        const dateMatch =
-          !selectedDate ||
-          format(
-            new Date(transaction.transactionDate),
-            'yyyy-MM-dd'
-          ) === selectedDate;
-        const descriptionMatch =
-          !descriptionFilter ||
-          transaction.description
-            .toLowerCase()
-            .includes(descriptionFilter.toLowerCase());
-        const amountMatch =
-          isNaN(amountFilter) ||
-          transaction.moneyIn === amountFilter ||
-          transaction.moneyOut === amountFilter;
-
-        return dateMatch && descriptionMatch && amountMatch;
-      }
-    );
-
-    console.log('Filtered Transactions:');
-    for (const transaction of this.displayedTransactions) {
-      console.log('Date:', transaction.transactionDate);
-      console.log('Description:', transaction.description);
-      console.log(
-        'Amount:',
-        transaction.moneyOut
-          ? `- R ${transaction.moneyOut}.00`
-          : `+ R ${transaction.moneyIn}.00`
-      );
-    }
-  }
 
   filterTable(filter: string) {
     console.log('Filter:', filter); 

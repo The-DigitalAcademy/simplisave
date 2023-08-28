@@ -1,5 +1,7 @@
 .navbar-nav {
-  margin-left: 389px;
+  /* margin-left: 389px; */
+  width: 100%;
+  justify-content: end;
  
 }
 
