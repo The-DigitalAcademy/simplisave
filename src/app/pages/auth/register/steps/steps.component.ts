@@ -112,6 +112,7 @@ export class StepsComponent implements OnInit {
   //updating third step  - Thilivhali Ravhutulu 05/08/2023
   updateStep3Values() {
     if ( this.step3FormGroup.valid){
+
       const updatedValues = 
       this.step3FormGroup.get('idNo')?.value;
       
@@ -119,6 +120,7 @@ export class StepsComponent implements OnInit {
       // Now you can navigate to the next step here if needed
     } 
   }
+
 
   onNext() {
     const currentStep = this.stepperService.getCurrentStep();
@@ -154,7 +156,9 @@ export class StepsComponent implements OnInit {
       password: this.step2FormGroup.value.password, // Store only the password - Thilivhali Ravhutulu 14/08/2023
       ...this.step3FormGroup.value,  // Store only the ID number - Thilivhali Ravhutulu 14/08/2023
 
+
       image: this.previewImage // The image URL - Thilivhali Ravhutulu 16/08/2023
+
     };
     console.log("data:", this.registrationData);
 

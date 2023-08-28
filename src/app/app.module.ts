@@ -25,7 +25,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LearnBannerComponent } from './pages/learn/learn-banner/learn-banner.component';
-import { LearnWhySAveComponent } from './pages/learn/learn-why-save/learn-why-save.component';
+import { LearnWhySAveComponent} from './pages/learn/learn-why-save/learn-why-save.component';
 import { LearnVsNoSavingsComponent } from './pages/learn/learn-vs-no-savings/learn-vs-no-savings.component';
 import { LearnVsInvestComponent } from './pages/learn/learn-vs-invest/learn-vs-invest.component';
 import { LearnBestSuitedComponent } from './pages/learn/learn-best-suited/learn-best-suited.component';
@@ -59,7 +59,7 @@ import { ManageModalComponent } from './pages/manage-account/manage-expense/mana
 import { GoalModalComponent } from './pages/manage-account/manage-expense/goal-modal/goal-modal.component';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { TransactionsComponent } from './pages/Transactions/transactions/transactions.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileComponent} from './pages/profile/profile.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { FAQComponent } from './components/faq/faq.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
@@ -69,6 +69,10 @@ import { TransactionDetailsComponent } from './pages/Transactions/transactions/t
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AccountsBannerComponent } from './pages/accounts/accounts-banner/accounts-banner.component';
+import { FaqBannerComponent } from './components/faq/faq-banner/faq-banner.component';
+import { FaqContentComponent } from './components/faq/faq-content/faq-content.component';
+import { AccountsSavingsAndInvestmentsComponent } from './pages/accounts/accounts-savings-and-investments/accounts-savings-and-investments.component';
 import { TransferModalComponent } from './pages/dashboard/top-part/transfer-modal/transfer-modal.component';
 
 
@@ -79,7 +83,7 @@ import { TransferModalComponent } from './pages/dashboard/top-part/transfer-moda
 
 @NgModule({
     declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, StepsComponent, OffersComponent, TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent,ManageModalComponent,GoalModalComponent, AdminLoginComponent, TransactionsComponent, ProfileComponent, PrivacyPolicyComponent,FAQComponent, AboutUsComponent, BalanceSummaryComponent, TransactionDetailsComponent, AccountsBannerComponent, AccountsSavingsAndInvestmentsComponent, FaqBannerComponent, FaqContentComponent, TransferModalComponent],  
-    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule, MatMenuModule, MatExpansionModule],
+    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule, MatMenuModule, MatExpansionModule, MatDatepickerModule, MatNativeDateModule ],
 
 
     providers: [{

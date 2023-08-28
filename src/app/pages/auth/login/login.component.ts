@@ -79,23 +79,20 @@ login() {
     password: this.password
   };
 
-  if (!this.loginForm.valid) {
-    return;
-  }
-
-  this.authService.login(this.loginData).subscribe(
-    (res: any) => {
+    if(!this.loginForm.valid){
+      return;
+     }
+    this.authService.login(this.loginData).subscribe((res: any) => {
+      const token = res['JWT Token'].token;
+      this.authService.setToken(token);
+      console.log("This is the token that is stored in a behavior subject\n\n\n"+ token);
       console.log('logged in:', res);
       this.authService.successAlert();
       this.loginForm.reset();
-      this.router.navigate(['dashboard']);
-    },
-    (error: any) => {
-      this.authService.failedAlert(); // Show failed login alert
-    }
-  );
-}
-logout() {
-  this.authService.logout();
-}
-}
+      this.router.navigate(["dashboard"])
+    });
+
+
+    
+    } 
+ }

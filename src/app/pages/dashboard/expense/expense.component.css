@@ -1,6 +1,7 @@
 .row {
    display: flex;
    height: 100%;
+   margin-top: -60px;
 }
 .info-icon{
    color: black;
@@ -130,10 +131,10 @@ li{
 
  
  .subHeader {
-   color: black;
-   font-size: var(--font-large);
-   font-family: var(--base-font);
-   font-weight: var(--semi-bold);
+   color: #1D1B20;
+   font-size: 20px;
+   font-family: Roboto;
+   font-weight: 600;
    word-wrap: break-word;
    
    }
