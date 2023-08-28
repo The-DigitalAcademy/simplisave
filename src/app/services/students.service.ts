@@ -13,6 +13,10 @@ export class StudentsService {
     return this.http.post(' http://localhost:3000/students',data)
   }
 
+  updateStudents(id: number, data: any): Observable<any>{
+    return this.http.put(`http://localhost:3000/students/${id}`,data)
+  }
+
   getStudents(): Observable<any>{
     return this.http.get(' http://localhost:3000/students')
   }

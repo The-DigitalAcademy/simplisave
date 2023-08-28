@@ -1,3 +1,4 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentsComponent } from '../add-students/add-students.component';
@@ -46,7 +47,14 @@ export class AdminComponent implements OnInit {
 
 
   openAddStudents(){
-    this.addDialog.open(AddStudentsComponent)
+    const dialogRef = this.addDialog.open(AddStudentsComponent)
+    dialogRef.afterClosed().subscribe({
+      next:(value)=>{
+        if(value ){
+          this.getList();
+        }
+      }
+    })
   }
 
  
@@ -68,12 +76,27 @@ removeStudent(id: number){
   this.studentsList.deleteStudent(id).subscribe({
     next: (res) =>{
 alert('Student Deleted!')
+this.getList();
     },
     error: (err) =>{
       console.log(err);
       
     }
     
+  })
+}
+
+openEditStudents(data: any){
+  const dialogRef = this.addDialog.open(AddStudentsComponent, {
+    data,
+  })
+
+  dialogRef.afterClosed().subscribe({
+    next:(value)=>{
+      if(value ){
+        this.getList();
+      }
+    }
   })
 }
   
