@@ -44,7 +44,9 @@ export class TransactionDetailsComponent implements OnInit {
     this.fetchDataFromAPI();
     // this.getCurrentBalance();
 
-    this.fetchDataFromAPI();
+    this.transactionService.getSearchFilter().subscribe(filter => {
+      this.filterTable(filter);
+    });
   }
 
   fetchDataFromAPI() {
@@ -161,5 +163,64 @@ export class TransactionDetailsComponent implements OnInit {
       );
     }
   }
-}
 
+  filterTable(filter: string) {
+    console.log('Filter:', filter); 
+    if (filter) {
+      // Filter transactions based on the provided filter
+      this.displayedTransactions = this.transactionsList.filter(
+        (transaction: Transaction) => {
+          const descriptionMatch =
+            transaction.description.toLowerCase().includes(filter.toLowerCase());
+  
+          const amountMatch =
+            transaction.moneyIn === parseFloat(filter) || 
+            transaction.moneyOut === parseFloat(filter);
+  
+          return descriptionMatch || amountMatch;
+        }
+      );
+  
+      // After filtering transactions, update the sortedDateKeys array to include only the dates that have transactions matching the user's search criteria
+      this.sortedDateKeys = Object.keys(this.groupedTransactions).filter(date =>
+        this.displayedTransactions.some((transaction: Transaction) => {
+          const transactionDate = format(new Date(transaction.transactionDate), 'yyyy-MM-dd'); // Format the date
+          return date === transactionDate;
+        })
+      );
+    } else if (this.selectedDate) {
+      // If only date is selected, filter transactions based on the selected date
+      const selectedDateTransactions = this.transactionsList.filter(
+        (transaction: Transaction) =>
+          format(new Date(transaction.transactionDate), 'yyyy-MM-dd') === this.selectedDate
+      );
+      this.displayedTransactions = selectedDateTransactions;
+      this.sortedDateKeys = [this.selectedDate];
+    } else {
+      // If no filter provided, show all transactions and reset the sortedDateKeys array to include all dates
+      this.displayedTransactions = this.transactionsList;
+      this.sortedDateKeys = Object.keys(this.groupedTransactions).sort(
+        (a, b) => new Date(b).getTime() - new Date(a).getTime()
+      );
+    }
+  }
+  
+
+
+  
+  
+
+  // applySearchFilter(filter: string) {
+  //   if (filter) {
+  //     // Filter transactions based on description
+  //     this.displayedTransactions = this.transactionsList.filter(
+  //       (transaction: Transaction) =>
+  //         transaction.description.toLowerCase().includes(filter.toLowerCase())
+  //     );
+  //   } else {
+  //     // If no filter provided, show all transactions
+  //     this.displayedTransactions = this.transactionsList;
+  //   }
+  // }
+
+}
