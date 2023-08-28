@@ -20,10 +20,17 @@ export class AccountService {
   constructor(private http: HttpClient, private authService:AuthService) { }
 
   getAccountData() {
-
-        // Make the authenticated API request using HttpClient
-        return this.http.get(`${environment.backendUrl}/student/details`);
-      
+      console.log(this.authService.getToken())
+      return this.authService.getToken().pipe(
+        switchMap(token => {
+          const headers = new HttpHeaders({
+            Authorization: `Bearer ${token}`
+          });
+        return this.http.get(`${environment.backendUrl}/student/details`, { headers });
+      })
+    );
+    
+    
   }
 
   getTransactions(){
