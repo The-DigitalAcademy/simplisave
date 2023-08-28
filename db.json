@@ -7,9 +7,71 @@
     {
       "email": "dee@gmail.com",
       "password": "Dee@678S9"
+    },
+    {
+      "email": "trav@da.co.za",
+      "password": "Thili123@"
+    },
+    {
+      "email": "lebo@gmail.com",
+      "password": "Brian@12345"
     }
   ],
-  "User": [
+  "register": [
+    {
+      "id": 1,
+      "firstName": "Thilivhali",
+      "lastName": "Ravhutulu",
+      "email": "ravhtuluportia@gmail.com",
+      "cellphoneNumber": "0812345678",
+      "password": "Thili123",
+      "idNo": 9908180313085,
+      "imageUrl": ""
+    },
+    {
+      "firstName": "Thilivhali",
+      "lastName": "Ravhutulu",
+      "email": "thilivhali.ravhutulu@dadevs.co.za",
+      "cellphoneNumber": "0821234567",
+      "password": "Thili123",
+      "confirmPassword": "Thili123",
+      "idNo": 9807180313098,
+      "pinNo": "1234",
+      "confirmPinNo": "1234",
+      "id": 2
+    },
+    {
+      "firstName": "Mukosi",
+      "lastName": "Budeli",
+      "email": "mukosi@gmail.com",
+      "cellphoneNumber": "0876543212",
+      "password": "Mukosi987*",
+      "idNo": 9876545676556,
+      "image": "blob:http://localhost:4200/b9b9cda4-b7bc-4d45-b715-4e14b57a09ca",
+      "id": 3
+    },
+    {
+      "firstName": "Lebohang",
+      "lastName": "Mokoena",
+      "email": "lebo@gmail.com",
+      "cellphoneNumber": "0812348765",
+      "password": "Brian@12345",
+      "idNo": 6709086754089,
+      "image": "blob:http://localhost:4200/8d05e949-25eb-4c06-8deb-59b384206615",
+      "id": 4
+    }
+  ],
+  "reset": [
+    {
+      
+    }
+  ],
+  "forgot": [
+    {
+      
+    }
+  ],
+  "User": [ 
     {
       "firstName": "Mohammed",
       "lastName": "Badat",
@@ -38,10 +100,8 @@
   ],
   "Goal_Savings": [
     {
-      "id": 1,
-      "Savings_Acc_No": 9898989898989898,
-      "amount": "500",
-      "Date_created": "08/08/2022"
+      "amount": "2000",
+      "id": 1
     }
   ],
   "Transaction": [
@@ -52,7 +112,7 @@
       "Description": "Uber",
       "Transaction_Date": "2022/08/28",
       "Money_In": 0,
-      "Money_Out": 200,
+      "moneyOut": 200,
       "Available_Balance": "1600"
     },
     {
@@ -62,7 +122,7 @@
       "Description": "Uber",
       "Transaction_Date": "2022/08/28",
       "Money_In": 0,
-      "Money_Out": 50,
+      "moneyOut": 50,
       "Available_Balance": "1900"
     },
     {
@@ -72,7 +132,7 @@
       "Description": "Takealot",
       "Transaction_Date": "2022/08/20",
       "Money_In": 0,
-      "Money_Out": 500,
+      "moneyOut": 500,
       "Available_Balance": "1900"
     },
     {
@@ -82,7 +142,7 @@
       "Description": "Takealot",
       "Transaction_Date": "2022/08/28",
       "Money_In": 0,
-      "Money_Out": 500,
+      "moneyOut": 500,
       "Available_Balance": "1900"
     },
     {
@@ -92,7 +152,7 @@
       "Description": "Takealot",
       "Transaction_Date": "2022/08/20",
       "Money_In": 0,
-      "Money_Out": 2500,
+      "moneyOut": 2500,
       "Available_Balance": "1900"
     },
     {
@@ -102,7 +162,7 @@
       "Description": "Uber",
       "Transaction_Date": "2022/07/08",
       "Money_In": 0,
-      "Money_Out": 100,
+      "moneyOut": 100,
       "Available_Balance": "1100"
     },
     {
@@ -112,7 +172,7 @@
       "Description": "Uber",
       "Transaction_Date": "2022/07/03",
       "Money_In": 0,
-      "Money_Out": 300,
+      "moneyOut": 300,
       "Available_Balance": "1100"
     },
     {
@@ -122,7 +182,7 @@
       "Description": "Uber",
       "Transaction_Date": "2022/06/23",
       "Money_In": 0,
-      "Money_Out": 200,
+      "moneyOut": 200,
       "Available_Balance": "1100"
     },
     {
@@ -132,7 +192,7 @@
       "Description": "Van Schaik",
       "Transaction_Date": "2022/06/12",
       "Money_In": 0,
-      "Money_Out": 200,
+      "moneyOut": 200,
       "Available_Balance": "1100"
     },
     {
@@ -142,7 +202,7 @@
       "Description": "Takealot",
       "Transaction_Date": "2011/05/16",
       "Money_In": 0,
-      "Money_Out": 500,
+      "moneyOut": 500,
       "Available_Balance": "1100"
     },
     {
@@ -152,7 +212,7 @@
       "Description": "Takealot",
       "Transaction_Date": "2011/05/16",
       "Money_In": 0,
-      "Money_Out": 500,
+      "moneyOut": 500,
       "Available_Balance": "1100"
     }
   ],
@@ -187,77 +247,223 @@
       "transactionId": 0,
       "transactionType": "DEPOSIT",
       "transactionDate": "2023-08-11T13:11:44.024Z",
-      "description": "Zinzu Chan Lee delphia sekhukhune",
+      "description": "Van Schaik",
       "moneyIn": 0,
-      "moneyOut": 100,
+      "moneyOut": 450,
+      "availableBalance": 0,
+      "image": "/assets/Images/Transactions/Van Schaik.png"
+    },
+    {
+      "transactionId": 0,
+      "transactionType": "DEPOSIT",
+      "transactionDate": "2023-08-12T13:11:44.024Z",
+      "description": "Allowance",
+      "moneyIn": 2000,
+      "moneyOut": 0,
       "availableBalance": 0,
       "image": "/assets/Images/Landing/Spending_money_wallet.png"
     },
-      {
-        "transactionId": 0,
-        "transactionType": "DEPOSIT",
-        "transactionDate": "2023-08-01T13:11:44.024Z",
-        "description": "Zinzu Chan Lee delphia",
-        "moneyIn": 2000,
-        "moneyOut": 0,
-        "availableBalance": 0,
-        "image":"/assets/Images/Landing/Spending_money_wallet.png"
-        },
-        {
-          "transactionId": 0,
-          "transactionType": "DEPOSIT",
-          "transactionDate": "2023-08-02T13:11:44.024Z",
-          "description": "Zinzu Chan Lee",
-          "moneyIn": 0,
-          "moneyOut": 450,
-          "availableBalance": 0,
-          "image":"/assets/Images/Landing/Spending_money_wallet.png"
-          },
-          {
-            "transactionId": 0,
-            "transactionType": "DEPOSIT",
-            "transactionDate": "2023-07-01T13:11:44.024Z",
-            "description": "Zinzu Chan",
-            "moneyIn": 1500,
-            "moneyOut": 0,
-            "availableBalance": 0,
-            "image":"/assets/Images/Landing/Spending_money_wallet.png"
-            },
-            {
-              "transactionId": 0,
-              "transactionType": "DEPOSIT",
-              "transactionDate": "2023-08-11T13:11:44.024Z",
-              "description": "Zinzu",
-              "moneyIn": 0,
-              "moneyOut": 50,
-              "availableBalance": 0,
-              "image":"/assets/Images/Landing/Spending_money_wallet.png"
-              
-              },
-              {
-                "transactionId": 0,
-                "transactionType": "DEPOSIT",
-                "transactionDate": "2023-08-12T13:11:44.024Z",
-                "description": "Lefa",
-                "moneyIn": 1000,
-                "moneyOut": 0,
-                "availableBalance": 0,
-                "image":"/assets/Images/Landing/Spending_money_wallet.png"
-               
-                }
-                ,
-          {
-            "transactionId": 0,
-            "transactionType": "DEPOSIT",
-            "transactionDate": "2023-08-12T13:11:44.024Z",
-            "description": "Mildred",
-            "moneyIn": 0,
-            "moneyOut": 155,
-            "availableBalance": 0,
-            "image":"/assets/Images/Landing/Spending_money_wallet.png"
-         
-            
-            }
-
+    {
+      "transactionId": 0,
+      "transactionType": "DEPOSIT",
+      "transactionDate": "2023-08-02T13:11:44.024Z",
+      "description": "Uber Eats",
+      "moneyIn": 0,
+      "moneyOut": 100,
+      "availableBalance": 0,
+      "image": "/assets/Images/Transactions/UberEats.png"
+    },
+    {
+      "transactionId": 0,
+      "transactionType": "DEPOSIT",
+      "transactionDate": "2023-07-01T13:11:44.024Z",
+      "description": "NSFAS",
+      "moneyIn": 1500,
+      "moneyOut": 0,
+      "availableBalance": 0,
+      "image": "/assets/Images/Transactions/NSFAS.png"
+    },
+    {
+      "transactionId": 0,
+      "transactionType": "DEPOSIT",
+      "transactionDate": "2023-08-11T13:11:44.024Z",
+      "description": "Bolt",
+      "moneyIn": 0,
+      "moneyOut": 50,
+      "availableBalance": 0,
+      "image": "/assets/Images/Transactions/Bolt.png"
+    },
+    {
+      "transactionId": 0,
+      "transactionType": "DEPOSIT",
+      "transactionDate": "2023-08-01T13:11:44.024Z",
+      "description": "Zara",
+      "moneyIn": 0,
+      "moneyOut": 1000,
+      "availableBalance": 0,
+      "image": "/assets/Images/Transactions/zara.png"
+    },
+    {
+      "transactionId": 0,
+      "transactionType": "DEPOSIT",
+      "transactionDate": "2023-08-12T13:11:44.024Z",
+      "description": "McDonalds",
+      "moneyIn": 0,
+      "moneyOut": 155,
+      "availableBalance": 0,
+      "image": "/assets/Images/Transactions/McDonalds.png"
+    }
+  ],
+  "Budget": [
+    {
+      "amountSet": "700",
+      "transactionType": "FOOD",
+      "progressAmount": "23425234"
+    },
+    {
+      "id": 2,
+      "accountNo": "927970904",
+      "amountSet": 500,
+      "Status": "In-Progress",
+      "transactionType": "TRANSPORT",
+      "progressAmount": "23425234"
+    },
+    {
+      "id": 3,
+      "accountNo": "927970904",
+      "amountSet": 500,
+      "Status": "In-Progress",
+      "transactionType": "BOOKS",
+      "progressAmount": "23425234"
+    },
+    {
+      "amountSet": "300",
+      "transactionType": "BANK_CHARGES",
+      "accountNo": "927970904",
+      "progressAmount": "23425234",
+      "Status": "In-Progress",
+      "id": 1
+    },
+    {
+      "amountSet": "300",
+      "transactionType": "TRANSPORT",
+      "accountNo": "927970904",
+      "progressAmount": "23425234",
+      "Status": "In-Progress",
+      "id": 2
+    },
+    {
+      "amountSet": "200",
+      "transactionType": "TUITION",
+      "id": 6
+    },
+    {
+      "amountSet": "5000",
+      "transactionType": "BANK_CHARGES",
+      "id": 7
+    },
+    {
+      "amountSet": "5000",
+      "transactionType": "TRANSPORT",
+      "id": 8
+    }
+  ],
+  "students": [
+    {
+      "firstName": "Delphi",
+      "lastName": "Dolphin",
+      "email": "dolphy@gmail.com",
+      "studentNumber": 82993849,
+      "year": "3rd Year",
+      "id": 3
+    },
+    {
+      "firstName": "Moe",
+      "lastName": "salah",
+      "email": "moe@gmail.com",
+      "studentNumber": 29984998,
+      "year": "2nd Year",
+      "id": 5
+    },
+    {
+      "firstName": "Mukos",
+      "lastName": "Ozil",
+      "email": "Ozil@gmail.com",
+      "studentNumber": 39999038,
+      "year": "Post Graduate",
+      "id": 6
+    },
+    {
+      "firstName": "Mpendulo",
+      "lastName": "sibiya",
+      "email": "mpendu@gmail.com",
+      "studentNumber": 34674575,
+      "year": "4th Year",
+      "id": 7
+    },
+    {
+      "firstName": "Thomas",
+      "lastName": "Partey",
+      "email": "partey@gmail.com",
+      "studentNumber": 45675757,
+      "year": "2nd Year",
+      "id": 9
+    },
+    {
+      "firstName": "Masingita",
+      "lastName": "Boss",
+      "email": "boss@gmail.com",
+      "studentNumber": 4745857858,
+      "year": "Post Graduate",
+      "id": 10
+    },
+    {
+      "firstName": "Sihle",
+      "lastName": "Mr Pirates",
+      "email": "pirates@gmail.com",
+      "studentNumber": 979579876,
+      "year": "Post Graduate",
+      "id": 11
+    },
+    {
+      "firstName": "thomas",
+      "lastName": "fixa",
+      "email": "fixa@gmail.com",
+      "studentNumber": 2398746,
+      "year": "1st Year",
+      "id": 13
+    },
+    {
+      "firstName": "thomas",
+      "lastName": "tomytv",
+      "email": "tomy@gmail.com",
+      "studentNumber": 345345345,
+      "year": "2nd Year",
+      "id": 14
+    },
+    {
+      "firstName": "lebo",
+      "lastName": "lebogang",
+      "email": "lebo@gmail.com",
+      "studentNumber": 34534535,
+      "year": "3rd Year",
+      "id": 15
+    },
+    {
+      "firstName": "Moe",
+      "lastName": "salah66",
+      "email": "moe@gmail.com",
+      "studentNumber": 29984998,
+      "year": "2nd Year",
+      "id": 16
+    },
+    {
+      "firstName": "Moe",
+      "lastName": "salah",
+      "email": "moe@gmail.com",
+      "studentNumber": 299849,
+      "year": "2nd Year",
+      "id": 17
+    }
   ]
 }

@@ -22,30 +22,28 @@
     <h1>Transactions</h1>
   </div>
 
-  <div class="flex-item"  style="border-style:none">   
-    <div class="input-group">
-      <mat-icon>search</mat-icon>
-    <input type="search" placeholder="Search Data..." class="centered-placeholder"> 
-    </div>
-  </div>
+  <div class="input-group">
+    <mat-icon>search</mat-icon>
+    <input type="search" placeholder="Search Data..." class="centered-placeholder" [(ngModel)]="searchFilter" (ngModelChange)="applySearchFilter()">
+  </div>  
 </div>
 
 
 <div class="flex-container">
-  
+ 
   <div class="flex-item">
     <!-- <mat-icon class="info-icon" matTooltip="Current Balance on the everyday bank account">info</mat-icon> -->
    <h6>Current Balance</h6>
-   <p>R {{ this.availableBalance}}</p>   
+   <p>R {{ this.availableBalance}}</p>  
   </div>
 
   <div  class="flex-item">
     <!-- <mat-icon class="info-icon" matTooltip="Total amount that has been spent for that specific month on the everyday bank account">info</mat-icon> -->
      <h6>Total Income</h6>
-    <p>R {{this.totalIncome}}</p> 
+    <p>R {{this.totalIncome}}</p>
   </div>
 
-  <div class="flex-item">   
+  <div class="flex-item">  
     <!-- <mat-icon class="info-icon" matTooltip="Total amount that has been saved for that specific month">info</mat-icon> -->
     <h6>Total Expenses</h6>
     <p>R {{this.totalExpenses}}</p>

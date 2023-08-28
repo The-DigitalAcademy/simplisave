@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StepperService } from 'src/app/services/stepper.service';
-import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { FileUploaderService } from 'src/app/services/file-uploader.service';
-import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-steps',
@@ -34,7 +31,7 @@ export class StepsComponent implements OnInit {
   previewImage: string | null = null;
 
 
-  constructor(private fb: FormBuilder, private stepperService: StepperService, private router: Router, private fileUploaderService: FileUploaderService) {}
+  constructor(private fb: FormBuilder, private stepperService: StepperService, private router: Router) {}
 
   ngOnInit() {
     this.step1FormGroup = this.fb.group({

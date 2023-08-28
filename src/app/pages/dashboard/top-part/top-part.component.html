@@ -1,9 +1,9 @@
 <div class="firstPart" style="display: flex;flex-direction: row;justify-content: space-between;">
-<h1 class="heading">Dashboard</h1>
-<div class="Transfer" (click)="openTransferModal()">Transfer to savings<span class='material-icons'>add_circle</span></div>
+  <h1 class="heading">Dashboard</h1>
+  <div class="Transfer" (click)="openTransferModal()">Transfer to savings<span class='material-icons'>add_circle</span>
+  </div>
 </div>
 <div class="top-container">
-  
   
   
   <div class="item">
@@ -13,16 +13,15 @@
     <p>R {{ this.availableBalance }}</p>  
   </div>
 
-  <div  class="item">
+  <div class="item">
 
-     <h6>Monthly Spending</h6>
-    <p>R {{this.sumMoneyOut}}</p> 
+    <h6>Monthly Spending</h6>
+    <p>R {{this.sumMoneyOut}}</p>
   </div>
 
-  <div class="item">   
-   
+  <div class="item">
+
     <h6>Total Saved</h6>
     <p>R {{this.totalSaved}}</p>
   </div>
 </div>
-

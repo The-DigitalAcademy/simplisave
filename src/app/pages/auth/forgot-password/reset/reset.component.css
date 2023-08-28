@@ -1,0 +1,58 @@
+.create{
+    color: black;
+    font-weight: var(--bold);
+    font-size: var(--font-medium);
+  }
+  
+  .credentials{
+    color: black;
+    font-size: var(--font-x-small);
+  }
+  
+  .title{
+      color: var(--primary-color);
+      font-weight: var(--bold);
+      font-size: var(--font-x-large);
+  }
+  
+  .subtitle{
+    font-size: var(--font-small);
+  }
+  
+  p{
+    font-size: var(--font-small);
+    color: black;
+  }
+  
+  .validation{
+    width: 100%;
+    font-size: var(--font-x-small);
+    
+  }
+  
+  .btn{
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 10px;
+    font-size:var(--font-small);
+    width: 40%;
+    margin-right: 30px;
+  }
+  
+  .buttons{
+    text-align: center;
+    align-self: center;
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-label .mat-placeholder {
+    font-size: xx-small !important;
+  
+  }
+  
+  u{
+    color: var(--primary-color);
+  }
+  
+  mat-label{
+    font-size: var(--font-x-small);
+  }

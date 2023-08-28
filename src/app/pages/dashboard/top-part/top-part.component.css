@@ -1,20 +1,21 @@
 .heading {
-color:var(--primary-color);
-font-size: var(--font-xx-large);
-font-family: Roboto;
-font-weight:var(--semi-bold);
-line-height: 20px;
-word-wrap: break-word;
-margin-top: 30px;
-padding-left:2%;
-padding-bottom:2%;
+  color: var(--primary-color);
+  font-size: var(--font-xx-large);
+  font-family: Roboto;
+  font-weight: var(--semi-bold);
+  line-height: 20px;
+  word-wrap: break-word;
+  margin-top: 30px;
+  padding-left: 2%;
+  padding-bottom: 2%;
 }
 
 .item:hover {
   background-color: var(--hover);
   cursor: pointer;
-  
+
 }
+
 .Transfer {
   display: flex;
   justify-content: center;
@@ -31,10 +32,10 @@ padding-bottom:2%;
   letter-spacing: 0.10px;
 }
 
-.firstPart{
+.firstPart {
   display: flex;
   align-items: center;
-  padding-right:2%;
+  padding-right: 2%;
 }
 
 
@@ -45,30 +46,30 @@ padding-bottom:2%;
 
 .info-icon {
   cursor: pointer;
-  font-size:var(--font-large);
+  font-size: var(--font-large);
 }
 
 
-mat-icon{
+mat-icon {
   color: var(--primary-color);
   margin: 5%;
   position: absolute;
   top: 0;
   right: 0;
- 
+
 }
 
 .top-container {
   display: flex;
   gap: 20px;
-  padding:2%;
+  padding: 2%;
   width: 100%;
   margin-left: 0%;
   margin-top: 0;
 }
 
- .top-container > div {
-  
+.top-container>div {
+
   padding: 1%;
   font-size: var(--font-large);
   color: black;
@@ -77,21 +78,19 @@ mat-icon{
   line-height: 24px;
   letter-spacing: 0.15px;
   word-wrap: break-word
-  
-} 
-
-p{
-color: black;
-font-size: var(--font-small);
-font-family: var(--base-font);
-font-weight: var(--regular);
-line-height: 20px;
-letter-spacing: 0.25px;
-word-wrap: break-word
 }
 
+p {
+  color: black;
+  font-size: var(--font-small);
+  font-family: var(--base-font);
+  font-weight: var(--regular);
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  word-wrap: break-word
+}
 
-h6{
+h6 {
   font-size: var(--font-normal);
   font-weight: var(--bold);
 }
@@ -108,7 +107,7 @@ h6{
   border-style: solid;
   border-width: 0.5px;
   border-radius: 12px;
- 
+
 }
 
 @media (max-width: 1024px) {
@@ -130,26 +129,30 @@ h6{
     padding: 0;
     margin-top: 2%;
   }
-  
+
   .info-icon {
     font-size: var(--font-normal);
     margin-right: 0px;
   }
-  .firstPart{
+
+  .firstPart {
     display: flex;
     align-items: center;
-    padding-right:2%;
+    padding-right: 2%;
   }
-  .material-icons{
-   
+
+  .material-icons {
+
     margin: 0;
     padding: 0;
     margin-left: 0.5vw;
-    }
+  }
 }
+
 @media (max-width: 800px) {
   .heading {
     font-size: 24px;
+    margin-left: 1%;
   }
 
   .item:nth-child(2),
@@ -159,76 +162,79 @@ h6{
     margin-bottom: 20px;
   }
 
-  h6{
+  h6 {
     font-size: var(--font-small);
   }
 
-  p{
+  p {
     font-size: var(--font-x-small);
   }
-  .top-container > div {
+
+  .top-container>div {
     font-size: 16px;
     padding: 2%;
 
 
   }
 
-    .top-container {
-      flex-wrap: wrap;
-  
-    }
-  
-    .item:nth-child(2),
-    .item:nth-child(3) {
-      flex-basis: calc(50% - 10px);
-      font-size: var(--font-normal);
-      margin-bottom: 20px;
-      
-    }
-  
-    h6{
-      font-size: var(--font-small);
-    }
-  
-    p{
-      font-size: var(--font-x-small);
-    }
-  
-    .Transfer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #AF144B;
-      width: 30%;
-      height: 30px;
-      color: white;
-      border-radius: 20px;
-      border: none;
-      font-size: 12px;
-      font-family: Roboto;
-      line-height: 20px;
-      letter-spacing: 0.10px;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .firstPart{
-      display: flex;
-      align-items: center;
-      padding-right:2%;
-    }
-    .material-icons{
-      margin-left: 0;
-      margin: 0;
-      padding: 0;
-      }
-      .info-icon {
-        font-size: 15px;
-       
-      }
-   
-  
- 
+  .top-container {
+    flex-wrap: wrap;
+
+  }
+
+  .item:nth-child(2),
+  .item:nth-child(3) {
+    flex-basis: calc(50% - 10px);
+    font-size: var(--font-normal);
+    margin-bottom: 20px;
+
+  }
+
+  h6 {
+    font-size: var(--font-small);
+  }
+
+  p {
+    font-size: var(--font-x-small);
+  }
+
+  .Transfer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #AF144B;
+    width: 30%;
+    height: 30px;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    font-size: 12px;
+    font-family: Roboto;
+    line-height: 20px;
+    letter-spacing: 0.10px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .firstPart {
+    display: flex;
+    align-items: center;
+    padding-right: 2%;
+  }
+
+  .material-icons {
+    margin-left: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .info-icon {
+    font-size: 15px;
+
+  }
+
+
+
 }
 
 @media (max-width: 500px) {
@@ -240,7 +246,7 @@ h6{
 
   }
 
-  .top-container > div {
+  .top-container>div {
     font-size: var(--font-normal);
     padding: 2%;
 
@@ -248,44 +254,44 @@ h6{
   }
 
 
-    .top-container {
-      flex-wrap: wrap;
-      width: 104%;
-      margin-left: -1px;
-    }
-  
-    .item:nth-child(2),
-    .item:nth-child(3) {
-      flex-basis: calc(50% - 10px);
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-  
-    h6{
-      font-size: 14px;
-    }
-  
-    p{
-      font-size: 12px;
-    }
-  
-    .Transfer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #AF144B;
-      width: 48%;
-      height: 30px;
-      color: white;
-      border-radius: 20px;
-      border: none;
-      font-size: 12px;
-      font-family: Roboto;
-      line-height: 20px;
-      letter-spacing: 0.10px;
-      margin: 0;
-      padding: 0;
-    }
+  .top-container {
+    flex-wrap: wrap;
+    width: 104%;
+    margin-left: 0px;
+  }
+
+  .item:nth-child(2),
+  .item:nth-child(3) {
+    flex-basis: calc(50% - 10px);
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  h6 {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .Transfer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #AF144B;
+    width: 48%;
+    height: 30px;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    font-size: 12px;
+    font-family: Roboto;
+    line-height: 20px;
+    letter-spacing: 0.10px;
+    margin: 0;
+    padding: 0;
+  }
 
 @media (max-width: 500px) {
   .heading {

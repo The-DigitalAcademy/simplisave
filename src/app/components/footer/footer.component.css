@@ -111,6 +111,7 @@
 
     .scroll-up-btn {
         position: static;
+        width: 60px;
     }
 
     .nav-link {
@@ -121,7 +122,6 @@
         display: flex;
         margin-bottom: 10px;
     }
-
 
     .footer {
         background-color: var(--primary-color);
@@ -148,7 +148,7 @@
     }
 
     .card-container {
-        display: flex;
+        display: block !important;
         flex-wrap: wrap;
     }
 
@@ -180,6 +180,7 @@
 
     .scroll-up-btn {
         position: static;
+        width: 60px;
     }
 
     .nav-link {
@@ -201,7 +202,7 @@
 
     .footer h2 {
         font-size: var(--font-normal);
-        color: white;
+        color:#ffffff;
         margin: 0px;
     }
 

@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+    selector: 'app-sidebar',
+    templateUrl: './sidebar.component.html',
+    styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
-  isSidebarOpen: boolean = false;
+    isSidebarOpen = false;
 
-  toggleSidebar(): void {
-    this.isSidebarOpen = !this.isSidebarOpen;
-  }
+    constructor(private auth: AuthService) {}
+
+    toggleSidebar(): void {
+        this.isSidebarOpen = !this.isSidebarOpen;
+    }
+
+    logout() {
+        this.auth.logout();
+    }
 }
