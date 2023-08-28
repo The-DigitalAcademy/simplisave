@@ -38,7 +38,7 @@ export class StepperService {
       }
 
   saveRegistrationData(): void {
-    this.http.post(`${environment.REG_URL}`, this.registrationData).subscribe(
+    this.http.post(`${environment.backendUrl}/student/registration`, this.registrationData).subscribe(
       (response) => {
         console.log('Registration data saved:', response);
         Swal.fire({

@@ -20,27 +20,27 @@ body {
 }
 
 .banner-heading {
-  font-Size: 60px;
+  font-Size:var(--font-xxxx-large);
   letter-spacing: -0.5% ;
   max-width: 70%;
   text-align: left;
   margin-top: 30px;
-  margin-left: 10%; /*Updated margin for better responsiveness */
+  margin-left: 11.5%; /*Updated margin for better responsiveness */
 }
 
 .banner-button {
   margin-top: 5%;
   padding: 0;
-  color: #FFFFFF;
+  color: white;
   text-align: center;
-  background-color: #870A3C;
+  background-color: var(--primary-color);
   width: 20vw;
   height: 60px;
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 10%; /* Updated margin for better responsiveness */
+  margin-left: 11.5%; /* Updated margin for better responsiveness */
   font-size: 1.9rem;
   border-style: none;
 }
@@ -50,7 +50,7 @@ body {
   .banner-heading {
     max-width: 80%; /* Updated max-width for better responsiveness */
     font-size: 2rem; /* Default font size */
-    font-weight: bold;
+    font-weight: var(--bold);
     text-align: left;
     margin-left: 7%;  /* Updated margin for better responsiveness */
   }

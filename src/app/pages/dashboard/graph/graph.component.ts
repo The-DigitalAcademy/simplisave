@@ -7,7 +7,7 @@ import { Chart, ChartOptions } from 'chart.js';
   styleUrls: ['./graph.component.css']
 })
 export class GraphComponent implements AfterViewInit {
-  chart!: Chart; // Add the "!" symbol to indicate it will be initialized later
+  chart!: Chart;
 
   ngAfterViewInit() {
     this.createChart();
@@ -22,14 +22,14 @@ export class GraphComponent implements AfterViewInit {
     }
 
     this.chart = new Chart(ctx, {
-      type: 'bar', // Change to 'bar' for a bar graph
+      type: 'bar',
       data: {
         labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
         datasets: [{
-          label: 'Expense Summary', // Add the heading "Expense Summary"
+          label: 'Expense Summary', 
           data: [1300, 1500, 1100, 1500, 2000, 1000, 1200, 1800, 1700, 1200],
-          backgroundColor: '#870A3C', // Set the bars' color to #870A3C
-          borderWidth: 0 // Remove the borders between the bars
+          backgroundColor: '#870A3C', 
+          borderWidth: 0 
         }]
       },
       options: {
@@ -47,7 +47,7 @@ export class GraphComponent implements AfterViewInit {
               stepSize: 500
             },
             grid: {
-              display: false // Remove the grid from the chart
+              display: false 
             }
           }
         },
@@ -57,7 +57,7 @@ export class GraphComponent implements AfterViewInit {
             position: 'bottom'
           }
         }
-      } as ChartOptions // Add this type assertion to prevent TypeScript errors
+      } as ChartOptions 
     });
   }
 }

@@ -259,8 +259,8 @@
       "progressAmount": "23425234"
     },
     {
-      "amountSet": "500",
-      "transactionType": "OTHER",
+      "amountSet": "300",
+      "transactionType": "BANK_CHARGES",
       "accountNo": "927970904",
       "progressAmount": "23425234",
       "Status": "In-Progress",
