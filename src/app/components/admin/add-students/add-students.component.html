@@ -1,0 +1,48 @@
+<div mat-dialog-title>
+    <h1>Students</h1>
+</div>
+
+<form [formGroup]="studentForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="content">
+
+    <div class="row">
+        <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput type="text" placeholder="Student First Name " formControlName="firstName">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" placeholder="Student Last Name "  formControlName="lastName">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="text" placeholder="Student Email "  formControlName="email">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Student Number</mat-label>
+            <input matInput type="number" placeholder="Student  "  formControlName="studentNumber">
+          </mat-form-field>
+    </div>
+    
+<div class="row">
+    <mat-form-field >
+        <mat-label>Academic Year of study</mat-label>
+        <mat-select  formControlName="year">
+          <mat-option *ngFor="let value of year" [value]="value" >
+          {{value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+
+</div>
+
+
+<div mat-dialog-actions>
+    <button mat-raised-button>Cancel</button>
+    <button mat-raised-button color="primary">Save</button>
+</div>
+</form>

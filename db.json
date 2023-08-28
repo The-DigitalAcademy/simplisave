@@ -61,7 +61,7 @@
       "id": 4
     }
   ],
-  "User": [ 
+  "User": [
     {
       "firstName": "Mohammed",
       "lastName": "Badat",
@@ -308,7 +308,6 @@
     {
       "amountSet": "700",
       "transactionType": "FOOD",
-
       "progressAmount": "23425234"
     },
     {
@@ -357,6 +356,80 @@
       "amountSet": "5000",
       "transactionType": "TRANSPORT",
       "id": 8
+    }
+  ],
+  "students": [
+    {
+      "firstName": "Delphi",
+      "lastName": "Dolphin",
+      "email": "dolphy@gmail.com",
+      "studentNumber": 82993849,
+      "year": "3rd Year",
+      "id": 3
+    },
+    {
+      "firstName": "Thili",
+      "lastName": "Ravhutulu",
+      "email": "thilivia@gmail.com",
+      "studentNumber": 37789405,
+      "year": "Post Graduate",
+      "id": 4
+    },
+    {
+      "firstName": "Moe",
+      "lastName": "salah",
+      "email": "moe@gmail.com",
+      "studentNumber": 29984998,
+      "year": "2nd Year",
+      "id": 5
+    },
+    {
+      "firstName": "Mukos",
+      "lastName": "Ozil",
+      "email": "Ozil@gmail.com",
+      "studentNumber": 39999038,
+      "year": "Post Graduate",
+      "id": 6
+    },
+    {
+      "firstName": "Mpendulo",
+      "lastName": "sibiya",
+      "email": "mpendu@gmail.com",
+      "studentNumber": 34674575,
+      "year": "4th Year",
+      "id": 7
+    },
+    {
+      "firstName": "victor",
+      "lastName": "Osimen",
+      "email": "vici@gmail.com",
+      "studentNumber": 45858687,
+      "year": "2nd Year",
+      "id": 8
+    },
+    {
+      "firstName": "Thomas",
+      "lastName": "Partey",
+      "email": "partey@gmail.com",
+      "studentNumber": 45675757,
+      "year": "2nd Year",
+      "id": 9
+    },
+    {
+      "firstName": "Masingita",
+      "lastName": "Boss",
+      "email": "boss@gmail.com",
+      "studentNumber": 4745857858,
+      "year": "Post Graduate",
+      "id": 10
+    },
+    {
+      "firstName": "Sihle",
+      "lastName": "Mr Pirates",
+      "email": "pirates@gmail.com",
+      "studentNumber": 979579876,
+      "year": "Post Graduate",
+      "id": 11
     }
   ]
 }

@@ -1,4 +1,4 @@
- 
+<!--  
 
 <h1>Hello Admin</h1>
 
@@ -77,4 +77,79 @@
     </tbody>
   </table>
 </div>
+ -->
 
+ <mat-toolbar>
+ 
+ <span>Admin</span>
+ <span class="example-spacer"></span>
+<button mat-raised-button (click)="openAddStudents()">Add Students</button>
+</mat-toolbar>
+
+<h1>Hello Admin</h1>
+<div class="table">
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef> Last Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+ <!-- Symbol Column -->
+ <ng-container matColumnDef="studentNumber">
+  <th mat-header-cell *matHeaderCellDef> Student Number </th>
+  <td mat-cell *matCellDef="let element"> {{element.studentNumber}} </td>
+</ng-container>
+
+<ng-container matColumnDef="year">
+  <th mat-header-cell *matHeaderCellDef> Year </th>
+  <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+</ng-container>
+
+<ng-container matColumnDef="action">
+  <th mat-header-cell *matHeaderCellDef> Action  </th>
+  <td mat-cell *matCellDef="let element">
+
+  <button mat-icon-button>
+    <mat-icon>edit</mat-icon>
+  </button>  
+
+  <button mat-icon-button color="warn" (click)="removeStudent(element.id)">
+    <mat-icon>delete</mat-icon>
+  </button>  
+
+  </td>
+</ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+</div>
