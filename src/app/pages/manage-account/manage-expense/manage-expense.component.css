@@ -1,7 +1,7 @@
 
 .container {
-  width: 1140px;
-  margin: 0;
+  width: 100%;
+  
 }
 
 .heading {
@@ -42,7 +42,7 @@ h1 {
 .grid-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 35px;
+  gap: 25px;
 }
 
 .cardHeading { 
