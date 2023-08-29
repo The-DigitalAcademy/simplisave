@@ -38,7 +38,7 @@ export class AuthService {
 
 //the login method to set the authentication state to true when the login is successful
   login(data: any) {
-    return this.http.post<any>(`${environment.backendUrl}/auth/login`, data).pipe(
+    return this.http.post<any>(`${environment.LOGIN_URL}`, data).pipe(
       tap((res: any) => {
         const token = res['token'].token;
         this.setToken(token);
