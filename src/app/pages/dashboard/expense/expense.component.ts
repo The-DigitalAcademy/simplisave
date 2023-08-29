@@ -126,13 +126,16 @@ export class ExpenseComponent {
         const transactionDate = record.transactionDate;
         const isWithinPrevMonth = transactionDate.getMonth() === prevMonth;
         return isMoneyOutPositive && isWithinPrevMonth;
+        
       });
       /* Add the money out amount for each of the transactions that matches the conditions */
       return filteredPrevMonthData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
+    
     });
 
     this.sumMoneyOutMonths.reverse(); // Reverse the array here
     console.log("sum",this.sumMoneyOutMonths);
+    
   }
 
   //create the chart using chart js, display current and three previous months, use the sumMoneyOut created array to populate values
