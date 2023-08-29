@@ -55,7 +55,7 @@ export class AccountService {
     }
 
     getTransactions2() {
-        return this.http.get(`${environment.TRANSACTIONS_URL}`);
+        return this.http.get(`${environment.TRANSACTION_URL}`);
     }
 
     getTypes(): Observable<any[]> {
