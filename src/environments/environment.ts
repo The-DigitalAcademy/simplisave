@@ -1,5 +1,5 @@
 export const environment = {
-    production: true,
+    production: false,
     REG_URL: '/api/v1/student/registration',
     LOGIN_URL: '/api/v1/auth/login',
     apiUrl: 'http://localhost:3000',
@@ -8,5 +8,6 @@ export const environment = {
     BUDGET_URL: '/api/v1/Budget',
     backendUrl: 'https://simplisave.software/api/v1',
     FORGOT_URL:'api/v1/auth/forgot-password',
-    RESET_URL:'api/v1/auth/reset-password'
+    RESET_URL:'api/v1/auth/reset-password',
+    UPDATE_URL:'api/v1/student/refinement'
 };
