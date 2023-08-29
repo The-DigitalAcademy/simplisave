@@ -1,46 +1,51 @@
- <div class="mask d-flex align-items-center">
-   <div class="container">
-     <div class="row d-flex justify-content-center align-items-left">
-       <h1 class="title text-center mb-2 mt-5">Welcome to SimpliSave</h1>
-       <h2 class="subtitle text-center mb-5">Admin Login here</h2>
-       <div class="col-12 col-md-9 col-lg-7 col-xl-4">
-         <div class="card" style="border-radius: 15px;">
-           <div class="card-body p-3">
-             <h3 >Admin Login</h3>
-             <h4 >Enter your credentials below.</h4>
- 
-             <form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
- 
-               <mat-form-field class="validation mb-4" appearance="outline">
-                 <mat-label>Email</mat-label>
-                 <input matInput type="email" class="form-control-plaintext" id="email" formControlName="email" required />
-                 <mat-error *ngIf="!loginForm.get('email')?.errors?.['required'] && (loginForm.get('email')?.errors?.['pattern'])">
-                   Please enter a valid email address
-                 </mat-error>
-                 <mat-error *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.['required']">
-                   Email is required
-                 </mat-error>
-               </mat-form-field>
-               <mat-form-field class="validation mb-4" appearance="outline">
-                 <mat-label>Password</mat-label>
-                 <input matInput type="password" class="form-control-plaintext" id="password" formControlName="password" required />
-                  <mat-error *ngIf="!loginForm.get('password')?.errors?.['required']" class="error-message">
-                 
-                   Password requires 8 characters, upper & lowercase, special characters & digits.
-             </mat-error>
-           <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.['required']">
-             Password is required
-           </mat-error>
-               </mat-form-field>
-            
-              <button [disabled]="!loginForm.valid" class="btn" type="submit" >Login</button>
-                        
-             </form>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
- <br>
- 
+<app-navbar></app-navbar>
+
+<div class="mask d-flex align-items-center">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-left">
+      <h1 class="title text-center mb-2 mt-5">Hey Admin</h1>
+      <h2 class="subtitle text-center mb-5">Login here</h2>
+      <div class="col-12 col-md-9 col-lg-7 col-xl-4">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-3">
+            <h3 class="create text-left mb-1">Log into your admin account</h3>
+            <h4 class="credentials mb-5">Enter your credentials below.</h4>
+
+            <form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
+
+              <mat-form-field class="validation mb-4" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" class="form-control-plaintext" id="username" [(ngModel)]="username" formControlName="username" required />
+                <mat-error *ngIf="!loginForm.get('username')?.errors?.['required'] && (loginForm.get('username')?.errors?.['pattern'])">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('username')?.invalid && (loginForm.get('username')?.dirty || loginForm.get('username')?.touched) && loginForm.get('username')?.errors?.['required']">
+                  Email is required
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="validation mb-4" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" class="form-control-plaintext" [(ngModel)]="password" id="password" formControlName="password" required />
+                 <mat-error *ngIf="!loginForm.get('password')?.errors?.['required']" class="error-message">
+                
+                  Password requires 8 characters, upper & lowercase, special characters & digits.
+            </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.['required']">
+            Password is required
+          </mat-error>
+              </mat-form-field>
+      
+             <p class="text-left text-muted mt-3 mb-2">Forgot your password? <a href="forgot"
+                    class="fw-bold text-body"><u>Reset</u></a></p>
+                    <br>
+                    <div class="d-flex justify-content-center align-items-center">
+                      <button [disabled]="!loginForm.valid" class="btn" type="submit" >Login</button>
+                    </div>   
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

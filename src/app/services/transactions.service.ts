@@ -18,14 +18,14 @@ export class TransactionsService {
   constructor(private http: HttpClient) { }
 
   getTransactionsList(){
-    return this.http.get<any>(`${environment.apiUrl}/Transaction_Details`)
+    return this.http.get<any>(`${environment.TRANSACTIONS_URL}`)
     .pipe(map((res:any) =>{
       return res;
     }))
   }
 
   getCurrentBalance(){
-    return this.http.get<any>(`${environment.apiUrl}/Account`);
+    return this.http.get<any>(`${environment.TRANSACTIONS_URL}`);
 }
 
 setSearchFilter(filter: string) {

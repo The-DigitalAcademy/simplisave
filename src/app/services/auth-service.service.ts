@@ -13,8 +13,6 @@ import { BehaviorSubject, Observable, tap} from 'rxjs';
 export class AuthService {
 
 
-  LOGIN_URL = /* `${environment.apiUrl}/signupUsers` */ 'https://springsimplisave-production.up.railway.app/api/auth/login';
-
 //The constructor holds two parameter: http for making http request and router for navigating to different routes/components 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -51,7 +49,7 @@ export class AuthService {
 
 //the login method to set the authentication state to true when the login is successful
   login(data: any) {
-    return this.http.post<any>(`${environment.backendUrl}/auth/login`, data).pipe(
+    return this.http.post<any>(`${environment.LOGIN_URL}`, data).pipe(
       tap((res: any) => {
         const token = res['token'].token;
         this.setToken(token);

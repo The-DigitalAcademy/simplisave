@@ -8,27 +8,27 @@ import { AuthService } from 'src/app/services/auth-service.service';
     styleUrls: ['./second-nav-bar.component.css'],
 })
 export class SecondNavBarComponent {
-    // items: any;
-    // name: any;
+    items: any;
+    name: any;
 
-    // constructor(
-    //     private accountService: AccountService,
-    //     private auth: AuthService
-    // ) {}
+    constructor(
+        private accountService: AccountService,
+        private auth: AuthService
+    ) {}
 
-    // ngOnInit() {
-    //     this.getAccountData();
-    // }
+    ngOnInit() {
+        this.getAccountData();
+    }
 
-    // logout() {
-    //     this.auth.logout();
-    // }
+    logout() {
+        this.auth.logout();
+    }
 
-    // getAccountData() {
-    //     this.accountService.getAccountData().subscribe(res => {
-    //         this.items = res;
-    //         this.name = this.items.firstName;
-    //         console.log(this.items.firstName);
-    //     });
-    // }
+    getAccountData() {
+        this.accountService.getAccountData().subscribe(res => {
+            this.items = res;
+            this.name = this.items.firstName;
+            console.log(this.items.firstName);
+        });
+    }
 }

@@ -13,7 +13,7 @@ export class AccountService {
 
     refreshObservable = this.refreshSubject.asObservable();
 
-    private url = `${environment.apiUrl}/Goal_Savings`;
+    private url = `${environment.backendUrl}/Goal_Savings`;
 
     constructor(
         private http: HttpClient,
@@ -33,15 +33,29 @@ export class AccountService {
     //   );
 
     getAccountData() {
-        return this.http.get(`${environment.apiUrl}/Account`);
+        console.log(this.authService.getToken())
+        return this.authService.getToken().pipe(
+          switchMap(token => {
+            const headers = new HttpHeaders({
+              Authorization: `Bearer ${token}`
+            });
+          return this.http.get(`${environment.STUDENT_DETAILS_URL}`, { headers });
+        })
+      );
+      
+      
     }
 
+    // getAccountData() {
+    //     return this.http.get(`${environment.backendUrl}/Transactions`);
+    // }
+
     getTransactions() {
-        return this.http.get(`${environment.apiUrl}/Transaction`);
+        return this.http.get(`${environment.TRANSACTION_URL}`);
     }
 
     getTransactions2() {
-        return this.http.get(`${environment.apiUrl}/Transaction`);
+        return this.http.get(`${environment.TRANSACTION_URL}`);
     }
 
     getTypes(): Observable<any[]> {
@@ -53,7 +67,7 @@ export class AccountService {
     }
 
     createType(body: any): Observable<any> {
-        return this.http.post<any>(`${environment.apiUrl}/Budget`, body);
+        return this.http.post<any>(`${environment.BACKEND_URL}/budget/creation`, body);
     }
 
     getGoalSavings(): Observable<any[]> {
@@ -73,7 +87,7 @@ export class AccountService {
     }
 
     updateUser(id: any, data: any) {
-        return this.http.put(`${environment.apiUrl}/User/${id}`, data);
+        return this.http.patch(`${environment.UPDATE_URL}`, data);
     }
     getOneTransaction(id: any): Observable<void> {
         return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
@@ -91,11 +105,11 @@ export class AccountService {
         return this.authService.getToken().pipe(
             switchMap(token => {
                 const headers = new HttpHeaders({
-                    Authorization: `Bearer ${token}`,
+                    Authorization: `${token}`,
                 });
                 // Make the authenticated API request using HttpClient
                 return this.http.post(
-                    `${environment.backendUrl}/accounts/transfer/8`,
+                  `${environment.TRANSACTION_URL}`,
                     data,
                     { headers }
                 );
