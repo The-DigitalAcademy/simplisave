@@ -11,8 +11,6 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 export class AuthService {
 
 
-  LOGIN_URL = /* `${environment.apiUrl}/signupUsers` */ 'https://springsimplisave-production.up.railway.app/api/auth/login';
-
 //The constructor holds two parameter: http for making http request and router for navigating to different routes/components 
   constructor(private http: HttpClient, private router: Router) {}
 
