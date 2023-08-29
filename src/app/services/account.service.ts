@@ -13,7 +13,7 @@ export class AccountService {
 
     refreshObservable = this.refreshSubject.asObservable();
 
-    private url = `${environment.apiUrl}/Goal_Savings`;
+    private url = `${environment.backendUrl}/Goal_Savings`;
 
     constructor(
         private http: HttpClient,
@@ -33,15 +33,29 @@ export class AccountService {
     //   );
 
     getAccountData() {
-        return this.http.get(`${environment.apiUrl}/Account`);
+        console.log(this.authService.getToken())
+        return this.authService.getToken().pipe(
+          switchMap(token => {
+            const headers = new HttpHeaders({
+              Authorization: `Bearer ${token}`
+            });
+          return this.http.get(`${environment.STUDENT_DETAILS_URL}`, { headers });
+        })
+      );
+      
+      
     }
 
+    // getAccountData() {
+    //     return this.http.get(`${environment.backendUrl}/Transactions`);
+    // }
+
     getTransactions() {
-        return this.http.get(`${environment.apiUrl}/Transaction`);
+        return this.http.get(`${environment.TRANSACTION_URL}`);
     }
 
     getTransactions2() {
-        return this.http.get(`${environment.apiUrl}/Transaction`);
+        return this.http.get(`${environment.TRANSACTION_URL}`);
     }
 
     getTypes(): Observable<any[]> {
