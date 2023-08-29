@@ -16,16 +16,27 @@ import { MatSort } from '@angular/material/sort';
 export class AdminComponent implements OnInit {
 
   displayColumn: string[]=[
-    'id',
+    'userId',
     'firstName',
     'lastName',
+    'username',
     'email',
-    'studentNumber',
-    'year',
+    'cellphoneNumber',
     'action'
+    
   ];
 
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email','studentNumber','year','action'];
+  displayedColumns: string[] = [  
+  'userId',
+  'firstName',
+  'lastName',
+  'username',
+  'email',
+  'cellphoneNumber',
+  'action'
+
+];
+
   dataSource!:  MatTableDataSource<any>;
 
   @ViewChild(MatPaginator)
@@ -39,6 +50,7 @@ export class AdminComponent implements OnInit {
     private studentsList:StudentsService
     
     ){}
+    
     ngOnInit(){
 
       this.getList()
@@ -57,21 +69,32 @@ export class AdminComponent implements OnInit {
     })
   }
 
- 
-
-  getList(){
+  getList() {
     this.studentsList.getStudents().subscribe({
-      next: (res: any)=>{  //if successful
-       this.dataSource = new MatTableDataSource(res);
-       this.dataSource.sort = this.sort;
-       this.dataSource.paginator = this.paginator
-         
+      next: (res: any) => {
+        console.log(res); // Check if the data is being received
+        
       },
-      error: (err) =>{ //else return an error
-        console.log(err)
+      error: (err) => {
+        console.log(err);
       }
-    })
+    });
   }
+  
+
+  // getList(){
+  //   this.studentsList.getStudents().subscribe({
+  //     next: (res: any)=>{  //if successful
+  //      this.dataSource = new MatTableDataSource(res);
+  //      this.dataSource.sort = this.sort;
+  //      this.dataSource.paginator = this.paginator
+         
+  //     },
+  //     error: (err) =>{ //else return an error
+  //       console.log(err)
+  //     }
+  //   })
+  // }
 removeStudent(id: number){
   this.studentsList.deleteStudent(id).subscribe({
     next: (res) =>{
