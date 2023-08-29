@@ -137,4 +137,6 @@ navbar-nav {
   .profile{
     display:none;
   }
+
+  .mat-icon{margin-right: 8px;}
 }
