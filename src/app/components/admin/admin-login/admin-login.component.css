@@ -1,69 +1,69 @@
-  .title{
-      color: var(--primary-color);
-      font-weight: bold;
-      font-size: x-large;
-  }
-  
-  .subtitle{
-    font-size: small;
-  }
-  
-  p{
-    font-size: small;
-  }
-  
- 
-  
-  .validation{
-    width: 100%;
-    font-size: small;
-    
-  }
-  
-  .btn{
-    background-color: var(--primary-color);
-    float: right;
-    border-radius: 10px;
-    background-color:var(--primary-color);
-    margin-right: 100px;
-    width: 50%;
-    color:white;
-    
-  }
-  
-  .mat-form-field-appearance-outline .mat-form-field-label .mat-placeholder {
-    font-size: xx-small !important;
-  
-  }
-  
-  u{
+.create{
+  color: var(--primary-color);
+  font-weight: var(--bold);
+  font-size: var(--font-medium);
+}
+
+.credentials{
+  color: black;
+  font-size: var(--font-x-small);
+}
+
+.title{
     color: var(--primary-color);
-  }
+    font-weight: var(--bold);
+    font-size: var(--font-x-large);
+}
+
+.subtitle{
+  font-size: var(--font-small);
+}
+
+p{
+  font-size: var(--font-small);
+}
+
+ button{
+  width: 30%;
+}
+
+.validation{
+  width: 100%;
+  font-size:var(--font-x-small);
   
-  mat-label{
-    font-size: small ;
-  }
-  
-  
-  .mat-form-field-appearance-outline .mat-form-field-outline {
-    border-color:  var(--primary-color)!important;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: var(--font-x-small);
-    margin-top: 0px; 
-  }
-  h3{
-    text-align: center;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-  }
-  
-  h4{
-    text-align:center ;
-    color: black;
-    font-size: var(--font-normal);
-    margin-bottom: 50px;
-  }
-  
+}
+
+.btn{
+  background-color: var(--primary-color);
+  float: right;
+  border-radius: 10px;
+  margin-right: 10px;
+  width: 30%;
+  color:white;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-label .mat-placeholder {
+  font-size: xx-small !important;
+
+}
+
+u{
+  color:var(--primary-color);
+}
+
+mat-label{
+  font-size: var(--font-x-small);
+}
+
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  border-color: var(--primary-color)!important;
+}
+
+.error-message {
+  color: red;
+  font-size: var(--font-x-small);
+  margin-top: 0px; 
+}
+
+
