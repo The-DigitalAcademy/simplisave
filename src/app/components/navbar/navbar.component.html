@@ -1,41 +1,72 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #870A3C; font-family: 'Lato'; font-size: 20px">
+<nav
+    class="navbar navbar-expand-lg"
+    style="background-color: #870a3c; font-size: 20px">
     <a class="navbar-brand" routerLink="">
-        <img src="/assets/Icons/Navbar/Screenshot_2023-07-18_at_09.13.14-removebg-preview (1).png" alt="Simplisave Logo"
-            class="img-fluid" width="70px">
+        <img
+            src="/assets/Icons/Navbar/Screenshot_2023-07-18_at_09.13.14-removebg-preview (1).png"
+            alt="Simplisave Logo"
+            class="img-fluid"
+            width="65px" />
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto white-text spaced-nav">
-            <hr>
+            <hr />
             <li class="nav-item">
                 <a class="nav-link" routerLink="" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                    >Home</a
+                >
             </li>
-            <hr>
+            <hr />
             <li class="nav-item">
-                <a class="nav-link" routerLink="/aboutus" routerLinkActive="active">About</a>
+                <a
+                    class="nav-link"
+                    routerLink="/aboutus"
+                    routerLinkActive="active"
+                    >About</a
+                >
             </li>
-            <hr>
+            <hr />
             <li class="nav-item">
-                <a class="nav-link" routerLink="/learnBanner" routerLinkActive="active">Learn</a>
+                <a
+                    class="nav-link"
+                    routerLink="/learnBanner"
+                    routerLinkActive="active"
+                    >Learn</a
+                >
             </li>
-            <hr>
+            <hr />
             <li class="nav-item">
-                <a class="nav-link" routerLink="/accounts" routerLinkActive="active">Accounts</a>
+                <a
+                    class="nav-link"
+                    routerLink="/accounts"
+                    routerLinkActive="active"
+                    >Accounts</a
+                >
             </li>
-            <hr>
+
+            <hr />
+
             <li class="nav-item">
-                <a class="nav-link" routerLink="/faq" routerLinkActive="active">FAQ</a>
+                <a class="nav-link" routerLink="/faq" routerLinkActive="active"
+                    >FAQ</a
+                >
             </li>
-            <hr>
+            <hr />
         </ul>
-        <br><br><br>
+        <br /><br /><br />
         <ul class="navbar-nav ml-auto white-text">
-            <ng-container *ngIf="token; else showLoginSignUp">
-                <div class="profile">
+            <!-- <ng-container *ngIf="token; else showLoginSignUp"> -->
+            <!--      <div class="profile">
                     <div class="dropdown">
                       <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="./assets/Images/Profile/Profile icon.png" alt="Small Image" width="30" height="30">
@@ -47,22 +78,39 @@
                         <a class="dropdown-item" href="#">Logout</a>
                       </div>
                     </div>
-                </div>
-            </ng-container>
-            <ng-template #showLoginSignUp>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/login" routerLinkActive="active"><span class="mobile-only"><img src="/assets/Icons/Dropdown nav/loginIcon.png" alt="Login icon"
-                        class="img-fluid" width="35px"></span>
-                        Login
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/register" routerLinkActive="active"><span class="mobile-only"><img src="/assets/Icons/Dropdown nav/signUpIcon.png" alt="Sign up icon"
-                        class="img-fluid" width="35px"></span>
-                        Sign up
-                    </a>
-                </li>
-            </ng-template>
+                </div> -->
+            <!-- </ng-container> -->
+            <!-- <ng-template #showLoginSignUp> -->
+            <li class="nav-item">
+                <a
+                    class="nav-link"
+                    routerLink="/login"
+                    routerLinkActive="active"
+                    ><span class="mobile-only"
+                        ><img
+                            src="/assets/Icons/Dropdown nav/loginIcon.png"
+                            alt="Login icon"
+                            class="img-fluid"
+                            width="35px"
+                    /></span>
+                    Login
+                </a>
+            </li>
+            <li class="nav-item">
+                <a
+                    class="nav-link"
+                    routerLink="/register"
+                    routerLinkActive="active"
+                    ><span class="mobile-only"
+                        ><img
+                            src="/assets/Icons/Dropdown nav/signUpIcon.png"
+                            alt="Sign up icon"
+                            class="img-fluid"
+                            width="35px"
+                    /></span>
+                    Sign up
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

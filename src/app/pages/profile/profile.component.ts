@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
       cellphoneNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
       email: ['', [Validators.required, Validators.email]],
-      accountNo: ['', [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
+      accountNo: [{ value: '', disabled: true }, [Validators.required, Validators.pattern(/^[0-9]{8}$/)]],
       idNo: ['', [Validators.required, Validators.pattern(/^[0-9]{13}$/)]],
     });
 
@@ -108,6 +108,7 @@ export class ProfileComponent implements OnInit {
     to update stored values, passing in the stored values
         2023/08/15*/
   updateUserInfo() {
+    console.log('updating')
     if (this.basicInfoForm.valid) {
       const updatedInfo = {
         firstName: this.basicInfoForm.get('firstName')?.value,

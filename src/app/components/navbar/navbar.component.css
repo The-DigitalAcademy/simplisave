@@ -1,10 +1,13 @@
 .navbar-nav {
-  margin-left: 400px;
+  /* margin-left: 389px; */
+  width: 100%;
+  justify-content: end;
  
 }
 
 .navbar{
   height: 70px;
+  padding: 15px;
 }
 
 .navbar-nav .nav-link {
@@ -21,10 +24,9 @@
 .white-text .nav-link {
   color: white;
   text-align: center;
-  font-family: Roboto;
-  font-size: 18px;
+  font-size: var(--font-medium);
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--regular);
   line-height: normal;
 }
 
@@ -32,7 +34,7 @@
   display: none;
 }
 .mat-icon {
-  font-size: 25px;
+  font-size: var(--font-x-large);
   text-align: center;
   height: auto;
   width:auto;
@@ -53,12 +55,11 @@
 .profileText{
   margin: 0;
   padding: 0;
-  color: #ffffff;
-  font-size: 16px;
+  color: white;
+  font-size: var(--font-normal);
   white-space: nowrap;
 }
 .nav-link{
-  font-family: roboto;
   display: flex; 
   align-items: center;
   justify-content: center;
@@ -79,11 +80,11 @@
       margin-left: 0px; 
       padding-left: 20px;
       display: flex;
-      height: 50vh;
+      height: auto;
      }
 
     #navbarNav{
-      background-color: #870A3C;
+      background-color: var(--primary-color);
       height: 95vh;
     }
 
@@ -100,7 +101,7 @@
     }
 
     hr {
-      border: 1px solid #ffffff;
+      border: 1px solid white;
     }
 
   }

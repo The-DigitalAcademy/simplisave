@@ -6,86 +6,118 @@ import { environment } from '../../environments/environment'; // Import environm
 import { AuthService } from './auth-service.service';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class AccountService {
+    private refreshSubject = new Subject<void>();
 
-  private refreshSubject = new Subject<void>();
+    refreshObservable = this.refreshSubject.asObservable();
 
-  refreshObservable = this.refreshSubject.asObservable();
+    private url = `${environment.backendUrl}/Goal_Savings`;
 
- 
-  private url = `${environment.apiUrl}/Goal_Savings`;
+    constructor(
+        private http: HttpClient,
+        private authService: AuthService
+    ) {}
 
-  constructor(private http: HttpClient, private authService:AuthService) { }
+    // getAccountData() {
+    //   console.log(this.authService.getToken())
+    //   return this.authService.getToken().pipe(
+    //     switchMap(token => {
+    //       const headers = new HttpHeaders({
+    //         Authorization: `Bearer ${token}`
+    //       });
+    //       // Make the authenticated API request using HttpClient
+    //       return this.http.get(`${environment.backendUrl}/accounts/account-balance`, { headers });
+    //     })
+    //   );
 
-  getAccountData() {
-    console.log(this.authService.getToken())
-    return this.authService.getToken().pipe(
-      switchMap(token => {
-        const headers = new HttpHeaders({
-          Authorization: `Bearer ${token}`
-        });
-        // Make the authenticated API request using HttpClient
-        return this.http.get(`${environment.backendUrl}/auth/9`, { headers });
-      })
-    );
-    
-    
-  }
+    getAccountData() {
+        console.log(this.authService.getToken())
+        return this.authService.getToken().pipe(
+          switchMap(token => {
+            const headers = new HttpHeaders({
+              Authorization: `Bearer ${token}`
+            });
+          return this.http.get(`${environment.STUDENT_DETAILS_URL}`, { headers });
+        })
+      );
+      
+      
+    }
 
-  getTransactions(){
-    return this.http.get(`${environment.apiUrl}/Transaction`);
-  }
+    // getAccountData() {
+    //     return this.http.get(`${environment.backendUrl}/Transactions`);
+    // }
 
-  getTransactions2(){
-    return this.http.get(`${environment.backendUrl}/transactions/listTransactions/8`);
-  }
+    getTransactions() {
+        return this.http.get(`${environment.TRANSACTION_URL}`);
+    }
 
-  getTypes(): Observable<any[]> {
-    return this.http.get<any[]>(`${environment.apiUrl}/Budget`);
-  }
+    getTransactions2() {
+        return this.http.get(`${environment.TRANSACTION_URL}`);
+    }
 
-  getSimplisaveData(){
-    return this.http.get(`${environment.apiUrl}/Simpil_Savings_Account`);
-  }
+    getTypes(): Observable<any[]> {
+        return this.http.get<any[]>(`${environment.apiUrl}/Budget`);
+    }
 
-  createType(body: any): Observable<any>{
-    return this.http.post<any>(`${environment.apiUrl}/Budget`, body);
-  }
+    getSimplisaveData() {
+        return this.http.get(`${environment.apiUrl}/Simpil_Savings_Account`);
+    }
 
-  getGoalSavings(): Observable<any[]> {
-    return this.http.get<[any]>(`${environment.apiUrl}/Goal_Savings`);
-  }
+    createType(body: any): Observable<any> {
+        return this.http.post<any>(`${environment.BACKEND_URL}/budget/creation`, body);
+    }
 
-  updateGoalSavings(data: any, id: any): Observable<any> {
-    return this.http.put(`${environment.apiUrl}/Budget/${id}`, data);
-  }
+    getGoalSavings(): Observable<any[]> {
+        return this.http.get<[any]>(`${environment.apiUrl}/Goal_Savings`);
+    }
 
-  updateGoalSaving(data: any, id: any): Observable<any> {
-    return this.http.put(`${this.url}/${id}`, data);
-  }
+    updateGoalSavings(data: any, id: any): Observable<any> {
+        return this.http.put(`${environment.apiUrl}/Budget/${id}`, data);
+    }
 
-  getUser(id:any){
-    return this.http.get(`${environment.apiUrl}/User/${id}`);
-  }
+    updateGoalSaving(data: any, id: any): Observable<any> {
+        return this.http.put(`${this.url}/${id}`, data);
+    }
 
-  updateUser(id:any,data:any){
-    return this.http.put(`${environment.apiUrl}/User/${id}`,data);
-  }
-  getOneTransaction(id: any): Observable<void> {
-    return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
-  }
+    getUser(id: any) {
+        return this.http.get(`${environment.apiUrl}/User/${id}`);
+    }
 
+    updateUser(id: any, data: any) {
+        return this.http.patch(`${environment.UPDATE_URL}`, data);
+    }
+    getOneTransaction(id: any): Observable<void> {
+        return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
+    }
 
-  //Refreshes the page after a successful update
-  // Lebohang Mokoena
-  // 2023/08/07
-  deleteTransaction(id: any): Observable<void> {
-    return this.http.delete<void>(`${environment.apiUrl}/Budget/${id}`);
-  }
+    //Refreshes the page after a successful update
+    // Lebohang Mokoena
+    // 2023/08/07
+    deleteTransaction(id: any): Observable<void> {
+        return this.http.delete<void>(`${environment.apiUrl}/Budget/${id}`);
+    }
 
-  triggerRefresh() {
-    this.refreshSubject.next();
-  }
+    transferToSavings(data: any) {
+        console.log(this.authService.getToken());
+        return this.authService.getToken().pipe(
+            switchMap(token => {
+                const headers = new HttpHeaders({
+                    Authorization: `${token}`,
+                });
+                // Make the authenticated API request using HttpClient
+                return this.http.post(
+                  `${environment.TRANSACTION_URL}`,
+                    data,
+                    { headers }
+                );
+            })
+        );
+    }
+
+    triggerRefresh() {
+        this.refreshSubject.next();
+    }
 }

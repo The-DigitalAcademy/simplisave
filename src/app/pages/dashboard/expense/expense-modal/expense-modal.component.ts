@@ -25,11 +25,11 @@ export class ExpenseModalComponent {
     { value: 'WITHDRAWAL', label: 'Withdrawal' }
   ];
 
-  constructor(private dashService:DashboardService,
+  constructor(private dashService: DashboardService,
     private formBuilder: FormBuilder,
     private service: AccountService,
     public dialogRef: MatDialogRef<ExpenseModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any ,private router: Router
+    @Inject(MAT_DIALOG_DATA) public data: any, private router: Router
   ) {
     this.expenseForm = this.formBuilder.group({
       category: [this.selectedCategory, Validators.required],
@@ -41,9 +41,9 @@ export class ExpenseModalComponent {
     return this.expenseForm.controls;
   }
 
-/*   When the user clicks on the close button of the dialogue box, this method is called and 
-  it closes the dialog box
-  2023/08/03 */
+  /*   When the user clicks on the close button of the dialogue box, this method is called and 
+    it closes the dialog box
+    2023/08/03 */
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -80,10 +80,10 @@ export class ExpenseModalComponent {
     }
   }
 
-/* this method updates the state of refresh subject in the service which triggers the cheklist in another component to be refreshed after an item has been 
-saved
--Mohammed Badat
-2023/08/03 */
+  /* this method updates the state of refresh subject in the service which triggers the checklist in another component to be refreshed after an item has been 
+  saved
+  -Mohammed Badat
+  2023/08/03 */
   refreshChecklist() {
     // Trigger the refresh for ComponentTwo
     this.dashService.triggerRefresh();

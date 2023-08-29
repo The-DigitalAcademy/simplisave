@@ -11,12 +11,12 @@
     </div>
     <div class="line"></div>
     <div class="basicInfo">
-      <ng-container *ngIf="activeForm === 'form1'; else form2">
-        <form class="basicInfo-form" [formGroup]="basicInfoForm" (ngSubmit)="onFormSubmit()">
+<!--       <ng-container *ngIf="activeForm === 'form1'; else form2"> -->
+        <form class="basicInfo-form" [formGroup]="basicInfoForm" (ngSubmit)="updateUserInfo()">
           <nav>
             <ul>
               <li><a [class.active]="activeForm === 'form1'"(click)="showForm('form1')">Information</a></li>
-              <li><a (click)="showForm('form2')">Password</a></li>
+              <!-- <li><a (click)="showForm('form2')">Password</a></li> -->
             </ul>
           </nav>
           <hr>
@@ -65,7 +65,7 @@
             <div class="form-field">
               <label for="accountNo">Account Number:</label>
               <div class="input-container1">
-                <input type="text" id="accountNo" name="accountNo" formControlName="accountNo" required>
+                <input type="text" id="accountNo" name="accountNo" formControlName="accountNo" [disabled]="true" required>
                 <div class="error-message" *ngIf="basicInfoForm.get('accountNo')?.hasError('pattern') && (basicInfoForm.get('accountNo')?.dirty || basicInfoForm.get('accountNo')?.touched)">Invalid format</div>
               </div>
             </div>
@@ -75,9 +75,9 @@
             <button class="cancel-button" type="button" routerLink="/dashboard">Cancel</button>
         </div>
         </form>
-      </ng-container>
+  <!--     </ng-container> -->
 
-      <ng-template #form2>
+<!--       <ng-template #form2>
         <form class="password-form" [formGroup]="passwordForm" (ngSubmit)="onFormSubmit()">
           <nav>
             <ul>
@@ -86,7 +86,6 @@
             </ul>
           </nav>
           <hr>
-          <!-- Password Form -->
           <div class="form-row">
             <div class="form-field">
               <label for="password">Password:</label>
@@ -109,7 +108,7 @@
             <button class="cancel-button"  type="button" routerLink="/dashboard">Cancel</button>
           </div>
         </form>
-      </ng-template>
+      </ng-template> -->
     </div>
   </div>
 </div>

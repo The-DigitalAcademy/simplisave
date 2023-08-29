@@ -1,18 +1,18 @@
 
 .container {
-  width: 1140px;
-  margin: 0;
+  width: 100%;
+  
 }
 
 .heading {
-  color: #870A3C;
+  color: var(--primary-color);
 }
 
 h1 {
-  color: #870A3C;
-  font-size: 36px;
-  font-family: Roboto;
-  font-weight: 600;
+  color: var(--primary-color);
+  font-size:var(--font-xx-large);
+  font-family: var(--base-font);
+  font-weight: var(--semi-bold);
   line-height: 20px;
   word-wrap: break-word;
   margin-top: 30px;
@@ -20,17 +20,17 @@ h1 {
   }
 
   h4{
-    font-size: 24px;
-    font-weight: 800;
+    font-size: var(--font-x-large);
+    font-weight:  var(--bold);
   }
 
   h5{
-    font-size: 16px;
-    font-weight: 900;
+    font-size:  var(--font-normal);
+    font-weight:  var(--bold);
   }
 
   h6{
-    font-size: 14px;
+    font-size:  var(--font-small);
   }
 
 
@@ -42,7 +42,7 @@ h1 {
 .grid-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 35px;
+  gap: 25px;
 }
 
 .cardHeading { 
@@ -51,7 +51,7 @@ h1 {
 
 .card {
   flex: 1 1 calc(33.333% - 20px);
-  border: 1px solid #ccc;
+  border: 1px solid var(--gray);
   border-radius: 15px;
   padding: 10px;
   height: 90px; 
@@ -83,8 +83,8 @@ mat-progress-bar {
 }
 
 .mat-mdc-progress-bar{
-  background-color: #ffffff;
-  --mdc-linear-progress-active-indicator-color: #870A3C;
+  background-color: white;
+  --mdc-linear-progress-active-indicator-color: var(--primary-color);
 }
 
 .balance {
@@ -113,12 +113,12 @@ mat-progress-bar {
   }
 
   .heading h1{
-    font-size: 24px;
+    font-size:  var(--font-x-large);
     padding-bottom:5%;
   }
 
   .sub-header h4{
-    font-size: 18px;
+    font-size:  var(--font-medium);
     padding-bottom:2%;
 
   }
@@ -133,11 +133,11 @@ mat-progress-bar {
   }
 
   .title h5{
-    font-size: 16px;
+    font-size:  var(--font-normal);
   }
 
   .cardHeading h4{
-    font-size: 18px;
+    font-size:  var(--font-medium);
     padding-bottom:2%;
 
   }
@@ -146,6 +146,6 @@ mat-progress-bar {
     position: absolute;
     color: black;
     right: 0px;
-    font-size: 14px;
+    font-size:  var(--font-small);
   }
 }
