@@ -28,6 +28,7 @@
         "jquery": "^3.7.0",
         "json-server": "^0.17.3",
         "material-icons": "^1.13.8",
+        "ng2-search-filter": "^0.5.1",
         "rxjs": "~7.8.0",
         "swal": "^0.1.0",
         "sweetalert2": "^11.7.27",
