@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Transaction } from 'src/app/interfaces/transactions.model';
+import { AccountService } from 'src/app/services/account.service';
 import { TransactionsService } from 'src/app/services/transactions.service';
 
 @Component({
@@ -19,18 +20,20 @@ export class BalanceSummaryComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private transactionService: TransactionsService
+    private transactionService: TransactionsService,
+    private accountService: AccountService
   ) { }
 
   ngOnInit(): void {
     this.fetchDataFromAPI();
-    this.getCurrentBalance();
+    this.getAccountData();
   }
 
   fetchDataFromAPI() {
     this.transactionService.getTransactionsList().subscribe(
       res => {
         this.transactionsList = res;
+        console.log(this.transactionsList)
         this.calculateTotalsForMonth();
       },
       error => {
@@ -43,9 +46,20 @@ export class BalanceSummaryComponent implements OnInit {
     this.transactionService.getCurrentBalance().subscribe(res => {
       this.currentBalance = res;
       console.log(this.currentBalance);
-      this.availableBalance = this.currentBalance[0].Balance;
+      this.availableBalance = this.currentBalance[0].accountBalance;
       console.log(this.availableBalance);
     });
+  }
+
+  getAccountData() {
+    this.accountService.getAccountData()
+          .subscribe(res => {
+            this.currentBalance = res;
+            console.log(this.currentBalance);
+            this.availableBalance=this.currentBalance.accounts[0].accountBalance;
+            console.log(this.currentBalance.accounts[0].accountBalance);
+
+});
   }
 
   calculateTotalsForMonth() {
