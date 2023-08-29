@@ -3,12 +3,10 @@
     <h1>Transactions</h1>
   </div>
 
-  <div class="flex-item"  style="border-style:none">  
-    <div class="input-group">
-      <mat-icon>search</mat-icon>
-    <input type="search" placeholder="Search Data..." class="centered-placeholder">
-    </div>
-  </div>
+  <div class="input-group">
+    <mat-icon>search</mat-icon>
+    <input type="search" placeholder="Search Data..." class="centered-placeholder" [(ngModel)]="searchFilter" (ngModelChange)="applySearchFilter()">
+  </div>  
 </div>
 
 

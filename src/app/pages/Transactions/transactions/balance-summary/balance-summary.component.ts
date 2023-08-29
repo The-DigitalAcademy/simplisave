@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Transaction } from 'src/app/interfaces/transactions.model';
 import { TransactionsService } from 'src/app/services/transactions.service';
 
 @Component({
@@ -13,6 +14,8 @@ export class BalanceSummaryComponent implements OnInit {
   totalExpenses: number = 0; // Total expenses (money out) for the specific month
   availableBalance: number = 0; // Current balance calculated as totalIncome - totalExpenses
   currentBalance: any;
+  displayedTransactions: Transaction[] = [];
+  searchFilter: string = '';
 
   constructor(
     private http: HttpClient,
@@ -75,5 +78,22 @@ export class BalanceSummaryComponent implements OnInit {
       })
       .reduce((total, transaction) => total + transaction.moneyOut, 0);
   }
-}
 
+  applySearchFilter() {
+    console.log('Applying filter with:', this.searchFilter); // Confirm that the input value is as expected
+    const filter = this.searchFilter.toLowerCase();
+  
+    if (filter) {
+      this.displayedTransactions = this.transactionsList.filter(
+        (transaction: Transaction) =>
+          transaction.description.toLowerCase().includes(filter)
+      );
+    } else {
+      // If no filter provided, show all transactions
+      this.displayedTransactions = [...this.transactionsList];
+    }
+    console.log('Displayed Transactions after search filtering:', this.displayedTransactions);
+  }
+  
+  
+}

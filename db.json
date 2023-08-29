@@ -61,7 +61,17 @@
       "id": 4
     }
   ],
-  "User": [
+  "reset": [
+    {
+      
+    }
+  ],
+  "forgot": [
+    {
+      
+    }
+  ],
+  "User": [ 
     {
       "firstName": "Mohammed",
       "lastName": "Badat",
