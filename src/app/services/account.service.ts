@@ -87,7 +87,7 @@ export class AccountService {
     }
 
     updateUser(id: any, data: any) {
-        return this.http.put(`${environment.apiUrl}/User/${id}`, data);
+        return this.http.patch(`${environment.UPDATE_URL}`, data);
     }
     getOneTransaction(id: any): Observable<void> {
         return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
@@ -105,11 +105,11 @@ export class AccountService {
         return this.authService.getToken().pipe(
             switchMap(token => {
                 const headers = new HttpHeaders({
-                    Authorization: `Bearer ${token}`,
+                    Authorization: `${token}`,
                 });
                 // Make the authenticated API request using HttpClient
                 return this.http.post(
-                    `${environment.backendUrl}/accounts/transfer/8`,
+                  `${environment.TRANSACTION_URL}`,
                     data,
                     { headers }
                 );

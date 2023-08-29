@@ -12,7 +12,7 @@
     <div class="line"></div>
     <div class="basicInfo">
       <ng-container *ngIf="activeForm === 'form1'; else form2">
-        <form class="basicInfo-form" [formGroup]="basicInfoForm" (ngSubmit)="onFormSubmit()">
+        <form class="basicInfo-form" [formGroup]="basicInfoForm" (ngSubmit)="updateUserInfo()">
           <nav>
             <ul>
               <li><a [class.active]="activeForm === 'form1'"(click)="showForm('form1')">Information</a></li>
