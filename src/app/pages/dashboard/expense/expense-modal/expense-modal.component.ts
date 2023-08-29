@@ -80,7 +80,7 @@ export class ExpenseModalComponent {
     }
   }
 
-  /* this method updates the state of refresh subject in the service which triggers the cheklist in another component to be refreshed after an item has been 
+  /* this method updates the state of refresh subject in the service which triggers the checklist in another component to be refreshed after an item has been 
   saved
   -Mohammed Badat
   2023/08/03 */
