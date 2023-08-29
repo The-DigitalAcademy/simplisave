@@ -1,4 +1,4 @@
-/* navbar-nav {
+navbar-nav {
   display: flex;
   align-items: left;
   justify-content: left;
@@ -89,7 +89,7 @@
 }
 
 
-/* Media query for mobile devices 
+
  @media (max-width: 780px) {
     .img-fluid {
       max-width: 70%;
@@ -210,7 +210,7 @@
   justify-content: center;
 
 }
-*/
+
 
 
 .navbar-nav {
