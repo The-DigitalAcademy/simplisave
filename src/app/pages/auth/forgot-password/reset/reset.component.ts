@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ResetPasswordService } from 'src/app/services/reset-password.service';
 import Swal from 'sweetalert2';
 
@@ -13,7 +14,7 @@ export class ResetComponent {
   newPassword: string = '';
   confirmPassword: string = '';
 
-  constructor(private reset : ResetPasswordService) {}
+  constructor(private reset : ResetPasswordService, private router: Router) {}
 
   resetPassword() {
     this.reset.verifyOtpAndResetPassword( this.otp, this.newPassword, this.confirmPassword).subscribe(
@@ -24,7 +25,10 @@ export class ResetComponent {
           iconColor: '#AF144B',
           text: 'Password has been successfully reset!',
           confirmButtonColor: '#AF144B'
-      });
+      }).then(() => {
+        // Navigate to the login page
+        this.router.navigate(['/login']);
+       });
       },
       error => {
         // Handle error - Thilivhali Ravhutulu  22 August 2023
