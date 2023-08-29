@@ -40,7 +40,7 @@ export class AuthService {
   login(data: any) {
     return this.http.post<any>(`${environment.backendUrl}/auth/login`, data).pipe(
       tap((res: any) => {
-        const token = res['JWT Token'].token;
+        const token = res['token'].token;
         this.setToken(token);
         this.isAuthenticatedSubject.next(true); // Set authentication state to true
       })

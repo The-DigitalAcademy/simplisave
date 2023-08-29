@@ -44,7 +44,9 @@ export class TransactionDetailsComponent implements OnInit {
     this.fetchDataFromAPI();
     // this.getCurrentBalance();
 
-    this.fetchDataFromAPI();
+    this.transactionService.getSearchFilter().subscribe(filter => {
+      this.filterTable(filter);
+    });
   }
 
   fetchDataFromAPI() {
@@ -86,80 +88,135 @@ export class TransactionDetailsComponent implements OnInit {
     );
   }
 
-  // This function is called when a date is selected from the date picker
-  handleDateSelection(event: MatDatepickerInputEvent<Date>) {
-    if (event.value) {
-      const selectedDate = format(event.value, 'yyyy-MM-dd'); // Format the selected date in this format
-      this.selectedDate = selectedDate;
-      console.log(
-        'selected transaction displayed date: ' + this.selectedDate
-      );
+    // This function is called when a date is selected from the date picker
+    handleDateSelection(event: MatDatepickerInputEvent<Date>) {
+        if (event.value) {
+            const selectedDate = format(event.value, 'yyyy-MM-dd'); // Format the selected date in this format
+            this.selectedDate = selectedDate;
+            console.log(
+                'selected transaction displayed date: ' + this.selectedDate
+            );
 
-      // Filter data based on selected date
+            // Filter data based on selected date
+            this.displayedTransactions = this.transactionsList.filter(
+                (transaction: Transaction) =>
+                    // Format the transaction date in 'yyyy-MM-dd' format and compare with selected date
+                    format(
+                        new Date(transaction.transactionDate),
+                        'yyyy-MM-dd'
+                    ) === this.selectedDate
+            );
+        } else {
+            // If no date is selected, reset the selectedDate and show all transactions
+            this.selectedDate = null;
+            this.displayedTransactions = this.transactionsList; // Show all data
+        }
+        console.log('Displayed Transactions:');
+        for (const transaction of this.displayedTransactions) {
+            console.log('Date:', transaction.transactionDate);
+            console.log('Description:', transaction.description);
+            console.log(
+                'Amount:',
+                transaction.moneyOut
+                    ? `- R ${transaction.moneyOut}.00`
+                    : `+ R ${transaction.moneyIn}.00`
+            );
+        }
+    }
+
+    applyFilter() {
+        const descriptionFilter = this.searchForm.get('description')?.value;
+
+        // Filter data based on selected date
+        this.displayedTransactions = this.transactionsList.filter(
+            (transaction: Transaction) => {
+                const dateMatch =
+                    !this.selectedDate ||
+                    format(
+                        new Date(transaction.transactionDate),
+                        'yyyy-MM-dd'
+                    ) === this.selectedDate;
+                const descriptionMatch =
+                    !descriptionFilter ||
+                    transaction.description
+                        .toLowerCase()
+                        .includes(descriptionFilter.toLowerCase());
+
+                return dateMatch && descriptionMatch;
+            }
+        );
+
+        console.log('Filtered Transactions:');
+        for (const transaction of this.displayedTransactions) {
+            console.log('Date:', transaction.transactionDate);
+            console.log('Description:', transaction.description);
+            console.log(
+                'Amount:',
+                transaction.moneyOut
+                    ? `- R ${transaction.moneyOut}.00`
+                    : `+ R ${transaction.moneyIn}.00`
+            );
+        }
+    }
+
+
+  filterTable(filter: string) {
+    console.log('Filter:', filter); 
+    if (filter) {
+      // Filter transactions based on the provided filter
       this.displayedTransactions = this.transactionsList.filter(
+        (transaction: Transaction) => {
+          const descriptionMatch =
+            transaction.description.toLowerCase().includes(filter.toLowerCase());
+  
+          const amountMatch =
+            transaction.moneyIn === parseFloat(filter) || 
+            transaction.moneyOut === parseFloat(filter);
+  
+          return descriptionMatch || amountMatch;
+        }
+      );
+  
+      // After filtering transactions, update the sortedDateKeys array to include only the dates that have transactions matching the user's search criteria
+      this.sortedDateKeys = Object.keys(this.groupedTransactions).filter(date =>
+        this.displayedTransactions.some((transaction: Transaction) => {
+          const transactionDate = format(new Date(transaction.transactionDate), 'yyyy-MM-dd'); // Format the date
+          return date === transactionDate;
+        })
+      );
+    } else if (this.selectedDate) {
+      // If only date is selected, filter transactions based on the selected date
+      const selectedDateTransactions = this.transactionsList.filter(
         (transaction: Transaction) =>
-          // Format the transaction date in 'yyyy-MM-dd' format and compare with selected date
-          format(
-            new Date(transaction.transactionDate),
-            'yyyy-MM-dd'
-          ) === this.selectedDate
+          format(new Date(transaction.transactionDate), 'yyyy-MM-dd') === this.selectedDate
       );
+      this.displayedTransactions = selectedDateTransactions;
+      this.sortedDateKeys = [this.selectedDate];
     } else {
-      // If no date is selected, reset the selectedDate and show all transactions
-      this.selectedDate = null;
-      this.displayedTransactions = this.transactionsList; // Show all data
-    }
-    console.log('Displayed Transactions:');
-    for (const transaction of this.displayedTransactions) {
-      console.log('Date:', transaction.transactionDate);
-      console.log('Description:', transaction.description);
-      console.log(
-        'Amount:',
-        transaction.moneyOut
-          ? `- R ${transaction.moneyOut}.00`
-          : `+ R ${transaction.moneyIn}.00`
+      // If no filter provided, show all transactions and reset the sortedDateKeys array to include all dates
+      this.displayedTransactions = this.transactionsList;
+      this.sortedDateKeys = Object.keys(this.groupedTransactions).sort(
+        (a, b) => new Date(b).getTime() - new Date(a).getTime()
       );
     }
   }
+  
 
-  applyFilter() {
-    const selectedDate = this.searchForm.get('selectedDate')?.value;
-    const descriptionFilter = this.searchForm.get('description')?.value;
-    const amountFilter = parseFloat(this.searchForm.get('amount')?.value);
 
-    this.displayedTransactions = this.transactionsList.filter(
-      (transaction: Transaction) => {
-        const dateMatch =
-          !selectedDate ||
-          format(
-            new Date(transaction.transactionDate),
-            'yyyy-MM-dd'
-          ) === selectedDate;
-        const descriptionMatch =
-          !descriptionFilter ||
-          transaction.description
-            .toLowerCase()
-            .includes(descriptionFilter.toLowerCase());
-        const amountMatch =
-          isNaN(amountFilter) ||
-          transaction.moneyIn === amountFilter ||
-          transaction.moneyOut === amountFilter;
+  
+  
 
-        return dateMatch && descriptionMatch && amountMatch;
-      }
-    );
+  // applySearchFilter(filter: string) {
+  //   if (filter) {
+  //     // Filter transactions based on description
+  //     this.displayedTransactions = this.transactionsList.filter(
+  //       (transaction: Transaction) =>
+  //         transaction.description.toLowerCase().includes(filter.toLowerCase())
+  //     );
+  //   } else {
+  //     // If no filter provided, show all transactions
+  //     this.displayedTransactions = this.transactionsList;
+  //   }
+  // }
 
-    console.log('Filtered Transactions:');
-    for (const transaction of this.displayedTransactions) {
-      console.log('Date:', transaction.transactionDate);
-      console.log('Description:', transaction.description);
-      console.log(
-        'Amount:',
-        transaction.moneyOut
-          ? `- R ${transaction.moneyOut}.00`
-          : `+ R ${transaction.moneyIn}.00`
-      );
-    }
-  }
 }
-
