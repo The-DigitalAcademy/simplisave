@@ -79,9 +79,11 @@
     .navbar-nav {
       margin-left: 0px; 
       padding-left: 20px;
+      margin-top: 20%;
       display: flex;
-      height: 50vh;
+      height: 40vh;
      }
+
 
     #navbarNav{
       background-color: var(--primary-color);
@@ -94,6 +96,24 @@
       display: flex;
       align-items: left;
       justify-content: left;
+    }
+
+    .white-text .nav-links {
+      color: white;
+      margin-left: 0px; 
+      display: flex;
+      align-items: left;
+      justify-content: left;
+      margin-top: -75%;
+    }
+
+    .white-text .nav-linkss {
+      color: white;
+      margin-left: 0px; 
+      display: flex;
+      align-items: left;
+      justify-content: left;
+      margin-top: -55%;
     }
 
     .mobile-only {
