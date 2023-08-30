@@ -34,20 +34,23 @@ export class AccountService {
         );
     }
 
-    createGoalSavings() {
-        // Assuming you have an endpoint for creating goal savings in your backend
-        return this.authService.getToken().pipe(
-            switchMap(token => {
-                const headers = new HttpHeaders({
-                    Authorization: `Bearer ${token}`,
-                });
-                // Make the authenticated POST request to create a goal savings record
-                return this.http.post(`${environment.GOALCREATION_URL}`, {
-                    headers,
-                });
-            })
-        );
+    goalSavings(body: any) {
+        return this.http.post<any>(`${environment.GOALCREATION_URL}`, body);
     }
+
+    // createGoalSavings() {
+    //     return this.authService.getToken().pipe(
+    //         switchMap(token => {
+    //             const headers = new HttpHeaders({
+    //                 Authorization: `Bearer ${token}`,
+    //             });
+    //             // Make the authenticated POST request to create a goal savings record
+    //             return this.http.post(`${environment.GOALCREATION_URL}`, {
+    //                 headers,
+    //             });
+    //         })
+    //     );
+    // }
 
     // getAccountData() {
     //     return this.http.get(`${environment.backendUrl}/Transactions`);

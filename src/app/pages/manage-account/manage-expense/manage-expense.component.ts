@@ -24,6 +24,7 @@ export class ManageExpenseComponent implements OnInit {
     typeTotals: any = {}; // Property to store typeTotals
     amountSet: number | undefined;
     items: any;
+    goalData: any;
 
     constructor(
         private accountService: AccountService,
@@ -66,7 +67,7 @@ export class ManageExpenseComponent implements OnInit {
     }
 
     createGoalSavings() {
-        this.accountService.createGoalSavings().subscribe(response => {
+        this.accountService.goalSavings(this.goalData).subscribe(response => {
             // Handle the response, such as updating the UI or performing other actions
             console.log('Goal created:', response);
         });

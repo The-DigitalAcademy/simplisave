@@ -53,7 +53,7 @@ export class GoalModalComponent {
         //Call the API service to post the form data
         if (this.goalForm.valid) {
             const updatedData = { ...this.data, amount: this.formData.amount };
-            this.service.createGoalSavings().subscribe(
+            this.service.goalSavings(updatedData).subscribe(
                 response => {
                     //Handle the API response as needed
                     console.log('API response', response);
