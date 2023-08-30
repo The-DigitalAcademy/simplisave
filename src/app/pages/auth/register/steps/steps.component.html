@@ -209,17 +209,18 @@
                 <div class="card" style="border-radius: 15px;">
                   <div class="card-body p-3">
         
-                    <div class="drop-zone" (drop)="onDrop($event)" (dragover)="onDragOver($event)" (dragleave)="onDragExit($event)">
+                    <div class="drop-zone"  [class.with-image]="previewImage"  (drop)="onDrop($event)" (dragover)="onDragOver($event)" (dragleave)="onDragExit($event)">
                       <mat-icon class="cloudUpload">cloud_upload</mat-icon>
                       <p>Drag & drop files</p>
                       <label class="upload-link">
                         <input type="file" (change)="onFileSelected($event)" accept="image/*">
                         <p>or Browse</p>
                       </label>
+                      <div class="image-preview text-center" *ngIf="previewImage">
+                        <img [src]="previewImage" alt="Uploaded Image Preview" style="max-width: 50%; max-height: 150px;">
+                      </div>
                     </div>
-                    <div class="image-preview" *ngIf="previewImage">
-                      <img [src]="previewImage" alt="Uploaded Image Preview" style="max-width: 50%; max-height: 150px;">
-                    </div>
+                    
 
                     <br><br>
 
