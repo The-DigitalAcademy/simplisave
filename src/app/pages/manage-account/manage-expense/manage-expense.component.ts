@@ -22,6 +22,8 @@ export class ManageExpenseComponent implements OnInit {
     sumMoneyOutMonths: any[] = [];
     isDataFetched: boolean = false; // Flag to track data fetch completion
     typeTotals: any = {}; // Property to store typeTotals
+    amountSet: number = 0;
+    items: any;
 
     constructor(
         private accountService: AccountService,
@@ -34,7 +36,7 @@ export class ManageExpenseComponent implements OnInit {
 
     ngOnInit() {
         this.loadData();
-        this.goalSavings();
+        this. getAccountData();
         this.getTransactionsFromApi();
         this.getTypes();
         this.accountService.refreshObservable.subscribe(() => {
@@ -54,9 +56,12 @@ export class ManageExpenseComponent implements OnInit {
     // Responsible for making an HTTP request to fetch goal savings data.
     // Lebohang Mokoena
     // 2023/07/31
-    goalSavings() {
-        this.accountService.getGoalSavings().subscribe(Amount_Set => {
-            this.Goal_Savings = Amount_Set;
+    getAccountData() {
+        this.accountService.getAccountData().subscribe(res =>{
+            this.items = res;
+            console.log(this.items);
+            this.amountSet = this.items.accounts[0].goalSavings.amountSet;
+            console.log(this.items.accounts[0].savingsAccount.goalSavings.amountSet);
         });
     }
 
