@@ -2,6 +2,8 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Student } from '../interfaces/students';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +20,8 @@ export class StudentsService {
     return this.http.put(`https://simplisave.software/api/v1/admin/students/${id}`,data)
   }
 
-  getStudents(): Observable<any>{
-    return this.http.get(`${environment.STUDENTS_LIST_URL}`)
+  getStudents() {
+    return this.http.get(environment.STUDENTS_LIST_URL);
   }
 
   deleteStudent(id: number): Observable<any> {

@@ -1,77 +1,30 @@
-
- <mat-toolbar>
- 
- <span>Admin</span>
- <span class="example-spacer"></span>
-<button mat-raised-button (click)="openAddStudents()">Add Students</button>
-</mat-toolbar>
-
 <h1>Hello Admin</h1>
-<div class="table">
-
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="userId">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="firstName">
-      <th mat-header-cell *matHeaderCellDef> First Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
-    </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="lastName">
-      <th mat-header-cell *matHeaderCellDef> Last Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
-    </ng-container>
-
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="username">
-      <th mat-header-cell *matHeaderCellDef> Username </th>
-      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
-    </ng-container>
-
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-    </ng-container>
-
- <!-- Symbol Column -->
- <ng-container matColumnDef="cellphoneNumber">
-  <th mat-header-cell *matHeaderCellDef> Cell Number </th>
-  <td mat-cell *matCellDef="let element"> {{element.cellphoneNumber}} </td>
-</ng-container>
-
-
-<ng-container matColumnDef="action">
-  <th mat-header-cell *matHeaderCellDef> Action  </th>
-  <td mat-cell *matCellDef="let element">
-
-  <button mat-icon-button (click)="openEditStudents(element)">
-    <mat-icon>edit</mat-icon>
-  </button>  
-
-  <button mat-icon-button color="warn" (click)="removeStudent(element.id)">
-    <mat-icon>delete</mat-icon>
-  </button>  
-
-  </td>
-</ng-container>
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons
-                 aria-label="Select page of periodic elements">
-  </mat-paginator>
-</div>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <th scope="row">{{ student.userId }}</th>
+      <td>{{ student.firstName }}</td>
+      <td>{{ student.lastName }}</td>
+      <td>{{ student.email }}</td>
+      <td>{{ student.cellphoneNumber }}</td>
+      <td>
+        <button mat-icon-button (click)="openEditStudents(student)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="removeStudent(student.userId)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

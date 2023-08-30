@@ -147,13 +147,13 @@ li{
    
       .col {
          flex-direction: column; 
-         width: 100%; 
+         width: 98%; 
          
        }
      
        .row {
          flex-direction: column; 
-         margin-top: -20px;
+         margin-top: -15px;
        }
    
      div.dashboard-container{
