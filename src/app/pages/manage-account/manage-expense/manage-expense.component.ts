@@ -12,7 +12,7 @@ import { GoalModalComponent } from './goal-modal/goal-modal.component';
     styleUrls: ['./manage-expense.component.css'],
 })
 export class ManageExpenseComponent implements OnInit {
-    transactionType: any[] = [];
+    transactionType: any;
     Goal_Savings: any[] = [];
     items1: any = [];
     data: any;
@@ -87,7 +87,7 @@ export class ManageExpenseComponent implements OnInit {
         this.accountService.deleteTransaction(id).subscribe(
             () => {
                 const index = this.transactionType.findIndex(
-                    type => type.id === id
+                    (type: { id: any; }) => type.id === id
                 );
                 if (index !== -1) {
                     this.transactionType.splice(index, 1);
@@ -115,8 +115,8 @@ export class ManageExpenseComponent implements OnInit {
   -Mohammed Badat
   -2023/08/01 */
     getTypes() {
-        this.accountService.getTypes().subscribe(res => {
-            this.transactionType = res;
+        this.accountService.getTypes().subscribe((res:any) => {
+            this.transactionType = res.budgets;
             console.log(this.transactionType);
             if (this.transactionType.length === 0) {
                 this.isTypesEmpty = '';
@@ -147,7 +147,7 @@ export class ManageExpenseComponent implements OnInit {
         this.typeTotals = {}; // Reset typeTotals before calculating
 
         this.transactionType.forEach((type: any) => {
-            const typeName = type.transactionType; // Extract typeName correctly from the type object
+            const typeName = type.transactionsType; // Extract typeName correctly from the type object
             const filteredData = transactions.filter((record: any) => {
                 const isMoneyOutPositive = record.moneyOut > 0;
                 const transactionDate = record.transactionDate;
@@ -191,7 +191,7 @@ export class ManageExpenseComponent implements OnInit {
   -2023/08/10 */
     getTypeProgress(typeName: string): number {
         const type = this.transactionType.find(
-            (t: any) => t.transactionType === typeName
+            (t: any) => t.transactionsType === typeName
         );
         if (!type) {
             return 0;

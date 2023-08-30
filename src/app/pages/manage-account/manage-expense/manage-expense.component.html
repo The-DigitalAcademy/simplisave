@@ -38,7 +38,7 @@
         <div class="card" *ngFor="let transactionType of transactionType">
             <div class="card-content">
                 <div class="title">
-                    <h5>{{ transactionType.transactionType }}</h5>
+                    <h5>{{ transactionType.transactionsType }}</h5>
                 </div>
                 <div class="icon-container">
                     <mat-icon
@@ -54,7 +54,7 @@
                 <mat-progress-bar
                     class="red-progress-bar"
                     mode="determinate"
-                    [value]="getTypeProgress(transactionType.transactionType)"
+                    [value]="getTypeProgress(transactionType.transactionsType)"
                     [bufferValue]="
                         transactionType.amountSet
                     "></mat-progress-bar>

@@ -93,6 +93,10 @@ export class AccountService {
         return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
     }
 
+    updateBudget(data:any){
+        return this.http.patch(`${environment.BACKEND_URL}/budget/progress`, data);
+    }
+
     //Refreshes the page after a successful update
     // Lebohang Mokoena
     // 2023/08/07
