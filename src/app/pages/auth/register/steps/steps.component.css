@@ -87,6 +87,11 @@ mat-label{
   cursor: pointer;
   height: 150px;
   position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.with-image {
+  height: 330px; /* Set the desired height when an image is present  - Thilivhali Ravhutulu 29/08/2023*/ 
 }
 
 .drop-zone p {
