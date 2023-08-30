@@ -19,10 +19,10 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto white-text spaced-nav">
+        <ul class="navbar-nav ml-auto white-text spaced-nav" id="middleNav">
             <hr />
             <li class="nav-item">
-                <a class="nav-link" routerLink="" routerLinkActive="active"
+                <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
                     >Home</a
                 >
             </li>
@@ -31,7 +31,7 @@
                 <a
                     class="nav-link"
                     routerLink="/aboutus"
-                    routerLinkActive="active"
+                    routerLinkActive="active" 
                     >About</a
                 >
             </li>
@@ -63,7 +63,7 @@
             </li>
             <hr />
         </ul>
-        <br /><br /><br />
+      <br><br><br><br>
         <ul class="navbar-nav ml-auto white-text">
             <!-- <ng-container *ngIf="token; else showLoginSignUp"> -->
             <!--      <div class="profile">
