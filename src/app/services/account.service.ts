@@ -59,7 +59,7 @@ export class AccountService {
     }
 
     getTypes(): Observable<any[]> {
-        return this.http.get<any[]>(`${environment.apiUrl}/Budget`);
+        return this.http.get<any[]>(`${environment.BACKEND_URL}/budget/details`);
     }
 
     getSimplisaveData() {
@@ -100,7 +100,7 @@ export class AccountService {
         return this.http.delete<void>(`${environment.apiUrl}/Budget/${id}`);
     }
 
-    transferToSavings(data: any) {
+    transferToSavings(id:any,data: any) {
         console.log(this.authService.getToken());
         return this.authService.getToken().pipe(
             switchMap(token => {
@@ -109,12 +109,17 @@ export class AccountService {
                 });
                 // Make the authenticated API request using HttpClient
                 return this.http.post(
-                  `${environment.TRANSACTION_URL}`,
+                  `${environment.BACKEND_URL}/simplisaving/transfer/${id}`,
                     data,
                     { headers }
                 );
             })
         );
+    }
+
+    getGoalID(){
+        return this.http.get(`${environment.BACKEND_URL}/goalSavings/goals`);
+
     }
 
     triggerRefresh() {
