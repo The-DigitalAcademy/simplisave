@@ -49,11 +49,11 @@ export class GoalModalComponent {
     // updating the set saving goal then saves a modal dialog
     //Lebohang Mokoena
     // 2023/08/18
-    updateGoalSaving() {
+    addGoalSaving() {
         //Call the API service to post the form data
         if (this.goalForm.valid) {
             const updatedData = { ...this.data, amount: this.formData.amount };
-            this.service.updateGoalSaving(updatedData, this.id).subscribe(
+            this.service.createGoalSavings().subscribe(
                 response => {
                     //Handle the API response as needed
                     console.log('API response', response);

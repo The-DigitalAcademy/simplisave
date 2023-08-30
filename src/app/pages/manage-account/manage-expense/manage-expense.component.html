@@ -25,10 +25,10 @@
     </div>
 
     <ng-template #elseBlock>
-        <div class="valueAbsent">
+        <div class="card">
             <p>Goal is not set.</p>
             <div class="icon-container">
-                <mat-icon>add</mat-icon>
+                <mat-icon (click)="openGoalModal()">add</mat-icon>
             </div>
         </div>
     </ng-template>

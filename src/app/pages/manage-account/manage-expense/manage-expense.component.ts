@@ -61,9 +61,14 @@ export class ManageExpenseComponent implements OnInit {
             this.items = res;
             this.amountSet =
                 this.items.accounts[0].savingsAccount.goalSavings[0].amountSet;
-            console.log(
-                this.items.accounts[0].savingsAccount.goalSavings[0].amountSet
-            );
+            console.log(this.amountSet);
+        });
+    }
+
+    createGoalSavings() {
+        this.accountService.createGoalSavings().subscribe(response => {
+            // Handle the response, such as updating the UI or performing other actions
+            console.log('Goal created:', response);
         });
     }
 
@@ -80,10 +85,22 @@ export class ManageExpenseComponent implements OnInit {
     // Responsible for saving goal modal
     // Lebohang Mokoena
     // 2023/07/31
-    openGoalModal(id: any): void {
-        localStorage.setItem('typeId', id);
+    // openGoalModal(id: any): void {
+    //     localStorage.setItem('typeId', id);
+    //     const dialogRef = this.dialog.open(GoalModalComponent, {
+    //         width: '450px',
+    //     });
+    // }
+    openGoalModal(): void {
         const dialogRef = this.dialog.open(GoalModalComponent, {
             width: '450px',
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+            if (result) {
+                console.log('Amount:', result.amount);
+            }
         });
     }
 
