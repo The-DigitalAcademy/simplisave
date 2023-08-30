@@ -15,6 +15,7 @@
   display: flex;
   align-items: left;
   justify-content: left;
+  
 }
 
 .navbar-nav .nav-links {
@@ -22,13 +23,15 @@
   display: flex;
   align-items: left;
   justify-content: left;
+  text-decoration: none;
 }
 
-.navbar-nav .nav-linkss {
+.navbar-nav .navbar-links {
   margin-right: 10px; 
   display: flex;
   align-items: left;
   justify-content: left;
+  text-decoration: none;
 }
 
 .img-fluid{
@@ -53,7 +56,7 @@
   line-height: normal;
 }
 
-.white-text .nav-linkss {
+.white-text .navbar-links {
   color: white;
   text-align: center;
   font-size: var(--font-medium);
@@ -104,7 +107,7 @@
 
 }
 
-.nav-linkss{
+.navbar-links{
   display: flex; 
   align-items: center;
   justify-content: center;
@@ -152,7 +155,7 @@
       margin-top: -75%;
     }
 
-    .white-text .nav-linkss {
+    .white-text .navbar-links {
       color: white;
       margin-left: 0px; 
       display: flex;
