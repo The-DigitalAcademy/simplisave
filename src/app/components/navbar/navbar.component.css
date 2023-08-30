@@ -15,23 +15,6 @@
   display: flex;
   align-items: left;
   justify-content: left;
-  
-}
-
-.navbar-nav .nav-links {
-  margin-right: 10px; 
-  display: flex;
-  align-items: left;
-  justify-content: left;
-  text-decoration: none;
-}
-
-.navbar-nav .navbar-links {
-  margin-right: 10px; 
-  display: flex;
-  align-items: left;
-  justify-content: left;
-  text-decoration: none;
 }
 
 .img-fluid{
@@ -39,24 +22,6 @@
 }
 
 .white-text .nav-link {
-  color: white;
-  text-align: center;
-  font-size: var(--font-medium);
-  font-style: normal;
-  font-weight: var(--regular);
-  line-height: normal;
-}
-
-.white-text .nav-links {
-  color: white;
-  text-align: center;
-  font-size: var(--font-medium);
-  font-style: normal;
-  font-weight: var(--regular);
-  line-height: normal;
-}
-
-.white-text .navbar-links {
   color: white;
   text-align: center;
   font-size: var(--font-medium);
@@ -74,7 +39,8 @@
   height: auto;
   width:auto;
 }
-
+.dropdown{
+}
 .profile{
   display: flex;
   width:100%;
@@ -94,20 +60,6 @@
   white-space: nowrap;
 }
 .nav-link{
-  display: flex; 
-  align-items: center;
-  justify-content: center;
-
-}
-
-.nav-links{
-  display: flex; 
-  align-items: center;
-  justify-content: center;
-
-}
-
-.navbar-links{
   display: flex; 
   align-items: center;
   justify-content: center;
@@ -138,6 +90,7 @@
   display: none;
 }
 
+
 /* Media query for mobile devices */
  @media (max-width: 1024px) {
   .navbar{
@@ -152,11 +105,9 @@
     .navbar-nav {
       margin-left: 0px; 
       padding-left: 20px;
-      margin-top: 20%;
       display: flex;
-      height: 40vh;
+      height: auto;
      }
-
 
     #navbarNav{
       background-color: var(--primary-color);
@@ -169,24 +120,6 @@
       display: flex;
       align-items: left;
       justify-content: left;
-    }
-
-    .white-text .nav-links {
-      color: white;
-      margin-left: 0px; 
-      display: flex;
-      align-items: left;
-      justify-content: left;
-      margin-top: -75%;
-    }
-
-    .white-text .navbar-links {
-      color: white;
-      margin-left: 0px; 
-      display: flex;
-      align-items: left;
-      justify-content: left;
-      margin-top: -55%;
     }
 
     .mobile-only {
