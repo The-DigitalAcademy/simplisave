@@ -19,6 +19,7 @@ export class TopPartComponent implements OnInit {
   items1:any;
   filteredData: any[] = []; 
   sumMoneyOut: any;
+  types:any;
   
 
   constructor(
@@ -30,6 +31,7 @@ export class TopPartComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.getTypes();
     this.getAccountData();
     this.getDataFromApi()
     this. getSimplisaveData();
@@ -47,13 +49,22 @@ export class TopPartComponent implements OnInit {
             console.log(this.items);
             this.availableBalance=this.items.accounts[0].accountBalance;
             console.log(this.items.accounts[0].accountBalance);
-            this.totalSaved=this.items.accounts[0].savingsAccount.currentSavingsBalance;
+            this.totalSaved=this.items.accounts[0].savingsAccount.totalSavings;
             if(this.totalSaved===null){
               this.totalSaved=0;
             }
             console.log(this.items.accounts[0].savingsAccount.currentSavingsBalance);
 
 });
+  }
+
+
+  getTypes() {
+    this.accountService.getTransactions2()
+      .subscribe(res => {
+        this.types = res;
+        console.log(this.types);
+      });
   }
 
  // Fetches transaction data from the API , Mukosi Budeli 01/08/2023
