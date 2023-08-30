@@ -5,8 +5,34 @@
     <div class="sub-header">
         <h4>Savings Goal</h4>
     </div>
+    <div *ngIf="amountSet; else elseBlock">
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-content">
+                    <div class="title">
+                        <h5>Goal</h5>
+                    </div>
+                    <div class="icon-container">
+                        <mat-icon>add</mat-icon>
+                    </div>
+                    <mat-progress-bar
+                        class="red-progress-bar"
+                        mode="determinate"
+                        value="10"></mat-progress-bar>
+                    <div class="balance">
+                        <h6>R{{ amountSet }}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div class="grid-container">
+    <ng-template #elseBlock>
+        <!-- HTML to display when the value is not present -->
+        <p>Value is not present.</p>
+    </ng-template>
+
+    <!-- <div class="grid-container">
         <div class="card" *ngFor="let goalSavings of Goal_Savings">
             <div class="card-content">
                 <div class="title">
@@ -16,7 +42,7 @@
                     <mat-icon
                         (click)="openGoalModal(goalSavings.id)"
                         class="ediit"
-                        >edit</mat-icon
+                        >add</mat-icon
                     >
                 </div>
                 <mat-progress-bar
@@ -24,11 +50,11 @@
                     mode="determinate"
                     value="10"></mat-progress-bar>
                 <div class="balance">
-                    <h6>R{{ this.amountSet }}</h6>
+                    <h6>R{{ amountSet }}</h6>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <br /><br />
 
     <div class="cardHeading">
