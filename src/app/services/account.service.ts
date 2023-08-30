@@ -67,7 +67,7 @@ export class AccountService {
     }
 
     createType(body: any): Observable<any> {
-        return this.http.post<any>(`${environment.apiUrl}/Budget`, body);
+        return this.http.post<any>(`${environment.BACKEND_URL}/budget/creation`, body);
     }
 
     getGoalSavings(): Observable<any[]> {
