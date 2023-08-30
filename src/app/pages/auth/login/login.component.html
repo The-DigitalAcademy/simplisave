@@ -35,14 +35,16 @@
           </mat-error>
               </mat-form-field>
               <p class="text-left text-muted mt-3 mb-2">Are you Admin? <a href="loginAdmin"
-                class="fw-bold text-body"><u>Login</u></a></p>
+                class="fw-bold text-body"><u>Login here</u></a></p>
               <p class="text-left text-muted mt-3 mb-2">Don't have an account? <a href="register"
                   class="fw-bold text-body"><u>Signup</u></a></p>
              <p class="text-left text-muted mt-3 mb-2">Forgot your password? <a href="forgot"
                     class="fw-bold text-body"><u>Reset</u></a></p>
+                    <br>
                     <div class="d-flex justify-content-center align-items-center">
                       <button [disabled]="!loginForm.valid" class="btn" type="submit" >Login</button>
                     </div>   
+                   
             </form>
           </div>
         </div>
