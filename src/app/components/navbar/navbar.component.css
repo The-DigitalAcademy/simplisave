@@ -80,7 +80,7 @@
       margin-left: 0px; 
       padding-left: 20px;
       display: flex;
-      height: 50vh;
+      height: auto;
      }
 
     #navbarNav{
