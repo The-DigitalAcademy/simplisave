@@ -12,9 +12,6 @@
                     <div class="title">
                         <h5>Goal</h5>
                     </div>
-                    <div class="icon-container">
-                        <mat-icon>add</mat-icon>
-                    </div>
                     <mat-progress-bar
                         class="red-progress-bar"
                         mode="determinate"
@@ -28,33 +25,13 @@
     </div>
 
     <ng-template #elseBlock>
-        <!-- HTML to display when the value is not present -->
-        <p>Value is not present.</p>
-    </ng-template>
-
-    <!-- <div class="grid-container">
-        <div class="card" *ngFor="let goalSavings of Goal_Savings">
-            <div class="card-content">
-                <div class="title">
-                    <h5>Goal</h5>
-                </div>
-                <div class="icon-container">
-                    <mat-icon
-                        (click)="openGoalModal(goalSavings.id)"
-                        class="ediit"
-                        >add</mat-icon
-                    >
-                </div>
-                <mat-progress-bar
-                    class="red-progress-bar"
-                    mode="determinate"
-                    value="10"></mat-progress-bar>
-                <div class="balance">
-                    <h6>R{{ amountSet }}</h6>
-                </div>
+        <div class="valueAbsent">
+            <p>Goal is not set.</p>
+            <div class="icon-container">
+                <mat-icon>add</mat-icon>
             </div>
         </div>
-    </div> -->
+    </ng-template>
     <br /><br />
 
     <div class="cardHeading">

@@ -40,8 +40,9 @@ h1 {
 }
 
 .grid-container {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  align-items: baseline;
   gap: 25px;
 }
 
@@ -55,7 +56,7 @@ h1 {
   border-radius: 15px;
   padding: 10px;
   height: 90px; 
-  max-width: 31.197%; 
+  /* max-width: 31.197%;  */
 }
 
 .card-content {

@@ -33,17 +33,17 @@ export class AccountService {
     //   );
 
     getAccountData() {
-        console.log(this.authService.getToken())
+        console.log(this.authService.getToken());
         return this.authService.getToken().pipe(
-          switchMap(token => {
-            const headers = new HttpHeaders({
-              Authorization: `Bearer ${token}`
-            });
-          return this.http.get(`${environment.STUDENT_DETAILS_URL}`, { headers });
-        })
-      );
-      
-      
+            switchMap(token => {
+                const headers = new HttpHeaders({
+                    Authorization: `Bearer ${token}`,
+                });
+                return this.http.get(`${environment.STUDENT_DETAILS_URL}`, {
+                    headers,
+                });
+            })
+        );
     }
 
     // getAccountData() {
@@ -67,7 +67,10 @@ export class AccountService {
     }
 
     createType(body: any): Observable<any> {
-        return this.http.post<any>(`${environment.BACKEND_URL}/budget/creation`, body);
+        return this.http.post<any>(
+            `${environment.BACKEND_URL}/budget/creation`,
+            body
+        );
     }
 
     getGoalSavings(): Observable<any[]> {
@@ -108,11 +111,9 @@ export class AccountService {
                     Authorization: `${token}`,
                 });
                 // Make the authenticated API request using HttpClient
-                return this.http.post(
-                  `${environment.TRANSACTION_URL}`,
-                    data,
-                    { headers }
-                );
+                return this.http.post(`${environment.TRANSACTION_URL}`, data, {
+                    headers,
+                });
             })
         );
     }
