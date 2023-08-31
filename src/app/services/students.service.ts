@@ -24,7 +24,8 @@ export class StudentsService {
     return this.http.get(environment.STUDENTS_LIST_URL);
   }
 
-  deleteStudent(id: number): Observable<any> {
-    return this.http.delete(environment.DELETE_STUDENT_URL);
+  
+  deleteStudent(userId: string): Observable<any> {
+    return this.http.delete(`${environment.DELETE_STUDENT_URL}/${userId}`);
   }
 }
