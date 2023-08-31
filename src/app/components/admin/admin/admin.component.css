@@ -16,4 +16,11 @@
     color: #AF144B;
     text-align: center;
     padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .pagination-container{
+  margin-right: 30%;
+  }
+  .mat-elevation-z8{
+    margin: 2%;
   }

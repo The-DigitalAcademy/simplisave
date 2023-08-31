@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentsComponent } from '../add-students/add-students.component';
 import { StudentsService } from 'src/app/services/students.service';
 import { Student } from 'src/app/interfaces/students';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-admin',
@@ -13,9 +17,19 @@ export class AdminComponent implements OnInit {
 
   students: any;
   studs: any;
-  currentPage: number = 1;
-  itemsPerPage: number = 10; // Number of items per page
+  element: Student | undefined; 
 
+  displayedColumns: string[] = ['userId', 'firstName', 'lastName', 'username', 'email','cellphoneNumber','action' ];
+  dataSource = new MatTableDataSource<Student>([]);
+
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
+  
 
   constructor(
     private addDialog: MatDialog,
@@ -26,36 +40,75 @@ export class AdminComponent implements OnInit {
     this.getList();
   }
 
-  get startIndex(): number {
-    return (this.currentPage - 1) * this.itemsPerPage;
+  removeStudentConfirmation(userId: string) {
+    this.removeStudent(userId); // Call the actual removeStudent function
   }
 
-  get endIndex(): number {
-    return this.startIndex + this.itemsPerPage - 1;
-  }
+  
+  // getList() {
+
+  //   this.studentsList.getStudents()
+  //     .subscribe(res => {
+  //       this.studs = res;
+  //       this.students=this.studs.Data;
+  //       console.log(this.studs);
+        
+  //       });
+  // }
 
   getList() {
-
     this.studentsList.getStudents()
       .subscribe(res => {
         this.studs = res;
-        this.students=this.studs.data;
+        this.students = this.studs.Data;
+  
+        // Update dataSource with fetched data
+        this.dataSource.data = this.students;
+  
         console.log(this.studs);
-        
-        });
+      });
   }
+  
 
-  removeStudent(userId: number) {
-    this.studentsList.deleteStudent(userId).subscribe({
-      next: (res) => {
-        alert('Student Deleted!');
-        this.getList();
-      },
-      error: (err) => {
-        console.log(err);
-      }
+  async removeStudent(userId: string) {
+    const userIdNumber = parseInt(userId, 10); // Convert string to number
+  
+    // Display confirmation popup
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      iconColor:'red',
+      showCancelButton: true,
+      confirmButtonColor: '#AF144B',
+      cancelButtonColor: '#95B9C7',
+      confirmButtonText: 'Yes, delete it!'
     });
+  
+    // If admin confirms, proceed with deletion
+    if (result.isConfirmed) {
+      this.studentsList.deleteStudent(userId)
+        .subscribe(res => {
+          this.studs = res;
+          this.getList();
+          this.students = this.studs.Data;
+          if (this.students) {
+            this.element = this.students.find((student: Student) => student.userId === userIdNumber);
+          }
+        });
+  
+      // Show success message
+      Swal.fire(
+        'Deleted!',
+        'The student has been deleted.',
+        'success'
+      );
+    }
   }
+  
+  
+  
 
 
 }
+
