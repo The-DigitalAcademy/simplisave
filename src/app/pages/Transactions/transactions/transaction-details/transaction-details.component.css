@@ -493,6 +493,17 @@ thead th.active,tbody td.active {
     font-family:  var(--base-font);
 }
 
+
+.form-outline {
+    --mdb-form-outline-select-notch-border-color: #3b71ca;
+}
+
+
+.search__form_field {
+    width: 100%; /* Take full width of the container */
+    margin-top:10px;
+  }
+
 body {
     min-height: 100vh;
     background: url(/assets/images/Landing/Open_account_Background-image.png) center / cover;
@@ -725,6 +736,13 @@ p{
         text-align: center;
     }
 
+    .flex-containter .search__form_field{
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        margin-left:10px;
+    }
     .mobile-stack p {
         /* margin: 0;*/
         text-align: right; 
@@ -785,29 +803,22 @@ p{
         display:none;
     }
 
-    /* main.table {
-    width: 82vw;
-    height: 65vh;
-    background-color: #fff5;
-    backdrop-filter: blur(7px);
-    box-shadow: 0 .4rem .8rem #0005;
-    border-radius: .8rem;
-    overflow: hidden;
-    background-color: red;
-} */
-
-main.table {
-    width: 80vw;
-    height: 65vh;
-    backdrop-filter: blur(7px);
-    box-shadow: 0 .4rem .8rem #0005;
-    border-radius: .8rem;
-    overflow: hidden;
-    /* background-color: red; */
-}
+    .search__form_field {
+        width: 30%; /* Take full width of the container */
+        margin-top:10px;
+        margin-left:20px;
+        text-align: center;
+        justify-content: center;
+      }
 }
 
 @media (max-width: 1000px) {
+    td:not(:first-of-type) {
+        min-width:auto;
+    }
+}
+
+@media (max-width: 280px) {
     td:not(:first-of-type) {
         min-width:auto;
     }

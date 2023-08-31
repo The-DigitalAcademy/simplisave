@@ -1,13 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import * as $ from 'jquery'; // Import jQuery library
-import { TransactionsService } from 'src/app/services/transactions.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-import { EventEmitter } from '@angular/core';
-import { Transaction } from 'src/app/interfaces/transactions.model';
 import { format } from 'date-fns';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Transaction } from 'src/app/interfaces/transactions.model';
+import { TransactionsService } from 'src/app/services/transactions.service';
 
 @Component({
   selector: 'app-transaction-details',
@@ -15,24 +12,19 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   styleUrls: ['./transaction-details.component.css'],
 })
 export class TransactionDetailsComponent implements OnInit {
- // transactionsList: Transaction[] = [];  Store your transactions here
-  groupedTransactions: any = {}; // Grouped transactions
-  sortedDateKeys: string[] = []; // Declare sortedDateKeys property selectedDate: Date | null = null;
+  transactionsList: Transaction[] = [];
+  groupedTransactions: any = {};
+  sortedDateKeys: string[] = [];
   selectedDate: string | null = null;
   searchForm: FormGroup = new FormGroup({});
   displayedTransactions: Transaction[] = [];
+  searchFilter: string = '';
 
   constructor(
     private transactionService: TransactionsService,
     private http: HttpClient,
     private formBuilder: FormBuilder
   ) {
-    // this.searchForm = this.formBuilder.group({
-    //   selectedDate: [null],
-    //   description: [null],
-    //   amount: [null]
-    //   });
-
     this.searchForm = this.formBuilder.group({
       selectedDate: [null],
       description: [null],
@@ -42,28 +34,19 @@ export class TransactionDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchDataFromAPI();
-    // this.getCurrentBalance();
-
-    this.transactionService.getSearchFilter().subscribe(filter => {
-      this.filterTable(filter);
+    this.transactionService.getSearchFilter().subscribe((filter) => {
+      this.searchFilter = filter;
+      this.filterTable(this.searchFilter);
     });
-  }
-
-  ngOnInit(): void {
-    // this.fetchDataFromAPI();
-    // this.fetchDataFromAPI();
-    // this.getCurrentBalance();
-   
   }
 
   fetchDataFromAPI() {
     this.transactionService.getTransactionsList().subscribe(
       (res: Transaction[]) => {
-        console.log('API Response:', res);
-        this.transactionsList = res; // Assign the response array directly
+        this.transactionsList = res;
         this.groupTransactions();
       },
-      error => {
+      (error) => {
         console.error('Error fetching data:', error);
       }
     );
@@ -74,161 +57,119 @@ export class TransactionDetailsComponent implements OnInit {
                                            
     this.groupedTransactions = {};
 
-    // Iterate through each transaction in the transactionsList
     for (const details of this.transactionsList) {
-      // Extract the date from the transactionDate in 'YYYY-MM-DD' format
       const date = details.transactionDate.slice(0, 10);
 
-      // If the date group doesn't exist, create an empty array for it
       if (!this.groupedTransactions[date]) {
         // If not, create an empty array for this date in groupedTransactions
         this.groupedTransactions[date] = [];
       }
 
-      // Push the transaction details into the appropriate date group
       this.groupedTransactions[date].push(details);
     }
-    console.log('selected transaction date', this.selectedDate);
-    console.log('Grouped transaction' + this.groupedTransactions);
 
-    // Sort the keys in reverse chronological order
-    this.sortedDateKeys = Object.keys(this.groupedTransactions).sort(
-      (a, b) => {
-        return new Date(b).getTime() - new Date(a).getTime();
-      }
-    );
+    // Filter grouped dates to include only those that have matching transactions
+    const groupedDatesWithMatches = Object.keys(this.groupedTransactions).filter(date => {
+      return this.groupedTransactions[date].some((transaction: Transaction) => {
+        const descriptionMatch = transaction.description.toLowerCase().includes(this.searchFilter.toLowerCase());
+        return descriptionMatch;
+      });
+    });
+
+    // Update the sortedDateKeys with filtered dates
+    this.sortedDateKeys = groupedDatesWithMatches.sort((a, b) => {
+      return new Date(b).getTime() - new Date(a).getTime();
+    });
   }
 
-    // This function is called when a date is selected from the date picker
-    handleDateSelection(event: MatDatepickerInputEvent<Date>) {
-        if (event.value) {
-            const selectedDate = format(event.value, 'yyyy-MM-dd'); // Format the selected date in this format
-            this.selectedDate = selectedDate;
-            console.log(
-                'selected transaction displayed date: ' + this.selectedDate
-            );
 
-            // Filter data based on selected date
-            this.displayedTransactions = this.transactionsList.filter(
-                (transaction: Transaction) =>
-                    // Format the transaction date in 'yyyy-MM-dd' format and compare with selected date
-                    format(
-                        new Date(transaction.transactionDate),
-                        'yyyy-MM-dd'
-                    ) === this.selectedDate
-            );
-        } else {
-            // If no date is selected, reset the selectedDate and show all transactions
-            this.selectedDate = null;
-            this.displayedTransactions = this.transactionsList; // Show all data
-        }
-        console.log('Displayed Transactions:');
-        for (const transaction of this.displayedTransactions) {
-            console.log('Date:', transaction.transactionDate);
-            console.log('Description:', transaction.description);
-            console.log(
-                'Amount:',
-                transaction.moneyOut
-                    ? `- R ${transaction.moneyOut}.00`
-                    : `+ R ${transaction.moneyIn}.00`
-            );
-        }
+
+
+  handleDateSelection(event: MatDatepickerInputEvent<Date>) {
+    if (event.value) {
+      const selectedDate = format(event.value, 'yyyy-MM-dd');
+      this.selectedDate = selectedDate;
+      this.filterTable('');
+    } else {
+      this.selectedDate = null;
+      this.filterTable('');
     }
-
-    applyFilter() {
-        const descriptionFilter = this.searchForm.get('description')?.value;
-
-        // Filter data based on selected date
-        this.displayedTransactions = this.transactionsList.filter(
-            (transaction: Transaction) => {
-                const dateMatch =
-                    !this.selectedDate ||
-                    format(
-                        new Date(transaction.transactionDate),
-                        'yyyy-MM-dd'
-                    ) === this.selectedDate;
-                const descriptionMatch =
-                    !descriptionFilter ||
-                    transaction.description
-                        .toLowerCase()
-                        .includes(descriptionFilter.toLowerCase());
-
-                return dateMatch && descriptionMatch;
-            }
-        );
-
-        console.log('Filtered Transactions:');
-        for (const transaction of this.displayedTransactions) {
-            console.log('Date:', transaction.transactionDate);
-            console.log('Description:', transaction.description);
-            console.log(
-                'Amount:',
-                transaction.moneyOut
-                    ? `- R ${transaction.moneyOut}.00`
-                    : `+ R ${transaction.moneyIn}.00`
-            );
-        }
-    }
+  }
 
 
   filterTable(filter: string) {
-    console.log('Filter:', filter); 
-    if (filter) {
-      // Filter transactions based on the provided filter
-      this.displayedTransactions = this.transactionsList.filter(
-        (transaction: Transaction) => {
-          const descriptionMatch =
-            transaction.description.toLowerCase().includes(filter.toLowerCase());
-  
+    if (this.selectedDate !== null || filter !== '') {
+      if (!filter) {
+        // No filter applied, display all transactions and grouped dates
+        this.displayedTransactions = [...this.transactionsList];
+        this.groupTransactions();
+      } else if (!isNaN(parseFloat(filter))) {
+        // Filter by amount
+        const amountFilteredTransactions = this.transactionsList.filter((transaction: Transaction) => {
           const amountMatch =
-            transaction.moneyIn === parseFloat(filter) || 
-            transaction.moneyOut === parseFloat(filter);
-  
-          return descriptionMatch || amountMatch;
+            (transaction.moneyIn.toString().includes(filter) || transaction.moneyOut.toString().includes(filter));
+          return amountMatch;
+        });
+
+        this.groupedTransactions = {};
+        for (const details of amountFilteredTransactions) {
+          const date = details.transactionDate.slice(0, 10);
+          if (!this.groupedTransactions[date]) {
+            this.groupedTransactions[date] = [];
+          }
+          this.groupedTransactions[date].push(details);
         }
-      );
-  
-      // After filtering transactions, update the sortedDateKeys array to include only the dates that have transactions matching the user's search criteria
-      this.sortedDateKeys = Object.keys(this.groupedTransactions).filter(date =>
-        this.displayedTransactions.some((transaction: Transaction) => {
-          const transactionDate = format(new Date(transaction.transactionDate), 'yyyy-MM-dd'); // Format the date
-          return date === transactionDate;
-        })
-      );
-    } else if (this.selectedDate) {
-      // If only date is selected, filter transactions based on the selected date
-      const selectedDateTransactions = this.transactionsList.filter(
-        (transaction: Transaction) =>
-          format(new Date(transaction.transactionDate), 'yyyy-MM-dd') === this.selectedDate
-      );
-      this.displayedTransactions = selectedDateTransactions;
-      this.sortedDateKeys = [this.selectedDate];
+
+        const groupedDatesWithMatches = Object.keys(this.groupedTransactions).filter(date => {
+          return this.groupedTransactions[date].some((transaction: Transaction) => {
+            const amountMatch =
+              (transaction.moneyIn.toString().includes(filter) || transaction.moneyOut.toString().includes(filter));
+            return amountMatch;
+          });
+        });
+        this.sortedDateKeys = groupedDatesWithMatches.sort((a, b) => {
+          return new Date(b).getTime() - new Date(a).getTime();
+        });
+
+        this.displayedTransactions = [];
+        for (const date of this.sortedDateKeys) {
+          this.displayedTransactions = this.displayedTransactions.concat(this.groupedTransactions[date]);
+        }
+      } else {
+        // Filter by description
+        this.displayedTransactions = this.transactionsList.filter((transaction: Transaction) => {
+          const descriptionMatch = transaction.description.toLowerCase().includes(filter.toLowerCase());
+          return descriptionMatch;
+        });
+
+        this.groupedTransactions = {};
+        for (const details of this.displayedTransactions) {
+          const date = details.transactionDate.slice(0, 10);
+          if (!this.groupedTransactions[date]) {
+            this.groupedTransactions[date] = [];
+          }
+          this.groupedTransactions[date].push(details);
+        }
+
+        const groupedDatesWithMatches = Object.keys(this.groupedTransactions).filter(date => {
+          return this.groupedTransactions[date].some((transaction: Transaction) => {
+            const descriptionMatch = transaction.description.toLowerCase().includes(filter.toLowerCase());
+            return descriptionMatch;
+          });
+        });
+        this.sortedDateKeys = groupedDatesWithMatches.sort((a, b) => {
+          return new Date(b).getTime() - new Date(a).getTime();
+        });
+      }
     } else {
-      // If no filter provided, show all transactions and reset the sortedDateKeys array to include all dates
-      this.displayedTransactions = this.transactionsList;
-      this.sortedDateKeys = Object.keys(this.groupedTransactions).sort(
-        (a, b) => new Date(b).getTime() - new Date(a).getTime()
-      );
+      // No filters, display all transactions grouped by date
+      this.displayedTransactions = [...this.transactionsList];
+      this.groupTransactions();
     }
   }
-  
 
 
-  
-  
 
-  // applySearchFilter(filter: string) {
-  //   if (filter) {
-  //     // Filter transactions based on description
-  //     this.displayedTransactions = this.transactionsList.filter(
-  //       (transaction: Transaction) =>
-  //         transaction.description.toLowerCase().includes(filter.toLowerCase())
-  //     );
-  //   } else {
-  //     // If no filter provided, show all transactions
-  //     this.displayedTransactions = this.transactionsList;
-  //   }
-  // }
 
 }
 
@@ -236,114 +177,3 @@ export class TransactionDetailsComponent implements OnInit {
 
 
 
-
-
-// import { HttpClient } from '@angular/common/http';
-// import { Component, OnInit } from '@angular/core';
-// import { FormBuilder, FormGroup } from '@angular/forms';
-// import * as $ from 'jquery';
-// import { TransactionsService } from 'src/app/services/transactions.service';
-// import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-// import { Transaction } from 'src/app/Interface/transaction.model';
-
-// @Component({
-//   selector: 'app-transaction-details',
-//   templateUrl: './transaction-details.component.html',
-//   styleUrls: ['./transaction-details.component.css']
-// })
-// export class TransactionDetailsComponent implements OnInit {
-
-//   transactionsList: Transaction[] = []; // Specify the type
-//   groupedTransactions: { [date: string]: Transaction[] } = {}; // Specify the type
-//   sortedDateKeys: string[] = [];
-//   filteredTransactions: Transaction[] = [];
-//   filteredGroupedTransactions: { [date: string]: Transaction[] } = {};
-//   sortedFilteredDateKeys: string[] = [];
-//   selectedDate: Date | null = null;
-//   searchForm: FormGroup = new FormGroup({}); 
-
-//   constructor(private transactionService: TransactionsService, private formBuilder: FormBuilder) {
-//     this.searchForm = this.formBuilder.group({
-//       transactionDate: [null],
-//     });
-
-//     // Toggle filter dropdown visibility on mobile devices
-//     $('#filterToggle').on('click', function() {
-//       $('#filterDropdown').toggle();
-//     });
-//   }
-
-//   ngOnInit(): void {
-//     this.fetchDataFromAPI();
-//   }
-
-//   fetchDataFromAPI() {
-//     this.transactionService.getTransactionsList()
-//       .subscribe(
-//         (res: Transaction[]) => {
-//           this.transactionsList = res;
-//           this.groupTransactions();
-//         },
-//         error => {
-//           console.error('Error fetching data:', error);
-//         }
-//       );
-//   }
-
-//   groupTransactions() {
-//     this.groupedTransactions = {};
-
-//     for (const details of this.transactionsList) {
-//       const date = details.transactionDate.slice(0, 10);
-
-//       if (!this.groupedTransactions[date]) {
-//         this.groupedTransactions[date] = [];
-//       }
-
-//       this.groupedTransactions[date].push(details);
-//     }
-
-//     this.sortedDateKeys = Object.keys(this.groupedTransactions).sort((a, b) => {
-//       return new Date(b).getTime() - new Date(a).getTime();
-//     });
-//   }
-
-//   applyFilter(event: MatDatepickerInputEvent<Date | null>) {
-//     if (event.value !== null) {
-//       this.selectedDate = event.value;
-//       this.filterTransactionsByDate(this.selectedDate);
-//     } else {
-//       this.selectedDate = null;
-//       this.filteredGroupedTransactions = this.groupedTransactions; // Initialize with original data
-//       this.sortedFilteredDateKeys = this.sortedDateKeys; // Initialize with original data
-//     }
-//   }
-
-//   filterTransactionsByDate(selectedDate: Date) {
-//     const selectedDateStr = selectedDate.toISOString().slice(0, 10);
-
-//     this.filteredTransactions = this.transactionsList.filter((details: Transaction) =>
-//       details.transactionDate.startsWith(selectedDateStr)
-//     );
-
-//     this.groupFilteredTransactions();
-//   }
-
-//   groupFilteredTransactions() {
-//     this.filteredGroupedTransactions = {};
-
-//     for (const details of this.filteredTransactions) {
-//       const date = details.transactionDate.slice(0, 10);
-
-//       if (!this.filteredGroupedTransactions[date]) {
-//         this.filteredGroupedTransactions[date] = [];
-//       }
-
-//       this.filteredGroupedTransactions[date].push(details);
-//     }
-
-//     this.sortedFilteredDateKeys = Object.keys(this.filteredGroupedTransactions).sort(
-//       (a, b) => new Date(b).getTime() - new Date(a).getTime()
-//     );
-//   }
-// }

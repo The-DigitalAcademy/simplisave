@@ -10,7 +10,7 @@ import { TransactionsService } from 'src/app/services/transactions.service';
   styleUrls: ['./balance-summary.component.css'],
 })
 export class BalanceSummaryComponent implements OnInit {
-  transactionsList: any[] = []; // Store your transactions here
+  transactionsList: Transaction[] = []; // Store your transactions here
   totalIncome: number = 0; // Total income for the specific month
   totalExpenses: number = 0; // Total expenses (money out) for the specific month
   availableBalance: number = 0; // Current balance calculated as totalIncome - totalExpenses
@@ -45,21 +45,17 @@ export class BalanceSummaryComponent implements OnInit {
   getCurrentBalance() {
     this.transactionService.getCurrentBalance().subscribe(res => {
       this.currentBalance = res;
-      console.log(this.currentBalance);
       this.availableBalance = this.currentBalance[0].accountBalance;
-      console.log(this.availableBalance);
     });
   }
 
   getAccountData() {
     this.accountService.getAccountData()
-          .subscribe(res => {
-            this.currentBalance = res;
-            console.log(this.currentBalance);
-            this.availableBalance=this.currentBalance.accounts[0].accountBalance;
-            console.log(this.currentBalance.accounts[0].accountBalance);
+      .subscribe(res => {
+        this.currentBalance = res;
+        this.availableBalance = this.currentBalance.accounts[0].accountBalance;
 
-});
+      });
   }
 
   calculateTotalsForMonth() {
@@ -94,9 +90,9 @@ export class BalanceSummaryComponent implements OnInit {
   }
 
   applySearchFilter() {
-    console.log('Applying filter with:', this.searchFilter); // Confirm that the input value is as expected
+    this.transactionService.setSearchFilter(this.searchFilter); // Set the search filter in the service
     const filter = this.searchFilter.toLowerCase();
-  
+
     if (filter) {
       this.displayedTransactions = this.transactionsList.filter(
         (transaction: Transaction) =>
@@ -106,8 +102,6 @@ export class BalanceSummaryComponent implements OnInit {
       // If no filter provided, show all transactions
       this.displayedTransactions = [...this.transactionsList];
     }
-    console.log('Displayed Transactions after search filtering:', this.displayedTransactions);
   }
-  
-  
+
 }
