@@ -25,12 +25,15 @@
               </mat-form-field>
               <mat-form-field class="validation mb-4" appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput type="password" class="form-control-plaintext" [(ngModel)]="password" id="password" formControlName="password" required />
+                <input matInput type="{{ showPassword ? 'text' : 'password' }}" class="form-control-plaintext" [(ngModel)]="password" id="password" formControlName="password" required />
+                <button class="but" (click)="togglePasswordVisibility()">
+                  <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
                  <mat-error *ngIf="!loginForm.get('password')?.errors?.['required']" class="error-message">
                 
                   Password requires 8 characters, upper & lowercase, special characters & digits.
-            </mat-error>
-          <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.['required']">
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.['required']">
             Password is required
           </mat-error>
               </mat-form-field>

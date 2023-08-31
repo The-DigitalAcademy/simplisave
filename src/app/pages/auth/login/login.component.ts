@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   username!: string;
   password!: string;
   loginData:any;
+  showPassword: boolean = false;  // Flag to track password visibility - Thilivhali Ravhutulu 31/08/2023
 
 
   
@@ -38,6 +39,11 @@ export class LoginComponent implements OnInit {
       )]]
     });
    }
+
+   //Show/Hide password - Thilivhali Ravhutulu 31/08/2023
+   togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
   /* 
     login() is a method for handling the login process, once a user is logged in, we store the JWT token received in the response
