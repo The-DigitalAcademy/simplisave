@@ -2,77 +2,53 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { environment } from '../../environments/environment'; // Import environment variables
-
-import { BehaviorSubject, Observable, tap} from 'rxjs';
+import { environment } from '../../environments/environment';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-
-//The constructor holds two parameter: http for making http request and router for navigating to different routes/components 
   constructor(private http: HttpClient, private router: Router) {}
 
+  private tokenSubject = new BehaviorSubject<string | null>(null); // Change the type to string | null
 
-  private tokenSubject = new BehaviorSubject<string>('');
-
-
-  //BehaviorSubject for managing the user's authentication state.
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
 
-  // Components can subscribe to this observable to receive updates about the authentication state.
   isAuthenticated(): Observable<boolean> {
     return this.isAuthenticatedSubject.asObservable();
   }
   
-
-  
-  setToken(token: string): void {
+  setToken(token: string | null): void { // Change the parameter type to string | null
     this.tokenSubject.next(token);
   }
 
-
-
-
-  getToken(): Observable<string> {
+  getToken(): Observable<string | null> { // Change the return type to string | null
     return this.tokenSubject.asObservable();
   }
 
-
-
-  // login(data:any) {
-  //   return this.http.post<any>('https://springsimplisave-production.up.railway.app/api/auth/login', data);
-  // }
-
-//the login method to set the authentication state to true when the login is successful
   login(data: any) {
     return this.http.post<any>(`${environment.LOGIN_URL}`, data).pipe(
       tap((res: any) => {
         const token = res['token'].token;
         this.setToken(token);
-        this.isAuthenticatedSubject.next(true); // Set authentication state to true
+        this.isAuthenticatedSubject.next(true);
       })
     );
   }
-  
 
   getUserData() {
-
     return this.http.get<any>(`${environment.apiUrl}/signupUsers`);
-
   }
 
-  //set the authentication state to false when the user logs out.
   logout() {
     sessionStorage.clear();
-    this.isAuthenticatedSubject.next(false); // Set authentication state to false
+    this.isAuthenticatedSubject.next(false);
     this.router.navigate(['/login']);
   }
 
-  successAlert(){
+  successAlert() {
     Swal.fire({
       icon: 'success',
       title: 'Login Successful',
@@ -82,7 +58,7 @@ export class AuthService {
     });
   }
 
-  failedAlert(){
+  failedAlert() {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
@@ -92,9 +68,9 @@ export class AuthService {
     });
   }
 
-  failedConnAlert(){
+  failedConnAlert() {
     Swal.fire({
-      icon:  'question',
+      icon: 'question',
       title: 'Unable to connect',
       text: 'Please check your connection and try again!!!',
       iconColor: '#AF144B',
@@ -102,17 +78,16 @@ export class AuthService {
     });
   }
 
-
-  successfulUpdate(){
+  successfulUpdate() {
     Swal.fire({
       icon: 'success',
-      title: 'Details successfuly updated',
+      title: 'Details successfully updated',
       iconColor: '#AF144B',
       confirmButtonColor: '#AF144B'
     });
   }
 
-  successfulMoneyTransfer(){
+  successfulMoneyTransfer() {
     Swal.fire({
       icon: 'success',
       title: 'Money successfully transferred',
@@ -120,6 +95,4 @@ export class AuthService {
       confirmButtonColor: '#AF144B'
     });
   }
-
-
 }

@@ -33,8 +33,7 @@ export class TopPartComponent implements OnInit {
   ngOnInit() {
     this.getTypes();
     this.getAccountData();
-    this.getDataFromApi()
-    this. getSimplisaveData();
+    this.getDataFromApi();
 
     this.dashService.refreshObservable$.subscribe(() => {
       this.refreshComponent();
@@ -75,14 +74,6 @@ export class TopPartComponent implements OnInit {
         console.log(this.items1);
         this.filterData();
       });
-  }
-
- // Fetches account data (such as available balance for a simplisave savings account) from an AP , Mukosi Budeli 01/08/2023
-  getSimplisaveData(){
-    this.accountService.getSimplisaveData()
-               .subscribe(res=>{
-                this.items1 = res;
-               })
   }
   filterData() {
     // Step 1: Parse the date strings in the JSON data to JavaScript Date objects , Mohammed Badat 01/08/2023

@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth-service.service';
 })
 export class NavbarComponent {
 
-  token: string = ''; // Initialize a variable to hold the token
+  token: string|null = ''; // Initialize a variable to hold the token
   name!:string;
 
   constructor(private authService: AuthService, private accountService:AccountService) {} // Inject your token service

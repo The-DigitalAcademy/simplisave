@@ -3,8 +3,7 @@ export interface User { // interface for all data - Thilivhali Ravhutulu 07/08/2
       lastName: string;
       email: string;
       cellphoneNumber: string;
-      password: string;
+      accountNo: string;
       idNo: string;
-      imageUrl: string;
-
+      profileImage: File | null;
   }

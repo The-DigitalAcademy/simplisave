@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './pages/landing/landing.component';
@@ -77,7 +77,7 @@ import { TransferModalComponent } from './pages/dashboard/top-part/transfer-moda
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ResetComponent } from './pages/auth/forgot-password/reset/reset.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { AddStudentsComponent } from './components/admin/add-students/add-students.component';
 import {MatSelectModule} from '@angular/material/select'
@@ -85,17 +85,28 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 
+import { AdminNavBarComponent } from './components/admin/admin-nav-bar/admin-nav-bar.component';
+
+
+import { SessionTimeoutInterceptor } from './services/session-timeout-interceptor.service';
+
+
 
 
 
 @NgModule({
-    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, StepsComponent, OffersComponent, TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent,ManageModalComponent,GoalModalComponent, AdminLoginComponent, TransactionsComponent, ProfileComponent, PrivacyPolicyComponent,FAQComponent, AboutUsComponent, BalanceSummaryComponent, TransactionDetailsComponent, AccountsBannerComponent, AccountsSavingsAndInvestmentsComponent, FaqBannerComponent, FaqContentComponent, TransferModalComponent, ResetComponent, LearnBannerComponent, AddStudentsComponent, ],  
-    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule, MatMenuModule, MatExpansionModule, MatDatepickerModule, MatNativeDateModule,FlexLayoutModule,MatToolbarModule,MatSelectModule,MatSortModule,MatPaginatorModule,MatTableModule],
+    declarations: [AppComponent, LandingComponent, LearnComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, AccountsComponent, DashboardComponent, NavbarComponent, SidebarComponent, FooterComponent, LearnBannerComponent, LearnWhySAveComponent, LearnVsNoSavingsComponent, LearnVsInvestComponent, LearnBestSuitedComponent, LearnOfferComponent, StepsComponent, OffersComponent, TopPartComponent,ChecklistComponent, GraphComponent,SecondNavBarComponent, LandingGetstartedComponent, LandingPartnersComponent, LandingOpenAccountComponent,LandingNeedHelpComponent, LearnStepsComponent, ExpenseComponent, ExpenseModalComponent,ManageAccountComponent,ManageExpenseComponent, AdminComponent, MainAdminComponent,ManageModalComponent,GoalModalComponent, AdminLoginComponent, TransactionsComponent, ProfileComponent, PrivacyPolicyComponent,FAQComponent, AboutUsComponent, BalanceSummaryComponent, TransactionDetailsComponent, AccountsBannerComponent, AccountsSavingsAndInvestmentsComponent, FaqBannerComponent, FaqContentComponent, TransferModalComponent, ResetComponent, LearnBannerComponent, AddStudentsComponent, AdminNavBarComponent, ],  
+    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatIconModule, MatStepperModule,MatInputModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatTooltipModule,HttpClientModule, MatDialogModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatProgressBarModule, MatMenuModule, MatExpansionModule, MatDatepickerModule, MatNativeDateModule,MatToolbarModule,MatSelectModule,MatSortModule,MatPaginatorModule,MatTableModule],
 
 
     providers: [{
         provide: MatDialogRef, useValue: {}
-    },],
+    },
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: SessionTimeoutInterceptor,
+        multi: true,
+      },],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
