@@ -59,6 +59,10 @@ export class AccountService {
     }
 
     getTypes(): Observable<any[]> {
+        return this.http.get<any[]>(`${environment.apiUrl}/budget`);
+    }
+
+    getTypesBackend(): Observable<any[]> {
         return this.http.get<any[]>(`${environment.BACKEND_URL}/budget/details`);
     }
 
@@ -79,7 +83,7 @@ export class AccountService {
     }
 
     updateGoalSaving(data: any, id: any): Observable<any> {
-        return this.http.put(`${this.url}/${id}`, data);
+        return this.http.put(`${environment.apiUrl}/Goal_Savings/${id}`, data);
     }
 
     getUser(id: any) {
@@ -93,8 +97,8 @@ export class AccountService {
         return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
     }
 
-    updateBudget(data:any){
-        return this.http.patch(`${environment.BACKEND_URL}/budget/progress`, data);
+    updateBudget(id:any,data:any){
+        return this.http.patch(`${environment.apiUrl}/budget/${id}`, data);
     }
 
     //Refreshes the page after a successful update

@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './pages/landing/landing.component';
@@ -82,6 +82,7 @@ import {MatSelectModule} from '@angular/material/select'
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { SessionTimeoutInterceptor } from './services/session-timeout-interceptor.service';
 
 
 
@@ -93,7 +94,12 @@ import { MatTableModule } from '@angular/material/table';
 
     providers: [{
         provide: MatDialogRef, useValue: {}
-    },],
+    },
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: SessionTimeoutInterceptor,
+        multi: true,
+      },],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

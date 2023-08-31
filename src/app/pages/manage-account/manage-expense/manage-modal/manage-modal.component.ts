@@ -75,7 +75,6 @@ export class ManageModalComponent {
     // 2023/08/18
     updateExpensePage() {
         console.log(this.expenseForm.value.category);
-        console.log(this.expenseForm.value.amount,);
 
         if (this.expenseForm.valid) {
             console.log("form is valid")
@@ -85,9 +84,11 @@ export class ManageModalComponent {
                 progressAmount: 0,
             };
 
-            this.service.updateBudget(updatedData).subscribe(
+            this.service.updateBudget(this.id,updatedData).subscribe(
                 response => {
                     console.log('API Response:', response);
+                    this.dialogRef.close();
+                    this.refreshManagePage();
                 },
                 error => {
                     console.error('API Error:', error);

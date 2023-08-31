@@ -69,7 +69,7 @@ export class ExpenseComponent {
   -Mohammed Badat
   -2023/08/01 */
   getTypes() {
-    this.service.getTypes().subscribe((res: any) => {
+    this.service.getTypesBackend().subscribe((res: any) => {
       this.types = res.budgets;
       console.log(this.types);
       if (this.types.length === 0) {
