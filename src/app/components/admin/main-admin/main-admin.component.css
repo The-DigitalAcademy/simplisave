@@ -44,7 +44,7 @@
     padding-bottom: 5px;
     text-align: center;
     padding-top: 10px;
-    position:relative;
+    position:fixed;
     bottom: 0;
     left: 0;
     width: 100%;
