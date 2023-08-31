@@ -19,6 +19,7 @@ export class TopPartComponent implements OnInit {
   items1:any;
   filteredData: any[] = []; 
   sumMoneyOut: any;
+  types:any;
   
 
   constructor(
@@ -30,9 +31,9 @@ export class TopPartComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.getTypes();
     this.getAccountData();
-    this.getDataFromApi()
-    this. getSimplisaveData();
+    this.getDataFromApi();
 
     this.dashService.refreshObservable$.subscribe(() => {
       this.refreshComponent();
@@ -47,13 +48,22 @@ export class TopPartComponent implements OnInit {
             console.log(this.items);
             this.availableBalance=this.items.accounts[0].accountBalance;
             console.log(this.items.accounts[0].accountBalance);
-            this.totalSaved=this.items.accounts[0].savingsAccount.currentSavingsBalance;
+            this.totalSaved=this.items.accounts[0].savingsAccount.totalSavings;
             if(this.totalSaved===null){
               this.totalSaved=0;
             }
             console.log(this.items.accounts[0].savingsAccount.currentSavingsBalance);
 
 });
+  }
+
+
+  getTypes() {
+    this.accountService.getTransactions2()
+      .subscribe(res => {
+        this.types = res;
+        console.log(this.types);
+      });
   }
 
  // Fetches transaction data from the API , Mukosi Budeli 01/08/2023
@@ -64,14 +74,6 @@ export class TopPartComponent implements OnInit {
         console.log(this.items1);
         this.filterData();
       });
-  }
-
- // Fetches account data (such as available balance for a simplisave savings account) from an AP , Mukosi Budeli 01/08/2023
-  getSimplisaveData(){
-    this.accountService.getSimplisaveData()
-               .subscribe(res=>{
-                this.items1 = res;
-               })
   }
   filterData() {
     // Step 1: Parse the date strings in the JSON data to JavaScript Date objects , Mohammed Badat 01/08/2023

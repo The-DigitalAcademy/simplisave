@@ -21,6 +21,10 @@ body {
     align-items: center;
     position: relative;
   }
+
+  .image{
+    border-radius: 80px;
+  }
   
   .banner-heading {
     position: absolute;

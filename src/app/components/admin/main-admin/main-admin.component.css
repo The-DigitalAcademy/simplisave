@@ -44,7 +44,7 @@
     padding-bottom: 5px;
     text-align: center;
     padding-top: 10px;
-    position:relative;
+    position:fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -52,7 +52,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 0;
+    margin-top: 7%;
   }
   
   .footer h2 {

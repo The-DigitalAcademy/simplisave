@@ -18,6 +18,11 @@ navbar-nav {
   letter-spacing: 0.15px;
    cursor: pointer;
 }
+.navbar{
+  height: 70px;
+    height: 70px;
+    padding: 15px;
+}
 .mat-icon {
   font-size: var(--font-x-large);
   text-align: center;
@@ -86,10 +91,15 @@ navbar-nav {
 
 
 /* Media query for mobile devices */
- @media (max-width: 780px) {
+ @media (max-width: 1024px) {
     .img-fluid {
       max-width: 70%;
       min-width: auto;
+    }
+
+    .navbar{
+      height: auto;
+      padding: 5px;
     }
 
     .navbar-nav {
@@ -122,15 +132,20 @@ navbar-nav {
       align-items: center;
     }
 
+    .nav-link{
+      font-size: 18px;
+      font-family: roboto;
+    }
+
   }
 /*Media query for desktop devices */
 
-@media (min-width: 781px) {
+@media (min-width: 1024px) {
   .hide-on-desktop {
     display: none;
   }
 }
-@media (max-width: 790px) {
+@media (max-width: 1024px) {
   .profile, .profile * {
     display: none; /* Hide the profile div and all its descendants */
   }

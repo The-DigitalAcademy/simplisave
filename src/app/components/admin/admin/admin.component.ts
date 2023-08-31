@@ -1,12 +1,12 @@
-import { DialogRef } from '@angular/cdk/dialog';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentsComponent } from '../add-students/add-students.component';
 import { StudentsService } from 'src/app/services/students.service';
-import {AfterViewInit, ViewChild} from '@angular/core';
+import { Student } from 'src/app/interfaces/students';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-admin',
@@ -15,89 +15,93 @@ import { MatSort } from '@angular/material/sort';
 })
 export class AdminComponent implements OnInit {
 
-  displayColumn: string[]=[
-    'id',
-    'firstName',
-    'lastName',
-    'email',
-    'studentNumber',
-    'year',
-    'action'
-  ];
+  students: any;
+  studs: any;
+  element: Student | undefined; 
 
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email','studentNumber','year','action'];
-  dataSource!:  MatTableDataSource<any>;
+  displayedColumns: string[] = ['userId', 'firstName', 'lastName', 'username', 'email','cellphoneNumber','action' ];
+  dataSource = new MatTableDataSource<Student>([]);
 
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
 
-  @ViewChild(MatSort)
-  sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
+  
 
   constructor(
-    private addDialog:MatDialog,
-    private studentsList:StudentsService
-    
-    ){}
-    ngOnInit(){
+    private addDialog: MatDialog,
+    private studentsList: StudentsService
+  ) { }
 
-      this.getList()
-    }
-
-
-
-  openAddStudents(){
-    const dialogRef = this.addDialog.open(AddStudentsComponent)
-    dialogRef.afterClosed().subscribe({
-      next:(value)=>{
-        if(value ){
-          this.getList();
-        }
-      }
-    })
+  ngOnInit() {
+    this.getList();
   }
 
- 
-
-  getList(){
-    this.studentsList.getStudents().subscribe({
-      next: (res: any)=>{  //if successful
-       this.dataSource = new MatTableDataSource(res);
-       this.dataSource.sort = this.sort;
-       this.dataSource.paginator = this.paginator
-         
-      },
-      error: (err) =>{ //else return an error
-        console.log(err)
-      }
-    })
+  removeStudentConfirmation(userId: string) {
+    this.removeStudent(userId); // Call the actual removeStudent function
   }
-removeStudent(id: number){
-  this.studentsList.deleteStudent(id).subscribe({
-    next: (res) =>{
-alert('Student Deleted!')
-this.getList();
-    },
-    error: (err) =>{
-      console.log(err);
-      
-    }
-    
-  })
-}
 
-openEditStudents(data: any){
-  const dialogRef = this.addDialog.open(AddStudentsComponent, {
-    data,
-  })
 
-  dialogRef.afterClosed().subscribe({
-    next:(value)=>{
-      if(value ){
-        this.getList();
-      }
-    }
-  })
-}
+
+  getList() {
+    this.studentsList.getStudents()
+      .subscribe(res => {
+        this.studs = res;
+        this.students = this.studs.Data;
   
+        // Update dataSource with fetched data
+        this.dataSource.data = this.students;
+  
+      });
+  }
+  
+
+  async removeStudent(userId: string) {
+    const userIdNumber = parseInt(userId, 10); // Convert string to number
+  
+    // Display confirmation popup
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      iconColor:'red',
+      showCancelButton: true,
+      confirmButtonColor: '#AF144B',
+      cancelButtonColor: '#95B9C7',
+      confirmButtonText: 'Yes, delete it!'
+    });
+  
+    // If admin confirms, proceed with deletion
+    if (result.isConfirmed) {
+      this.studentsList.deleteStudent(userId)
+        .subscribe(res => {
+          this.studs = res;
+          this.getList();
+          this.students = this.studs.Data;
+          if (this.students) {
+            this.element = this.students.find((student: Student) => student.userId === userIdNumber);
+          }
+        });
+  
+        Swal.fire({
+          title: 'Deleted!',
+          text: 'The student has been deleted.',
+          icon: 'success',
+          iconColor: '#2F539B',  
+          confirmButtonColor: '#2F539B', 
+          customClass: {
+            popup: 'swal-popup-success'
+          }
+        });
+    }
+  }
+  
+  
+  
+
+
 }
+
