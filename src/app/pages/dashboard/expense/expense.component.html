@@ -37,7 +37,7 @@
                               [attr.data-bs-target]="'#collapse' + i"
                               aria-expanded="false"
                               [attr.aria-controls]="'collapse' + i">
-                              {{ type.transactionType }}
+                              {{ type.transactionsType }}
                           </p>
 
                           <div
@@ -52,7 +52,7 @@
                                   <br />
                                   <strong>{{
                                       'Amount Spent: ' +
-                                          typeTotals[type.transactionType] ||
+                                          typeTotals[type.transactionsType] ||
                                           0
                                   }}</strong>
                                   <br />
