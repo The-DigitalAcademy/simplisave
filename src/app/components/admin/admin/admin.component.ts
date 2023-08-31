@@ -11,7 +11,7 @@ import { Student } from 'src/app/interfaces/students';
 })
 export class AdminComponent implements OnInit {
 
-  students: Student[] = [];
+  students: any;
   studs: any;
 
   constructor(
@@ -35,18 +35,14 @@ export class AdminComponent implements OnInit {
   }
 
   getList() {
-    this.studentsList.getStudents().subscribe({
-      next: res => { // Use the correct type for the response data
-        console.log(res); // Log the API response to the console
-        this.studs = res; // Store fetched students in the students array
-        this.students=this.studs.data;
-        // console.log( this.studs); 
 
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
+    this.studentsList.getStudents()
+      .subscribe(res => {
+        this.studs = res;
+        this.students=this.studs.data;
+        console.log(this.studs);
+        
+        });
   }
 
   removeStudent(id: number) {
