@@ -44,17 +44,7 @@ export class AdminComponent implements OnInit {
     this.removeStudent(userId); // Call the actual removeStudent function
   }
 
-  
-  // getList() {
 
-  //   this.studentsList.getStudents()
-  //     .subscribe(res => {
-  //       this.studs = res;
-  //       this.students=this.studs.Data;
-  //       console.log(this.studs);
-        
-  //       });
-  // }
 
   getList() {
     this.studentsList.getStudents()
@@ -65,7 +55,6 @@ export class AdminComponent implements OnInit {
         // Update dataSource with fetched data
         this.dataSource.data = this.students;
   
-        console.log(this.studs);
       });
   }
   
