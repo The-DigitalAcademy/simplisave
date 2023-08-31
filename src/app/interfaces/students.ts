@@ -4,4 +4,5 @@ export interface Student {
     lastName: string;
     email: string;
     cellphoneNumber: string;
+    Data: any[];
   }

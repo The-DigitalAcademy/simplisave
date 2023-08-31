@@ -14,6 +14,7 @@ import { AuthService } from 'src/app/services/auth-service.service';
 })
 export class TransferModalComponent {
   transferForm: FormGroup;
+  goalId:any;
 
   constructor(private authService: AuthService, private dashService: DashboardService,
     private fb: FormBuilder,
@@ -27,6 +28,11 @@ export class TransferModalComponent {
 
   }
 
+  ngOnInit() {
+ this.getGoalId();
+  }
+  
+
   transfer() {
     if (this.transferForm.valid) {
       // Handle form submission
@@ -34,9 +40,8 @@ export class TransferModalComponent {
 
       const amount = {
         amount: this.transferForm.value.amount,
-        description: "Amount to be saved"
       };
-      this.accountService.transferToSavings(amount)
+      this.accountService.transferToSavings(this.goalId,amount)
         .subscribe(res => {
 
           console.log(res)
@@ -51,6 +56,16 @@ export class TransferModalComponent {
         })
     }
   }
+
+
+  getGoalId(){
+    this.accountService.getAccountData().subscribe(
+      (response: any) => {
+        // Handle the API response as needed
+        this.goalId=response.accounts[0].savingsAccount.goalSavings[0].goalId;
+      }
+    );
+    }
 
   /*   When the user clicks on the close button of the dialogue box, this method is called and 
     it closes the dialog box

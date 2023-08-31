@@ -13,6 +13,9 @@ export class AdminComponent implements OnInit {
 
   students: any;
   studs: any;
+  currentPage: number = 1;
+  itemsPerPage: number = 10; // Number of items per page
+
 
   constructor(
     private addDialog: MatDialog,
@@ -23,15 +26,12 @@ export class AdminComponent implements OnInit {
     this.getList();
   }
 
-  openAddStudents() {
-    const dialogRef = this.addDialog.open(AddStudentsComponent);
-    dialogRef.afterClosed().subscribe({
-      next: (value) => {
-        if (value) {
-          this.getList();
-        }
-      }
-    });
+  get startIndex(): number {
+    return (this.currentPage - 1) * this.itemsPerPage;
+  }
+
+  get endIndex(): number {
+    return this.startIndex + this.itemsPerPage - 1;
   }
 
   getList() {
@@ -45,8 +45,8 @@ export class AdminComponent implements OnInit {
         });
   }
 
-  removeStudent(id: number) {
-    this.studentsList.deleteStudent(id).subscribe({
+  removeStudent(userId: number) {
+    this.studentsList.deleteStudent(userId).subscribe({
       next: (res) => {
         alert('Student Deleted!');
         this.getList();
@@ -57,17 +57,5 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  openEditStudents(data: any) {
-    const dialogRef = this.addDialog.open(AddStudentsComponent, {
-      data,
-    });
 
-    dialogRef.afterClosed().subscribe({
-      next: (value) => {
-        if (value) {
-          this.getList();
-        }
-      }
-    });
-  }
 }

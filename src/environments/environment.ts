@@ -12,5 +12,6 @@ export const environment = {
     UPDATE_URL:'api/v1/student/refinement',
     TRANSACTIONS_URL:'api/v1/transactions/transactions',
     BACKEND_URL:'api/v1',
-    STUDENTS_LIST_URL: 'api/v1/admin/students'
+    STUDENTS_LIST_URL: 'api/v1/admin/students',
+    DELETE_STUDENT_URL: 'api/v1/admin/remove'
 };
