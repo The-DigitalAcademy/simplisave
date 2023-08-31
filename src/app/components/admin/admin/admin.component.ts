@@ -97,12 +97,16 @@ export class AdminComponent implements OnInit {
           }
         });
   
-      // Show success message
-      Swal.fire(
-        'Deleted!',
-        'The student has been deleted.',
-        'success'
-      );
+        Swal.fire({
+          title: 'Deleted!',
+          text: 'The student has been deleted.',
+          icon: 'success',
+          iconColor: '#2F539B',  
+          confirmButtonColor: '#2F539B', 
+          customClass: {
+            popup: 'swal-popup-success'
+          }
+        });
     }
   }
   
