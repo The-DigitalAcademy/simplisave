@@ -147,13 +147,34 @@ li{
    
       .col {
          flex-direction: column; 
-         width: 100%; 
+         width: 98%; 
          
        }
      
        .row {
          flex-direction: column; 
-         margin-top: -20px;
+         margin-top: -15px;
+       }
+   
+     div.dashboard-container{
+      width: 105%;
+      margin-left: -13px;
+     }
+    }
+    @media (max-width: 1024px) {
+      .subHeader {
+        font-size: var(--font-normal);
+      }
+   
+      .col {
+         flex-direction: column; 
+         width: 98%; 
+         
+       }
+     
+       .row {
+         flex-direction: column; 
+         margin-top: -15px;
        }
    
      div.dashboard-container{
