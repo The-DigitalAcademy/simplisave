@@ -77,15 +77,14 @@ export class ManageModalComponent {
         console.log(this.expenseForm.value.category);
 
         if (this.expenseForm.valid) {
+            console.log("form is valid")
             const updatedData = {
                 amountSet: this.expenseForm.value.amount,
-                transactionType: this.expenseForm.value.category,
-                accountNo: this.Type.accountNo,
-                progressAmount: this.Type.progressAmount,
-                Status: this.Type.Status,
+                transactionsType: this.expenseForm.value.category,
+                progressAmount: 0,
             };
 
-            this.service.updateGoalSavings(updatedData, this.id).subscribe(
+            this.service.updateBudget(this.id,updatedData).subscribe(
                 response => {
                     console.log('API Response:', response);
                     this.dialogRef.close();

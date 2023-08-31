@@ -31,8 +31,9 @@ export class ExpenseComponent {
   sumMoneyOut: any;
   sumMoneyOutMonths: any[] = [];
   isDataFetched: boolean = false; // Flag to track data fetch completion
-
   typeTotals: any = {}; // Property to store typeTotals
+
+  progress:any;
 
 
 
@@ -68,9 +69,9 @@ export class ExpenseComponent {
   -Mohammed Badat
   -2023/08/01 */
   getTypes() {
-    this.service.getTypes().subscribe((res: any) => {
-      this.types = res;
-      console.log("Types:" + this.types);
+    this.service.getTypesBackend().subscribe((res: any) => {
+      this.types = res.budgets;
+      console.log(this.types);
       if (this.types.length === 0) {
         this.isTypesEmpty = '';
       } else {
@@ -235,7 +236,7 @@ export class ExpenseComponent {
     this.typeTotals = {};
 
     this.types.forEach((type: any) => {
-      const typeName = type.transactionType;
+      const typeName = type.transactionsType;
       const filteredData = transactions.filter((record: any) => {
         const isMoneyOutPositive = record.moneyOut > 0;
         const transactionDate = record.transactionDate;
@@ -265,17 +266,17 @@ export class ExpenseComponent {
     }
 
     for (const type of this.types) {
-      const typeName = type.transactionType;
+      const typeName = type.transactionsType;
       const typeTotal = this.typeTotals[typeName] || 0;
       const typeAmount = type.amountSet || 0;
-      console.log(type.transactionType);
-      console.log("Amount spent: " + this.typeTotals[typeName]);
+      console.log(type.transactionsType);
+      console.log("Amount spent: " +typeTotal);
       console.log("Amount set: " + typeAmount);
 
       if (typeTotal > typeAmount) {
-        type.isChecked = true;
+        type.progress =  "on/over limit";
       } else {
-        type.isChecked = false;
+        type.progress ="under limit";
       }
     }
   }
