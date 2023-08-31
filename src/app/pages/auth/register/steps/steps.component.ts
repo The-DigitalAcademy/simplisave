@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class StepsComponent implements OnInit {
   isLinear = true;
+  showPassword: boolean = false;  // Flag to track password visibility - Thilivhali Ravhutulu 31/08/2023
   
   // FormGroups
   step1FormGroup: FormGroup = new FormGroup({});
@@ -203,5 +204,9 @@ export class StepsComponent implements OnInit {
     }
   }
 
+  //Show/Hide password - Thilivhali Ravhutulu 31/08/2023
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
 }

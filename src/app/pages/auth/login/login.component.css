@@ -9,14 +9,18 @@
   font-size: var(--font-x-small);
 }
 
-.but{
+.show-hide-button{
   position: absolute;
-  right: 5px;
-  top: 50%;
+  right: -40px;
+  top: 55%;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+mat-icon{
+  color: gray;
 }
 
 .title{

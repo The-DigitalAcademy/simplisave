@@ -40,10 +40,6 @@ export class LoginComponent implements OnInit {
     });
    }
 
-   //Show/Hide password - Thilivhali Ravhutulu 31/08/2023
-   togglePasswordVisibility() {
-    this.showPassword = !this.showPassword;
-  }
 
   /* 
     login() is a method for handling the login process, once a user is logged in, we store the JWT token received in the response
@@ -73,34 +69,13 @@ export class LoginComponent implements OnInit {
 
 
     
-    } 
- 
+  } 
 
-
-
-//the login method to handle the login process and update the authentication state.
-/* login() {
-  this.loginData = {
-    username: this.username,
-    password: this.password
-  };
-
-  if (!this.loginForm.valid) {
-    return;
+  //Show/Hide password - Thilivhali Ravhutulu 31/08/2023
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
-
-  this.authService.login(this.loginData).subscribe(
-    (res: any) => {
-      console.log('logged in:', res);
-      this.authService.successAlert();
-      this.loginForm.reset();
-      this.router.navigate(['dashboard']);
-    },
-    (error: any) => {
-      this.authService.failedAlert(); // Show failed login alert
-    }
-  );
-} */
+ 
 logout() {
   this.authService.logout();
 }
