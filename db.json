@@ -62,16 +62,12 @@
     }
   ],
   "reset": [
-    {
-      
-    }
+    {}
   ],
   "forgot": [
-    {
-      
-    }
+    {}
   ],
-  "User": [ 
+  "User": [
     {
       "firstName": "Mohammed",
       "lastName": "Badat",
@@ -100,7 +96,7 @@
   ],
   "Goal_Savings": [
     {
-      "amount": "2000",
+      "amount": "100",
       "id": 1
     }
   ],
@@ -303,29 +299,30 @@
       "image": "/assets/Images/Transactions/McDonalds.png"
     }
   ],
-  "Budget": [
+  "budget": [
     {
-      "amountSet": "700",
-      "transactionType": "FOOD",
-      "progressAmount": "23425234"
+      "id": 1,
+      "amountSet": 1000,
+      "progressAmount": 0,
+      "transactionsType": "FOOD"
     },
     {
-      "amountSet": "5000",
-      "transactionType": "BOOKS",
-      "accountNo": "927970904",
-      "progressAmount": "23425234",
-      "Status": "In-Progress",
-      "id": 3
+      "id": 2,
+      "amountSet": 500,
+      "progressAmount": 0,
+      "transactionsType": "TRANSPORT"
     },
     {
-      "amountSet": "200",
-      "transactionType": "TUITION",
-      "id": 6
+      "id": 3,
+      "amountSet": 500,
+      "progressAmount": 0,
+      "transactionsType": "ACCOMMODATION"
     },
     {
-      "amountSet": "100",
-      "transactionType": "TRANSPORT",
-      "id": 8
+      "id": 4,
+      "amountSet": "1000",
+      "progressAmount": 0,
+      "transactionsType": "TUITION"
     }
   ],
   "students": [
