@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators'
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Transaction } from '../interfaces/transactions.model';
 
 
 @Injectable({
@@ -18,7 +19,8 @@ export class TransactionsService {
   constructor(private http: HttpClient) { }
 
   getTransactionsList(){
-    return this.http.get<any>(`${environment.TRANSACTIONS_URL}`)
+    return this.http.get<Transaction>(`${environment.TRANSACTIONS_URL}`)
+    // return this.http.get<any>(`${environment.apiUrl}/Transaction_Details`)
     .pipe(map((res:any) =>{
       return res;
     }))
