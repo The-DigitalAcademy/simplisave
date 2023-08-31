@@ -4,6 +4,8 @@ import { BehaviorSubject, Subject, switchMap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from '../../environments/environment'; // Import environment variables
 import { AuthService } from './auth-service.service';
+import { User } from '../interfaces/user';
+import { Transaction } from '../interfaces/transactions.model';
 
 @Injectable({
     providedIn: 'root',
@@ -20,46 +22,33 @@ export class AccountService {
         private authService: AuthService
     ) {}
 
-    // getAccountData() {
-    //   console.log(this.authService.getToken())
-    //   return this.authService.getToken().pipe(
-    //     switchMap(token => {
-    //       const headers = new HttpHeaders({
-    //         Authorization: `Bearer ${token}`
-    //       });
-    //       // Make the authenticated API request using HttpClient
-    //       return this.http.get(`${environment.backendUrl}/accounts/account-balance`, { headers });
-    //     })
-    //   );
-
     getAccountData() {
-        console.log(this.authService.getToken())
+        console.log(this.authService.getToken());
         return this.authService.getToken().pipe(
-          switchMap(token => {
-            const headers = new HttpHeaders({
-              Authorization: `Bearer ${token}`
-            });
-          return this.http.get(`${environment.STUDENT_DETAILS_URL}`, { headers });
-        })
-      );
-      
-      
+            switchMap(token => {
+                const headers = new HttpHeaders({
+                    Authorization: `Bearer ${token}`,
+                });
+                return this.http.get<User[]>(
+                    `${environment.STUDENT_DETAILS_URL}`,
+                    { headers }
+                );
+            })
+        );
     }
 
-    // getAccountData() {
-    //     return this.http.get(`${environment.backendUrl}/Transactions`);
-    // }
-
     getTransactions() {
-        return this.http.get(`${environment.TRANSACTION_URL}`);
+        return this.http.get<Transaction[]>(`${environment.TRANSACTION_URL}`);
     }
 
     getTransactions2() {
-        return this.http.get(`${environment.TRANSACTION_URL}`);
+        return this.http.get<Transaction[]>(`${environment.TRANSACTION_URL}`);
     }
 
     getTypes(): Observable<any[]> {
-        return this.http.get<any[]>(`${environment.BACKEND_URL}/budget/details`);
+        return this.http.get<any[]>(
+            `${environment.BACKEND_URL}/budget/details`
+        );
     }
 
     getSimplisaveData() {
@@ -67,7 +56,10 @@ export class AccountService {
     }
 
     createType(body: any): Observable<any> {
-        return this.http.post<any>(`${environment.BACKEND_URL}/budget/creation`, body);
+        return this.http.post<any>(
+            `${environment.BACKEND_URL}/budget/creation`,
+            body
+        );
     }
 
     getGoalSavings(): Observable<any[]> {
@@ -87,7 +79,7 @@ export class AccountService {
     }
 
     updateUser(id: any, data: any) {
-        return this.http.patch(`${environment.UPDATE_URL}`, data);
+        return this.http.patch<User[]>(`${environment.UPDATE_URL}`, data);
     }
     getOneTransaction(id: any): Observable<void> {
         return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
@@ -100,7 +92,7 @@ export class AccountService {
         return this.http.delete<void>(`${environment.apiUrl}/Budget/${id}`);
     }
 
-    transferToSavings(id:any,data: any) {
+    transferToSavings(id: any, data: any) {
         console.log(this.authService.getToken());
         return this.authService.getToken().pipe(
             switchMap(token => {
@@ -109,7 +101,7 @@ export class AccountService {
                 });
                 // Make the authenticated API request using HttpClient
                 return this.http.post(
-                  `${environment.BACKEND_URL}/simplisaving/transfer/${id}`,
+                    `${environment.BACKEND_URL}/simplisaving/transfer/${id}`,
                     data,
                     { headers }
                 );
@@ -117,9 +109,8 @@ export class AccountService {
         );
     }
 
-    getGoalID(){
+    getGoalID() {
         return this.http.get(`${environment.BACKEND_URL}/goalSavings/goals`);
-
     }
 
     triggerRefresh() {

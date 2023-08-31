@@ -34,7 +34,6 @@ export class TopPartComponent implements OnInit {
     this.getTypes();
     this.getAccountData();
     this.getDataFromApi()
-    this. getSimplisaveData();
 
     this.dashService.refreshObservable$.subscribe(() => {
       this.refreshComponent();
@@ -77,13 +76,6 @@ export class TopPartComponent implements OnInit {
       });
   }
 
- // Fetches account data (such as available balance for a simplisave savings account) from an AP , Mukosi Budeli 01/08/2023
-  getSimplisaveData(){
-    this.accountService.getSimplisaveData()
-               .subscribe(res=>{
-                this.items1 = res;
-               })
-  }
   filterData() {
     // Step 1: Parse the date strings in the JSON data to JavaScript Date objects , Mohammed Badat 01/08/2023
     const transactions = this.items1.map((record: any) => ({
