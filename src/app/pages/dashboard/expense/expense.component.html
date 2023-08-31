@@ -1,17 +1,60 @@
-
 <div class="container text-center">
-  <div class="row">
-      <div class="col">
-          <div class="head">
-              <mat-icon
-                  class="info-icon"
-                  matTooltip="The graph displays how much was spent per month">error</mat-icon>
-              <h1 class="subHeader">Monthly Expense summary</h1>
-          </div>
-          <div class="graph">
-              <canvas id="myChart" width="400" height="300"></canvas>
-          </div>
-      </div>
+    <div class="row">
+        <div class="col">
+            <div class="head">
+                <mat-icon class="info-icon"
+                    matTooltip="The graph displays how much was spent per month">error</mat-icon>
+                <h1 class="subHeader">Monthly Expense summary</h1>
+            </div>
+            <div class="graph">
+                <canvas id="myChart" height="300px" ></canvas>
+            </div>
+        </div>
+
+
+        <div class="col">
+            <div class="heading">
+                <mat-icon class="info-icon" matTooltip="Set the budget here ">error</mat-icon>
+                <h1 class="subHeader">
+                    Budget Summary
+                    <mat-icon class="bigger-icon" (click)="openExpenseModal()">add_circle</mat-icon>
+                </h1>
+            </div>
+            <div class="expense-container">
+                <div class="accordion-content">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item" *ngFor="let type of types; let i = index">
+                            <p class="accordion-button" data-bs-toggle="collapse"
+                                [attr.data-bs-target]="'#collapse' + i" aria-expanded="false"
+                                [attr.aria-controls]="'collapse' + i">
+                                {{ type.transactionType }}
+                            </p>
+
+                            <div [id]="'collapse' + i" class="accordion-collapse collapse"
+                                [attr.aria-labelledby]="'heading' + i" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>{{
+                                        'Amount Set: ' + type.amountSet
+                                        }}</strong>
+                                    <br />
+                                    <strong>{{
+                                        'Amount Spent: ' +
+                                        typeTotals[type.transactionType] ||
+                                        0
+                                        }}</strong>
+                                    <br />
+                                    <code>{{ type.Status }}</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button (click)="openExpenseModal()" mat-button>
+                        <mat-icon>add</mat-icon>Add To Checklist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
       <div class="col">
           <div class="heading">
@@ -56,7 +99,7 @@
                                           0
                                   }}</strong>
                                   <br />
-                                  <code>{{ type.Status }}</code>
+                                  <code>{{ type.progress }}</code>
                               </div>
                           </div>
                       </div>
@@ -68,4 +111,5 @@
           </div>
       </div>
   </div>
+
 </div>
