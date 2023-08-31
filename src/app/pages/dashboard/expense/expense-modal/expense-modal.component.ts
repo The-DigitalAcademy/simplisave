@@ -61,7 +61,7 @@ export class ExpenseModalComponent {
     if (this.expenseForm.valid) {
       const updatedData = {
         amountSet: this.expenseForm.value.amount,
-        transactionsType: this.expenseForm.value.category
+        transactionType: this.expenseForm.value.category
       };
       this.service.createType(updatedData).subscribe(
         (response: any) => {
