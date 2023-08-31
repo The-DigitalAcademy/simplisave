@@ -92,7 +92,7 @@
                       <mat-label>Password</mat-label>
                       <input
                           matInput
-                          type="password"
+                          type="{{ showPassword ? 'text' : 'password' }}"
                           class="form-control-plaintext" 
                           [(ngModel)]="newPassword"
                           id="password"
@@ -100,6 +100,9 @@
                           formControlName="password"
                           required
                         />
+                        <button type="button" class="show-hide-button" (click)="togglePasswordVisibility()">
+                          <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                        </button>
                         <mat-error *ngIf="password?.invalid && (password?.dirty || password?.touched)">
                           <div *ngIf="password?.errors?.['required']">Password is required.</div>
                           <div *ngIf="password?.errors?.['pattern']">
@@ -112,7 +115,7 @@
                       <mat-label>Confirm Password</mat-label>
                       <input
                         matInput
-                        type="password"
+                        type="{{ showPassword ? 'text' : 'password' }}"
                         class="form-control-plaintext"
                         [(ngModel)]="newConfirmPassword"
                         id="confirmPassword"
@@ -120,6 +123,9 @@
                         formControlName="confirmPassword"
                         required
                       />
+                      <button type="button" class="show-hide-button" (click)="togglePasswordVisibility()">
+                        <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                      </button>
                       <mat-error *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)">
                         <div *ngIf="confirmPassword?.errors?.['required']">Confirmation password is required.</div>
                         <div *ngIf="!passwordMatch()">Passwords do not match.</div>

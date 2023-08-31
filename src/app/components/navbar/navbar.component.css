@@ -92,7 +92,7 @@
 
 
 /* Media query for mobile devices */
- @media (max-width: 1024px) {
+ @media (max-width: 999px) {
   .navbar{
     height: auto;
     padding: 5px;
