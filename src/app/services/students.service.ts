@@ -25,6 +25,6 @@ export class StudentsService {
   }
 
   deleteStudent(id: number): Observable<any> {
-    return this.http.delete(`https://simplisave.software/api/v1/admin/students/${id}`);
+    return this.http.delete(environment.DELETE_STUDENT_URL);
   }
 }
