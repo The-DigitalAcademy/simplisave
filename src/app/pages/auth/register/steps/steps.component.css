@@ -15,6 +15,20 @@
     font-size: var(--font-x-large);
 }
 
+.show-hide-button{
+  position: absolute;
+  right: -37px;
+  top: 55%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+mat-icon{
+  color: gray;
+}
+
 .subtitle{
   font-size:var(--font-small);
 }

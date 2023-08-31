@@ -11,5 +11,6 @@ export const environment = {
     RESET_URL:'api/v1/auth/reset-password',
     UPDATE_URL:'api/v1/student/refinement',
     TRANSACTIONS_URL:'api/v1/transactions/transactions',
-    BACKEND_URL:'api/v1'
+    BACKEND_URL:'api/v1',
+    IMAGE_URL: 'api/v1/student/image'
 };
