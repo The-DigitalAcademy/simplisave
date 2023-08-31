@@ -31,8 +31,9 @@ export class ExpenseComponent {
   sumMoneyOut: any;
   sumMoneyOutMonths: any[] = [];
   isDataFetched: boolean = false; // Flag to track data fetch completion
-
   typeTotals: any = {}; // Property to store typeTotals
+
+  progress:any;
 
 
 
@@ -269,13 +270,13 @@ export class ExpenseComponent {
       const typeTotal = this.typeTotals[typeName] || 0;
       const typeAmount = type.amountSet || 0;
       console.log(type.transactionsType);
-      console.log("Amount spent: " + this.typeTotals[typeName]);
+      console.log("Amount spent: " +typeTotal);
       console.log("Amount set: " + typeAmount);
 
       if (typeTotal > typeAmount) {
-        type.isChecked = true;
+        type.progress =  "on/over limit";
       } else {
-        type.isChecked = false;
+        type.progress ="under limit";
       }
     }
   }
