@@ -64,18 +64,18 @@ export class ExpenseComponent {
   set by the user to populqte the checklist
   -Mohammed Badat
   -2023/08/01 */
-    getTypes() {
-        this.service.getTypes().subscribe((res: any) => {
-            this.types = res;
-            console.log('Types:' + this.types);
-            if (this.types.length === 0) {
-                this.isTypesEmpty = '';
-            } else {
-                this.isTypesEmpty = 'full';
-            }
-            this.checkDataFetched();
-        });
-    }
+  getTypes() {
+    this.service.getTypes().subscribe((res: any) => {
+      this.types = res.budgets;
+      console.log(this.types);
+      if (this.types.length === 0) {
+        this.isTypesEmpty = '';
+      } else {
+        this.isTypesEmpty = 'full';
+      }
+      this.checkDataFetched();
+    });
+  }
 
     /* check whether both methods fetching data have successfully retreived it
   -Mohammed Badat
@@ -251,16 +251,14 @@ export class ExpenseComponent {
 
         this.typeTotals = {};
 
-        this.types.forEach((type: any) => {
-            const typeName = type.transactionType;
-            const filteredData = transactions.filter((record: any) => {
-                const isMoneyOutPositive = record.moneyOut > 0;
-                const transactionDate = record.transactionDate;
-                const isWithinCurrentMonth =
-                    transactionDate.getMonth() === currentMonth;
-                const isDescriptionMatching =
-                    record.transactionType === typeName;
-                console.log(record.moneyOut);
+    this.types.forEach((type: any) => {
+      const typeName = type.transactionsType;
+      const filteredData = transactions.filter((record: any) => {
+        const isMoneyOutPositive = record.moneyOut > 0;
+        const transactionDate = record.transactionDate;
+        const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
+        const isDescriptionMatching = record.transactionType === typeName;
+        console.log(record.moneyOut);
 
                 return (
                     isMoneyOutPositive &&
@@ -290,13 +288,13 @@ export class ExpenseComponent {
             return;
         }
 
-        for (const type of this.types) {
-            const typeName = type.transactionType;
-            const typeTotal = this.typeTotals[typeName] || 0;
-            const typeAmount = type.amountSet || 0;
-            console.log(type.transactionType);
-            console.log('Amount spent: ' + this.typeTotals[typeName]);
-            console.log('Amount set: ' + typeAmount);
+    for (const type of this.types) {
+      const typeName = type.transactionsType;
+      const typeTotal = this.typeTotals[typeName] || 0;
+      const typeAmount = type.amountSet || 0;
+      console.log(type.transactionsType);
+      console.log("Amount spent: " + this.typeTotals[typeName]);
+      console.log("Amount set: " + typeAmount);
 
             if (typeTotal > typeAmount) {
                 type.isChecked = true;
