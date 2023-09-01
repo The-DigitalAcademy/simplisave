@@ -33,7 +33,7 @@ export class TopPartComponent implements OnInit {
   ngOnInit() {
     this.getTypes();
     this.getAccountData();
-    this.getDataFromApi();
+    this.getDataFromApi()
 
     this.dashService.refreshObservable$.subscribe(() => {
       this.refreshComponent();
@@ -75,6 +75,7 @@ export class TopPartComponent implements OnInit {
         this.filterData();
       });
   }
+
   filterData() {
     // Step 1: Parse the date strings in the JSON data to JavaScript Date objects , Mohammed Badat 01/08/2023
     const transactions = this.items1.map((record: any) => ({
