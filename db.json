@@ -332,9 +332,9 @@
     },
     {
       "id": 6,
-      "amountSet": 189,
+      "amountSet": "45",
       "progressAmount": 0,
-      "transactionsType": "BANK CHARGES"
+      "transactionsType": "OTHER"
     }
   ],
   "students": [

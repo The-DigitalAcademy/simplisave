@@ -6,5 +6,9 @@ export interface Transaction {
     moneyIn: number;
     moneyOut: number;
     availableBalance: number;
-    image: string;
+    // image: string;
+  }
+
+  export interface GroupedTransactions {
+    [date: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
   }

@@ -7,9 +7,7 @@
     <div class="overview">
       <h2 class="overview-heading">Student</h2>
       <label for="imageInput">
-        <img class="image"
-          [src]="selectedImageFile ? getImageUrl(selectedImageFile) : './assets/Images/Profile/Profile icon.png'"
-          alt="Profile Image" width="120" height="150" style="cursor: pointer;">
+        <img class="image" [src]="selectedImageFile ? getImageUrl(selectedImageFile) : './assets/Images/Profile/Profile icon.png'" alt="Profile Image" width="120" height="150" style="cursor: pointer;">
       </label>
       <input type="file" (change)="onImageInputChange($event)" accept="image/*" id="imageInput" style="display: none;">
       <h2 class="overview-heading">{{ userInfo.firstName}}</h2>
@@ -87,8 +85,8 @@
           </div>
         </div>
         <div class="form-row">
-          <button class="save-button" type="submit" [disabled]="!basicInfoForm.valid">Save</button>
-          <button class="cancel-button" type="button" routerLink="/dashboard">Cancel</button>
+            <button class="save-button" type="submit" [disabled]="!basicInfoForm.valid">Save</button>
+            <button class="cancel-button" type="button" routerLink="/dashboard">Back</button>
         </div>
       </form>
     </div>
