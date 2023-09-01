@@ -6,6 +6,7 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
 import { ExpenseModalComponent } from './expense-modal/expense-modal.component';
 import { ObjectUnsubscribedError } from 'rxjs';
+import { Transaction } from 'src/app/interfaces/transactions.model';
 
 @Component({
   selector: 'app-expense',
@@ -23,17 +24,17 @@ export class ExpenseComponent {
   ) { }
 
   chart!: Chart;
-  items1: any = [];
+  items1: Transaction[] = [];
   data: any;
-  types: any;
-  isTypesEmpty: any;
-  filteredData: any[] = [];
-  sumMoneyOut: any;
+  types: any[]=[];
+  isTypesEmpty!: string;
+  filteredData: Transaction[] = [];
+  sumMoneyOut!: number;
   sumMoneyOutMonths: any[] = [];
   isDataFetched: boolean = false; // Flag to track data fetch completion
   typeTotals: any = {}; // Property to store typeTotals
 
-  progress:any;
+  progress!: string;
 
 
 

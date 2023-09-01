@@ -6,6 +6,7 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 import { ExpenseModalComponent } from '../expense/expense-modal/expense-modal.component';
 import { TransferModalComponent } from './transfer-modal/transfer-modal.component';
 
+
 @Component({
   selector: 'app-top-part',
   templateUrl: './top-part.component.html',

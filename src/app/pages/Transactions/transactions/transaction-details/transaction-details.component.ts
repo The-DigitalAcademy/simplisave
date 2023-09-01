@@ -40,6 +40,7 @@ export class TransactionDetailsComponent implements OnInit {
     });
   }
 
+  //This function simply fetches the list of transactions performed by the user from the database
   fetchDataFromAPI() {
     this.transactionService.getTransactionsList().subscribe(
       (res: Transaction[]) => {
@@ -52,6 +53,7 @@ export class TransactionDetailsComponent implements OnInit {
     );
   }
 
+  //This function groups transactions with the same date so that they can be displayed together and so that filters can be applied
   groupTransactions() {
     this.groupedTransactions = {};
 
@@ -81,7 +83,7 @@ export class TransactionDetailsComponent implements OnInit {
 
 
 
-
+//This Function takes the user selected date and then displays only transactions with the selected date in the table
   handleDateSelection(event: MatDatepickerInputEvent<Date>) {
     if (event.value) {
       const selectedDate = format(event.value, 'yyyy-MM-dd');
@@ -93,7 +95,7 @@ export class TransactionDetailsComponent implements OnInit {
     }
   }
 
-
+//This function is used to display data that matches the selected date in the table
   filterTable(filter: string) {
     if (this.selectedDate !== null || filter !== '') {
       if (!filter) {

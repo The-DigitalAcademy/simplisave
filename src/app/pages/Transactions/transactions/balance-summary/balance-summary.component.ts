@@ -29,6 +29,7 @@ export class BalanceSummaryComponent implements OnInit {
     this.getAccountData();
   }
 
+  //This function fetches the list of transactions from the database
   fetchDataFromAPI() {
     this.transactionService.getTransactionsList().subscribe(
       res => {
@@ -42,6 +43,7 @@ export class BalanceSummaryComponent implements OnInit {
     );
   }
 
+  //This function fetches the value of the main account form the database
   getCurrentBalance() {
     this.transactionService.getCurrentBalance().subscribe(res => {
       this.currentBalance = res;
@@ -58,6 +60,8 @@ export class BalanceSummaryComponent implements OnInit {
       });
   }
 
+
+  //this function calculates the total amount spent by a user in a month
   calculateTotalsForMonth() {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth(); // Get the current month (0-based index)
@@ -89,6 +93,7 @@ export class BalanceSummaryComponent implements OnInit {
       .reduce((total, transaction) => total + transaction.moneyOut, 0);
   }
 
+  //This function is used for the searchbox, it filters data based on a transactions description
   applySearchFilter() {
     this.transactionService.setSearchFilter(this.searchFilter); // Set the search filter in the service
     const filter = this.searchFilter.toLowerCase();

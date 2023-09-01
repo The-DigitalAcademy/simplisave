@@ -5,16 +5,32 @@ import { Router } from '@angular/router';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
 
+interface expenseForm {
+  category:string;
+  amount: number;
+}
+
+interface categories {
+  label: string;
+  value:string;
+  
+}
+
 @Component({
   selector: 'app-expense-modal',
   templateUrl: './expense-modal.component.html',
   styleUrls: ['./expense-modal.component.css']
 })
+
+
 export class ExpenseModalComponent {
-  formData: any = {}; // This will store the form data
+  formData: expenseForm = {
+  category: '',
+  amount: 0,
+};
   expenseForm!: FormGroup; // Add a FormGroup to hold the form controls
   selectedCategory: string = '';
-  categoryOptions: any = [
+  categoryOptions: categories[] = [
     { value: 'FOOD', label: 'Food' },
     { value: 'ACCOMMODATION', label: 'Accommodation' },
     { value: 'TRANSPORT', label: 'Transport' },
