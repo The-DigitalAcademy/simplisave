@@ -1,6 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/interfaces/user';
+import { Profile } from 'src/app/interfaces/transactions.model';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth-service.service';
 
@@ -13,12 +14,14 @@ export class ProfileComponent implements OnInit {
   basicInfoForm!: FormGroup;
   passwordForm!: FormGroup;
   activeForm: string = 'form1';
-  userInfo: any;
-  userId: any = 2;
+  userInfo: Profile;
+  userId: number = 2;
   items1:any;
   selectedImageFile: File | null = null; // Initialize to null
 
-  constructor(private formBuilder: FormBuilder, private service: AccountService, private authService:AuthService) {}
+  constructor(private formBuilder: FormBuilder, private service: AccountService, private authService:AuthService) {
+    this.userInfo = {} as Profile;
+  }
 
 
 
@@ -66,7 +69,7 @@ export class ProfileComponent implements OnInit {
   getUsersInfo() {
     this.service.getAccountData().subscribe((res: any) => {
       this.userInfo = res;
-
+      console.log('userInfo:', this.userInfo);
       // Set initial form values using patchValue
       this.basicInfoForm.patchValue({
         firstName: this.userInfo.firstName,
@@ -74,7 +77,8 @@ export class ProfileComponent implements OnInit {
         cellphoneNumber: this.userInfo.cellphoneNumber,
         email: this.userInfo.email,
         idNo:this.userInfo.idNo,
-        accountNo:this.userInfo.accounts[0].accountNo,
+        accountNo: this.userInfo.accounts[0].accountNo,
+
       });
 
       this.passwordForm.patchValue({

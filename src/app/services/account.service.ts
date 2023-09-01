@@ -4,6 +4,7 @@ import { BehaviorSubject, Subject, switchMap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from '../../environments/environment'; // Import environment variables
 import { AuthService } from './auth-service.service';
+import { Budget, BudgetResponse, TransactionType } from '../interfaces/transactions.model';
 
 @Injectable({
     providedIn: 'root',
@@ -50,49 +51,54 @@ export class AccountService {
     //     return this.http.get(`${environment.backendUrl}/Transactions`);
     // }
 
-    getTransactions() {
-        return this.http.get(`${environment.TRANSACTION_URL}`);
-    }
+    // getTransactions() {
+    //     return this.http.get(`${environment.TRANSACTION_URL}`);
+    // }
 
     getTransactions2() {
         return this.http.get(`${environment.TRANSACTION_URL}`);
     }
 
-    getTypes(): Observable<any[]> {
-        return this.http.get<any[]>(`${environment.apiUrl}/budget`);
-    }
-
+    getTypes(): Observable<BudgetResponse> {
+        return this.http.get<BudgetResponse>(`${environment.apiUrl}/budget`);
+      }
+    
+//DASHBOARD_EXPENSE API FOR INTERFACE REFERENCE
     getTypesBackend(): Observable<any[]> {
         return this.http.get<any[]>(`${environment.BACKEND_URL}/budget/details`);
     }
-
-    getSimplisaveData() {
-        return this.http.get(`${environment.apiUrl}/Simpil_Savings_Account`);
-    }
+    
+    // NOT UTILIZED
+    // getSimplisaveData() {
+    //     return this.http.get(`${environment.apiUrl}/Simpil_Savings_Account`);
+    // }
 
     createType(body: any): Observable<any> {
         return this.http.post<any>(`${environment.BACKEND_URL}/budget/creation`, body);
     }
 
-    getGoalSavings(): Observable<any[]> {
-        return this.http.get<[any]>(`${environment.apiUrl}/Goal_Savings`);
-    }
+    getGoalSavings(): Observable<TransactionType[]> {
+        return this.http.get<TransactionType[]>(`${environment.apiUrl}/Goal_Savings`);
+      }
 
-    updateGoalSavings(data: any, id: any): Observable<any> {
-        return this.http.put(`${environment.apiUrl}/Budget/${id}`, data);
-    }
+    // NOT UTILIZED
+    // updateGoalSavings(data: any, id: any): Observable<any> {
+    //     return this.http.put(`${environment.apiUrl}/Budget/${id}`, data);
+    // }
 
     updateGoalSaving(data: any, id: any): Observable<any> {
         return this.http.put(`${environment.apiUrl}/Goal_Savings/${id}`, data);
     }
 
-    getUser(id: any) {
-        return this.http.get(`${environment.apiUrl}/User/${id}`);
-    }
+    // NOT UTILIZED
+    // getUser(id: any) {
+    //     return this.http.get(`${environment.apiUrl}/User/${id}`);
+    // }
 
     updateUser(id: any, data: any) {
         return this.http.patch(`${environment.UPDATE_URL}`, data);
     }
+    
     getOneTransaction(id: any): Observable<void> {
         return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
     }
