@@ -134,9 +134,10 @@ export class ManageExpenseComponent implements OnInit {
     */
      getTypes() {
        
-        this.accountService.getTypes().subscribe((res: BudgetResponse) => {
-            if (res && res.budget) {
-                this.transactionType = res.budget;
+        this.accountService.getTypesBackend().subscribe((res: any) => {
+            if (res) {
+                this.transactionType = res.budgets;
+                console.log(this.transactionType);
 
                 if (this.transactionType && this.transactionType.length === 0) {
                     this.isTypesEmpty = '';

@@ -58,8 +58,8 @@ export class AccountService {
       }
     
 //DASHBOARD_EXPENSE API FOR INTERFACE REFERENCE
-    getTypesBackend(): Observable<any[]> {
-        return this.http.get<any[]>(
+    getTypesBackend(): Observable<BudgetResponse> {
+        return this.http.get<BudgetResponse>(
             `${environment.BACKEND_URL}/budget/details`
         );
     }
@@ -104,6 +104,10 @@ export class AccountService {
 
     updateBudget(id:any,data:any){
         return this.http.patch(`${environment.apiUrl}/budget/${id}`, data);
+    }
+
+    getOneBudget(){
+        return this.http.get(`${environment.BACKEND_URL}/budget/details`);
     }
 
     //Refreshes the page after a successful update
