@@ -76,8 +76,8 @@ export class ProfileComponent implements OnInit {
         this.getUsersInfo();
     }
 
-    /* This function fetches a ceratin users info and assigns it to the form fields so that they display in the input boxes
-      when the form is loaded
+  /*  This function fetches a ceratin users info and assigns it to the form fields so that they display in the input boxes
+      when the form is loaded */
   getUsersInfo() {
     this.service.getAccountData().subscribe((res: any) => {
       this.userInfo = res;
