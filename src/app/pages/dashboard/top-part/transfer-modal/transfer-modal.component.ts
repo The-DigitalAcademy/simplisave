@@ -61,6 +61,7 @@ export class TransferModalComponent {
   getGoalId(){
     this.accountService.getAccountData().subscribe(
       (response: any) => {
+        console.log(response)
         // Handle the API response as needed
         this.goalId=response.accounts[0].savingsAccount.goalSavings[0].goalId;
       }

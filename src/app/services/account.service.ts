@@ -103,7 +103,7 @@ export class AccountService {
     }
 
     updateBudget(id:any,data:any){
-        return this.http.patch(`${environment.apiUrl}/budget/${id}`, data);
+        return this.http.patch(`${environment.BACKEND_URL}/budget/progress/${id}`, data);
     }
 
     getOneBudget(){
@@ -113,8 +113,8 @@ export class AccountService {
     //Refreshes the page after a successful update
     // Lebohang Mokoena
     // 2023/08/07
-    deleteTransaction(id: any): Observable<void> {
-        return this.http.delete<void>(`${environment.apiUrl}/Budget/${id}`);
+    deleteTransaction(id: any) {
+        return this.http.delete(`${environment.BACKEND_URL}/budget/${id}`);
     }
 
     transferToSavings(id: any, data: any) {

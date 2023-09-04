@@ -55,8 +55,11 @@ export class ManageModalComponent {
         this.id = localStorage.getItem('typeId');
 
         this.service.getOneBudget().subscribe((res: any) => {
-            this.Type = res.budgets;
+            if (res) {
+                this.Type = res.budgets.filter((record: any) => !record.deleted);
+                console.log(this.Type);
             console.log(this.Type);
+            }
             this.foundBudget = this.Type.find((budget: { budgetId: any }) => budget.budgetId == this.id);
 
             if (this.foundBudget) {
@@ -65,8 +68,7 @@ export class ManageModalComponent {
                 console.log(this.foundBudget);
 
                 // Modify this part to set default values in the form
-                this.expenseForm.patchValue({
-                    category: this.foundBudget.transactionsType, // Set category based on foundBudget
+                this.expenseForm.patchValue({// Set category based on foundBudget
                     amount: this.foundBudget.amountSet, // Set amount based on foundBudget
                 });
             } else {
