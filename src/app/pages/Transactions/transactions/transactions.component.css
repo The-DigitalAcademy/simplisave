@@ -438,5 +438,38 @@ thead th.active,tbody td.active {
     display: block;
     font-size:  var(--font-x-small);
   }
-} 
-} */
+
+}
+
+@media (max-width: 820px) {
+  .transaction-container {
+    flex-direction: column;
+    height: auto; 
+    padding: 5%;
+  }
+}
+
+@media (max-width: 912px) {
+  .transaction-container {
+    flex-direction: column;
+    height: auto; 
+    padding: 5%;
+  }
+}
+>>>>>>> origin
+
+@media (max-width: 820px) {
+  .transaction-container {
+    flex-direction: column;
+    height: auto; 
+    padding: 5%;
+  }
+}
+
+@media (max-width: 912px) {
+  .transaction-container {
+    flex-direction: column;
+    height: auto; 
+    padding: 5%;
+  }
+}

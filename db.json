@@ -314,7 +314,7 @@
     },
     {
       "id": 3,
-      "amountSet": 3500,
+      "amountSet": "3000",
       "progressAmount": 0,
       "transactionsType": "ACCOMMODATION"
     },
@@ -325,16 +325,10 @@
       "transactionsType": "TUITION"
     },
     {
-      "id": 5,
-      "amountSet": 5000,
-      "progressAmount": 0,
-      "transactionsType": "BOOKS"
-    },
-    {
       "id": 6,
-      "amountSet": 189,
+      "amountSet": "45",
       "progressAmount": 0,
-      "transactionsType": "BANK CHARGES"
+      "transactionsType": "OTHER"
     }
   ],
   "students": [
