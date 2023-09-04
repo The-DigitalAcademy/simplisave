@@ -1,5 +1,5 @@
 .navbar-nav {
-    /* margin-left: 389px; */
+ 
     width: auto;
     justify-content: end;
    
@@ -46,14 +46,9 @@
     padding-left: 85%;
     color: aliceblue;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 20px;
   }
-  /* .logout{
-    color: aliceblue;
-    cursor: pointer;
-    align-content: center;
-  } */
-  /* Media query for mobile devices */
+ 
    @media (max-width: 1024px) {
     .navbar{
       height: auto;
