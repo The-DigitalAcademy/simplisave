@@ -42,8 +42,17 @@
   .navbar-nav hr {
     display: none;
   }
-  
-  
+  h1{
+    padding-left: 85%;
+    color: aliceblue;
+    cursor: pointer;
+    font-size: 25px;
+  }
+  /* .logout{
+    color: aliceblue;
+    cursor: pointer;
+    align-content: center;
+  } */
   /* Media query for mobile devices */
    @media (max-width: 1024px) {
     .navbar{
