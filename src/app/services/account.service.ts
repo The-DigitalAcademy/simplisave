@@ -79,7 +79,7 @@ export class AccountService {
 
     getGoalSavings(): Observable<TransactionType[]> {
         return this.http.get<TransactionType[]>(
-            `${environment.CREATESAVINGSGOAL}/Data`
+            `${environment.CREATESAVINGSGOAL}`
         );
     }
 
