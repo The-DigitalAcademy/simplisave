@@ -33,7 +33,7 @@ export class BalanceSummaryComponent implements OnInit {
     this.transactionService.getTransactionsList().subscribe(
       res => {
         this.transactionsList = res;
-        console.log(this.transactionsList)
+        
         this.calculateTotalsForMonth();
       },
       error => {

@@ -65,8 +65,7 @@ export class ExpenseModalComponent {
       };
       this.service.createType(updatedData).subscribe(
         (response: any) => {
-          // Handle the API response as needed
-          console.log('API Response:', response);
+          
           // Optionally, you can close the dialog after successful API call
           this.dialogRef.close();
           this.router.navigate(['/dashboard']);

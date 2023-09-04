@@ -154,7 +154,7 @@ export class StepsComponent implements OnInit {
       ...this.step3FormGroup.value,  // Store only the ID number - Thilivhali Ravhutulu 14/08/2023
       image: this.previewImage // The image URL - Thilivhali Ravhutulu 16/08/2023
     };
-    console.log("data:", this.registrationData);
+   
 
     this.stepperService.updateStepData(this.registrationData);
     this.stepperService.saveRegistrationData();

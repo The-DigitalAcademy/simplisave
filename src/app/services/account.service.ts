@@ -23,7 +23,7 @@ export class AccountService {
     ) {}
 
     getAccountData() {
-        console.log(this.authService.getToken());
+        
         return this.authService.getToken().pipe(
             switchMap(token => {
                 const headers = new HttpHeaders({
@@ -101,7 +101,7 @@ export class AccountService {
     }
 
     transferToSavings(id: any, data: any) {
-        console.log(this.authService.getToken());
+        
         return this.authService.getToken().pipe(
             switchMap(token => {
                 const headers = new HttpHeaders({

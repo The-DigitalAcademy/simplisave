@@ -45,14 +45,14 @@ export class TopPartComponent implements OnInit {
     this.accountService.getAccountData()
           .subscribe(res => {
             this.items = res;
-            console.log(this.items);
+            
             this.availableBalance=this.items.accounts[0].accountBalance;
-            console.log(this.items.accounts[0].accountBalance);
+            
             this.totalSaved=this.items.accounts[0].savingsAccount.totalSavings;
             if(this.totalSaved===null){
               this.totalSaved=0;
             }
-            console.log(this.items.accounts[0].savingsAccount.currentSavingsBalance);
+            
 
 });
   }
@@ -62,7 +62,7 @@ export class TopPartComponent implements OnInit {
     this.accountService.getTransactions2()
       .subscribe(res => {
         this.types = res;
-        console.log(this.types);
+        
       });
   }
 
@@ -71,7 +71,6 @@ export class TopPartComponent implements OnInit {
     this.accountService.getTransactions2()
       .subscribe(res => {
         this.items1 = res;
-        console.log(this.items1);
         this.filterData();
       });
   }
@@ -98,10 +97,10 @@ export class TopPartComponent implements OnInit {
   
     // Step 4: Calculate the sum of Money_Out for the filtered records , Mohammed Badat 01/08/2023
     this.sumMoneyOut = this.filteredData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
-    console.log(this.sumMoneyOut);
+   
   
     // Step 5: Log the filtered data ,Mohammed Badat 01/08/2028
-    console.log(this.filteredData);
+    
   }
 
   openTransferModal(): void {
@@ -112,7 +111,7 @@ export class TopPartComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if (result) {
-        console.log('Amount:', result.amount);
+        
       }
     });
   }

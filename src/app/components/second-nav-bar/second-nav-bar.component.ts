@@ -28,7 +28,6 @@ export class SecondNavBarComponent {
         this.accountService.getAccountData().subscribe(res => {
             this.items = res;
             this.name = this.items.firstName;
-            console.log(this.items.firstName);
         });
     }
 }

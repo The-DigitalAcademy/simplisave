@@ -74,10 +74,10 @@ export class ManageModalComponent {
     //Lebohang Mokoena
     // 2023/08/18
     updateExpensePage() {
-        console.log(this.expenseForm.value.category);
+       
 
         if (this.expenseForm.valid) {
-            console.log("form is valid")
+            
             const updatedData = {
                 amountSet: this.expenseForm.value.amount,
                 transactionsType: this.expenseForm.value.category,
@@ -86,7 +86,7 @@ export class ManageModalComponent {
 
             this.service.updateBudget(this.id,updatedData).subscribe(
                 response => {
-                    console.log('API Response:', response);
+                    
                     this.dialogRef.close();
                     this.refreshManagePage();
                 },

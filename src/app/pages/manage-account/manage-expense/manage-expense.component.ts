@@ -105,7 +105,7 @@ export class ManageExpenseComponent implements OnInit {
     getTransactionsFromApi() {
         this.accountService.getTransactions2().subscribe(res => {
             this.items1 = res;
-            console.log(this.items1);
+            
             this.checkDataFetched(); // Call checkDataFetched after items1 is populated
         });
     }
@@ -117,7 +117,7 @@ export class ManageExpenseComponent implements OnInit {
     getTypes() {
         this.accountService.getTypes().subscribe((res:any) => {
             this.transactionType = res;
-            console.log(this.transactionType);
+            
             if (this.transactionType.length === 0) {
                 this.isTypesEmpty = '';
             } else {
@@ -155,7 +155,7 @@ export class ManageExpenseComponent implements OnInit {
                     transactionDate.getMonth() === currentMonth;
                 const isDescriptionMatching =
                     record.transactionType === typeName;
-                console.log(record.moneyOut);
+                
 
                 return (
                     isMoneyOutPositive &&
@@ -163,7 +163,7 @@ export class ManageExpenseComponent implements OnInit {
                     isDescriptionMatching
                 );
             });
-            console.log(filteredData);
+            
             const typeTotal = filteredData.reduce(
                 (sum: number, record: any) => sum + record.moneyOut,
                 0
@@ -172,10 +172,10 @@ export class ManageExpenseComponent implements OnInit {
             this.typeTotals[typeName] = typeTotal; // Store the typeTotal in the typeTotals object
         });
 
-        console.log(this.typeTotals);
+        
     }
 
-    /* check whether both methods fetching data have successfully retreived it
+    /* check whether both methods fetching data have successfully retrieved it
   -Mohammed Badat
   -2023/08/03 */
     checkDataFetched() {

@@ -55,8 +55,7 @@ export class GoalModalComponent {
             const updatedData = { ...this.data, amount: this.formData.amount };
             this.service.updateGoalSaving(updatedData, this.id).subscribe(
                 response => {
-                    //Handle the API response as needed
-                    console.log('API response', response);
+                    
                     this.dialogRef.close();
                     this.refreshManagePage();
                 },

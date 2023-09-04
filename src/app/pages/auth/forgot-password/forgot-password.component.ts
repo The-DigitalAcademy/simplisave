@@ -29,8 +29,6 @@ export class ForgotPasswordComponent {
       
       },
       error => {
-        console.log('error:', error);
-
         // Handle error - Thilivhali Ravhutulu  22 August 2023
         Swal.fire({
           icon: 'error',

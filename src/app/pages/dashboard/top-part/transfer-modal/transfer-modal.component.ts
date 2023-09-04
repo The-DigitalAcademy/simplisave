@@ -36,15 +36,13 @@ export class TransferModalComponent {
   transfer() {
     if (this.transferForm.valid) {
       // Handle form submission
-      console.log(this.transferForm.value.amount)
+      
 
       const amount = {
         amount: this.transferForm.value.amount,
       };
       this.accountService.transferToSavings(this.goalId,amount)
         .subscribe(res => {
-
-          console.log(res)
 
           this.dialogRef.close();
           this.router.navigate(['/dashboard']);
