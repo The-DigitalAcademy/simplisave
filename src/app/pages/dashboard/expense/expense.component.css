@@ -140,6 +140,7 @@ li{
    
    }
    
+   
    @media (max-width: 768px) {
       .subHeader {
         font-size: var(--font-normal);
@@ -156,29 +157,16 @@ li{
          margin-top: -15px;
        }
    
-     div.dashboard-container{
+     .dashboard-container{
       width: 105%;
       margin-left: -13px;
      }
     }
-    @media (max-width: 1024px) {
-      .subHeader {
-        font-size: var(--font-normal);
-      }
-   
-      .col {
-         flex-direction: column; 
-         width: 98%; 
-         
-       }
-     
-       .row {
-         flex-direction: column; 
-         margin-top: -15px;
-       }
-   
-     div.dashboard-container{
-      width: 105%;
-      margin-left: -13px;
-     }
-    }
+ 
+@media (min-width: 768px){
+
+   .row{
+      width: 101%;
+      margin-left: 0%;
+   }
+}

@@ -22,7 +22,11 @@
   }
   
   
+  .nav-item {
+    margin-right: 100px; 
+    
   
+  }
   
   
   .navbar-nav .nav-item.active .nav-link::after {
