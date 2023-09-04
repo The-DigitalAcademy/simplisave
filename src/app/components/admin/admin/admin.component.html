@@ -1,8 +1,20 @@
 <app-admin-nav-bar></app-admin-nav-bar>
 <h1>Hello Admin</h1>
 
+<div class="container">
+  <div class="row height d-flex justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="form">
+        <i class="fa fa-search"></i>
+        <input type="text" class="form-control form-input" [(ngModel)]="searchTerm" (input)="applyFilter()" placeholder="Search a student...">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
+  <table mat-table [dataSource]="filteredData.length > 0 ? filteredData : dataSource">
     
     <ng-container matColumnDef="userId">
       <th mat-header-cell *matHeaderCellDef> ID. </th>

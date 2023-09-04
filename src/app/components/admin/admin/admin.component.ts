@@ -15,6 +15,8 @@ import Swal from 'sweetalert2';
 })
 export class AdminComponent implements OnInit {
 
+  filteredData: any[] = [];
+  searchTerm: string = '';
   students: any;
   studs: any;
   element: Student | undefined; 
@@ -44,7 +46,10 @@ export class AdminComponent implements OnInit {
     this.removeStudent(userId); // Call the actual removeStudent function
   }
 
-
+  applyFilter(): void {
+    const filterValue = this.searchTerm.trim().toLowerCase();
+    this.dataSource.filter = filterValue;
+  }
 
   getList() {
     this.studentsList.getStudents()
