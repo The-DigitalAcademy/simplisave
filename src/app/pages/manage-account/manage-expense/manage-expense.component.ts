@@ -6,7 +6,10 @@ import { ManageModalComponent } from './manage-modal/manage-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GoalModalComponent } from './goal-modal/goal-modal.component';
 import { Observable } from 'rxjs';
-import { BudgetResponse, TransactionType } from 'src/app/interfaces/transactions.model';
+import {
+    BudgetResponse,
+    TransactionType,
+} from 'src/app/interfaces/transactions.model';
 
 @Component({
     selector: 'app-manage-expense',
@@ -24,6 +27,8 @@ export class ManageExpenseComponent implements OnInit {
     sumMoneyOutMonths: any[] = [];
     isDataFetched: boolean = false; // Flag to track data fetch completion
     typeTotals: any = {}; // Property to store typeTotals
+    items: any;
+    amountSet: any;
 
     constructor(
         private accountService: AccountService,
@@ -51,21 +56,36 @@ export class ManageExpenseComponent implements OnInit {
         this.accountService.getTypes().subscribe(account => {
             this.transactionType = account;
         });
-        
     }
 
     // Responsible for making an HTTP request to fetch goal savings data.
     // Lebohang Mokoena
     // 2023/07/31
-    
+
+    getAccountData() {
+        this.accountService.getAccountData().subscribe(res => {
+            this.items = res;
+            // Accessing the "Amount Set" property
+            const amountSet =
+                this.data[0].accountId.savingsAccount.goalSavings[0][
+                    'Amount Set'
+                ];
+            console.log('Amount Set:', amountSet);
+            // this.amountSet = this.items.accounts[0].amountSet;
+            // console.log(this.items.accounts[0].accountBalance);
+        });
+    }
+
     goalSavings() {
-    /*---------------------------------------------------------------------------------------------------------
+        /*---------------------------------------------------------------------------------------------------------
     | Modified the datatype any to an interface TransactionType    2023-Sep-01  ModifiedB:y Delphia Sekhukhune
     |----------------------------------------------------------------------------------------------------------
     */
-        this.accountService.getGoalSavings().subscribe((amountSet: TransactionType[]) => {
-          this.Goal_Savings = amountSet;
-        });
+        this.accountService
+            .getGoalSavings()
+            .subscribe((amountSet: TransactionType[]) => {
+                this.Goal_Savings = amountSet;
+            });
     }
 
     // triggers onclick edit icon
@@ -95,7 +115,7 @@ export class ManageExpenseComponent implements OnInit {
         this.accountService.deleteTransaction(id).subscribe(
             () => {
                 const index = this.transactionType.findIndex(
-                    (type: { id: any; }) => type.id === id
+                    (type: { id: any }) => type.id === id
                 );
                 if (index !== -1) {
                     this.transactionType.splice(index, 1);
@@ -132,8 +152,7 @@ export class ManageExpenseComponent implements OnInit {
     |
     |-------------------------------------------------------------------------------------------------------------
     */
-     getTypes() {
-       
+    getTypes() {
         this.accountService.getTypes().subscribe((res: BudgetResponse) => {
             if (res && res.budget) {
                 this.transactionType = res.budget;
@@ -149,7 +168,6 @@ export class ManageExpenseComponent implements OnInit {
         });
     }
 
-    
     /*  for each user set expense allocation, fiter the transaction records to find records in the current month
   , records with only money going and the description of the transaction should match the name of the expense allocation type, 
   then add the total money out for all these records giving us a sum that is the amount a user has for a certain expense 
@@ -224,4 +242,9 @@ export class ManageExpenseComponent implements OnInit {
         const percentage = (typeTotal / type.amountSet) * 100;
         return percentage;
     }
+
+    // refreshManagePage() {
+    //     //Trigger the refresh for component two
+    //     this.service.triggerRefresh();
+    // }
 }

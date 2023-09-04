@@ -4,10 +4,13 @@ import { BehaviorSubject, Subject, switchMap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from '../../environments/environment'; // Import environment variables
 import { AuthService } from './auth-service.service';
-import { Budget, BudgetResponse, TransactionType } from '../interfaces/transactions.model';
+import {
+    Budget,
+    BudgetResponse,
+    TransactionType,
+} from '../interfaces/transactions.model';
 import { User } from '../interfaces/user';
 import { Transaction } from '../interfaces/transactions.model';
-
 
 @Injectable({
     providedIn: 'root',
@@ -39,7 +42,6 @@ export class AccountService {
         );
     }
 
-
     // getAccountData() {
     //     return this.http.get(`${environment.backendUrl}/Transactions`);
     // }
@@ -48,22 +50,21 @@ export class AccountService {
     //     return this.http.get(`${environment.TRANSACTION_URL}`);
     // }
 
-
     getTransactions2() {
         return this.http.get<Transaction[]>(`${environment.TRANSACTION_URL}`);
     }
 
     getTypes(): Observable<BudgetResponse> {
         return this.http.get<BudgetResponse>(`${environment.apiUrl}/budget`);
-      }
-    
-//DASHBOARD_EXPENSE API FOR INTERFACE REFERENCE
+    }
+
+    //DASHBOARD_EXPENSE API FOR INTERFACE REFERENCE
     getTypesBackend(): Observable<any[]> {
         return this.http.get<any[]>(
             `${environment.BACKEND_URL}/budget/details`
         );
     }
-    
+
     // NOT UTILIZED
     // getSimplisaveData() {
     //     return this.http.get(`${environment.apiUrl}/Simpil_Savings_Account`);
@@ -77,8 +78,10 @@ export class AccountService {
     }
 
     getGoalSavings(): Observable<TransactionType[]> {
-        return this.http.get<TransactionType[]>(`${environment.apiUrl}/Goal_Savings`);
-      }
+        return this.http.get<TransactionType[]>(
+            `${environment.goalSaving}/Data`
+        );
+    }
 
     // NOT UTILIZED
     // updateGoalSavings(data: any, id: any): Observable<any> {
@@ -97,12 +100,12 @@ export class AccountService {
     updateUser(id: any, data: any) {
         return this.http.patch<User[]>(`${environment.UPDATE_URL}`, data);
     }
-    
+
     getOneTransaction(id: any): Observable<void> {
         return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
     }
 
-    updateBudget(id:any,data:any){
+    updateBudget(id: any, data: any) {
         return this.http.patch(`${environment.apiUrl}/budget/${id}`, data);
     }
 
