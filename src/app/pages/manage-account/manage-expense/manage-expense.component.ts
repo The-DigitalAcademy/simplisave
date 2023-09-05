@@ -114,7 +114,7 @@ deleteTransactionType(id: any){
     }
 
     /* call http get function in the service file to fetch the types of expense allocation categories
-       set by the user to populqte the checklist
+       set by the user to populate the checklist
        -Mohammed Badat
        -2023/08/01 
     /* 
