@@ -18,9 +18,10 @@
     </ng-container>
     <ng-template #goalNotSetMessage>
       <p class="addGoalMessage">Please set a goal on the manage page before you can transfer money.</p>
+      <mat-dialog-actions class="closeCenter"> <!-- Center-align the actions -->
+        <button mat-button (click)="onNoClick()">Close</button>
+      </mat-dialog-actions>
     </ng-template>
+    
   </mat-dialog-content>
-  <mat-dialog-actions class="closeCenter"> <!-- Center-align the actions -->
-    <button mat-button (click)="onNoClick()">Close</button>
-  </mat-dialog-actions>
 </div>
