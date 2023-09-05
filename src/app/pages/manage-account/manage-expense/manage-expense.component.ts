@@ -42,7 +42,6 @@ export class ManageExpenseComponent implements OnInit {
 
     ngOnInit() {
         this.loadData();
-        // this.goalSavings();
         this.getAccountData();
         this.getTransactionsFromApi();
         this.getTypes();
@@ -66,31 +65,13 @@ export class ManageExpenseComponent implements OnInit {
     getAccountData() {
         this.accountService.getAccountData().subscribe(res => {
             this.items = res;
-            console.log(this.items);
             this.amountSet =
                 this.items.accounts[0].savingsAccount.goalSavings[0].amountSet;
             this.selectedTypeId =
                 this.items.accounts[0].savingsAccount.goalSavings[0].goalId;
-            console.log(this.selectedTypeId);
-            console.log(
-                this.items.accounts[0].savingsAccount.goalSavings[0].goalId
-            );
         });
     }
 
-    goalSavings() {
-        /*---------------------------------------------------------------------------------------------------------
-    | Modified the datatype any to an interface TransactionType    2023-Sep-01  ModifiedB:y Delphia Sekhukhune
-    |----------------------------------------------------------------------------------------------------------
-    */
-        // this.accountService.getGoalSavings().subscribe((res: any) => {
-        //     console.log(res);
-        // });
-    }
-
-    // triggers onclick edit icon
-    // Lebohang Mokoena
-    // 2023/07/31
     openExpenseModal(id: any): void {
         localStorage.setItem('typeId', id);
         const dialogRef = this.dialog.open(ManageModalComponent, {
@@ -242,9 +223,4 @@ export class ManageExpenseComponent implements OnInit {
         const percentage = (typeTotal / type.amountSet) * 100;
         return percentage;
     }
-
-    // refreshManagePage() {
-    //     //Trigger the refresh for component two
-    //     this.service.triggerRefresh();
-    // }
 }

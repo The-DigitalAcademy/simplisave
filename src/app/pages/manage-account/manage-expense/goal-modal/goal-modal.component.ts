@@ -46,9 +46,9 @@ export class GoalModalComponent {
         return control?.touched && control?.hasError(errorName);
     }
 
-    // updating the set saving goal then saves a modal dialog
+    // create the saving goal then saves a modal dialog
     //Lebohang Mokoena
-    // 2023/08/18
+    // 2023/09/04
     createGoalSaving() {
         //Call the API service to post the form data
         if (this.goalForm.valid) {
