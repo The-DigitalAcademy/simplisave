@@ -1,13 +1,22 @@
-<div class="container text-left">
-    <div class="heading">
-        <h1>Expense Allocation</h1>
+<div class="container">
+    <div class="sidebar">
+        <div id="dashLink" routerLink="/dashboard"><mat-icon>dashboard</mat-icon>Dashboard</div>
+        <div routerLink="/transactions">
+            <mat-icon>compare_arrows</mat-icon>Transactions
+        </div>
+        <div routerLink="/manage"><mat-icon>account_circle</mat-icon>Manage</div>
+    
+        <div routerLink="" class="logout"><mat-icon>logout</mat-icon>Logout</div>
     </div>
-    <div class="sub-header">
-        <h4>Savings Goal</h4>
-    </div>
+    <div class="content">
+        <div class="heading">
+            <h1>Expense Allocation</h1>
+        </div>
+        <div class="sub-header">
+            <h4>Savings Goal</h4>
+        </div>
 
-    <div *ngIf="amountSet; else elseBlock">
-        <div class="grid-container">
+        <div *ngIf="amountSet; else elseBlock">
             <div class="card">
                 <div class="card-content">
                     <div class="title">
@@ -23,10 +32,8 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <ng-template #elseBlock>
-        <div class="grid-container">
+        <ng-template #elseBlock>
             <div class="card">
                 <div class="card-content">
                     <div class="title">
@@ -39,42 +46,42 @@
                     </div>
                 </div>
             </div>
+        </ng-template>
+        
+        <div class="cardHeading">
+            <h4>Expense Allocation Categories</h4>
         </div>
-    </ng-template>
-    <br /><br />
-
-    <div class="cardHeading">
-        <h4>Expense Allocation Categories</h4>
-    </div>
-    <div class="grid-container">
-        <div class="card" *ngFor="let transactionType of transactionType">
-            <div class="card-content">
-                <div class="title">
-                    <h5>{{ transactionType.transactionsType }}</h5>
-                </div>
-                <div class="icon-container">
-                    <mat-icon
-                        (click)="openExpenseModal(transactionType.budgetId)"
-                        class="edit"
-                        >edit</mat-icon
-                    >
-                    <mat-icon
-                        (click)="deleteTransactionType(transactionType.budgetId)"
-                        >delete</mat-icon
-                    >
-                </div>
-                <mat-progress-bar
-                    class="red-progress-bar"
-                    mode="determinate"
-                    [value]="getTypeProgress(transactionType.transactionsType)"
-                    [bufferValue]="
-                        transactionType.amountSet
-                    "></mat-progress-bar>
-                <div class="balance">
-                    <h6>R{{ transactionType.amountSet }}</h6>
+        <div class="grid-container">
+            <div class="card" *ngFor="let transactionType of transactionType">
+                <div class="card-content">
+                    <div class="title">
+                        <h5>{{ transactionType.transactionsType }}</h5>
+                    </div>
+                    <div class="icon-container">
+                        <mat-icon
+                            (click)="openExpenseModal(transactionType.budgetId)"
+                            class="edit"
+                            >edit</mat-icon
+                        >
+                        <mat-icon
+                            (click)="deleteTransactionType(transactionType.budgetId)"
+                            >delete</mat-icon
+                        >
+                    </div>
+                    <mat-progress-bar
+                        class="red-progress-bar"
+                        mode="determinate"
+                        [value]="getTypeProgress(transactionType.transactionsType)"
+                        [bufferValue]="
+                            transactionType.amountSet
+                        "></mat-progress-bar>
+                    <div class="balance">
+                        <h6>R{{ transactionType.amountSet }}</h6>
+                    </div>
                 </div>
             </div>
         </div>
+        <br /><br /><br />
     </div>
-    <br /><br /><br />
 </div>
+
