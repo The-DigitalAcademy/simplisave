@@ -54,22 +54,14 @@ export class ManageModalComponent {
     ngOnInit() {
         this.id = localStorage.getItem('typeId');
 
-
-        this.service.getOneTransaction(this.id).subscribe(res => {
-            this.Type = res;
-
         this.service.getOneBudget().subscribe((res: any) => {
             if (res) {
                 this.Type = res.budgets.filter((record: any) => !record.deleted);
-                console.log(this.Type);
-            console.log(this.Type);
+                
             }
             this.foundBudget = this.Type.find((budget: { budgetId: any }) => budget.budgetId == this.id);
 
             if (this.foundBudget) {
-                // Do something with the found budget
-                console.log('Found budget:', this.foundBudget);
-                console.log(this.foundBudget);
 
                 // Modify this part to set default values in the form
                 this.expenseForm.patchValue({// Set category based on foundBudget
@@ -77,9 +69,8 @@ export class ManageModalComponent {
                     category:this.foundBudget.transactionsType
                 });
             } else {
-                console.log('Budget with budgetId', this.id, 'not found.');
+                
             }
-
         });
     }
     //Responsible for closing a modal dialog

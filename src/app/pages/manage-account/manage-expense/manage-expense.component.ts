@@ -132,7 +132,6 @@ deleteTransactionType(id: any){
         this.accountService.getTypesBackend().subscribe((res: any) => {
           if (res) {
             this.transactionType = res.budgets.filter((record: any) => !record.deleted);
-            console.log(this.transactionType);
       
             if (this.transactionType && this.transactionType.length === 0) {
               this.isTypesEmpty = '';
