@@ -17,7 +17,6 @@ export class ProfileComponent implements OnInit {
   activeForm: string = 'form1';
   userInfo: Profile;
   userId: number = 2;
-  items1:any;
   selectedImageFile: File | null = null; // Initialize to null
 
   constructor(private formBuilder: FormBuilder, private service: AccountService, private authService:AuthService) {

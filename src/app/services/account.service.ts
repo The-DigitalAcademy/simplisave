@@ -58,11 +58,14 @@ export class AccountService {
       }
     
 //DASHBOARD_EXPENSE API FOR INTERFACE REFERENCE
-    getTypesBackend(): Observable<any[]> {
-        return this.http.get<any[]>(
-            `${environment.BACKEND_URL}/budget/details`
-        );
-    }
+    // getTypesBackend(): Observable<any[]> {
+    //     return this.http.get<any[]>(
+    //         `${environment.BACKEND_URL}/budget/details`
+    //     );
+    // }
+    getTypesBackend(): Observable<Budget[]> {
+        return this.http.get<Budget[]>(`${environment.BACKEND_URL}/budget/details`);
+      }
     
     // NOT UTILIZED
     // getSimplisaveData() {
