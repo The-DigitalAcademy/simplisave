@@ -5,6 +5,8 @@ import { AccountService } from 'src/app/services/account.service';
 import { ManageModalComponent } from './manage-modal/manage-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GoalModalComponent } from './goal-modal/goal-modal.component';
+import { Observable } from 'rxjs';
+import { BudgetResponse, TransactionType } from 'src/app/interfaces/transactions.model';
 
 @Component({
     selector: 'app-manage-expense',
@@ -13,7 +15,7 @@ import { GoalModalComponent } from './goal-modal/goal-modal.component';
 })
 export class ManageExpenseComponent implements OnInit {
     transactionType: any;
-    Goal_Savings: any[] = [];
+    Goal_Savings: TransactionType[] = [];
     items1: any = [];
     data: any;
     isTypesEmpty: any;
@@ -49,14 +51,20 @@ export class ManageExpenseComponent implements OnInit {
         this.accountService.getTypes().subscribe(account => {
             this.transactionType = account;
         });
+        
     }
 
     // Responsible for making an HTTP request to fetch goal savings data.
     // Lebohang Mokoena
     // 2023/07/31
+    
     goalSavings() {
-        this.accountService.getGoalSavings().subscribe(Amount_Set => {
-            this.Goal_Savings = Amount_Set;
+    /*---------------------------------------------------------------------------------------------------------
+    | Modified the datatype any to an interface TransactionType    2023-Sep-01  ModifiedB:y Delphia Sekhukhune
+    |----------------------------------------------------------------------------------------------------------
+    */
+        this.accountService.getGoalSavings().subscribe((amountSet: TransactionType[]) => {
+          this.Goal_Savings = amountSet;
         });
     }
 
@@ -111,22 +119,37 @@ export class ManageExpenseComponent implements OnInit {
     }
 
     /* call http get function in the service file to fetch the types of expense allocation categories
-  set by the user to populqte the checklist
-  -Mohammed Badat
-  -2023/08/01 */
-    getTypes() {
-        this.accountService.getTypes().subscribe((res:any) => {
-            this.transactionType = res;
-            console.log(this.transactionType);
-            if (this.transactionType.length === 0) {
-                this.isTypesEmpty = '';
+       set by the user to populqte the checklist
+       -Mohammed Badat
+       -2023/08/01 
+    /* 
+    |------------------------------------------------------------------------------------------------------------
+    | Added BudgetResponse Interface                                              Modified By Sekhukhune Delphia
+    |------------------------------------------------------------------------------------------------------------
+    | 2023-Sep-01
+    | Added the interface BudgetResponse and checked if the response and 'budget' property are defined.
+    | Assign the 'budget' property to the 'transactionType' variable.
+    |
+    |-------------------------------------------------------------------------------------------------------------
+    */
+     getTypes() {
+       
+        this.accountService.getTypes().subscribe((res: BudgetResponse) => {
+            if (res && res.budget) {
+                this.transactionType = res.budget;
+
+                if (this.transactionType && this.transactionType.length === 0) {
+                    this.isTypesEmpty = '';
+                } else {
+                    this.isTypesEmpty = 'full';
+                }
+                this.checkDataFetched();
             } else {
-                this.isTypesEmpty = 'full';
             }
-            this.checkDataFetched(); // Call checkDataFetched after types are populated
         });
     }
 
+    
     /*  for each user set expense allocation, fiter the transaction records to find records in the current month
   , records with only money going and the description of the transaction should match the name of the expense allocation type, 
   then add the total money out for all these records giving us a sum that is the amount a user has for a certain expense 
