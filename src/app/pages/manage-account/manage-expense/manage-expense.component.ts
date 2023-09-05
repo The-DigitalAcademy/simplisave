@@ -129,13 +129,6 @@ deleteTransactionType(id: any){
     */
     getTypes() {
 
-        this.accountService.getTypes().subscribe((res:any) => {
-            this.transactionType = res;
-            
-            if (this.transactionType.length === 0) {
-                this.isTypesEmpty = '';
-
-
         this.accountService.getTypesBackend().subscribe((res: any) => {
           if (res) {
             this.transactionType = res.budgets.filter((record: any) => !record.deleted);
@@ -143,7 +136,6 @@ deleteTransactionType(id: any){
       
             if (this.transactionType && this.transactionType.length === 0) {
               this.isTypesEmpty = '';
-
             } else {
               this.isTypesEmpty = 'full';
             }
