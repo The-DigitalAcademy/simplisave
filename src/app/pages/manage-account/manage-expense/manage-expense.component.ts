@@ -6,7 +6,10 @@ import { ManageModalComponent } from './manage-modal/manage-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GoalModalComponent } from './goal-modal/goal-modal.component';
 import { Observable } from 'rxjs';
-import { BudgetResponse, TransactionType } from 'src/app/interfaces/transactions.model';
+import {
+    BudgetResponse,
+    TransactionType,
+} from 'src/app/interfaces/transactions.model';
 
 @Component({
     selector: 'app-manage-expense',
@@ -18,12 +21,15 @@ export class ManageExpenseComponent implements OnInit {
     Goal_Savings: TransactionType[] = [];
     items1: any = [];
     data: any;
-    isTypesEmpty: any;
+    isTypesEmpty!: string;
     filteredData: any[] = []; // Initialize filteredData as an empty array
-    sumMoneyOut: any;
-    sumMoneyOutMonths: any[] = [];
+    sumMoneyOut!: number;
+    sumMoneyOutMonths: number[] = [];
     isDataFetched: boolean = false; // Flag to track data fetch completion
     typeTotals: any = {}; // Property to store typeTotals
+    items: any;
+    amountSet!: number;
+    selectedTypeId!: number;
 
     constructor(
         private accountService: AccountService,
@@ -36,7 +42,7 @@ export class ManageExpenseComponent implements OnInit {
 
     ngOnInit() {
         this.loadData();
-        this.goalSavings();
+        this.getAccountData();
         this.getTransactionsFromApi();
         this.getTypes();
         this.accountService.refreshObservable.subscribe(() => {
@@ -51,26 +57,21 @@ export class ManageExpenseComponent implements OnInit {
         this.accountService.getTypes().subscribe(account => {
             this.transactionType = account;
         });
-        
     }
 
     // Responsible for making an HTTP request to fetch goal savings data.
     // Lebohang Mokoena
     // 2023/07/31
-    
-    goalSavings() {
-    /*---------------------------------------------------------------------------------------------------------
-    | Modified the datatype any to an interface TransactionType    2023-Sep-01  ModifiedB:y Delphia Sekhukhune
-    |----------------------------------------------------------------------------------------------------------
-    */
-        this.accountService.getGoalSavings().subscribe((amountSet: TransactionType[]) => {
-          this.Goal_Savings = amountSet;
+    getAccountData() {
+        this.accountService.getAccountData().subscribe(res => {
+            this.items = res;
+            this.amountSet =
+                this.items.accounts[0].savingsAccount.goalSavings[0].amountSet;
+            this.selectedTypeId =
+                this.items.accounts[0].savingsAccount.goalSavings[0].goalId;
         });
     }
 
-    // triggers onclick edit icon
-    // Lebohang Mokoena
-    // 2023/07/31
     openExpenseModal(id: any): void {
         localStorage.setItem('typeId', id);
         const dialogRef = this.dialog.open(ManageModalComponent, {
@@ -81,12 +82,12 @@ export class ManageExpenseComponent implements OnInit {
     // Responsible for saving goal modal
     // Lebohang Mokoena
     // 2023/07/31
-    openGoalModal(id: any): void {
-        localStorage.setItem('typeId', id);
+    openGoalModal(): void {
         const dialogRef = this.dialog.open(GoalModalComponent, {
             width: '450px',
         });
     }
+
 
   // Function to delete a transaction type
 // Lebohang Mokoena
@@ -99,6 +100,7 @@ deleteTransactionType(id: any){
         },
     );
 }
+
 
     /* call http get function in the service to get all the transaction records
   -Mohammed Badat
@@ -126,6 +128,7 @@ deleteTransactionType(id: any){
     |-------------------------------------------------------------------------------------------------------------
     */
     getTypes() {
+
         this.accountService.getTypesBackend().subscribe((res: any) => {
           if (res) {
             this.transactionType = res.budgets.filter((record: any) => !record.deleted);
@@ -143,7 +146,6 @@ deleteTransactionType(id: any){
         });
       }
 
-    
     /*  for each user set expense allocation, fiter the transaction records to find records in the current month
   , records with only money going and the description of the transaction should match the name of the expense allocation type, 
   then add the total money out for all these records giving us a sum that is the amount a user has for a certain expense 
