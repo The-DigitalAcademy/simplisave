@@ -42,7 +42,7 @@ export class ExpenseModalComponent {
   }
 
   ngOnInit() {
-   this.isCategoryAlreadyExists("FOOD");
+   this.isCategoryAlreadyExists("Hi");
   }
 
   get formControls() {
@@ -93,8 +93,6 @@ export class ExpenseModalComponent {
         return;
       }
 
-      // Continue with saving if the category doesn't exist
-      this.categoryExistsError = false; // Reset the error flag
       const updatedData = {
         amountSet: this.expenseForm.value.amount,
         transactionsType: selectedCategory
