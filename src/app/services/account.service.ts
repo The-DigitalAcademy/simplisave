@@ -56,11 +56,13 @@ export class AccountService {
 
     getTypes(): Observable<BudgetResponse> {
         return this.http.get<BudgetResponse>(`${environment.apiUrl}/budget`);
-    }
 
-    //DASHBOARD_EXPENSE API FOR INTERFACE REFERENCE
-    getTypesBackend(): Observable<any[]> {
-        return this.http.get<any[]>(
+      }
+    
+//DASHBOARD_EXPENSE API FOR INTERFACE REFERENCE
+    getTypesBackend(): Observable<BudgetResponse> {
+        return this.http.get<BudgetResponse>(
+
             `${environment.BACKEND_URL}/budget/details`
         );
     }
@@ -109,15 +111,21 @@ export class AccountService {
         return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
     }
 
-    updateBudget(id: any, data: any) {
-        return this.http.patch(`${environment.apiUrl}/budget/${id}`, data);
+
+    updateBudget(id:any,data:any){
+        return this.http.patch(`${environment.BACKEND_URL}/budget/progress/${id}`, data);
+    }
+
+    getOneBudget(){
+        return this.http.get(`${environment.BACKEND_URL}/budget/details`);
+
     }
 
     //Refreshes the page after a successful update
     // Lebohang Mokoena
     // 2023/08/07
-    deleteTransaction(id: any): Observable<void> {
-        return this.http.delete<void>(`${environment.apiUrl}/Budget/${id}`);
+    deleteTransaction(id: any) {
+        return this.http.delete(`${environment.BACKEND_URL}/budget/${id}`);
     }
 
     transferToSavings(id: any, data: any) {

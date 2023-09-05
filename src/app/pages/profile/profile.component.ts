@@ -90,7 +90,6 @@ export class ProfileComponent implements OnInit {
         email: this.userInfo.email,
         idNo:this.userInfo.idNo,
         accountNo: this.userInfo.accounts[0].accountNo,
-
       });
 
       this.passwordForm.patchValue({

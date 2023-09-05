@@ -88,24 +88,19 @@ export class ManageExpenseComponent implements OnInit {
         });
     }
 
-    // Function to delete a transaction type
-    // Lebohang Mokoena
-    // 2023/08/10
-    deleteTransactionType(id: any): void {
-        this.accountService.deleteTransaction(id).subscribe(
-            () => {
-                const index = this.transactionType.findIndex(
-                    (type: { id: any }) => type.id === id
-                );
-                if (index !== -1) {
-                    this.transactionType.splice(index, 1);
-                }
-            },
-            error => {
-                console.error('Error deleting transaction type:', error);
-            }
-        );
-    }
+
+  // Function to delete a transaction type
+// Lebohang Mokoena
+// 2023/08/10
+deleteTransactionType(id: any){
+    this.accountService.deleteTransaction(id).subscribe(
+        (res) => {
+            console.log("Deleted");
+            location.reload(); // Corrected statement with ()
+        },
+    );
+}
+
 
     /* call http get function in the service to get all the transaction records
   -Mohammed Badat
@@ -133,21 +128,23 @@ export class ManageExpenseComponent implements OnInit {
     |-------------------------------------------------------------------------------------------------------------
     */
     getTypes() {
-        this.accountService.getTypes().subscribe((res: BudgetResponse) => {
-            if (res && res.budget) {
-                this.transactionType = res.budget;
 
-                if (this.transactionType && this.transactionType.length === 0) {
-                    this.isTypesEmpty = '';
-                } else {
-                    this.isTypesEmpty = 'full';
-                }
-                this.checkDataFetched();
+        this.accountService.getTypesBackend().subscribe((res: any) => {
+          if (res) {
+            this.transactionType = res.budgets.filter((record: any) => !record.deleted);
+            console.log(this.transactionType);
+      
+            if (this.transactionType && this.transactionType.length === 0) {
+              this.isTypesEmpty = '';
             } else {
-                /* empty */
+              this.isTypesEmpty = 'full';
             }
+            this.checkDataFetched();
+          } else {
+            // Handle the case when res is falsy (e.g., an error occurred).
+          }
         });
-    }
+      }
 
     /*  for each user set expense allocation, fiter the transaction records to find records in the current month
   , records with only money going and the description of the transaction should match the name of the expense allocation type, 
