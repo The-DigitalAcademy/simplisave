@@ -6,29 +6,41 @@
         <h4>Savings Goal</h4>
     </div>
 
-    <div class="grid-container">
-        <div class="card" *ngFor="let goalSavings of Goal_Savings">
-            <div class="card-content">
-                <div class="title">
-                    <h5>Goal</h5>
-                </div>
-                <div class="icon-container">
-                    <mat-icon
-                        (click)="openGoalModal(goalSavings.id)"
-                        class="ediit"
-                        >edit</mat-icon
-                    >
-                </div>
-                <mat-progress-bar
-                    class="red-progress-bar"
-                    mode="determinate"
-                    value="10"></mat-progress-bar>
-                <div class="balance">
-                    <h6>R{{ goalSavings.amount }}</h6>
+    <div *ngIf="amountSet; else elseBlock">
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-content">
+                    <div class="title">
+                        <h5>Goal</h5>
+                    </div>
+                    <mat-progress-bar
+                        class="red-progress-bar"
+                        mode="determinate"
+                        value="10"></mat-progress-bar>
+                    <div class="balance">
+                        <h6>R{{ this.amountSet }}</h6>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <ng-template #elseBlock>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-content">
+                    <div class="title">
+                        <h5>Set a Goal</h5>
+                    </div>
+                    <div class="icon-container">
+                        <mat-icon (click)="openGoalModal()" class="ediit"
+                            >add</mat-icon
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
     <br /><br />
 
     <div class="cardHeading">
