@@ -4,8 +4,10 @@ import { BehaviorSubject, Subject, switchMap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from '../../environments/environment'; // Import environment variables
 import { AuthService } from './auth-service.service';
+import { Budget, BudgetResponse, TransactionType } from '../interfaces/transactions.model';
 import { User } from '../interfaces/user';
-import { BudgetResponse, Transaction, TransactionType } from '../interfaces/transactions.model';
+import { Transaction } from '../interfaces/transactions.model';
+
 
 @Injectable({
     providedIn: 'root',
@@ -37,6 +39,7 @@ export class AccountService {
         );
     }
 
+
     // getAccountData() {
     //     return this.http.get(`${environment.backendUrl}/Transactions`);
     // }
@@ -57,11 +60,14 @@ export class AccountService {
       }
     
 //DASHBOARD_EXPENSE API FOR INTERFACE REFERENCE
-    getTypesBackend(): Observable<any[]> {
-        return this.http.get<any[]>(
-            `${environment.BACKEND_URL}/budget/details`
-        );
-    }
+    // getTypesBackend(): Observable<any[]> {
+    //     return this.http.get<any[]>(
+    //         `${environment.BACKEND_URL}/budget/details`
+    //     );
+    // }
+    getTypesBackend(): Observable<Budget[]> {
+        return this.http.get<Budget[]>(`${environment.BACKEND_URL}/budget/details`);
+      }
     
     // NOT UTILIZED
     // getSimplisaveData() {

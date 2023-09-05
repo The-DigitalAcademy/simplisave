@@ -11,20 +11,20 @@ import { AuthService } from 'src/app/services/auth-service.service';
     styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
+
   basicInfoForm!: FormGroup;
   passwordForm!: FormGroup;
   activeForm: string = 'form1';
   userInfo: Profile;
   userId: number = 2;
-  items1:any;
   selectedImageFile: File | null = null; // Initialize to null
 
   constructor(private formBuilder: FormBuilder, private service: AccountService, private authService:AuthService) {
     this.userInfo = {} as Profile;
   }
 
-    ngOnInit() {
-        /*    When the form is loaded, initialize the form fields and add validation rules to them
+  ngOnInit() {
+    /*    When the form is loaded, initialize the form fields and add validation rules to them
         2023/08/14
  */
         this.basicInfoForm = this.formBuilder.group({
@@ -90,12 +90,16 @@ export class ProfileComponent implements OnInit {
                 accountNo: this.userInfo.accounts[0].accountNo,
             });
 
-            this.passwordForm.patchValue({
-                password: this.userInfo.password,
-            });
+      this.passwordForm.patchValue({
+        password: this.userInfo.password,
+      });
 
-        });
-    }
+      console.log(this.userInfo);
+    });
+  }
+
+  
+  
 
     /* When a form is submitted, this function checks which form was submitted and then executes the method associated
   with that form
