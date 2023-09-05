@@ -108,13 +108,13 @@ deleteTransactionType(id: any){
     getTransactionsFromApi() {
         this.accountService.getTransactions2().subscribe(res => {
             this.items1 = res;
-            console.log(this.items1);
+            
             this.checkDataFetched(); // Call checkDataFetched after items1 is populated
         });
     }
 
     /* call http get function in the service file to fetch the types of expense allocation categories
-       set by the user to populqte the checklist
+       set by the user to populate the checklist
        -Mohammed Badat
        -2023/08/01 
     /* 
@@ -132,7 +132,6 @@ deleteTransactionType(id: any){
         this.accountService.getTypesBackend().subscribe((res: any) => {
           if (res) {
             this.transactionType = res.budgets.filter((record: any) => !record.deleted);
-            console.log(this.transactionType);
       
             if (this.transactionType && this.transactionType.length === 0) {
               this.isTypesEmpty = '';
@@ -174,7 +173,7 @@ deleteTransactionType(id: any){
                     transactionDate.getMonth() === currentMonth;
                 const isDescriptionMatching =
                     record.transactionType === typeName;
-                console.log(record.moneyOut);
+                
 
                 return (
                     isMoneyOutPositive &&
@@ -182,7 +181,7 @@ deleteTransactionType(id: any){
                     isDescriptionMatching
                 );
             });
-            console.log(filteredData);
+            
             const typeTotal = filteredData.reduce(
                 (sum: number, record: any) => sum + record.moneyOut,
                 0
@@ -191,10 +190,10 @@ deleteTransactionType(id: any){
             this.typeTotals[typeName] = typeTotal; // Store the typeTotal in the typeTotals object
         });
 
-        console.log(this.typeTotals);
+        
     }
 
-    /* check whether both methods fetching data have successfully retreived it
+    /* check whether both methods fetching data have successfully retrieved it
   -Mohammed Badat
   -2023/08/03 */
     checkDataFetched() {

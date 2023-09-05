@@ -12,7 +12,7 @@ export class ResetPasswordService {
 
   //For sending otp to user's email - Thilivhali Ravhutulu  22 August 2023
   sendForgotPasswordEmail(email: string) {
-    console.log("Email sent to: " + email);
+   
     return this.http.post(`${environment.FORGOT_URL}`, { email });
   }
 

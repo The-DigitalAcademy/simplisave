@@ -18,7 +18,6 @@ export class NavbarComponent {
     this.authService.getToken().subscribe((token) => {
       this.token = token; // Update the local variable with the latest token value
     });
-    console.log(this.token);
 
     if(this.token){
       this.getUserName();

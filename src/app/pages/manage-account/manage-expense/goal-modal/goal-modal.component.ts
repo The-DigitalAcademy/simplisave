@@ -59,8 +59,7 @@ export class GoalModalComponent {
             };
             this.service.createSavingGoal(updatedData).subscribe(
                 response => {
-                    //Handle the API response as needed
-                    console.log('API response', response);
+                    
                     this.dialogRef.close();
                     this.refreshManagePage();
                 },
