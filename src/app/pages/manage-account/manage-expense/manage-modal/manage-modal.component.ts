@@ -55,7 +55,6 @@ export class ManageModalComponent {
 
         this.service.getOneTransaction(this.id).subscribe(res => {
             this.Type = res;
-            console.log(this.Type);
         });
     }
     //Responsible for closing a modal dialog
