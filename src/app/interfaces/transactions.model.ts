@@ -1,6 +1,11 @@
 import { User } from "./user";
 
-// An interface  for LOGIN AND ADMINLOGIN --> Added 04-Sep-2023 
+/*
+|---------------------------------------------------------------------------------------------------------------
+|   04-Sep-2023                                                                  Created By: Delphia Sekhukhune
+|   An interface  for LOGIN AND ADMINLOGIN -->   
+|---------------------------------------------------------------------------------------------------------------
+*/
 export interface LoginData {
   username: string;
   password: string;
@@ -11,7 +16,7 @@ export interface TokenResponse {
   access_token: string;
   // Add other properties if necessary
 }
-//An interface for the navBar
+//An interface for the navBar 05-Sep-2023
 export interface NavbarData {
   name: string;
   // Add other properties if needed
@@ -48,8 +53,6 @@ export interface GroupedTransactions {
 //   access_token: string;
 //   expires_in: number;
 // }
-
-
 
 
 
