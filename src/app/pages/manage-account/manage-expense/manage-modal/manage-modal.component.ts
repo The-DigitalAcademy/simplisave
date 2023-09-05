@@ -70,6 +70,7 @@ export class ManageModalComponent {
                 // Modify this part to set default values in the form
                 this.expenseForm.patchValue({// Set category based on foundBudget
                     amount: this.foundBudget.amountSet, // Set amount based on foundBudget
+                    category:this.foundBudget.transactionsType
                 });
             } else {
                 console.log('Budget with budgetId', this.id, 'not found.');
