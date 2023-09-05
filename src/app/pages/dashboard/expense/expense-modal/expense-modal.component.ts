@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
+import { TransactionType } from 'src/app/interfaces/transactions.model';
 
 @Component({
   selector: 'app-expense-modal',
@@ -14,6 +15,9 @@ export class ExpenseModalComponent {
   formData: any = {}; // This will store the form data
   expenseForm!: FormGroup; // Add a FormGroup to hold the form controls
   selectedCategory: string = '';
+  categoryExistsError: boolean = false; // Initialize the error flag
+  types:TransactionType[]=[]
+ transactionTypes: string[] = [];
   categoryOptions: any = [
     { value: 'FOOD', label: 'Food' },
     { value: 'ACCOMMODATION', label: 'Accommodation' },
@@ -37,8 +41,29 @@ export class ExpenseModalComponent {
     });
   }
 
+  ngOnInit() {
+   this.isCategoryAlreadyExists("FOOD");
+  }
+
   get formControls() {
     return this.expenseForm.controls;
+  }
+
+  isCategoryAlreadyExists(category: string): boolean {
+   /* call http get function in the service file to fetch the types of expense allocation categories
+  set by the user to populqte the checklist
+  -Mohammed Badat
+  -2023/08/01 */
+
+    this.service.getTypesBackend().subscribe((res: any) => {
+      this.types = res.budgets;
+      console.log(res.budgets);
+      for (const transaction of this.types) {
+      this.transactionTypes.push(transaction.transactionsType);
+      console.log(this.transactionTypes);
+    } 
+    });
+    return this.transactionTypes.includes(category);
   }
 
   /*   When the user clicks on the close button of the dialogue box, this method is called and 
@@ -59,13 +84,25 @@ export class ExpenseModalComponent {
   saveExpense() {
     // Call the API service to post the form data
     if (this.expenseForm.valid) {
+      const selectedCategory = this.expenseForm.value.category;
+
+      // Check if the category already exists
+      if (this.isCategoryAlreadyExists(selectedCategory)) {
+        // Set the error flag to true
+        this.categoryExistsError = true;
+        return;
+      }
+
+      // Continue with saving if the category doesn't exist
+      this.categoryExistsError = false; // Reset the error flag
       const updatedData = {
         amountSet: this.expenseForm.value.amount,
-        transactionsType: this.expenseForm.value.category
+        transactionsType: selectedCategory
       };
+
+      if(!this.categoryExistsError){
       this.service.createType(updatedData).subscribe(
         (response: any) => {
-          
           // Optionally, you can close the dialog after successful API call
           this.dialogRef.close();
           this.router.navigate(['/dashboard']);
@@ -77,6 +114,7 @@ export class ExpenseModalComponent {
         }
       );
     }
+  }
   }
 
   /* this method updates the state of refresh subject in the service which triggers the checklist in another component to be refreshed after an item has been 
