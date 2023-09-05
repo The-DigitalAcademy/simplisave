@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { format } from 'date-fns';
-import { Transaction } from 'src/app/interfaces/transactions.model';
+import { GroupedTransactions, Transaction } from 'src/app/interfaces/transactions.model';
 import { TransactionsService } from 'src/app/services/transactions.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { TransactionsService } from 'src/app/services/transactions.service';
 })
 export class TransactionDetailsComponent implements OnInit {
   transactionsList: Transaction[] = [];
-  groupedTransactions: any = {};
+  groupedTransactions: GroupedTransactions = {};
   sortedDateKeys: string[] = [];
   selectedDate: string | null = null;
   searchForm: FormGroup = new FormGroup({});
@@ -40,6 +40,17 @@ export class TransactionDetailsComponent implements OnInit {
     });
   }
 
+   /* 
+  |------------------------------------------------------------------------------------------------------------
+  | Fetches API Data                                                            Created By Sekhukhune Delphia
+  |------------------------------------------------------------------------------------------------------------
+  | 2023-Aug-14
+  | This method fetches a list of transactions from an API using the transactionService.
+  | After successfully fetching data, it calls calculateTotalsForMonth() method to calculate income and expenses.
+  |
+  |-------------------------------------------------------------------------------------------------------------
+  */
+
   fetchDataFromAPI() {
     this.transactionService.getTransactionsList().subscribe(
       (res: Transaction[]) => {
@@ -52,6 +63,18 @@ export class TransactionDetailsComponent implements OnInit {
     );
   }
 
+  /* 
+  |------------------------------------------------------------------------------------------------------------
+  | Groups transactionsList within a  date                                       Created By Sekhukhune Delphia
+  |------------------------------------------------------------------------------------------------------------
+  | 2023-Aug-16
+  | This method groups the transactions in transactionsList by their transaction date. It makes a collection of 
+  | groups, where each group represents a date and store all transactions within that group. It filters the 
+  | grouped dates to include only those with matching transactions based on the search filter.  It also updates 
+  | sortedDateKeys with filtered dates, which are sorted in descending order by date. And finally populates 
+  | displayedTransactions with transactions corresponding to filtered dates. 
+  |-------------------------------------------------------------------------------------------------------------
+  */
   groupTransactions() {
     this.groupedTransactions = {};
 
@@ -80,7 +103,18 @@ export class TransactionDetailsComponent implements OnInit {
   }
 
 
-
+  /* 
+  |------------------------------------------------------------------------------------------------------------
+  | Groups transactionsList within a  date                                       Created By Sekhukhune Delphia
+  |------------------------------------------------------------------------------------------------------------
+  | 2023-Aug-22
+  | This method is triggered when a date is selected in the datepicker. It formats the selected date to 
+  | 'yyyy-MM-dd' format and updates selectedDate. After it calls filterTable() to filter the displayed
+  | transactions based on the selected date. 
+  | 
+  |-------------------------------------------------------------------------------------------------------------
+  */
+ 
 
   handleDateSelection(event: MatDatepickerInputEvent<Date>) {
     if (event.value) {
@@ -94,6 +128,17 @@ export class TransactionDetailsComponent implements OnInit {
   }
 
 
+   /* 
+  |------------------------------------------------------------------------------------------------------------
+  | Groups transactionsList within a  date                                       Created By Sekhukhune Delphia
+  |------------------------------------------------------------------------------------------------------------
+  | 2023-Aug-19
+  | This method filters the transactions displayed in the table based on the search filter and/or selected date.
+  | If no filter or selected date is provided, it displays all transactions and regroups them by date. If a
+  | filter is provided, it filters transactions by amount and if a non-numeric filter is provided, it filters 
+  | transactions by description.
+  |-------------------------------------------------------------------------------------------------------------
+  */
   filterTable(filter: string) {
     if (this.selectedDate !== null || filter !== '') {
       if (!filter) {
@@ -164,10 +209,6 @@ export class TransactionDetailsComponent implements OnInit {
       this.groupTransactions();
     }
   }
-
-
-
-
 }
 
 

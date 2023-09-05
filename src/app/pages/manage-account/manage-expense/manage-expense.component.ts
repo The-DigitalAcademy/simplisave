@@ -5,6 +5,11 @@ import { AccountService } from 'src/app/services/account.service';
 import { ManageModalComponent } from './manage-modal/manage-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GoalModalComponent } from './goal-modal/goal-modal.component';
+import { Observable } from 'rxjs';
+import {
+    BudgetResponse,
+    TransactionType,
+} from 'src/app/interfaces/transactions.model';
 
 @Component({
     selector: 'app-manage-expense',
@@ -13,15 +18,18 @@ import { GoalModalComponent } from './goal-modal/goal-modal.component';
 })
 export class ManageExpenseComponent implements OnInit {
     transactionType: any;
-    Goal_Savings: any[] = [];
+    Goal_Savings: TransactionType[] = [];
     items1: any = [];
     data: any;
-    isTypesEmpty: any;
+    isTypesEmpty!: string;
     filteredData: any[] = []; // Initialize filteredData as an empty array
-    sumMoneyOut: any;
-    sumMoneyOutMonths: any[] = [];
+    sumMoneyOut!: number;
+    sumMoneyOutMonths: number[] = [];
     isDataFetched: boolean = false; // Flag to track data fetch completion
     typeTotals: any = {}; // Property to store typeTotals
+    items: any;
+    amountSet!: number;
+    selectedTypeId!: number;
 
     constructor(
         private accountService: AccountService,
@@ -34,7 +42,7 @@ export class ManageExpenseComponent implements OnInit {
 
     ngOnInit() {
         this.loadData();
-        this.goalSavings();
+        this.getAccountData();
         this.getTransactionsFromApi();
         this.getTypes();
         this.accountService.refreshObservable.subscribe(() => {
@@ -54,15 +62,16 @@ export class ManageExpenseComponent implements OnInit {
     // Responsible for making an HTTP request to fetch goal savings data.
     // Lebohang Mokoena
     // 2023/07/31
-    goalSavings() {
-        this.accountService.getGoalSavings().subscribe(Amount_Set => {
-            this.Goal_Savings = Amount_Set;
+    getAccountData() {
+        this.accountService.getAccountData().subscribe(res => {
+            this.items = res;
+            this.amountSet =
+                this.items.accounts[0].savingsAccount.goalSavings[0].amountSet;
+            this.selectedTypeId =
+                this.items.accounts[0].savingsAccount.goalSavings[0].goalId;
         });
     }
 
-    // triggers onclick edit icon
-    // Lebohang Mokoena
-    // 2023/07/31
     openExpenseModal(id: any): void {
         localStorage.setItem('typeId', id);
         const dialogRef = this.dialog.open(ManageModalComponent, {
@@ -73,31 +82,25 @@ export class ManageExpenseComponent implements OnInit {
     // Responsible for saving goal modal
     // Lebohang Mokoena
     // 2023/07/31
-    openGoalModal(id: any): void {
-        localStorage.setItem('typeId', id);
+    openGoalModal(): void {
         const dialogRef = this.dialog.open(GoalModalComponent, {
             width: '450px',
         });
     }
 
-    // Function to delete a transaction type
-    // Lebohang Mokoena
-    // 2023/08/10
-    deleteTransactionType(id: any): void {
-        this.accountService.deleteTransaction(id).subscribe(
-            () => {
-                const index = this.transactionType.findIndex(
-                    (type: { id: any; }) => type.id === id
-                );
-                if (index !== -1) {
-                    this.transactionType.splice(index, 1);
-                }
-            },
-            error => {
-                console.error('Error deleting transaction type:', error);
-            }
-        );
-    }
+
+  // Function to delete a transaction type
+// Lebohang Mokoena
+// 2023/08/10
+deleteTransactionType(id: any){
+    this.accountService.deleteTransaction(id).subscribe(
+        (res) => {
+            console.log("Deleted");
+            location.reload(); // Corrected statement with ()
+        },
+    );
+}
+
 
     /* call http get function in the service to get all the transaction records
   -Mohammed Badat
@@ -111,21 +114,45 @@ export class ManageExpenseComponent implements OnInit {
     }
 
     /* call http get function in the service file to fetch the types of expense allocation categories
-  set by the user to populqte the checklist
-  -Mohammed Badat
-  -2023/08/01 */
+       set by the user to populqte the checklist
+       -Mohammed Badat
+       -2023/08/01 
+    /* 
+    |------------------------------------------------------------------------------------------------------------
+    | Added BudgetResponse Interface                                              Modified By Sekhukhune Delphia
+    |------------------------------------------------------------------------------------------------------------
+    | 2023-Sep-01
+    | Added the interface BudgetResponse and checked if the response and 'budget' property are defined.
+    | Assign the 'budget' property to the 'transactionType' variable.
+    |
+    |-------------------------------------------------------------------------------------------------------------
+    */
     getTypes() {
+
         this.accountService.getTypes().subscribe((res:any) => {
             this.transactionType = res;
             
             if (this.transactionType.length === 0) {
                 this.isTypesEmpty = '';
+
+
+        this.accountService.getTypesBackend().subscribe((res: any) => {
+          if (res) {
+            this.transactionType = res.budgets.filter((record: any) => !record.deleted);
+            console.log(this.transactionType);
+      
+            if (this.transactionType && this.transactionType.length === 0) {
+              this.isTypesEmpty = '';
+
             } else {
-                this.isTypesEmpty = 'full';
+              this.isTypesEmpty = 'full';
             }
-            this.checkDataFetched(); // Call checkDataFetched after types are populated
+            this.checkDataFetched();
+          } else {
+            // Handle the case when res is falsy (e.g., an error occurred).
+          }
         });
-    }
+      }
 
     /*  for each user set expense allocation, fiter the transaction records to find records in the current month
   , records with only money going and the description of the transaction should match the name of the expense allocation type, 

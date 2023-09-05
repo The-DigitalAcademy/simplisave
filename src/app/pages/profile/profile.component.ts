@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/interfaces/user';
+import { Profile } from 'src/app/interfaces/transactions.model';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth-service.service';
 
@@ -10,22 +11,23 @@ import { AuthService } from 'src/app/services/auth-service.service';
     styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-    basicInfoForm!: FormGroup;
-    passwordForm!: FormGroup;
-    activeForm: string = 'form1';
-    userInfo: any;
-    userId: any = 2;
-    items1: any;
-    selectedImageFile: File | null = null; // Initialize to null
 
-    constructor(
-        private formBuilder: FormBuilder,
-        private service: AccountService,
-        private authService: AuthService
-    ) {}
+  basicInfoForm!: FormGroup;
+  passwordForm!: FormGroup;
+  activeForm: string = 'form1';
+  userInfo: Profile;
+  userId: number = 2;
+  items1:any;
+  selectedImageFile: File | null = null; // Initialize to null
 
-    ngOnInit() {
-        /*    When the form is loaded, initialize the form fields and add validation rules to them
+  constructor(private formBuilder: FormBuilder, private service: AccountService, private authService:AuthService) {
+    this.userInfo = {} as Profile;
+  }
+
+
+
+  ngOnInit() {
+    /*    When the form is loaded, initialize the form fields and add validation rules to them
         2023/08/14
  */
         this.basicInfoForm = this.formBuilder.group({
@@ -74,29 +76,32 @@ export class ProfileComponent implements OnInit {
         this.getUsersInfo();
     }
 
-    /* This function fetches a ceratin users info and assigns it to the form fields so that they display in the input boxes
-      when the form is loaded
-        2023/08/14 */
-    getUsersInfo() {
-        this.service.getAccountData().subscribe((res: any) => {
-            this.userInfo = res;
+  /*  This function fetches a ceratin users info and assigns it to the form fields so that they display in the input boxes
+      when the form is loaded */
+  getUsersInfo() {
+    this.service.getAccountData().subscribe((res: any) => {
+      this.userInfo = res;
+      console.log('userInfo:', this.userInfo);
+      // Set initial form values using patchValue
+      this.basicInfoForm.patchValue({
+        firstName: this.userInfo.firstName,
+        lastName: this.userInfo.lastName,
+        cellphoneNumber: this.userInfo.cellphoneNumber,
+        email: this.userInfo.email,
+        idNo:this.userInfo.idNo,
+        accountNo: this.userInfo.accounts[0].accountNo,
+      });
 
-            // Set initial form values using patchValue
-            this.basicInfoForm.patchValue({
-                firstName: this.userInfo.firstName,
-                lastName: this.userInfo.lastName,
-                cellphoneNumber: this.userInfo.cellphoneNumber,
-                email: this.userInfo.email,
-                idNo: this.userInfo.idNo,
-                accountNo: this.userInfo.accounts[0].accountNo,
-            });
+      this.passwordForm.patchValue({
+        password: this.userInfo.password,
+      });
 
-            this.passwordForm.patchValue({
-                password: this.userInfo.password,
-            });
+      console.log(this.userInfo);
+    });
+  }
 
-        });
-    }
+  
+  
 
     /* When a form is submitted, this function checks which form was submitted and then executes the method associated
   with that form

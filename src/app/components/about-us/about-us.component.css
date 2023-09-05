@@ -72,4 +72,9 @@ p {
   .banner-heading{
     font-size: 2rem;
   }
+
+  .card-container-inner{
+    width: 90%;
+
+  }
 }
