@@ -90,7 +90,6 @@ export class ProfileComponent implements OnInit {
         email: this.userInfo.email,
         idNo:this.userInfo.idNo,
         accountNo: this.userInfo.accounts[0].accountNo,
-
       });
 
       this.passwordForm.patchValue({
@@ -170,7 +169,7 @@ export class ProfileComponent implements OnInit {
                 .updateUser(this.userId, updatedInfo)
                 .subscribe((res: any) => {
                     this.authService.successfulUpdate();
-                    console.log('User info updated:', res);
+                    
                 });
         }
     }

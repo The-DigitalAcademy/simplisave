@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit {
       username:this.username,
       password:this.password
     }
-    console.log(this.loginData)
 
     if(!this.loginForm.valid){
       return;
@@ -60,8 +59,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginData).subscribe((res: any) => {
       const token = res.token;
       this.authService.setToken(token);
-      console.log("This is the token that is stored in a behavior subject\n\n\n"+ token);
-      console.log('logged in:', res);
       this.authService.successAlert();
       this.loginForm.reset();
       this.router.navigate(["dashboard"])

@@ -45,13 +45,11 @@ login() {
 
   this.authService.login(this.loginData).subscribe(
     (res: any) => {
-      console.log('logged in:', res);
       this.authService.successAlert();
       this.loginForm.reset();
       this.router.navigate(['admin']);
     },
     (error: any) => {
-      console.log('Not logged in:', error);
       this.authService.failedAlert(); // Show failed login alert
     }
   );

@@ -25,6 +25,7 @@ export class ManageModalComponent {
     id: any;
     Type: any;
     selectedCategory = '';
+    foundBudget: any;
     categoryOptions: CategoryOption[] = [
         { value: 'FOOD', label: 'Food' },
         { value: 'ACCOMMODATION', label: 'Accommodation' },
@@ -53,9 +54,23 @@ export class ManageModalComponent {
     ngOnInit() {
         this.id = localStorage.getItem('typeId');
 
-        this.service.getOneTransaction(this.id).subscribe(res => {
-            this.Type = res;
-            console.log(this.Type);
+        this.service.getOneBudget().subscribe((res: any) => {
+            if (res) {
+                this.Type = res.budgets.filter((record: any) => !record.deleted);
+                
+            }
+            this.foundBudget = this.Type.find((budget: { budgetId: any }) => budget.budgetId == this.id);
+
+            if (this.foundBudget) {
+
+                // Modify this part to set default values in the form
+                this.expenseForm.patchValue({// Set category based on foundBudget
+                    amount: this.foundBudget.amountSet, // Set amount based on foundBudget
+                    category:this.foundBudget.transactionsType
+                });
+            } else {
+                
+            }
         });
     }
     //Responsible for closing a modal dialog
@@ -70,14 +85,17 @@ export class ManageModalComponent {
         return control?.touched && control?.hasError(errorName);
     }
 
+      /*  This function fetches a ceratin users info and assigns it to the form fields so that they display in the input boxes
+      when the form is loaded */
+
     // Responsible for updating manage page modal
     //Lebohang Mokoena
     // 2023/08/18
     updateExpensePage() {
-        console.log(this.expenseForm.value.category);
+       
 
         if (this.expenseForm.valid) {
-            console.log("form is valid")
+            
             const updatedData = {
                 amountSet: this.expenseForm.value.amount,
                 transactionsType: this.expenseForm.value.category,
@@ -86,7 +104,7 @@ export class ManageModalComponent {
 
             this.service.updateBudget(this.id,updatedData).subscribe(
                 response => {
-                    console.log('API Response:', response);
+                    
                     this.dialogRef.close();
                     this.refreshManagePage();
                 },
