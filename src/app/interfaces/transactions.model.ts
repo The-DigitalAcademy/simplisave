@@ -1,5 +1,3 @@
-import { User } from "./user";
-
 /*
 |---------------------------------------------------------------------------------------------------------------
 |   04-Sep-2023                                                                  Created By: Delphia Sekhukhune
@@ -157,11 +155,6 @@ export interface TransactionType {
 // }
 
 
-
-
-export interface GroupedTransactions {
-    [date: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
-}
 
 export interface CurrentBalance {
     [availableBalance: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
