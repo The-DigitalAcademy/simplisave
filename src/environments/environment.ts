@@ -3,6 +3,7 @@ export const environment = {
     REG_URL: '/api/v1/student/registration',
     LOGIN_URL: '/api/v1/auth/login',
     apiUrl: 'http://localhost:3000',
+    CREATESAVINGSGOAL: 'api/v1/goalSavings/creation',
     STUDENT_DETAILS_URL: '/api/v1/student/details',
     TRANSACTION_URL: '/api/v1/transactions/transactions',
     BUDGET_URL: '/api/v1/Budget',
