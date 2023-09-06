@@ -44,6 +44,7 @@ export class AuthService {
   logout() {
     sessionStorage.clear();
     this.isAuthenticatedSubject.next(false);
+    this.tokenSubject.next(null);
     this.router.navigate(['/login']);
   }
 
