@@ -17,7 +17,7 @@ body {
 .mat-icon {
   font-size: var(--font-x-large);
   text-align: center;
-  margin: 10px;
+  margin: 0;
 }
 
 
@@ -242,5 +242,9 @@ mat-progress-bar {
     color: black;
     right: 0px;
     font-size: 14px;
+  }
+
+  .mat-icon{
+    margin: 0;
   }
 }
