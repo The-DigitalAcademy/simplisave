@@ -67,7 +67,6 @@ body {
 
 .content {
   flex: 1;
-  padding-left: 30px;
 }
 
 .container {
@@ -182,7 +181,6 @@ mat-progress-bar {
 
   .content {
     max-width: 100%;
-    padding-left: 20px;
   }
 
   .card {
