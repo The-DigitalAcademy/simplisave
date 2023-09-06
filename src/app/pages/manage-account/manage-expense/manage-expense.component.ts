@@ -41,7 +41,7 @@ export class ManageExpenseComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.loadData();
+        // this.loadData();
         this.getAccountData();
         this.getTransactionsFromApi();
         this.getTypes();
@@ -53,11 +53,11 @@ export class ManageExpenseComponent implements OnInit {
     // Responsible for making an HTTP request to fetch Transaction Types data.
     // Lebohang Mokoena
     // 2023/07/31
-    loadData() {
+  /*   loadData() {
         this.accountService.getTypes().subscribe(account => {
             this.transactionType = account;
         });
-    }
+    } */
 
     // Responsible for making an HTTP request to fetch goal savings data.
     // Lebohang Mokoena
@@ -95,8 +95,7 @@ export class ManageExpenseComponent implements OnInit {
 deleteTransactionType(id: any){
     this.accountService.deleteTransaction(id).subscribe(
         (res) => {
-            console.log("Deleted");
-            location.reload(); // Corrected statement with ()
+            this.getTypes()
         },
     );
 }
