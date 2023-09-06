@@ -46,17 +46,20 @@ export class GoalModalComponent {
         return control?.touched && control?.hasError(errorName);
     }
 
-    // updating the set saving goal then saves a modal dialog
+    // create the saving goal then saves a modal dialog
     //Lebohang Mokoena
-    // 2023/08/18
-    updateGoalSaving() {
+    // 2023/09/04
+    createGoalSaving() {
         //Call the API service to post the form data
         if (this.goalForm.valid) {
-            const updatedData = { ...this.data, amount: this.formData.amount };
-            this.service.updateGoalSaving(updatedData, this.id).subscribe(
+            const updatedData = {
+                ...this.data,
+                amountSet: this.formData.amountSet,
+                description: 'goal',
+            };
+            this.service.createSavingGoal(updatedData).subscribe(
                 response => {
-                    //Handle the API response as needed
-                    console.log('API response', response);
+                    
                     this.dialogRef.close();
                     this.refreshManagePage();
                 },
@@ -72,7 +75,6 @@ export class GoalModalComponent {
     //Lebohang Mokoena
     //2023/08/18
     refreshManagePage() {
-        //Trigger the refresh for component two
         this.service.triggerRefresh();
     }
 }

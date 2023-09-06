@@ -1,68 +1,92 @@
-<div class="container text-left">
-    <div class="heading">
-        <h1>Expense Allocation</h1>
-    </div>
-    <div class="sub-header">
-        <h4>Savings Goal</h4>
-    </div>
+<div class="container">
+    <div class="sidebar">
+        <div id="dashLink" routerLink="/dashboard">
+            <mat-icon>dashboard</mat-icon>Dashboard
+        </div>
+        <div routerLink="/transactions">
+            <mat-icon>compare_arrows</mat-icon>Transactions
+        </div>
+        <div routerLink="/manage">
+            <mat-icon>account_circle</mat-icon>Manage
+        </div>
 
-    <div class="grid-container">
-        <div class="card" *ngFor="let goalSavings of Goal_Savings">
-            <div class="card-content">
-                <div class="title">
-                    <h5>Goal</h5>
-                </div>
-                <div class="icon-container">
-                    <mat-icon
-                        (click)="openGoalModal(goalSavings.id)"
-                        class="ediit"
-                        >edit</mat-icon
-                    >
-                </div>
-                <mat-progress-bar
-                    class="red-progress-bar"
-                    mode="determinate"
-                    value="10"></mat-progress-bar>
-                <div class="balance">
-                    <h6>R{{ goalSavings.amount }}</h6>
+        <div routerLink="" class="logout">
+            <mat-icon>logout</mat-icon>Logout
+        </div>
+    </div>
+    <div class="content">
+        <div class="heading">
+            <h1>Expense Allocation</h1>
+        </div>
+        <div class="sub-header">
+            <h4>Savings Goal</h4>
+        </div>
+
+        <div *ngIf="amountSet; else elseBlock">
+            <div class="card">
+                <div class="card-content">
+                    <div class="title">
+                        <h5>Goal</h5>
+                    </div>
+                    <mat-progress-bar
+                        class="red-progress-bar"
+                        mode="determinate"
+                        value="10"></mat-progress-bar>
+                    <div class="balance">
+                        <h6>R{{ this.amountSet }}</h6>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <br /><br />
 
-    <div class="cardHeading">
-        <h4>Expense Allocation Categories</h4>
-    </div>
-    <div class="grid-container">
-        <div class="card" *ngFor="let transactionType of transactionType">
-            <div class="card-content">
-                <div class="title">
-                    <h5>{{ transactionType.transactionsType }}</h5>
+        <ng-template #elseBlock>
+            <div class="card">
+                <div class="card-content">
+                    <div class="title">
+                        <h5>Set a Goal</h5>
+                    </div>
+                    <div class="icon-container">
+                        <mat-icon  class="icon" (click)="openGoalModal()"
+                            >add</mat-icon>
+                    </div>
                 </div>
-                <div class="icon-container">
-                    <mat-icon
-                        (click)="openExpenseModal(transactionType.id)"
-                        class="edit"
-                        >edit</mat-icon
-                    >
-                    <mat-icon
-                        (click)="deleteTransactionType(transactionType.id)"
-                        >delete</mat-icon
-                    >
-                </div>
-                <mat-progress-bar
-                    class="red-progress-bar"
-                    mode="determinate"
-                    [value]="getTypeProgress(transactionType.transactionsType)"
-                    [bufferValue]="
-                        transactionType.amountSet
-                    "></mat-progress-bar>
-                <div class="balance">
-                    <h6>R{{ transactionType.amountSet }}</h6>
+            </div>
+        </ng-template>
+        <br /><br />
+        <div class="cardHeading">
+            <h4>Expense Allocation Categories</h4>
+        </div>
+        <div class="grid-container">
+            <div class="card" *ngFor="let transactionType of transactionType">
+                <div class="card-content">
+                    <div class="title">
+                        <h5>{{ transactionType.transactionsType }}</h5>
+                    </div>
+                    <div class="icon-container">
+                        <mat-icon class="icon"
+                            (click)="openExpenseModal(transactionType.budgetId)"
+                            >edit</mat-icon
+                        >
+                        <mat-icon class="icon"
+                            (click)="
+                                deleteTransactionType(transactionType.budgetId)"
+                            >delete</mat-icon>
+                    </div>
+                    <mat-progress-bar
+                        class="red-progress-bar"
+                        mode="determinate"
+                        [value]="
+                            getTypeProgress(transactionType.transactionsType)
+                        "
+                        [bufferValue]="
+                            transactionType.amountSet
+                        "></mat-progress-bar>
+                    <div class="balance">
+                        <h6>R{{ transactionType.amountSet }}</h6>
+                    </div>
                 </div>
             </div>
         </div>
+        <br /><br /><br />
     </div>
-    <br /><br /><br />
 </div>

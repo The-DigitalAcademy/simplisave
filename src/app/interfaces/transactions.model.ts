@@ -29,14 +29,23 @@ export interface AccountData {
 
 // An interface  for Transactions-Details and Balance-Summary--> Added 16-Aug-2023 
 export interface Transaction {
-  transactionId: number;
-  transactionType: string;
-  transactionDate: string;
-  description: string;
-  moneyIn: number;
-  moneyOut: number;
-  availableBalance: number;
-  // image: string;
+    transactionId: number;
+    transactionType: string;
+    transactionDate: string;
+    description: string;
+    moneyIn: number;
+    moneyOut: number;
+    availableBalance: number;
+    // image: string;
+}
+
+export interface User {
+    firstName: string;
+    lastName: string;
+    cellphoneNumber: string;
+    email: string;
+    accountNo: string;
+    idNo: string;
 }
 
 // An interface  for Transaction_Details --> Added 01-Sep-2023 
@@ -57,54 +66,54 @@ export interface GroupedTransactions {
 
 
 export interface Profile {
-  userId: number;
-  firstName: string;
-  lastName: string;
-  username: string;
-  email: string;
-  cellphoneNumber: string;
-  password: string;
-  createdAt: string;
-  updatedAt: string;
-  deleted: boolean;
-  roles: { id: number; name: string }[];
-  accounts: {
-    accountId: number;
-    accountNo: string;
-    transaction: {
-      transactionId: number;
-      transactionType: string;
-      transactionDate: string;
-      description: string;
-      moneyIn: number;
-      moneyOut: number;
-      availableBalance: number;
-      accountId: string;
-    }[];
-    accountBalance: number;
-    student: string;
-    accountType: string;
-    savingsAccount: {
-      savingsAccountId: number;
-      totalSavings: number;
-      dateUpdated: string;
-      account: string;
-      goalSavings: {
-        goalId: number;
-        "Amount Set": number;
-        "Amount current saved": number;
-        Description: string;
-        dateCreated: string;
-        savingsAccount: string;
-        deleteGoalSavings: boolean;
-        deleted: boolean;
-      }[];
-      savingsAccountNumber: string;
-    };
+    userId: number;
+    firstName: string;
+    lastName: string;
+    username: string;
+    email: string;
+    cellphoneNumber: string;
+    password: string;
+    createdAt: string;
+    updatedAt: string;
     deleted: boolean;
-  }[];
-  idNo: string;
-  imageUrl: string | null;
+    roles: { id: number; name: string }[];
+    accounts: {
+        accountId: number;
+        accountNo: string;
+        transaction: {
+            transactionId: number;
+            transactionType: string;
+            transactionDate: string;
+            description: string;
+            moneyIn: number;
+            moneyOut: number;
+            availableBalance: number;
+            accountId: string;
+        }[];
+        accountBalance: number;
+        student: string;
+        accountType: string;
+        savingsAccount: {
+            savingsAccountId: number;
+            totalSavings: number;
+            dateUpdated: string;
+            account: string;
+            goalSavings: {
+                goalId: number;
+                'Amount Set': number;
+                'Amount current saved': number;
+                Description: string;
+                dateCreated: string;
+                savingsAccount: string;
+                deleteGoalSavings: boolean;
+                deleted: boolean;
+            }[];
+            savingsAccountNumber: string;
+        };
+        deleted: boolean;
+    }[];
+    idNo: string;
+    imageUrl: string | null;
 }
 
 export interface NavBarAccountData {
@@ -114,18 +123,18 @@ export interface NavBarAccountData {
 
 //MANAGE-EXPENSE
 export interface BudgetResponse {
-  budget: Budget[];
+    budget: Budget[];
 }
 
 // export interface TransactionTypeResponse {
-//   budget: TransactionType[];
-// } 
+  //   budget: TransactionType[];
+// }
 
 //DASHBOARD --> EXPENSE-MODAL-BUDGET CREATION
 
 
 // DASHBOARD --> EXPENSE COMPONENT
-export interface Budget{
+export interface Budget {
     id: number;
     amountSet: number;
     progressAmount: number;
@@ -135,9 +144,10 @@ export interface Budget{
 
 // MANAGE EXPENSE COMPONENT
 export interface TransactionType {
-  name: string,
-  amount: number,
-  id: number;
+    goalId: number;
+    name: string;
+    amount: number;
+    transactionsType:string;
 }
 
 // export interface ExpenseTransaction{
@@ -149,9 +159,13 @@ export interface TransactionType {
 
 
 
-// export interface CurrentBalance {
-//   [availableBalance: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
-// }
+export interface GroupedTransactions {
+    [date: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
+}
+
+export interface CurrentBalance {
+    [availableBalance: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
+}
 
 // interface UpdateGoalData {
 //   amount: number;

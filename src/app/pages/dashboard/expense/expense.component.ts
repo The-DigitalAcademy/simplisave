@@ -57,7 +57,7 @@ export class ExpenseComponent {
   getTransactionsFromApi() {
     this.service.getTransactions2().subscribe((res: any) => {
       this.items1 = res;
-      console.log(this.items1);
+      
       this.filterAndCalculateSumMoneyOut();
       this.createChart(...this.sumMoneyOutMonths);
       this.checkDataFetched();
@@ -71,7 +71,7 @@ export class ExpenseComponent {
   getTypes() {
     this.service.getTypesBackend().subscribe((res: any) => {
       this.types = res.budgets;
-      console.log(this.types);
+     
       if (this.types.length === 0) {
         this.isTypesEmpty = '';
       } else {
@@ -135,7 +135,7 @@ export class ExpenseComponent {
     });
 
     this.sumMoneyOutMonths.reverse(); // Reverse the array here
-    console.log("sum",this.sumMoneyOutMonths);
+   
     
   }
 
@@ -205,8 +205,7 @@ export class ExpenseComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if (result) {
-        console.log('Category Name:', result.categoryName);
-        console.log('Amount:', result.amount);
+       
       }
     });
   }
@@ -242,17 +241,17 @@ export class ExpenseComponent {
         const transactionDate = record.transactionDate;
         const isWithinCurrentMonth = transactionDate.getMonth() === currentMonth;
         const isDescriptionMatching = record.transactionType === typeName;
-        console.log(record.moneyOut);
+       
 
         return isMoneyOutPositive && isWithinCurrentMonth && isDescriptionMatching;
       });
-      console.log(filteredData);
+     
       const typeTotal = filteredData.reduce((sum: number, record: any) => sum + record.moneyOut, 0);
 
       this.typeTotals[typeName] = typeTotal; // Store the   in the typeTotals object
     });
 
-    console.log("Type Totals1" + this.typeTotals);
+   
     this.compareTypesAndTypeTotals(); // Call the new function to compare types and typeTotals
   }
 
@@ -269,9 +268,7 @@ export class ExpenseComponent {
       const typeName = type.transactionsType;
       const typeTotal = this.typeTotals[typeName] || 0;
       const typeAmount = type.amountSet || 0;
-      console.log(type.transactionsType);
-      console.log("Amount spent: " +typeTotal);
-      console.log("Amount set: " + typeAmount);
+      
 
       if (typeTotal > typeAmount) {
         type.progress =  "on/over limit";

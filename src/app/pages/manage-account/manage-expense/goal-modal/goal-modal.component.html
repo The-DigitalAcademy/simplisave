@@ -1,14 +1,21 @@
 <div class="container text-center">
-    <h2 mat-dialog-title>Edit Savings Goal</h2>
+    <h2 mat-dialog-title>Add Savings Goal</h2>
     <mat-dialog-content>
-        <form [formGroup]="goalForm" (ngSubmit)="updateGoalSaving()">
+        <form [formGroup]="goalForm" (ngSubmit)="createGoalSaving()">
             <div class="form-group">
                 <label for="amount">Amount</label>
                 <input
                     matInput
-                    placeholder="Field 2"
+                    placeholder="Amount Set"
                     formControlName="amount"
-                    [(ngModel)]="formData.amount" /><br />
+                    [(ngModel)]="formData.amountSet" />
+                <br />
+                <!-- <label>Description:</label> -->
+                <!-- <input
+                    matInput
+                    placeholder="Description"
+                    formControlName="description"
+                    [(ngModel)]="formData.description" /> -->
                 <mat-error
                     class="error-message"
                     *ngIf="shouldShowError('amount', 'required')"

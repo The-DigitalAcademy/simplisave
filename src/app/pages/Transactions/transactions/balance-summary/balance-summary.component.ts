@@ -45,6 +45,7 @@ export class BalanceSummaryComponent implements OnInit {
     this.transactionService.getTransactionsList().subscribe(
       res => {
         this.transactionsList = res;
+
         this.calculateTotalsForMonth();
       },
       error => {

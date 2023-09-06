@@ -14,7 +14,10 @@ import { AuthService } from 'src/app/services/auth-service.service';
 })
 export class TransferModalComponent {
   transferForm: FormGroup;
-  goalId:any;
+  goalId!: number;
+  amountSet!: number;
+  items:any;
+  isGoalSet!: boolean;
 
   constructor(private authService: AuthService, private dashService: DashboardService,
     private fb: FormBuilder,
@@ -30,21 +33,39 @@ export class TransferModalComponent {
 
   ngOnInit() {
  this.getGoalId();
+ this.getAccountData();
   }
+
+
+
+  getAccountData() {
+    this.accountService.getAccountData().subscribe(res => {
+        this.items = res;
+        if(this.items.accounts[0].savingsAccount.goalSavings[0]){
+        this.amountSet =
+            this.items.accounts[0].savingsAccount.goalSavings[0].amountSet;
+            console.log(this.amountSet)
+            if (this.amountSet){
+              this.isGoalSet=true;
+            }
+            else{
+              this.isGoalSet=false;
+            }
+          }else{return}
+    });
+}
   
 
   transfer() {
     if (this.transferForm.valid) {
       // Handle form submission
-      console.log(this.transferForm.value.amount)
+      
 
       const amount = {
         amount: this.transferForm.value.amount,
       };
       this.accountService.transferToSavings(this.goalId,amount)
         .subscribe(res => {
-
-          console.log(res)
 
           this.dialogRef.close();
           this.router.navigate(['/dashboard']);
@@ -61,9 +82,12 @@ export class TransferModalComponent {
   getGoalId(){
     this.accountService.getAccountData().subscribe(
       (response: any) => {
+        console.log(response)
         // Handle the API response as needed
+        if(response.accounts[0].savingsAccount.goalSavings[0]){
         this.goalId=response.accounts[0].savingsAccount.goalSavings[0].goalId;
       }
+    }
     );
     }
 

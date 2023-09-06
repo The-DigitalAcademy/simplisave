@@ -1,13 +1,14 @@
 <div class="container text-center">
     <h2 mat-dialog-title>Edit Monthly Expense Allocation</h2>
     <mat-dialog-content>
-        <form [formGroup]="expenseForm" (ngSubmit)="updateExpensePage()">
+        <form [formGroup]="expenseForm">
             <div class="form-group">
                 <label for="category">Select a category:</label>
                 <select
                     id="category"
                     name="category"
                     formControlName="category"
+                    [disabled]="true"
                     required>
                     <option
                         *ngFor="let option of categoryOptions"
@@ -33,7 +34,7 @@
             <button mat-button (click)="onNoClick()">Close</button>
             <button
                 mat-button
-                type="submit"
+                (click)="updateExpensePage()"
                 style="margin-left: 2%"
                 [disabled]="!expenseForm.valid">
                 Save
