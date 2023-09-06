@@ -17,8 +17,15 @@ body {
 .mat-icon {
   font-size: var(--font-x-large);
   text-align: center;
-  margin: 0;
+  margin: 10px;
 }
+
+.icon {
+  font-size: var(--font-x-large);
+  text-align: center;
+  margin: 0px;
+}
+
 
 
 

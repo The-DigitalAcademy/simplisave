@@ -46,9 +46,8 @@
                         <h5>Set a Goal</h5>
                     </div>
                     <div class="icon-container">
-                        <mat-icon (click)="openGoalModal()" class="ediit"
-                            >add</mat-icon
-                        >
+                        <mat-icon  class="icon" (click)="openGoalModal()"
+                            >add</mat-icon>
                     </div>
                 </div>
             </div>
@@ -64,17 +63,14 @@
                         <h5>{{ transactionType.transactionsType }}</h5>
                     </div>
                     <div class="icon-container">
-                        <mat-icon
+                        <mat-icon class="icon"
                             (click)="openExpenseModal(transactionType.budgetId)"
-                            class="edit"
                             >edit</mat-icon
                         >
-                        <mat-icon
+                        <mat-icon class="icon"
                             (click)="
-                                deleteTransactionType(transactionType.budgetId)
-                            "
-                            >delete</mat-icon
-                        >
+                                deleteTransactionType(transactionType.budgetId)"
+                            >delete</mat-icon>
                     </div>
                     <mat-progress-bar
                         class="red-progress-bar"
