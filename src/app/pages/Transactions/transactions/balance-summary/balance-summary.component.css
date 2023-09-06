@@ -133,8 +133,6 @@ p {
   h1 {
     font-size: var(--font-x-large);
     margin-top: 0px;
-    text-align: center;
-    /* Align items to the left */
     margin-bottom: 0px;
   }
 
