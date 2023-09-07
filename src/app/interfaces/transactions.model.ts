@@ -87,6 +87,7 @@ export interface TransactionType {
     goalId: number;
     name: string;
     amount: number;
+    transactionsType:string;
 }
 
 export interface GroupedTransactions {

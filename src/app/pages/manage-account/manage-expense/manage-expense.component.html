@@ -1,12 +1,18 @@
 <div class="container">
     <div class="sidebar">
-        <div id="dashLink" routerLink="/dashboard"><mat-icon>dashboard</mat-icon>Dashboard</div>
+        <div id="dashLink" routerLink="/dashboard">
+            <mat-icon>dashboard</mat-icon>Dashboard
+        </div>
         <div routerLink="/transactions">
             <mat-icon>compare_arrows</mat-icon>Transactions
         </div>
-        <div routerLink="/manage"><mat-icon>account_circle</mat-icon>Manage</div>
-    
-        <div routerLink="" class="logout"><mat-icon>logout</mat-icon>Logout</div>
+        <div routerLink="/manage">
+            <mat-icon>account_circle</mat-icon>Manage
+        </div>
+
+        <div routerLink="" class="logout">
+            <mat-icon>logout</mat-icon>Logout
+        </div>
     </div>
     <div class="content">
         <div class="heading">
@@ -40,14 +46,13 @@
                         <h5>Set a Goal</h5>
                     </div>
                     <div class="icon-container">
-                        <mat-icon (click)="openGoalModal()" class="ediit"
-                            >add</mat-icon
-                        >
+                        <mat-icon  class="icon" (click)="openGoalModal()"
+                            >add</mat-icon>
                     </div>
                 </div>
             </div>
         </ng-template>
-        
+        <br /><br />
         <div class="cardHeading">
             <h4>Expense Allocation Categories</h4>
         </div>
@@ -58,20 +63,21 @@
                         <h5>{{ transactionType.transactionsType }}</h5>
                     </div>
                     <div class="icon-container">
-                        <mat-icon
+                        <mat-icon class="icon"
                             (click)="openExpenseModal(transactionType.budgetId)"
-                            class="edit"
                             >edit</mat-icon
                         >
-                        <mat-icon
-                            (click)="deleteTransactionType(transactionType.budgetId)"
-                            >delete</mat-icon
-                        >
+                        <mat-icon class="icon"
+                            (click)="
+                                deleteTransactionType(transactionType.budgetId)"
+                            >delete</mat-icon>
                     </div>
                     <mat-progress-bar
                         class="red-progress-bar"
                         mode="determinate"
-                        [value]="getTypeProgress(transactionType.transactionsType)"
+                        [value]="
+                            getTypeProgress(transactionType.transactionsType)
+                        "
                         [bufferValue]="
                             transactionType.amountSet
                         "></mat-progress-bar>
@@ -84,4 +90,3 @@
         <br /><br /><br />
     </div>
 </div>
-
