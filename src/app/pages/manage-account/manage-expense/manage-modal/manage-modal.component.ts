@@ -46,9 +46,9 @@ export class ManageModalComponent {
         private router: Router
     ) {
         this.expenseForm = this.formBuilder.group({
-            category: [this.selectedCategory, Validators.required],
-            amount: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-        });
+            category: { value: '', disabled: true }, // Disable the form control for the category
+            amount: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]]
+          });
     }
 
     ngOnInit() {
