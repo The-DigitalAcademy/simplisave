@@ -292,3 +292,9 @@ h6 {
 
 
 }
+@media (min-width: 768px){
+  .top-container{
+    width: 100%;
+    
+  }
+}

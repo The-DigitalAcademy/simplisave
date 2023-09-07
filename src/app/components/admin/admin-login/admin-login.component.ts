@@ -35,7 +35,7 @@ showPassword: boolean = false;
 
    /* 
 |------------------------------------------------------------------------------------------------------------
-| Fetches API Data                                                            Created By Sekhukhune Delphia
+| Login                                                           Created By Sekhukhune Delphia
 |------------------------------------------------------------------------------------------------------------
 | Created 2023-Aug-01                                                                 Modified: 2023-Sep-05
 | login() is a method for handling the login process, once a user is logged in, we store the JWT token 
