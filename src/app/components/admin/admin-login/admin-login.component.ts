@@ -35,7 +35,7 @@ showPassword: boolean = false;
 
    /* 
 |------------------------------------------------------------------------------------------------------------
-| Fetches API Data                                                            Created By Sekhukhune Delphia
+| Login                                                           Created By Sekhukhune Delphia
 |------------------------------------------------------------------------------------------------------------
 | Created 2023-Aug-01                                                                 Modified: 2023-Sep-05
 | login() is a method for handling the login process, once a user is logged in, we store the JWT token 
@@ -53,16 +53,14 @@ login() {
 
   this.authService.login(this.loginData).subscribe(
     (response: any) => {
-      console.log('Token in LoginComponent:', response?.token); 
-      console.log('Logged in successfully');
       const authToken = response?.token;                       // Extract the token property if it exists
       this.authService.setToken(authToken);                    // Set the token in the AuthService
       this.authService.successAlert();
       this.loginForm.reset();
       this.router.navigate(['admin']);
     },
-    (error) => {
-      this.authService.failedAlert();
+    (error: any) => {
+      this.authService.failedAlert(); // Show failed login alert
     }
   );
 }

@@ -1,5 +1,3 @@
-import { User } from "./user";
-
 /*
 |---------------------------------------------------------------------------------------------------------------
 |   04-Sep-2023                                                                  Created By: Delphia Sekhukhune
@@ -39,11 +37,7 @@ export interface Transaction {
     // image: string;
 }
 
-// An interface  for Transaction_Details --> Added 01-Sep-2023 
-export interface GroupedTransactions {
-  [date: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
-}
-
+<<<<<<<<< Temporary merge branch 1
 export interface User {
     firstName: string;
     lastName: string;
@@ -51,6 +45,11 @@ export interface User {
     email: string;
     accountNo: string;
     idNo: string;
+
+// An interface  for Transaction_Details --> Added 01-Sep-2023 
+export interface GroupedTransactions {
+  [date: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
+
 }
 
 
@@ -127,14 +126,15 @@ export interface BudgetResponse {
 }
 
 // export interface TransactionTypeResponse {
-//   budget: TransactionType[];
-// } 
+  //   budget: TransactionType[];
+// }
 
 //DASHBOARD --> EXPENSE-MODAL-BUDGET CREATION
 
 
 // DASHBOARD --> EXPENSE COMPONENT
 export interface Budget{
+
     id: number;
     amountSet: number;
     progressAmount: number;
@@ -147,6 +147,7 @@ export interface TransactionType {
     goalId: number;
     name: string;
     amount: number;
+    transactionsType:string;
 }
 
 // export interface ExpenseTransaction{
@@ -157,10 +158,9 @@ export interface TransactionType {
 
 
 
-
-// export interface CurrentBalance {
-//   [availableBalance: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
-// }
+export interface CurrentBalance {
+    [availableBalance: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
+}
 
 // interface UpdateGoalData {
 //   amount: number;
