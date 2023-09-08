@@ -8,8 +8,7 @@
 
 .flex-container {
     display: flex;
-    justify-content: center; /* Center the form horizontally */
-    align-items: center; /* Center the form vertically */
+    margin-left: 10px;
   }
 
   .search__form_field {
@@ -283,7 +282,7 @@ p{
     .flex-container {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        margin-left: 15px;
     }
 
     .flex-container img {
@@ -355,7 +354,7 @@ p{
         min-width:auto;
     }
     .search__form_field {
-        width: 100%; /* Take full width of the container */
+        width: 96%; /* Take full width of the container */
         margin-top: 20px;
       }
 }
@@ -367,8 +366,8 @@ p{
 
     .flex-container {
         display: flex;
-        justify-content: center; /* Center the form horizontally */
-        align-items: center; /* Center the form vertically */
+        margin-left: -10px;
+       
       }
       
     .search__form_field {
