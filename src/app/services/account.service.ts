@@ -49,6 +49,9 @@ export class AccountService {
     // getTransactions() {
     //     return this.http.get(`${environment.TRANSACTION_URL}`);
     // }
+    getTransactions() {
+        return this.http.get<Transaction[]>(`${environment.TRANSACTION_URL}`);
+    }
 
     getTransactions2() {
         return this.http.get<Transaction[]>(`${environment.TRANSACTION_URL}`);
@@ -60,13 +63,15 @@ export class AccountService {
       }
     
 //DASHBOARD_EXPENSE API FOR INTERFACE REFERENCE
-    getTypesBackend(): Observable<BudgetResponse> {
-        return this.http.get<BudgetResponse>(
-
-            `${environment.BACKEND_URL}/budget/details`
-        );
-    }
-
+    // getTypesBackend(): Observable<any[]> {
+    //     return this.http.get<any[]>(
+    //         `${environment.BACKEND_URL}/budget/details`
+    //     );
+    // }
+    getTypesBackend(): Observable<Budget[]> {
+        return this.http.get<Budget[]>(`${environment.BACKEND_URL}/budget/details`);
+      }
+    
     // NOT UTILIZED
     // getSimplisaveData() {
     //     return this.http.get(`${environment.apiUrl}/Simpil_Savings_Account`);

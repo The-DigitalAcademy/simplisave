@@ -1,3 +1,31 @@
+/*
+|---------------------------------------------------------------------------------------------------------------
+|   04-Sep-2023                                                                  Created By: Delphia Sekhukhune
+|   An interface  for LOGIN AND ADMINLOGIN -->   
+|---------------------------------------------------------------------------------------------------------------
+*/
+export interface LoginData {
+  username: string;
+  password: string;
+}
+
+// token-response.model.ts (create a new file for this type definition) LOGIN
+export interface TokenResponse {
+  access_token: string;
+  // Add other properties if necessary
+}
+//An interface for the navBar 05-Sep-2023
+export interface NavbarData {
+  name: string;
+  // Add other properties if needed
+}
+
+export interface AccountData {
+  firstName: string;
+  // Add other properties if needed
+}
+
+// An interface  for Transactions-Details and Balance-Summary--> Added 16-Aug-2023 
 export interface Transaction {
     transactionId: number;
     transactionType: string;
@@ -17,6 +45,23 @@ export interface User {
     accountNo: string;
     idNo: string;
 }
+
+// An interface  for Transaction_Details --> Added 01-Sep-2023 
+export interface GroupedTransactions {
+  [date: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
+}
+
+
+
+
+
+// token.interface.ts
+// export interface Token {
+//   access_token: string;
+//   expires_in: number;
+// }
+
+
 
 export interface Profile {
     userId: number;
@@ -69,20 +114,33 @@ export interface Profile {
     imageUrl: string | null;
 }
 
+export interface NavBarAccountData {
+  [firstName: string]: User[]; // Use Transaction[] or whatever type represents your transaction data
+}
+
+
+//MANAGE-EXPENSE
 export interface BudgetResponse {
     budget: Budget[];
 }
 
-interface TransactionTypeResponse {
-    budget: TransactionType[];
-}
+// export interface TransactionTypeResponse {
+  //   budget: TransactionType[];
+// }
+
+//DASHBOARD --> EXPENSE-MODAL-BUDGET CREATION
+
+
+// DASHBOARD --> EXPENSE COMPONENT
 export interface Budget {
     id: number;
     amountSet: number;
     progressAmount: number;
     transactionsType: string;
+    progress: string;
 }
 
+// MANAGE EXPENSE COMPONENT
 export interface TransactionType {
     goalId: number;
     name: string;
@@ -90,10 +148,19 @@ export interface TransactionType {
     transactionsType:string;
 }
 
-export interface GroupedTransactions {
-    [date: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
-}
+// export interface ExpenseTransaction{
+// id: number;
+// date: Date;
+// description: string;
+// }
+
+
 
 export interface CurrentBalance {
     [availableBalance: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
 }
+
+// interface UpdateGoalData {
+//   amount: number;
+//   // Add more properties if needed
+// }
