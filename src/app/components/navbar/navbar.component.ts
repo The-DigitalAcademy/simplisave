@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavbarData } from 'src/app/interfaces/transactions.model';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth-service.service';
 
@@ -10,7 +11,7 @@ import { AuthService } from 'src/app/services/auth-service.service';
 export class NavbarComponent {
 
   token: string|null = ''; // Initialize a variable to hold the token
-  name!:string;
+  data: NavbarData = { name: '' }; // Initialize the data using the interface modified by Delphia Sekhukhune 2023-Sep-05
 
   constructor(private authService: AuthService, private accountService:AccountService) {} // Inject your token service
 
@@ -28,7 +29,7 @@ export class NavbarComponent {
 
  
     this.accountService.getAccountData().subscribe((res: any) => {
-      this.name = res.firstName;
+      this.data.name = res.firstName;
 
 
      
