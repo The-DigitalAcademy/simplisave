@@ -1,5 +1,5 @@
 .navbar-nav {
-    /* margin-left: 389px; */
+ 
     width: auto;
     justify-content: end;
    
@@ -22,7 +22,11 @@
   }
   
   
+  .nav-item {
+    margin-right: 100px; 
+    
   
+  }
   
   
   .navbar-nav .nav-item.active .nav-link::after {
@@ -38,9 +42,13 @@
   .navbar-nav hr {
     display: none;
   }
-  
-  
-  /* Media query for mobile devices */
+  h1{
+    padding-left: 85%;
+    color: aliceblue;
+    cursor: pointer;
+    font-size: 20px;
+  }
+ 
    @media (max-width: 1024px) {
     .navbar{
       height: auto;

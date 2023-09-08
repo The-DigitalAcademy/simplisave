@@ -158,7 +158,7 @@ export class StepsComponent implements OnInit {
       image: this.previewImage // The image URL - Thilivhali Ravhutulu 16/08/2023
 
     };
-    console.log("data:", this.registrationData);
+   
 
     this.stepperService.updateStepData(this.registrationData);
     this.stepperService.saveRegistrationData();

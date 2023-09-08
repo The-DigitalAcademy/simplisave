@@ -17,14 +17,11 @@ export class ProfileComponent implements OnInit {
   activeForm: string = 'form1';
   userInfo: Profile;
   userId: number = 2;
-  items1:any;
   selectedImageFile: File | null = null; // Initialize to null
 
   constructor(private formBuilder: FormBuilder, private service: AccountService, private authService:AuthService) {
     this.userInfo = {} as Profile;
   }
-
-
 
   ngOnInit() {
     /*    When the form is loaded, initialize the form fields and add validation rules to them
@@ -76,22 +73,22 @@ export class ProfileComponent implements OnInit {
         this.getUsersInfo();
     }
 
-  /*  This function fetches a ceratin users info and assigns it to the form fields so that they display in the input boxes
-      when the form is loaded */
-  getUsersInfo() {
-    this.service.getAccountData().subscribe((res: any) => {
-      this.userInfo = res;
-      console.log('userInfo:', this.userInfo);
-      // Set initial form values using patchValue
-      this.basicInfoForm.patchValue({
-        firstName: this.userInfo.firstName,
-        lastName: this.userInfo.lastName,
-        cellphoneNumber: this.userInfo.cellphoneNumber,
-        email: this.userInfo.email,
-        idNo:this.userInfo.idNo,
-        accountNo: this.userInfo.accounts[0].accountNo,
+    /* This function fetches a certain users info and assigns it to the form fields so that they display in the input boxes
+      when the form is loaded
+        2023/08/14 */
+    getUsersInfo() {
+        this.service.getAccountData().subscribe((res: any) => {
+            this.userInfo = res;
 
-      });
+            // Set initial form values using patchValue
+            this.basicInfoForm.patchValue({
+                firstName: this.userInfo.firstName,
+                lastName: this.userInfo.lastName,
+                cellphoneNumber: this.userInfo.cellphoneNumber,
+                email: this.userInfo.email,
+                idNo: this.userInfo.idNo,
+                accountNo: this.userInfo.accounts[0].accountNo,
+            });
 
       this.passwordForm.patchValue({
         password: this.userInfo.password,
@@ -170,7 +167,7 @@ export class ProfileComponent implements OnInit {
                 .updateUser(this.userId, updatedInfo)
                 .subscribe((res: any) => {
                     this.authService.successfulUpdate();
-                    console.log('User info updated:', res);
+                    
                 });
         }
     }

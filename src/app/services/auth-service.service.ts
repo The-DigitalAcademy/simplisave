@@ -1,9 +1,12 @@
+// auth-service.service.ts
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { environment } from '../../environments/environment';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { User } from '../interfaces/user';
+import { LoginData } from '../interfaces/transactions.model';
 
 
 @Injectable({
@@ -12,7 +15,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  private tokenSubject = new BehaviorSubject<string | null>(null); // Change the type to string | null
+  private tokenSubject = new BehaviorSubject<string | null>(null);
 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
 
@@ -20,31 +23,50 @@ export class AuthService {
     return this.isAuthenticatedSubject.asObservable();
   }
   
-  setToken(token: string | null): void { // Change the parameter type to string | null
+  setToken(token: string | null): void {
     this.tokenSubject.next(token);
   }
 
-  getToken(): Observable<string | null> { // Change the return type to string | null
+  getToken(): Observable<string | null> {
     return this.tokenSubject.asObservable();
   }
 
-  login(data: any) {
-    return this.http.post<any>(`${environment.LOGIN_URL}`, data).pipe(
-      tap((res: any) => {
-        const token = res['token'].token;
-        this.setToken(token);
+  // login(data: LoginData): Observable<TokenResponse> {
+  //   return this.http.post<TokenResponse>(`${environment.LOGIN_URL}`, data).pipe(
+  //     tap((res: TokenResponse) => {
+  //       console.log('API Response:', res);
+  //       const authToken = res.access_token;
+  //       this.setToken(authToken);
+  //       this.isAuthenticatedSubject.next(true);
+  //     })
+  //   );
+  // }
+  
+
+  login(data: LoginData): Observable<any> {
+    return this.http.post(`${environment.LOGIN_URL}`, data).pipe(
+      tap((response: any) => {
+        const authToken = response?.token; // Extract the token property if it exists
+        console.log('Token in AuthService:', authToken);
+        this.setToken(authToken);
         this.isAuthenticatedSubject.next(true);
       })
     );
   }
+  
+  
+  
+  
+  
 
-  getUserData() {
-    return this.http.get<any>(`${environment.apiUrl}/signupUsers`);
-  }
+  // getUserData() {
+  //   return this.http.get<any>(`${environment.apiUrl}/signupUsers`);
+  // }
 
   logout() {
     sessionStorage.clear();
     this.isAuthenticatedSubject.next(false);
+    this.tokenSubject.next(null);
     this.router.navigate(['/login']);
   }
 
@@ -95,4 +117,10 @@ export class AuthService {
       confirmButtonColor: '#AF144B'
     });
   }
+}
+
+// Define a TokenResponse interface to match your server response
+interface TokenResponse {
+  access_token: string;
+  // Add other properties if necessary
 }
