@@ -8,7 +8,7 @@
   margin-left: 0%;
   margin-top: 0;
   padding-left: 2vw;
-  padding-right: 2%;
+  padding-right: 2vw;
 
 }
 
@@ -29,7 +29,7 @@
   align-items: center;
   background-color: none;
   height: 40px;
-  margin-top: 15px;
+  margin-top: 1%;
 }
 
 .input-group mat-icon {
@@ -185,14 +185,20 @@ p {
   }
 
   .input-group {
-    width: 40%;
+    width: 60%;
     display: flex;
     flex-direction: row;
   }
+
+  input[type="search"]::placeholder {
+    /* Hide the placeholder text */
+    display: none;
+  }
+
 }
 
 .input-group {
-  width: 100%;
+  width: 35.5%;
   height: 90%;
   background-color: #fff;
   padding: 0 .8rem;
