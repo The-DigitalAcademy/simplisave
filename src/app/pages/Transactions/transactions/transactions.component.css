@@ -3,6 +3,11 @@
   flex-direction: row;
   /* min-height: 100vh; */
 }
+.container {
+
+  padding: 0; 
+
+}
 
 .sidebar {
   flex: 1;
@@ -17,8 +22,7 @@
 /* .balance-summary, */
 .expense-part  {
   flex: 1;
-  padding-left: 2%;
-  padding: 1%;
+  padding: 2vw;
 }
 
 

@@ -59,3 +59,15 @@
 html, body { height: 96%;}
 
 
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+    /* Other existing styles here */
+
+    /* Disable left padding */
+    padding-left: 0;
+}

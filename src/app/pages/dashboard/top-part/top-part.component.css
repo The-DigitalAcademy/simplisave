@@ -6,7 +6,7 @@
   line-height: 20px;
   word-wrap: break-word;
   margin-top: 30px;
-  padding-left: 2%;
+  padding-left: 2vw;
   padding-bottom: 2%;
 }
 
@@ -59,15 +59,6 @@ mat-icon {
 
 }
 
-.top-container {
-  display: flex;
-  gap: 20px;
-  padding: 2%;
-  width: 100%;
-  margin-left: 0%;
-  margin-top: 0;
-}
-
 .top-container>div {
 
   padding: 1%;
@@ -78,6 +69,14 @@ mat-icon {
   line-height: 24px;
   letter-spacing: 0.15px;
   word-wrap: break-word
+}
+.top-container {
+  display: flex;
+  gap: 20px;
+  padding: 2vw;
+  width: 100%;
+  margin-left: 0%;
+  margin-top: 0;
 }
 
 p {
