@@ -31,6 +31,10 @@
     
   }
 
+  .sidebar{
+    flex:auto
+  }
+
   .top-part,
   .expense-part {
     flex: 1;

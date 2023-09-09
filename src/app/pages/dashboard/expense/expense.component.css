@@ -183,15 +183,23 @@ li{
 
    
      .dashboard-container{
-      width: 105%;
+      width: 100%;
       margin-left: -13px;
      }
     }
  
+@media (min-width: 200px){
+
+   .row{
+      width: 100%;
+      margin-left: 0%;
+   }
+
+}
+
 @media (min-width: 768px){
 
    .row{
-      width: 101%;
+      width: 100%;
       margin-left: 0%;
-   }
-}
+   }}
