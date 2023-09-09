@@ -334,6 +334,9 @@ p{
   .search__form_field {
     width: 100%; /* Take full width of the container */
   }
+  .flex-container{
+    padding: 0;
+  }
 }
 
 @media (min-width: 1000px) {

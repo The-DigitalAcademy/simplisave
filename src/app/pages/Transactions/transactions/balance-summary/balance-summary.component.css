@@ -168,6 +168,10 @@ p {
   p {
     font-size: var(--font-x-small);
   }
+  .flex-container{
+    padding: 0;
+    padding-top:4vw;
+  }
 
 }
 
@@ -194,6 +198,7 @@ p {
     /* Hide the placeholder text */
     display: none;
   }
+  
 
 }
 

@@ -23,6 +23,8 @@
 .expense-part  {
   flex: 1;
   padding: 2vw;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
 }
 
 
@@ -31,7 +33,7 @@
   .transaction-container {
     flex-direction: column;
     height: auto; 
-    padding: 5%;
+    padding: 2vw;
   }
 
   .balance-summary{
@@ -52,6 +54,12 @@
   .checklist-container {
     flex: 1;
     min-height: 0;
+  }
+  .expense-part  {
+    flex: 1;
+    padding: 0;
+    padding-top: 4vw;
+    padding-bottom: 4vw;
   }
 }
 
@@ -82,6 +90,7 @@
   font-size:  var(--font-x-small);
 }
 
+
 @media screen and (max-width: 786px) {
   .footer {
     background-color: var(--primary-color);
@@ -105,7 +114,7 @@
   .transaction-container {
     flex-direction: column;
     height: auto; 
-    padding: 5%;
+    padding: 2vw;
   }
 }
 
@@ -113,6 +122,6 @@
   .transaction-container {
     flex-direction: column;
     height: auto; 
-    padding: 5%;
+    padding: 2vw;
   }
 }
