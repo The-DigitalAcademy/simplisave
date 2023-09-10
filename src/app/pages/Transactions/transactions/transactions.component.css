@@ -23,7 +23,7 @@
 .expense-part  {
   flex: 1;
   padding: 2vw;
-  padding-top: 2vw;
+  padding-top: 0;
   padding-bottom: 2vw;
 }
 
@@ -33,7 +33,8 @@
   .transaction-container {
     flex-direction: column;
     height: auto; 
-    padding: 2vw;
+    padding: 0vw;
+
   }
 
   .balance-summary{
@@ -57,7 +58,7 @@
   }
   .expense-part  {
     flex: 1;
-    padding: 0;
+    padding: 2vw;
     padding-top: 4vw;
     padding-bottom: 4vw;
   }
@@ -114,7 +115,7 @@
   .transaction-container {
     flex-direction: column;
     height: auto; 
-    padding: 2vw;
+    padding: 0vw;
   }
 }
 
@@ -122,6 +123,6 @@
   .transaction-container {
     flex-direction: column;
     height: auto; 
-    padding: 2vw;
+    padding: 0vw;
   }
 }

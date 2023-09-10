@@ -152,15 +152,15 @@ li{
          width: 100%; 
          margin: 0;
          padding: 0;
-         margin-bottom: 25px;
+         margin-bottom: 8vw;
          
        }
       
        .row {
          flex-direction: column; 
-         margin-top: -15px;
          margin-bottom: 25px;
          padding: 2vw;
+         padding-top: 6vw;
        }
        .graph{
          width: auto;
