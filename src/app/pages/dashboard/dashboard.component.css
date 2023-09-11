@@ -2,19 +2,12 @@
   display: flex;
 }
 
-.sidebar {
-  flex: 1;
-}
 
 .main-content {
   display: flex;
   flex-direction: column;
   flex: 4.5;
   justify-content: center;
-}
-
-.top-part {
-  flex: 1;
 }
 
 .expense-part {
