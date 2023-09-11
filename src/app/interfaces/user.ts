@@ -8,6 +8,7 @@ export interface User {
     cellphoneNumber: string;
     accountNo: string;
     idNo: string;
+    savingsAccountNumber: string;
     profileImage: File | null;
 }
 
