@@ -45,6 +45,10 @@ export class ProfileComponent implements OnInit {
                 { value: '', disabled: true },
                 [Validators.required, Validators.pattern(/^[0-9]{8}$/)],
             ],
+            savingsAccountNumber: [
+                { value: '', disabled: true },
+                [Validators.required, Validators.pattern(/^[0-9]{8}$/)],
+            ],
             idNo: [
                 { value: '', disabled: true },
                 [Validators.required, Validators.pattern(/^[0-9]{13}$/)],
@@ -88,6 +92,7 @@ export class ProfileComponent implements OnInit {
                 email: this.userInfo.email,
                 idNo: this.userInfo.idNo,
                 accountNo: this.userInfo.accounts[0].accountNo,
+                savingsAccountNumber: this.userInfo.accounts[0].savingsAccount.savingsAccountNumber,
             });
 
       this.passwordForm.patchValue({
@@ -159,6 +164,7 @@ export class ProfileComponent implements OnInit {
                 idNo: this.basicInfoForm.get('idNo')?.value,
                 accountNo: this.basicInfoForm.get('accountNo')?.value,
                 // Include the selected image file - Thilivhali Ravhutulu 30/08/2023
+                savingsAccountNumber: this.basicInfoForm.get('savingsAccountNumber')?.value,
                 profileImage: this.selectedImageFile,
             };
 
