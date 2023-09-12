@@ -25,6 +25,7 @@ export class StepsComponent implements OnInit {
     accountNo: '',
     idNo: '',
     profileImage: null,
+    savingsAccountNumber:'',
   };
   previewImage: string | null = null;
 
