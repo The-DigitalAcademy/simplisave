@@ -11,12 +11,12 @@
     </div>
     <div class="line"></div>
     <div class="basicInfo">
-  <!--     <ng-container *ngIf="activeForm === 'form1'; else form2"> -->
-        <form class="basicInfo-form" [formGroup]="basicInfoForm" (ngSubmit)="updateUserInfo()">
+      <ng-container *ngIf="activeForm === 'form1'; else form2">
+        <form class="basicInfo-form" [formGroup]="basicInfoForm" (ngSubmit)="onFormSubmit()">
           <nav>
             <ul>
               <li><a [class.active]="activeForm === 'form1'"(click)="showForm('form1')">Information</a></li>
-              <li><a (click)="showForm('form2')">Password</a></li>
+              <li><a (click)="showForm('form2')">Accounts</a></li>
             </ul>
           </nav>
           <hr>
@@ -56,22 +56,8 @@
             <div class="form-field">
               <label for="idNo">ID Number:</label>
               <div class="input-container1">
-                <input type="number" id="idNo" name="idNo" formControlName="idNo" [disabled]="true" required>
-                <div class="error-message"
-                  *ngIf="basicInfoForm.get('idNo')?.hasError('pattern') && (basicInfoForm.get('idNo')?.dirty || basicInfoForm.get('idNo')?.touched)">
-                  Invalid format</div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="accountNo">Account Number:</label>
-              <div class="input-container1">
-                <input type="number" id="accountNo" name="accountNo" formControlName="accountNo" [disabled]="true"
-                  required>
-                <div class="error-message"
-                  *ngIf="basicInfoForm.get('accountNo')?.hasError('pattern') && (basicInfoForm.get('accountNo')?.dirty || basicInfoForm.get('accountNo')?.touched)">
-                  Invalid format</div>
+                <input type="text" id="idNo" name="idNo" formControlName="idNo" required>
+                <div class="error-message" *ngIf="basicInfoForm.get('idNo')?.hasError('pattern') && (basicInfoForm.get('idNo')?.dirty || basicInfoForm.get('idNo')?.touched)">Invalid format</div>
               </div>
             </div>
           </div>
@@ -80,31 +66,34 @@
             <button class="cancel-button" type="button" routerLink="/dashboard">Cancel</button>
         </div>
         </form>
-   <!--    </ng-container> -->
+      </ng-container>
 
-<!--       <ng-template #form2>
-        <form class="password-form" [formGroup]="passwordForm" (ngSubmit)="onFormSubmit()">
+      <ng-template #form2>
+        <form class="passwordForm" [formGroup]="passwordForm" (ngSubmit)="onFormSubmit()">
           <nav>
             <ul>
               <li><a [class.active]="activeForm === 'form1'" (click)="showForm('form1')">Information</a></li>
-              <li><a [class.active]="activeForm === 'form2'" (click)="showForm('form2')">Password</a></li>
+              <li><a [class.active]="activeForm === 'form2'" (click)="showForm('form2')">Accounts</a></li>
             </ul>
           </nav>
           <hr>
-
+          <!-- Accounts Form -->
           <div class="form-row">
             <div class="form-field">
-              <label for="password">Password:</label>
-              <input type="password" id="password" name="password" formControlName="password" placeholder="********">
-              <div class="error-message" *ngIf="basicInfoForm.get('password')?.hasError('pattern') && (basicInfoForm.get('password')?.dirty || basicInfoForm.get('password')?.touched)">Invalid format</div>
+              <label for="accountNo">Account Number:</label>
+              <div class="input-container1">
+                <input type="text" id="accountNo" name="accountNo" formControlName="accountNo" required>
+                <div class="error-message" *ngIf="basicInfoForm.get('accountNo')?.hasError('pattern') && (basicInfoForm.get('accountNo')?.dirty || basicInfoForm.get('accountNo')?.touched)">Invalid format</div>
+              </div>
             </div>
           </div>
           <div class="form-row">
             <div class="form-field">
-              <label for="newPassword">New Password:</label>
-              <input type="password" id="newPassword" name="newPassword" formControlName="newPassword" >
-              <div class="error-message" *ngIf="basicInfoForm.get('newPassword')?.hasError('required') && (basicInfoForm.get('newPassword')?.dirty || basicInfoForm.get('newPassword')?.touched)">New Password is required.</div>
-              <div class="error-message" *ngIf="basicInfoForm.get('newPassword')?.hasError('pattern') && (basicInfoForm.get('newPassword')?.dirty || basicInfoForm.get('newPassword')?.touched)">Invalid format for New Password.</div>
+              <label for="savingsAccountNumber">Savings Account Number:</label>
+              <div class="input-container">
+                <input type="number" id="savingsAccountNumber" name="savingsAccountNumber" formControlName="savingsAccountNumber" [disabled]="true"
+                  required>
+              </div>
             </div>
           </div>
 
@@ -114,7 +103,7 @@
             <button class="cancel-button"  type="button" routerLink="/dashboard">Cancel</button>
           </div>
         </form>
-      </ng-template> -->
+      </ng-template>
     </div>
   </div>
 </div>
