@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ForgotPasswordData } from 'src/app/interfaces/user';
 import { ResetPasswordService } from 'src/app/services/reset-password.service';
 import Swal from 'sweetalert2';
 
@@ -13,33 +14,37 @@ export class ForgotPasswordComponent {
 
   constructor(private reset: ResetPasswordService,  private router: Router){}
 
+
   sendForgotPassword() {
-    this.reset.sendForgotPasswordEmail(this.email).subscribe(
+    const forgotPasswordData: ForgotPasswordData = {
+      email: this.email,
+    };
+ 
+    this.reset.sendForgotPasswordEmail(forgotPasswordData).subscribe(
       () => {
-        // Handle success (OTP sent) - Thilivhali Ravhutulu  22 August 2023
+        // Handle success (OTP sent) - Thilivhali Ravhutulu 22 August 2023
         Swal.fire({
           icon: 'success',
           iconColor: '#AF144B',
           text: 'OTP sent to email!',
-          confirmButtonColor: '#AF144B'
-      }).then(() => {
-        // Navigate to the reset-password page - Thilivhali Ravhutulu  22 August 2023
-        this.router.navigate(['/reset']);
-       })
-      
+          confirmButtonColor: '#AF144B',
+        }).then(() => {
+          // Navigate to the reset-password page - Thilivhali Ravhutulu 22 August 2023
+          this.router.navigate(['/reset']);
+        });
       },
-      error => {
-        // Handle error - Thilivhali Ravhutulu  22 August 2023
+      (error) => {
+        // Handle error - Thilivhali Ravhutulu 22 August 2023
         Swal.fire({
           icon: 'error',
           iconColor: '#AF144B',
           text: 'Could not find email',
-          confirmButtonColor: '#AF144B'
-      }); 
+          confirmButtonColor: '#AF144B',
+        });
       }
     );
   }
-
+ 
 
 
 }

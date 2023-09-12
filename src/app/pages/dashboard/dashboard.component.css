@@ -2,18 +2,12 @@
   display: flex;
 }
 
-.sidebar {
-  flex: 1;
-}
 
 .main-content {
   display: flex;
   flex-direction: column;
   flex: 4.5;
-}
-
-.top-part {
-  flex: 1;
+  justify-content: center;
 }
 
 .expense-part {
@@ -25,7 +19,13 @@
   .dashboard-container {
     flex-direction: column;
     height: auto;
-    padding: 5%;
+    width:100vw;
+    margin: 0;
+    
+  }
+
+  .sidebar{
+    flex:0;
   }
 
   .top-part,
@@ -92,5 +92,11 @@
   .footer span {
     display: block;
     font-size: var(--font-x-small);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    display: none;
   }
 }

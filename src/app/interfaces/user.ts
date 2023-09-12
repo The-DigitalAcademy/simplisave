@@ -8,11 +8,13 @@ export interface User {
     cellphoneNumber: string;
     accountNo: string;
     idNo: string;
+    savingsAccountNumber: string;
     profileImage: File | null;
 }
 
 export interface RegistrationData extends User {
     password: string;
+    confirmPassword: string;
   }
   
 
@@ -31,3 +33,14 @@ export interface StepperServiceInterface {
     password: string;
   }
 
+  //Added interface for forgot and reset password --> Delphia Sekhukhune 07-Sep-2023
+
+  export interface ResetPasswordData {
+    otp: string;
+    newPassword: string;
+    confirmPassword: string;
+}
+
+ export interface ForgotPasswordData {
+    email: string;
+ }

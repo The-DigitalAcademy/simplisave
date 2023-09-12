@@ -54,7 +54,6 @@ body {
 }
 img{
 margin-bottom: 2%;
-border-radius: 80px;
 }
 
 .overview-heading {
@@ -130,7 +129,6 @@ height:40vh;
 width:70%;
 }
 .input-container{
-height: 48px;
 }
 
 .form-field1 input {
@@ -326,6 +324,8 @@ margin-top: 5%;
 max-width:70px;
 height: 30px;
 }
+
+
 }
 @media screen and (min-width: 2550px) {
 .line{
