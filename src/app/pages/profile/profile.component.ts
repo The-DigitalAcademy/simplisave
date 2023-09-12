@@ -41,14 +41,6 @@ export class ProfileComponent implements OnInit {
                 [Validators.required, Validators.pattern(/^[0-9]{10}$/)],
             ],
             email: ['', [Validators.required, Validators.email]],
-            accountNo: [
-                { value: '', disabled: true },
-                [Validators.required, Validators.pattern(/^[0-9]{8}$/)],
-            ],
-            savingsAccountNumber: [
-                { value: '', disabled: true },
-                [Validators.required, Validators.pattern(/^[0-9]{8}$/)],
-            ],
             idNo: [
                 { value: '', disabled: true },
                 [Validators.required, Validators.pattern(/^[0-9]{13}$/)],
@@ -56,21 +48,13 @@ export class ProfileComponent implements OnInit {
         });
 
         this.passwordForm = this.formBuilder.group({
-            password: [
-                '',
-                [
-                    Validators.pattern(
-                        /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-                    ),
-                ],
+            accountNo: [
+                { value: '', disabled: true },
+                [Validators.required, Validators.pattern(/^[0-9]{8}$/)],
             ],
-            newPassword: [
-                '',
-                [
-                    Validators.pattern(
-                        /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-                    ),
-                ],
+            savingsAccountNumber: [
+                { value: '', disabled: true },
+                [Validators.required, Validators.pattern(/^[0-9]{8}$/)],
             ],
         });
 
@@ -91,12 +75,11 @@ export class ProfileComponent implements OnInit {
                 cellphoneNumber: this.userInfo.cellphoneNumber,
                 email: this.userInfo.email,
                 idNo: this.userInfo.idNo,
-                accountNo: this.userInfo.accounts[0].accountNo,
-                savingsAccountNumber: this.userInfo.accounts[0].savingsAccount.savingsAccountNumber,
             });
 
       this.passwordForm.patchValue({
-        password: this.userInfo.password,
+        accountNo: this.userInfo.accounts[0].accountNo,
+        savingsAccountNumber: this.userInfo.accounts[0].savingsAccount.savingsAccountNumber,
       });
 
       console.log(this.userInfo);
