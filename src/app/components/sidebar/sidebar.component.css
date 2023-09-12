@@ -63,7 +63,7 @@ body {
 }
 
 
-@media (max-width: 1020px) {
+@media (max-width: 991px) {
   .sidebar {
     display: none;
   }
