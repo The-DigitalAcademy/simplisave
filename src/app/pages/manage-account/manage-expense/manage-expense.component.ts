@@ -5,7 +5,7 @@ import { AccountService } from 'src/app/services/account.service';
 import { ManageModalComponent } from './manage-modal/manage-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GoalModalComponent } from './goal-modal/goal-modal.component';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import {
     BudgetResponse,
     TransactionType,
@@ -30,6 +30,8 @@ export class ManageExpenseComponent implements OnInit {
     items: any;
     amountSet!: number;
     selectedTypeId!: number;
+    totalSaved!:number;
+    percentageSaved!:number;
 
     constructor(
         private accountService: AccountService,
@@ -64,13 +66,44 @@ export class ManageExpenseComponent implements OnInit {
     // 2023/07/31
     getAccountData() {
         this.accountService.getAccountData().subscribe(res => {
-            this.items = res;
-            this.amountSet =
-                this.items.accounts[0].savingsAccount.goalSavings[0].amountSet;
-            this.selectedTypeId =
-                this.items.accounts[0].savingsAccount.goalSavings[0].goalId;
+          this.items = res;
+      
+          // Check if 'amountSet' is defined before accessing it
+          if (
+            this.items.accounts &&
+            this.items.accounts[0] &&
+            this.items.accounts[0].savingsAccount &&
+            this.items.accounts[0].savingsAccount.goalSavings &&
+            this.items.accounts[0].savingsAccount.goalSavings[0]
+          ) {
+            this.amountSet = this.items.accounts[0].savingsAccount.goalSavings[0].amountSet;
+            this.selectedTypeId = this.items.accounts[0].savingsAccount.goalSavings[0].goalId;
+          } else {
+            // Handle the case when 'amountSet' is undefined or empty
+            this.amountSet = 0; // You can set it to a default value or handle it as needed
+          }
+      
+          this.totalSaved = this.items.accounts[0].savingsAccount.totalSavings;
+      
+          if (this.totalSaved === null) {
+            this.totalSaved = 0;
+          }
+      
+          this.calculatePercentageSaved();
         });
-    }
+      }
+      
+      
+      calculatePercentageSaved() {
+        if (this.amountSet !== 0) {
+          this.percentageSaved = (this.totalSaved / this.amountSet) * 100;
+          console.log(`Total Saved as a percentage: ${this.percentageSaved.toFixed(2)}%`);
+          // You can display or use the percentageSaved value as needed.
+        } else {
+          console.log('Amount set is zero, cannot calculate percentage.');
+          // Handle the case where amountSet is zero (to avoid division by zero).
+        }
+      }
 
     openExpenseModal(id: any): void {
         localStorage.setItem('typeId', id);
@@ -126,23 +159,41 @@ deleteTransactionType(id: any){
     |
     |-------------------------------------------------------------------------------------------------------------
     */
-    getTypes() {
+  
 
-        this.accountService.getTypesBackend().subscribe((res: any) => {
-          if (res) {
+    getTypes() {
+      this.accountService.getTypesBackend().subscribe(
+        (res: any) => {
+          if (res && res.budgets) {
             this.transactionType = res.budgets.filter((record: any) => !record.deleted);
-      
             if (this.transactionType && this.transactionType.length === 0) {
               this.isTypesEmpty = '';
             } else {
               this.isTypesEmpty = 'full';
             }
             this.checkDataFetched();
-          } else {
-            // Handle the case when res is falsy (e.g., an error occurred).
           }
-        });
-      }
+        },
+        (error) => {
+          if (error.status === 404) {
+            console.log("No budget set yet");
+            this.isTypesEmpty = ''
+            // You can optionally set this.isTypesEmpty to a specific value here if needed.
+          } else {
+            console.error("An error occurred:", error);
+          }
+        }
+      );
+    }
+    
+    
+    
+      
+      
+      
+      
+      
+      
 
     /*  for each user set expense allocation, fiter the transaction records to find records in the current month
   , records with only money going and the description of the transaction should match the name of the expense allocation type, 

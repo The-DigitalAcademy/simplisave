@@ -3,10 +3,12 @@
   flex-direction: row;
   /* min-height: 100vh; */
 }
+.container {
 
-.sidebar {
-  flex: 1;
+  padding: 0; 
+
 }
+
 
 .main-content {
   display: flex;
@@ -17,8 +19,9 @@
 /* .balance-summary, */
 .expense-part  {
   flex: 1;
-  padding-left: 2%;
-  padding: 1%;
+  padding: 2vw;
+  padding-top: 0;
+  padding-bottom: 2vw;
 }
 
 
@@ -27,7 +30,8 @@
   .transaction-container {
     flex-direction: column;
     height: auto; 
-    padding: 5%;
+    padding: 0vw;
+
   }
 
   .balance-summary{
@@ -48,6 +52,12 @@
   .checklist-container {
     flex: 1;
     min-height: 0;
+  }
+  .expense-part  {
+    flex: 1;
+    padding: 2vw;
+    padding-top: 4vw;
+    padding-bottom: 4vw;
   }
 }
 
@@ -78,6 +88,7 @@
   font-size:  var(--font-x-small);
 }
 
+
 @media screen and (max-width: 786px) {
   .footer {
     background-color: var(--primary-color);
@@ -101,7 +112,7 @@
   .transaction-container {
     flex-direction: column;
     height: auto; 
-    padding: 5%;
+    padding: 0vw;
   }
 }
 
@@ -109,6 +120,6 @@
   .transaction-container {
     flex-direction: column;
     height: auto; 
-    padding: 5%;
+    padding: 0vw;
   }
 }

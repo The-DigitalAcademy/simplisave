@@ -21,12 +21,12 @@
 .col {
    background-color: white;
    border-radius: 12px;
-   margin: 2%;
+   margin: 2vw;
    width: 20%;
    position: relative; 
    border-style: solid;
    border-width: 0.5px;
-   height: 50vh;
+   margin-left: 2vw;
   
 }
 .bigger-icon{
@@ -88,9 +88,6 @@
    margin-top: 5%;
 }
 
-.text-center {
-   background-color: white;
-}
 .checklist{
    display: flex;
    flex-direction: column;
@@ -148,26 +145,57 @@ li{
    
       .col {
          flex-direction: column; 
-         width: 98%; 
+         width: 100%; 
+         margin: 0;
+         padding: 0;
+         margin-bottom: 8vw;
          
        }
-     
+      
        .row {
          flex-direction: column; 
-         margin-top: -15px;
          margin-bottom: 25px;
+         padding: 2vw;
+         padding-top: 6vw;
        }
+       .graph{
+         width: auto;
+       }
+
+       .subHeader::after {
+         content: "";
+         display: block;
+         width: 100%;
+         height: 0.5px;
+         background-color: black;
+         margin-top: 25px;
+         margin-left: 0;
+     }
+
+     .info-icon{
+      margin-left: 90%;
+      margin-top: 2%;
+     }
+
    
      .dashboard-container{
-      width: 105%;
+      width: 100%;
       margin-left: -13px;
      }
     }
  
+@media (min-width: 200px){
+
+   .row{
+      width: 100%;
+      margin-left: 0%;
+   }
+
+}
+
 @media (min-width: 768px){
 
    .row{
-      width: 101%;
+      width: 100%;
       margin-left: 0%;
-   }
-}
+   }}
