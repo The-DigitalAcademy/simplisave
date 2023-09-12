@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { User } from '../interfaces/user';
+import { User, RegistrationData } from '../interfaces/user';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -17,7 +17,11 @@ export class StepperService {
   constructor(private http: HttpClient, private router: Router) {}
 
    // Method to update data for each step - Thilivhali 14/08/2023
-   updateStepData(data: any): void {
+  //  updateStepData(data: any): void {
+  //   this.registrationData = { ...this.registrationData, ...data };
+  // }
+
+  updateStepData(data: RegistrationData): void {
     this.registrationData = { ...this.registrationData, ...data };
   }
 
@@ -29,9 +33,6 @@ export class StepperService {
     return this.currentStep;
   }
 
-  setData(dataKey: keyof User, data: any): void {
-    this.registrationData[dataKey] = data;
-  }
   setInfo(dataKey: string, data: any) {
         this.data[dataKey] = data;
       }
@@ -64,5 +65,3 @@ export class StepperService {
     return this.http.get<User>(`${environment.REG_URL}`);
   }
 }
-
-

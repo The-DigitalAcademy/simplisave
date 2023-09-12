@@ -4,11 +4,7 @@ import { BehaviorSubject, Subject, switchMap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from '../../environments/environment'; // Import environment variables
 import { AuthService } from './auth-service.service';
-import {
-    Budget,
-    BudgetResponse,
-    TransactionType,
-} from '../interfaces/transactions.model';
+import {  Profile} from '../interfaces/transactions.model';
 import { User } from '../interfaces/user';
 import { Transaction } from '../interfaces/transactions.model';
 
@@ -27,103 +23,75 @@ export class AccountService {
         private authService: AuthService
     ) {}
 
-    getAccountData() {
-        
-        return this.authService.getToken().pipe(
-            switchMap(token => {
-                const headers = new HttpHeaders({
-                    Authorization: `Bearer ${token}`,
-                });
-                return this.http.get<User[]>(
-                    `${environment.STUDENT_DETAILS_URL}`,
-                    { headers }
-                );
-            })
-        );
-    }
-
-    // getAccountData() {
-    //     return this.http.get(`${environment.backendUrl}/Transactions`);
-    // }
-
-    // getTransactions() {
-    //     return this.http.get(`${environment.TRANSACTION_URL}`);
-    // }
-    getTransactions() {
-        return this.http.get<Transaction[]>(`${environment.TRANSACTION_URL}`);
-    }
-
-    getTransactions2() {
-        return this.http.get<Transaction[]>(`${environment.TRANSACTION_URL}`);
-    }
-
-    getTypes(): Observable<BudgetResponse> {
-        return this.http.get<BudgetResponse>(`${environment.apiUrl}/budget`);
-
-      }
-    
-//DASHBOARD_EXPENSE API FOR INTERFACE REFERENCE
-    // getTypesBackend(): Observable<any[]> {
-    //     return this.http.get<any[]>(
-    //         `${environment.BACKEND_URL}/budget/details`
+    // getAccountData(): Observable<User[]>   {
+       
+    //     return this.authService.getToken().pipe(
+    //         switchMap(token => {
+    //             const headers = new HttpHeaders({
+    //                 Authorization: `Bearer ${token}`,
+    //             });
+    //             return this.http.get<User[]>(
+    //                 `${environment.STUDENT_DETAILS_URL}`,
+    //                 { headers }
+    //             );
+    //         })
     //     );
     // }
 
-    getTypesBackend(): Observable<BudgetResponse> {
-        return this.http.get<BudgetResponse>(
-
-            `${environment.BACKEND_URL}/budget/details`
+    getAccountData(): Observable<Profile> {
+        return this.authService.getToken().pipe(
+          switchMap((token) => {
+            const headers = new HttpHeaders({
+              Authorization: `Bearer ${token}`,
+            });
+            return this.http.get<Profile>(`${environment.STUDENT_DETAILS_URL}`, {
+              headers,
+            });
+          })
         );
-
-
-
-    getTypesBackend(): Observable<Budget[]> {
-        return this.http.get<Budget[]>(`${environment.BACKEND_URL}/budget/details`);
       }
-    
-    // NOT UTILIZED
-    // getSimplisaveData() {
-    //     return this.http.get(`${environment.apiUrl}/Simpil_Savings_Account`);
+     
+
+    getTransactions2() : Observable<Transaction[]> {
+        return this.http.get<Transaction[]>(`${environment.TRANSACTION_URL}`);
+    }
+
+   
+    // getTypesBackend(): Observable<Budget[]> {
+    //     return this.http.get<Budget[]>(`${environment.BACKEND_URL}/budget/details`);
+    //   }
+
+    getTypesBackend(): Observable<any> {
+        return this.http.get<any>(`${environment.BACKEND_URL}/budget/details`);
+      }
+     
+     
+   
+
+    // createType(body: any): Observable<any> {
+    //     return this.http.post<any>(
+    //         `${environment.BACKEND_URL}/budget/creation`,
+    //         body
+    //     );
     // }
 
     createType(body: any): Observable<any> {
         return this.http.post<any>(
-            `${environment.BACKEND_URL}/budget/creation`,
-            body
+          `${environment.BACKEND_URL}/budget/creation`,
+          body
         );
-    }
+      }
 
-    getGoalSavings(): Observable<TransactionType[]> {
-        return this.http.get<TransactionType[]>(
-            `${environment.CREATESAVINGSGOAL}`
-        );
-    }
 
     createSavingGoal(data: any): Observable<any> {
         return this.http.post(`${environment.CREATESAVINGSGOAL}`, data);
     }
 
-    // NOT UTILIZED
-    // updateGoalSavings(data: any, id: any): Observable<any> {
-    //     return this.http.put(`${environment.apiUrl}/Budget/${id}`, data);
-    // }
-
-    updateGoalSaving(data: any, id: any): Observable<any> {
-        return this.http.put(`${environment.apiUrl}/Goal_Savings/${id}`, data);
-    }
-
-    // NOT UTILIZED
-    // getUser(id: any) {
-    //     return this.http.get(`${environment.apiUrl}/User/${id}`);
-    // }
 
     updateUser(id: any, data: any) {
         return this.http.patch<User[]>(`${environment.UPDATE_URL}`, data);
     }
 
-    getOneTransaction(id: any): Observable<void> {
-        return this.http.get<void>(`${environment.apiUrl}/Budget/${id}`);
-    }
 
 
     updateBudget(id:any,data:any){
@@ -143,7 +111,7 @@ export class AccountService {
     }
 
     transferToSavings(id: any, data: any) {
-        
+       
         return this.authService.getToken().pipe(
             switchMap(token => {
                 const headers = new HttpHeaders({
@@ -159,9 +127,6 @@ export class AccountService {
         );
     }
 
-    getGoalID() {
-        return this.http.get(`${environment.BACKEND_URL}/goalSavings/goals`);
-    }
 
     triggerRefresh() {
         this.refreshSubject.next();

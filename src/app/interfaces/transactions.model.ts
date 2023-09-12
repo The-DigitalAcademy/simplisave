@@ -37,7 +37,6 @@ export interface Transaction {
     // image: string;
 }
 
-<<<<<<<<< Temporary merge branch 1
 export interface User {
     firstName: string;
     lastName: string;
@@ -45,6 +44,7 @@ export interface User {
     email: string;
     accountNo: string;
     idNo: string;
+}
 
 // An interface  for Transaction_Details --> Added 01-Sep-2023 
 export interface GroupedTransactions {
