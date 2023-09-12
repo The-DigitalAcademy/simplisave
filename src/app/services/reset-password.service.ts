@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ForgotPasswordData, ResetPasswordData } from '../interfaces/user';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -10,14 +12,14 @@ export class ResetPasswordService {
 
   constructor(private http: HttpClient) { }
 
-  //For sending otp to user's email - Thilivhali Ravhutulu  22 August 2023
-  sendForgotPasswordEmail(email: string) {
-   
-    return this.http.post(`${environment.FORGOT_URL}`, { email });
-  }
 
-  //For resetting password - Thilivhali Ravhutulu  22 August 2023
-  verifyOtpAndResetPassword(otp: string, newPassword: string, confirmPassword: string) {
-    return this.http.post(`${environment.RESET_URL}`, { otp, newPassword, confirmPassword });
+   //modified on the 07-Sep-2023 Delphia Sekhukhune
+   sendForgotPasswordEmail(data: ForgotPasswordData): Observable<any> {
+    return this.http.post(`${environment.FORGOT_URL}`, data);
+  }
+ 
+    //modified on the 07-Sep-2023 Delphia Sekhukhune
+  verifyOtpAndResetPassword(data: ResetPasswordData): Observable<any> {
+    return this.http.post(`${environment.RESET_URL}`, data);
   }
 }
