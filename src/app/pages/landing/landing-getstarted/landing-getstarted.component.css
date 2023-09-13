@@ -19,6 +19,23 @@ body {
   color: white;
 }
 
+.material-icons {
+  font-size: auto;
+}
+
+.mat-icon {
+  max-height: auto;
+  margin-left: 15%;
+
+}
+
+.launchIconDiv{
+  height:100%;
+  width: auto;
+  display:flex;
+  align-items: center;
+}
+
 .banner-heading {
   font-Size:var(--font-xxxx-large);
   letter-spacing: -0.5% ;
@@ -44,6 +61,7 @@ body {
   font-size: 1.9rem;
   border-style: none;
 }
+
 
 /* Media Query for screens below 786px */
 @media (max-width: 786px) {
