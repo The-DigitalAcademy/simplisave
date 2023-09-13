@@ -230,7 +230,8 @@ navbar-nav {
 
 .img-fluid{
   margin-left: 10px;
-  align-items: center
+  align-items: center;
+  max-width:70%;
 }
 
 .white-text .nav-link {
@@ -250,7 +251,7 @@ navbar-nav {
 
 
 /* Media query for mobile devices */
- @media (max-width: 1024px) {
+ @media (max-width: 991px) {
     .img-fluid {
       max-width: 70%;
       min-width: auto;
@@ -299,12 +300,12 @@ navbar-nav {
   }
 /*Media query for desktop devices */
 
-@media (min-width: 1024px) {
+@media (min-width: 991px) {
   .hide-on-desktop {
     display: none;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 991px) {
   .profile, .profile * {
     display: none; /* Hide the profile div and all its descendants */
   }
