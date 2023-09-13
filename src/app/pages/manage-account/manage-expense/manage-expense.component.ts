@@ -117,7 +117,7 @@ export class ManageExpenseComponent implements OnInit {
           console.log(`Total Saved as a percentage: ${this.percentageSaved.toFixed(2)}%`);
           // You can display or use the percentageSaved value as needed.
           if(this.percentageSaved>=100){
-            this.newMonthNewGoal();
+            this.increaseGoal();
             location.reload();
           }
         } else {
@@ -353,7 +353,7 @@ deleteTransactionType(id: any){
       const updatedData = {
         ...this.data,
         amountSet: 0,
-        description: 'PlusGoal',
+        description: 'plusGoal',
     };
     
     this.accountService.createSavingGoal(updatedData).subscribe(

@@ -55,7 +55,7 @@ export class GoalModalComponent {
             const updatedData = {
                 ...this.data,
                 amountSet: this.formData.amountSet,
-                description: 'goal',
+                description: 'plusGoal',
             };
             this.service.createSavingGoal(updatedData).subscribe(
                 response => {
