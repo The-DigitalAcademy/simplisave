@@ -9,10 +9,12 @@
       <img src="./assets/Images/Profile/Profile icon.png" alt="Small Image" width="100" height="100">
       <h2 class="overview-heading">{{ userInfo.firstName}}</h2>
     </div>
+    <div class="lineDiv">
     <div class="line"></div>
+  </div>
     <div class="basicInfo">
       <ng-container *ngIf="activeForm === 'form1'; else form2">
-        <form class="basicInfo-form" [formGroup]="basicInfoForm" (ngSubmit)="onFormSubmit()">
+        <form class="basicInfo-form" [formGroup]="basicInfoForm" (ngSubmit)="updateUserInfo()">
           <nav>
             <ul>
               <li><a [class.active]="activeForm === 'form1'"(click)="showForm('form1')">Information</a></li>
@@ -69,7 +71,7 @@
       </ng-container>
 
       <ng-template #form2>
-        <form class="passwordForm" [formGroup]="passwordForm" (ngSubmit)="onFormSubmit()">
+        <form class="password-form" [formGroup]="passwordForm" (ngSubmit)="onFormSubmit()">
           <nav>
             <ul>
               <li><a [class.active]="activeForm === 'form1'" (click)="showForm('form1')">Information</a></li>
@@ -77,13 +79,16 @@
             </ul>
           </nav>
           <hr>
-          <!-- Accounts Form -->
+          <!-- Password Form -->
           <div class="form-row">
             <div class="form-field">
-              <label for="accountNo">Account Number:</label>
-              <div class="input-container1">
-                <input type="text" id="accountNo" name="accountNo" formControlName="accountNo" required>
-                <div class="error-message" *ngIf="basicInfoForm.get('accountNo')?.hasError('pattern') && (basicInfoForm.get('accountNo')?.dirty || basicInfoForm.get('accountNo')?.touched)">Invalid format</div>
+              <label for="accountNo">Bank Account Number:</label>
+              <div class="input-container">
+                <input type="number" id="accountNo" name="accountNo" formControlName="accountNo" [disabled]="true"
+                  required>
+                <div class="error-message"
+                  *ngIf="basicInfoForm.get('accountNo')?.hasError('pattern') && (basicInfoForm.get('accountNo')?.dirty || basicInfoForm.get('accountNo')?.touched)">
+                  Invalid format</div>
               </div>
             </div>
           </div>
@@ -95,12 +100,6 @@
                   required>
               </div>
             </div>
-          </div>
-
-       
-          <div class="form-row">
-            <button class="save-button" type="submit" [disabled]="!passwordForm.valid">Save</button>
-            <button class="cancel-button"  type="button" routerLink="/dashboard">Cancel</button>
           </div>
         </form>
       </ng-template>
