@@ -76,6 +76,7 @@ h1 {
   padding: 10px;
   height: 90px; 
   max-width: 30%; 
+  min-width:20vw;
 }
 
 .card1 {
