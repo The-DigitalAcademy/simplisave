@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
     styleUrls: ['./expense-modal.component.css'],
 })
 export class ExpenseModalComponent {
+    showErrorAmountRequired = false;
     formData: any = {};
     expenseForm!: FormGroup;
     selectedCategory = '';
@@ -70,15 +71,16 @@ export class ExpenseModalComponent {
 
     onSave(): void {
         if (this.expenseForm.get('amount')?.hasError('required')) {
-            // Display an error message for the "Amount" field
-
-            // Handle error - Thilivhali Ravhutulu 22 August 2023
-            Swal.fire({
-                icon: 'error',
-                iconColor: '#AF144B',
-                text: 'Please enter amount',
-                confirmButtonColor: '#AF144B',
-            });
+            // Display an error message
+            this.showErrorAmountRequired = true;
+        } else {
+            // Your save logic goes here
+            if (this.expenseForm.valid) {
+                // If the form is valid (excluding "Amount"), proceed to save the data
+            } else {
+                // Handle other form validation errors if needed
+                alert('Please fill in all required fields except "Amount".');
+            }
         }
     }
 
