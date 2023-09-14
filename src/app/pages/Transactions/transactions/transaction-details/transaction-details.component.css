@@ -8,7 +8,8 @@
 
 .flex-container {
     display: flex;
-    margin-left: 10px;
+    margin-left: 1vw;
+    margin-top: 1vw;
   }
 
   .header{
@@ -19,10 +20,9 @@
   
 
   .search__form_field {
-    width: 100%; /* Take full width of the container */
+    width: 100%;
+   
   }
-  
-  
 
 .form-outline {
     --mdb-form-outline-select-notch-border-color: #3b71ca;
@@ -30,7 +30,7 @@
 
 
 .search__form_field {
-    width: 100%; /* Take full width of the container */
+    width: 100%; 
     margin-top:10px;
   }
 
@@ -58,6 +58,7 @@ main.table {
 
 h5{
     font-weight:  var(--bold);
+    font-size: 16px;
 }
 
 .table__header {
@@ -242,6 +243,7 @@ p{
 
     h5{
         font-size: medium;
+        font-size: 14px;
     }
     p{
         font-size:  var(--font-x-small);
@@ -415,4 +417,13 @@ thead th.active span.icon-arrow{
 thead th.asc span.icon-arrow{
     transform: rotate(180deg);
 }
+
+
+@media (max-width: 800px) {
+
+    mat-label {
+        font-size: 14px;
+    }
+}
+
 

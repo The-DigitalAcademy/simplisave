@@ -104,7 +104,8 @@ export class AuthService {
       icon: 'success',
       title: 'Details successfully updated',
       iconColor: '#AF144B',
-      confirmButtonColor: '#AF144B'
+      timer: 3000, // 3000 milliseconds (3 seconds)
+      showConfirmButton: false, // Hide the "OK" button
     });
   }
 
@@ -113,7 +114,8 @@ export class AuthService {
       icon: 'success',
       title: 'Money successfully transferred',
       iconColor: '#AF144B',
-      confirmButtonColor: '#AF144B'
+      timer: 3000, // 3000 milliseconds (3 seconds)
+      showConfirmButton: false, // Hide the "OK" button
     });
   }
 
@@ -122,7 +124,8 @@ export class AuthService {
       icon: 'warning',
       title: 'Please set a new savings goal',
       iconColor: '#AF144B',
-      confirmButtonColor: '#AF144B'
+      timer: 3000, // 3000 milliseconds (3 seconds)
+      showConfirmButton: false, // Hide the "OK" button
     });
   }
 
@@ -132,7 +135,8 @@ export class AuthService {
       title: 'Congratulations you have achieved your saving goal',
       text:'Your goal has been reset, please set a new goal',
       iconColor: '#AF144B',
-      confirmButtonColor: '#AF144B'
+      timer: 3000, // 3000 milliseconds (3 seconds)
+      showConfirmButton: false, // Hide the "OK" button
     });
 
   }
