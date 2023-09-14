@@ -180,6 +180,10 @@ p {
     padding-top:4vw;
   }
 
+  .flex-container>div {
+    padding: 2vw;
+  }
+
 }
 
 

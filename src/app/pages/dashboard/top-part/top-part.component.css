@@ -146,7 +146,7 @@ h1{
   }
 
   .top-container {
-  padding-top: 4vw;
+  padding-top: 2vw;
 }
 }
 
@@ -173,7 +173,7 @@ h1{
 
   .top-container>div {
     font-size: 16px;
-    padding: 2%;
+    padding: 2vw;
 
 
   }
