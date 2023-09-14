@@ -54,8 +54,8 @@
                                           typeTotals[type.transactionsType] ||
                                           0
                                   }}</strong>
-                                  <br />
-                                  <code>{{ type.progress }}</code>
+                                  <br/>
+                                  <code [style.color]="type.progress === 'over limit' ? 'red' : type.progress === 'under limit' ? 'green': (type.progress === 'limit reached' ? 'green' : 'black')">{{ type.progress }}</code>
                               </div>
                           </div>
                       </div>
