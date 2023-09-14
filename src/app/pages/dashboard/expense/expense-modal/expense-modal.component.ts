@@ -65,7 +65,8 @@ export class ExpenseModalComponent {
         return this.transactionTypes.includes(category);
     }
 
-    onNoClick(): void {
+    onNoClick(event: Event): void {
+        event.preventDefault(); // Prevent the default form submission behavior
         this.dialogRef.close();
     }
 
@@ -73,14 +74,6 @@ export class ExpenseModalComponent {
         if (this.expenseForm.get('amount')?.hasError('required')) {
             // Display an error message
             this.showErrorAmountRequired = true;
-        } else {
-            // Your save logic goes here
-            if (this.expenseForm.valid) {
-                // If the form is valid (excluding "Amount"), proceed to save the data
-            } else {
-                // Handle other form validation errors if needed
-                alert('Please fill in all required fields except "Amount".');
-            }
         }
     }
 
