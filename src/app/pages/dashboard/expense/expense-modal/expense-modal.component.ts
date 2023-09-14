@@ -79,14 +79,6 @@ export class ExpenseModalComponent {
                 text: 'Please enter amount',
                 confirmButtonColor: '#AF144B',
             });
-        } else {
-            // Your save logic goes here
-            if (this.expenseForm.valid) {
-                // If the form is valid (excluding "Amount"), proceed to save the data
-            } else {
-                // Handle other form validation errors if needed
-                alert('Please fill in all required fields except "Amount".');
-            }
         }
     }
 
