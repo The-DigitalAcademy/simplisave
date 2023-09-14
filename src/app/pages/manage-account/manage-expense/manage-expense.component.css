@@ -152,7 +152,7 @@ mat-progress-bar {
   }
 
   .container{
-    width: 100%;
+    min-width: 100vw;
     padding-left: 2vw;
     padding-right: 2vw;
 
@@ -221,3 +221,15 @@ mat-progress-bar {
     max-width: 100%;
 }
 }
+
+@media screen and (min-width: 801px) and (max-width: 991px) {
+  .content{
+    width:100vw;
+  }
+
+  .card{
+    min-width:29vw;
+    max-width:29vw;
+  }
+}
+
