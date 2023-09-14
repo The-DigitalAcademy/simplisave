@@ -418,3 +418,12 @@ thead th.asc span.icon-arrow{
     transform: rotate(180deg);
 }
 
+
+@media (max-width: 800px) {
+
+    mat-label {
+        font-size: 14px;
+    }
+}
+
+

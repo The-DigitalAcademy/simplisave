@@ -73,8 +73,6 @@ export class TransferModalComponent {
         .subscribe(res => {
 
           this.dialogRef.close();
-          this.router.navigate(['/dashboard']);
-          this.refresh();
           this.authService.successfulMoneyTransfer();
 
 
