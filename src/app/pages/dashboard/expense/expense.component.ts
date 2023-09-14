@@ -69,16 +69,25 @@ export class ExpenseComponent {
   -Mohammed Badat
   -2023/08/01 */
   getTypes() {
-    this.service.getTypesBackend().subscribe((res: any) => {
-      this.types = res.budgets;
-     
-      if (this.types.length === 0) {
-        this.isTypesEmpty = '';
-      } else {
-        this.isTypesEmpty = 'full';
+    this.service.getTypesBackend().subscribe(
+      (res: any) => {
+        this.types = res.budgets;
+  
+        if (this.types.length === 0) {
+          this.isTypesEmpty = '';
+        } else {
+          this.isTypesEmpty = 'full';
+        }
+        this.checkDataFetched();
+      },
+      (error) => {
+        if (error.status === 404) {
+          console.log("No Budgets set ");
+        } else {
+          console.error("An error occurred:", error);
+        }
       }
-      this.checkDataFetched();
-    });
+    );
   }
 
   /* check whether both methods fetching data have successfully retreived it
@@ -143,19 +152,26 @@ export class ExpenseComponent {
   //Mohammed Badat
   //2023/08/02
   createChart(...sumMoneyOutMonths: number[]) {
-  
     const canvas: HTMLCanvasElement = document.getElementById('myChart') as HTMLCanvasElement;
     const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
-
+  
     if (!ctx) {
       throw new Error("Canvas context is null.");
     }
-
+  
     const currentMonthName = new Date().toLocaleString('default', { month: 'long' });
     const prev1MonthName = new Date(new Date().setMonth(new Date().getMonth() - 1)).toLocaleString('default', { month: 'long' });
     const prev2MonthName = new Date(new Date().setMonth(new Date().getMonth() - 2)).toLocaleString('default', { month: 'long' });
     const prev3MonthName = new Date(new Date().setMonth(new Date().getMonth() - 3)).toLocaleString('default', { month: 'long' });
-
+  
+    // Generate random colors for the bars
+    const randomColors = [
+      '#' + Math.random().toString(16).slice(2, 8),
+      '#' + Math.random().toString(16).slice(2, 8),
+      '#' + Math.random().toString(16).slice(2, 8),
+      '#' + Math.random().toString(16).slice(2, 8),
+    ];
+  
     this.chart = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -163,7 +179,7 @@ export class ExpenseComponent {
         datasets: [{
           label: 'Monthly expense summary',
           data: sumMoneyOutMonths,
-          backgroundColor: ['#AF144B', '#AF144B', '#AF144B', '#AF144B'],
+          backgroundColor: randomColors,
           borderWidth: 0
         }]
       },
@@ -188,13 +204,14 @@ export class ExpenseComponent {
         },
         plugins: {
           legend: {
-            display: true,
-            position: 'bottom'
+            display: false,
+            position: 'top'
           }
         }
       } as ChartOptions
     });
   }
+  
 
   //Modal to add to checklist, we pecify which component modal is in to open it
   openExpenseModal(): void {

@@ -49,6 +49,7 @@ export interface User {
 // An interface  for Transaction_Details --> Added 01-Sep-2023 
 export interface GroupedTransactions {
   [date: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
+
 }
 
 
@@ -132,7 +133,8 @@ export interface BudgetResponse {
 
 
 // DASHBOARD --> EXPENSE COMPONENT
-export interface Budget {
+export interface Budget{
+
     id: number;
     amountSet: number;
     progressAmount: number;

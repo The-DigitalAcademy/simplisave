@@ -2,79 +2,11 @@ body {
   margin: 0;
   display: flex;
 }
-/* Sidebar */
-.sidebar {
-  background-color: white;
-  width: 15rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 2px 0px 2px gray;
-  height: 100%;
-  min-height: 86vh; 
-}
-
-.mat-icon {
-  font-size: var(--font-x-large);
-  text-align: center;
-  margin: 10px;
-}
-
-.icon {
-  font-size: var(--font-x-large);
-  text-align: center;
-  margin: 0px;
-}
-
-
-
-
-.sidebar div {
-  background-color: var(--primary-color);
-  color: white;
-  width: 90%;
-  text-align: center;
-  line-height: 40px;
-  border-radius: 12px;
-  margin: 3% auto;
-  color: white;
-  font-size: var(--font-normal);
-  font-weight: var(--regular);
-  line-height: 24px;
-  letter-spacing: 0.15px;
-  word-wrap: break-word;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  margin-right: 80px;
-
-}
-
-.sidebar .logout {
-  background-color: var(--primary-color);
-  color: white;
-  width: 90%;
-  margin: 10px auto;
-  line-height: 40px;
-  font-size: var(--font-medium);
-  border-radius: 12px;
-  border: none;
-  margin-top: auto;
-  word-wrap: break-word;
-  font-weight: var(--regular);
-  line-height: 24px;
-  letter-spacing: 0.15px;
-
-}
-
-#dashLink{
-  margin-top: 3vh;
-}
 
 .content {
   flex: 1;
-  padding-left: 30px;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
 
 .container {
@@ -82,26 +14,31 @@ body {
   flex-wrap: wrap;
   justify-content: space-between; 
   margin: 0;
+  padding: 0;
 }
 
 .heading {
   color: #870A3C;
 }
 
+
 h1 {
-  color: #870A3C;
-  font-size: 36px;
+  color: var(--primary-color);
+  font-size: var(--font-xx-large);
   font-family: Roboto;
-  font-weight: 600;
+  font-weight: var(--semi-bold);
   line-height: 20px;
   word-wrap: break-word;
-  margin-top: 30px;
-  padding-bottom:2%;
+  margin:0;
+  margin-top: 10px;
+  padding:2vw;
+  padding-left: 0;
   }
 
   h4{
     font-size: 24px;
     font-weight: 800;
+    margin: 0;
   }
 
   h5{
@@ -115,8 +52,9 @@ h1 {
 
 
 .sub-header{
-  margin-top: 3%;
-  padding-bottom: 2%;
+  margin-top: 0;
+  padding:2vw;
+  padding-left: 0;
 }
 
 .grid-container {
@@ -126,7 +64,9 @@ h1 {
 }
 
 .cardHeading { 
-  padding-bottom: 2%;
+  padding: 2vw;
+  padding-left: 0;
+  padding-top: 4vw;
 }
 
 .card {
@@ -136,6 +76,18 @@ h1 {
   padding: 10px;
   height: 90px; 
   max-width: 30%; 
+  min-width:20vw;
+}
+
+.card1 {
+  flex: 1 1 calc(33.333% - 20px);
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 10px;
+  height: 90px; 
+  max-width:30%;
+  min-width:20vw;
+
 }
 
 .card-content {
@@ -176,13 +128,14 @@ mat-progress-bar {
 }
 
 /* Media Queries */
-@media (max-width: 1020px) {
+@media (max-width: 800px) {
   .sidebar {
     display: none;
   }
-}
 
-@media (max-width: 768px) {
+  .card{
+    flex-basis: calc(50% - 20px); 
+  }
   .container {
     flex-direction: column;
   }
@@ -190,39 +143,36 @@ mat-progress-bar {
   .content {
     max-width: 100%;
     padding-left:0;
+    padding-right: 0;
   }
 
   .card {
     flex-basis: 100%;
     max-width: 100%;
   }
-}
-
-@media screen and (max-width: 1024px) {
-  .card{
-    flex-basis: calc(50% - 20px); 
-  }
-}
-
-
-@media screen and (max-width: 768px) {
 
   .container{
-    width: 100%;
-    padding-left: 5%;
-    padding-right: 5%;
+    min-width: 100vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
 
   }
 
   .heading h1{
     font-size: 24px;
-    padding-bottom:5%;
+    padding-bottom:4vw;
+    padding-top:6vw;
+    margin: 0;
   }
 
   .sub-header h4{
     font-size: 18px;
-    padding-bottom:2%;
+    padding:0;
 
+  }
+
+  .sub-header{
+    padding-bottom: 6vw;
   }
 
   .grid-container {
@@ -244,6 +194,12 @@ mat-progress-bar {
 
   }
 
+  .cardHeading{
+    margin:0;
+    padding-top:8vw;
+    padding-bottom: 6vw;
+  }
+
   .balance h6{
     position: absolute;
     color: black;
@@ -254,4 +210,30 @@ mat-progress-bar {
   .mat-icon{
     margin: 0;
   }
+
+  .card-content{
+    padding:0.5%;
+  }
+
+  .card1{
+    max-width:100%;
+    }
 }
+
+@media (min-width: 576px){
+.container{
+    max-width: 100%;
+}
+}
+
+@media screen and (min-width: 801px) and (max-width: 991px) {
+  .content{
+    width:100vw;
+  }
+
+  .card{
+    min-width:29vw;
+    max-width:29vw;
+  }
+}
+

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Transaction } from 'src/app/interfaces/transactions.model';
+import { Profile, Transaction, User } from 'src/app/interfaces/transactions.model';
 import { AccountService } from 'src/app/services/account.service';
 import { TransactionsService } from 'src/app/services/transactions.service';
 
@@ -14,7 +14,7 @@ export class BalanceSummaryComponent implements OnInit {
   totalIncome: number = 0; // Total income for the specific month
   totalExpenses: number = 0; // Total expenses (money out) for the specific month
   availableBalance: number = 0; // Current balance calculated as totalIncome - totalExpenses
-  currentBalance: any;
+  currentBalance: Profile | undefined;
   displayedTransactions: Transaction[] = [];
   searchFilter: string = '';
 
@@ -29,7 +29,7 @@ export class BalanceSummaryComponent implements OnInit {
     this.getAccountData();
   }
 
-  /* 
+  /*
   |------------------------------------------------------------------------------------------------------------
   | Fetches API Data                                                            Created By Sekhukhune Delphia
   |------------------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@ export class BalanceSummaryComponent implements OnInit {
 
   fetchDataFromAPI() {
     this.transactionService.getTransactionsList().subscribe(
-      res => {
+      (res: Transaction[]) => {
         this.transactionsList = res;
 
         this.calculateTotalsForMonth();
@@ -54,7 +54,7 @@ export class BalanceSummaryComponent implements OnInit {
     );
   }
 
-  /* 
+  /*
   |------------------------------------------------------------------------------------------------------------
   | Fetches Available balance from everyday banking account                      Created By Sekhukhune Delphia
   |------------------------------------------------------------------------------------------------------------
@@ -65,17 +65,30 @@ export class BalanceSummaryComponent implements OnInit {
   |-------------------------------------------------------------------------------------------------------------
   */
 
+  // getAccountData() {
+  //   this.accountService.getAccountData()
+  //     .subscribe(res => {
+  //       this.currentBalance = res;
+  //       this.availableBalance = this.currentBalance.accounts[0].accountBalance;
+
+  //     });
+  // }
+
   getAccountData() {
-    this.accountService.getAccountData()
-      .subscribe(res => {
+    this.accountService.getAccountData().subscribe(
+      (res: Profile) => {
+        console.log('API Response balance summary getAccountData:', res);
         this.currentBalance = res;
         this.availableBalance = this.currentBalance.accounts[0].accountBalance;
-
-      });
+      },
+      (error) => {
+        console.error('Error fetching account data:', error);
+      }
+    );
   }
+ 
 
-
-  /* 
+  /*
   |------------------------------------------------------------------------------------------------------------
   | Calculate total income and expense for the current month                     Created By Sekhukhune Delphia
   |------------------------------------------------------------------------------------------------------------
@@ -117,7 +130,7 @@ export class BalanceSummaryComponent implements OnInit {
       .reduce((total, transaction) => total + transaction.moneyOut, 0);
   }
 
-   /* 
+   /*
   |------------------------------------------------------------------------------------------------------------
   | Search Filter                                                                Created By Sekhukhune Delphia
   |------------------------------------------------------------------------------------------------------------
@@ -125,7 +138,7 @@ export class BalanceSummaryComponent implements OnInit {
   | This method sets the search filter in the transactionService using setSearchFilter(). It then filters the
   | transactionsList based on the search filter (transaction description or amount). The filtered transactions are
   | stored in displayedTransactions. If no filter is provided, it displays all transactions.
-  | 
+  |
   |-------------------------------------------------------------------------------------------------------------
   */
   applySearchFilter() {

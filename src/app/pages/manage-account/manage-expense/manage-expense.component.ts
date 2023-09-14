@@ -5,11 +5,12 @@ import { AccountService } from 'src/app/services/account.service';
 import { ManageModalComponent } from './manage-modal/manage-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GoalModalComponent } from './goal-modal/goal-modal.component';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import {
     BudgetResponse,
     TransactionType,
 } from 'src/app/interfaces/transactions.model';
+import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
     selector: 'app-manage-expense',
@@ -30,9 +31,15 @@ export class ManageExpenseComponent implements OnInit {
     items: any;
     amountSet!: number;
     selectedTypeId!: number;
+    totalSaved!:number;
+    percentageSaved!:number;
+    greeting!:string;
+    goals:any;
+    mostRecentGoal:any;
+    description!: string;
 
     constructor(
-        private accountService: AccountService,
+        private accountService: AccountService, private authService:AuthService,
         private dialog: MatDialog
     ) {}
 
@@ -48,6 +55,24 @@ export class ManageExpenseComponent implements OnInit {
         this.accountService.refreshObservable.subscribe(() => {
             this.refreshComponent();
         });
+
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth();
+    
+        // Retrieve the previous month from localStorage
+        const previousMonth = localStorage.getItem('previousMonth');
+    
+        if (previousMonth !== null && +previousMonth !== currentMonth) {
+
+          this.greeting = 'Activated function to set a new empty goal';
+          this.newMonthNewGoal();
+        } else {
+          this.greeting = 'Not a new month';
+        }
+
+
+
+
     }
 
     // Responsible for making an HTTP request to fetch Transaction Types data.
@@ -64,13 +89,42 @@ export class ManageExpenseComponent implements OnInit {
     // 2023/07/31
     getAccountData() {
         this.accountService.getAccountData().subscribe(res => {
-            this.items = res;
-            this.amountSet =
-                this.items.accounts[0].savingsAccount.goalSavings[0].amountSet;
-            this.selectedTypeId =
-                this.items.accounts[0].savingsAccount.goalSavings[0].goalId;
+          this.items = res;
+          console.log(this.items.accounts[0].savingsAccount.goalSavings)
+          
+      
+          // Check if 'amountSet' is defined before accessing it
+          if (
+            this.items.accounts &&
+            this.items.accounts[0] &&
+            this.items.accounts[0].savingsAccount &&
+            this.items.accounts[0].savingsAccount.goalSavings &&
+            this.items.accounts[0].savingsAccount.goalSavings[0]
+          ) {
+            this.goals=this.items.accounts[0].savingsAccount.goalSavings;
+          } else {
+            // Handle the case when 'amountSet' is undefined or empty
+            this.amountSet = 0; // You can set it to a default value or handle it as needed
+          }
+          this.findMostRecentGoal();
         });
-    }
+      }
+      
+      
+      calculatePercentageSaved() {
+        if (this.amountSet !== 0) {
+          this.percentageSaved = (this.totalSaved / this.amountSet) * 100;
+          console.log(`Total Saved as a percentage: ${this.percentageSaved.toFixed(2)}%`);
+          // You can display or use the percentageSaved value as needed.
+          if(this.percentageSaved>=100){
+            this.increaseGoal();
+            location.reload();
+          }
+        } else {
+          console.log('Amount set is zero, cannot calculate percentage.');
+          // Handle the case where amountSet is zero (to avoid division by zero).
+        }
+      }
 
     openExpenseModal(id: any): void {
         localStorage.setItem('typeId', id);
@@ -126,23 +180,41 @@ deleteTransactionType(id: any){
     |
     |-------------------------------------------------------------------------------------------------------------
     */
-    getTypes() {
+  
 
-        this.accountService.getTypesBackend().subscribe((res: any) => {
-          if (res) {
+    getTypes() {
+      this.accountService.getTypesBackend().subscribe(
+        (res: any) => {
+          if (res && res.budgets) {
             this.transactionType = res.budgets.filter((record: any) => !record.deleted);
-      
             if (this.transactionType && this.transactionType.length === 0) {
               this.isTypesEmpty = '';
             } else {
               this.isTypesEmpty = 'full';
             }
             this.checkDataFetched();
-          } else {
-            // Handle the case when res is falsy (e.g., an error occurred).
           }
-        });
-      }
+        },
+        (error) => {
+          if (error.status === 404) {
+            console.log("No budget set yet");
+            this.isTypesEmpty = ''
+            // You can optionally set this.isTypesEmpty to a specific value here if needed.
+          } else {
+            console.error("An error occurred:", error);
+          }
+        }
+      );
+    }
+    
+    
+    
+      
+      
+      
+      
+      
+      
 
     /*  for each user set expense allocation, fiter the transaction records to find records in the current month
   , records with only money going and the description of the transaction should match the name of the expense allocation type, 
@@ -218,4 +290,82 @@ deleteTransactionType(id: any){
         const percentage = (typeTotal / type.amountSet) * 100;
         return percentage;
     }
-}
+
+
+    findMostRecentGoal() {
+       this.mostRecentGoal = null;
+      let mostRecentDate = null;
+    
+      for (const record of this.goals) {
+        const dateStr = record.dateCreated;
+        const amountSet = record.amountSet;
+        console.log(amountSet)
+    
+        if (dateStr) {
+          const dateCreated = new Date(dateStr);
+          if (!mostRecentDate || dateCreated > mostRecentDate) {
+            mostRecentDate = dateCreated;
+            this.mostRecentGoal = record;
+          }
+          
+        }
+      }
+      
+        this.amountSet=this.mostRecentGoal.amountSet;
+        this.description=this.mostRecentGoal.description;
+        this.totalSaved=this.mostRecentGoal.currentSaved;
+        console.log(this.description+'HI'+ this.amountSet)
+        if (this.totalSaved === null) {
+          this.totalSaved = 0;
+        }
+      
+      console.log(this.mostRecentGoal)
+
+      if (this.amountSet<1 && this.description=='goal'){
+        console.log(this.amountSet, "AMOOOOUNT SEET")
+        this.authService.addGoal();
+      }
+      if (this.amountSet<1 && this.description=='plusGoal'){
+        console.log(this.amountSet, "AMOOOOUNT SEET")
+        this.authService.addNewGoal();
+      }
+      this.calculatePercentageSaved();
+    }
+
+    newMonthNewGoal(){
+        const updatedData = {
+            ...this.data,
+            amountSet: 0,
+            description: 'goal',
+        };
+        this.accountService.createSavingGoal(updatedData).subscribe(
+            response => {
+              console.log(response,"added made goal empty")
+            },
+            error => {
+                //Handle the API errors if necessary
+                console.log('API error', error);
+            }
+        );
+    }
+
+    increaseGoal(){
+      const updatedData = {
+        ...this.data,
+        amountSet: 0,
+        description: 'plusGoal',
+    };
+    
+    this.accountService.createSavingGoal(updatedData).subscribe(
+        response => {
+          console.log(response,"added made goal empty")
+        },
+        error => {
+            //Handle the API errors if necessary
+            console.log('API error', error);
+        }
+    );
+    }
+    }
+  
+

@@ -33,12 +33,3 @@
   font-size: var(--font-x-small);
 }
 
-@media screen and (max-width: 480px) {
-  .expense-container{
-    display: block;
-  }
-  
-  .main-content{
-    margin-left: 0%;
-  }
-}

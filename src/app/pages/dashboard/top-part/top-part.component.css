@@ -5,9 +5,8 @@
   font-weight: var(--semi-bold);
   line-height: 20px;
   word-wrap: break-word;
-  margin-top: 30px;
-  padding-left: 2%;
-  padding-bottom: 2%;
+  margin-top: 10px;
+  padding:2vw;
 }
 
 .item:hover {
@@ -35,7 +34,7 @@
 .firstPart {
   display: flex;
   align-items: center;
-  padding-right: 2%;
+  padding-right: 2vw;
 }
 
 
@@ -62,7 +61,7 @@ mat-icon {
 .top-container {
   display: flex;
   gap: 20px;
-  padding: 2%;
+  padding: 2vw;
   width: 100%;
   margin-left: 0%;
   margin-top: 0;
@@ -70,7 +69,7 @@ mat-icon {
 
 .top-container>div {
 
-  padding: 1%;
+  padding: 1vw;
   font-size: var(--font-large);
   color: black;
   font-family: var(--base-font);
@@ -110,6 +109,10 @@ h6{
 
 }
 
+h1{
+  margin-bottom: 0;
+}
+
 @media (max-width: 1024px) {
   .Transfer {
     display: flex;
@@ -147,19 +150,23 @@ h6{
     padding: 0;
     margin-left: 0.5vw;
   }
+
+  .top-container {
+  padding-top: 2vw;
+}
 }
 
 @media (max-width: 800px) {
   .heading {
     font-size: 24px;
-    margin-left: 1%;
+    margin:0;
   }
 
   .item:nth-child(2),
   .item:nth-child(3) {
     flex-basis: calc(50% - 10px);
     font-size: var(--font-normal);
-    margin-bottom: 20px;
+    margin:0;
   }
 
   h6 {
@@ -172,7 +179,7 @@ h6{
 
   .top-container>div {
     font-size: 16px;
-    padding: 2%;
+    padding: 2vw;
 
 
   }
@@ -186,7 +193,7 @@ h6{
   .item:nth-child(3) {
     flex-basis: calc(50% - 10px);
     font-size: var(--font-normal);
-    margin-bottom: 20px;
+    margin:0;
 
   }
 
@@ -220,6 +227,7 @@ h6{
     display: flex;
     align-items: center;
     padding-right: 2%;
+    padding-top: 4vw;
   }
 
   .material-icons {
@@ -233,6 +241,10 @@ h6{
 
   }
 
+  .top-container {
+    padding-top:4vw;
+  }
+
 
 
 }
@@ -240,10 +252,12 @@ h6{
 @media (max-width: 500px) {
   .heading {
     font-size: var(--font-x-large);
-    margin-top: 10px;
     font-size: 24px;
-    margin-top: 15px;
+    margin:0;
+  }
 
+  .firstPart{
+    padding-top:4vw;
   }
 
   .top-container>div {
@@ -256,7 +270,7 @@ h6{
 
   .top-container {
     flex-wrap: wrap;
-    width: 102%;
+    width: 100%;
     margin-left: 0px;
   }
 
@@ -264,7 +278,7 @@ h6{
   .item:nth-child(3) {
     flex-basis: calc(50% - 10px);
     font-size: 16px;
-    margin-bottom: 20px;
+    margin:0;
   }
 
   h6 {
@@ -293,6 +307,9 @@ h6{
     padding: 0;
   }
 
+  .top-container {
+    padding-top:4vw;
+  }
 
 
 }
