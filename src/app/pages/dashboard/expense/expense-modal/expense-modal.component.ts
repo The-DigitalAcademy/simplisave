@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
 import { TransactionType } from 'src/app/interfaces/transactions.model';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-expense-modal',
@@ -65,6 +66,28 @@ export class ExpenseModalComponent {
 
     onNoClick(): void {
         this.dialogRef.close();
+    }
+
+    onSave(): void {
+        if (this.expenseForm.get('amount')?.hasError('required')) {
+            // Display an error message for the "Amount" field
+
+            // Handle error - Thilivhali Ravhutulu 22 August 2023
+            Swal.fire({
+                icon: 'error',
+                iconColor: '#AF144B',
+                text: 'Please enter amount',
+                confirmButtonColor: '#AF144B',
+            });
+        } else {
+            // Your save logic goes here
+            if (this.expenseForm.valid) {
+                // If the form is valid (excluding "Amount"), proceed to save the data
+            } else {
+                // Handle other form validation errors if needed
+                alert('Please fill in all required fields except "Amount".');
+            }
+        }
     }
 
     shouldShowError(controlName: string, errorName: string) {

@@ -20,8 +20,8 @@
                 <mat-error
                     class="error-message"
                     *ngIf="
-                        (shouldShowError('category', 'required') ||
-                            !expenseForm.get('category')?.value) ||
+                        shouldShowError('category', 'required') &&
+                        !expenseForm.get('category')?.value &&
                         (shouldShowError('amount', 'required') ||
                             !expenseForm.get('amount')?.value)
                     ">
@@ -44,8 +44,8 @@
                 <mat-error
                     class="error-message"
                     *ngIf="
-                        (shouldShowError('category', 'required') ||
-                            !expenseForm.get('category')?.value) ||
+                        shouldShowError('category', 'required') &&
+                        !expenseForm.get('category')?.value &&
                         (shouldShowError('amount', 'required') ||
                             !expenseForm.get('amount')?.value)
                     ">
@@ -58,7 +58,11 @@
                 </mat-error>
             </div>
             <button mat-button (click)="onNoClick()">Close</button>
-            <button mat-button type="submit" style="margin-left: 2%">
+            <button
+                mat-button
+                (click)="onSave()"
+                type="submit"
+                style="margin-left: 2%">
                 Save
             </button>
         </form>
