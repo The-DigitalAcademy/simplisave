@@ -116,7 +116,29 @@ export class AuthService {
       confirmButtonColor: '#AF144B'
     });
   }
+
+  addGoal() {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Please set a new savings goal',
+      iconColor: '#AF144B',
+      confirmButtonColor: '#AF144B'
+    });
+  }
+
+  addNewGoal(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Congratulations you have achieved your saving goal',
+      text:'Your goal has been reset, please set a new goal',
+      iconColor: '#AF144B',
+      confirmButtonColor: '#AF144B'
+    });
+
+  }
 }
+
+
 
 // Define a TokenResponse interface to match your server response
 interface TokenResponse {
