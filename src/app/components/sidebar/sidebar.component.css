@@ -44,17 +44,20 @@ body {
 .sidebar .logout {
   background-color: var(--primary-color);
   color: white;
-  width: 90%;
+  width: 216px;
   margin: 10px auto;
   line-height: 40px;
   font-size: var(--font-medium);
   border-radius: 12px;
   border: none;
-  margin-top: auto;
+  margin-top: 0;
   word-wrap: break-word;
   font-weight: var(--regular);
   line-height: 24px;
   letter-spacing: 0.15px;
+  position: fixed;
+  bottom:0;
+  margin-left:12px;
 
 }
 
@@ -63,7 +66,7 @@ body {
 }
 
 
-@media (max-width: 1020px) {
+@media (max-width: 991px) {
   .sidebar {
     display: none;
   }

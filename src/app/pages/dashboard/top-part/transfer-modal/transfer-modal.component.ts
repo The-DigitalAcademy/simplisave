@@ -18,6 +18,9 @@ export class TransferModalComponent {
   amountSet!: number;
   items:any;
   isGoalSet!: boolean;
+  description!:string;
+  mostRecentGoal:any;
+  goals: any;
 
   constructor(private authService: AuthService, private dashService: DashboardService,
     private fb: FormBuilder,
@@ -32,8 +35,9 @@ export class TransferModalComponent {
   }
 
   ngOnInit() {
- this.getGoalId();
  this.getAccountData();
+
+
   }
 
 
@@ -41,19 +45,20 @@ export class TransferModalComponent {
   getAccountData() {
     this.accountService.getAccountData().subscribe(res => {
         this.items = res;
-        if(this.items.accounts[0].savingsAccount.goalSavings[0]){
+        console.log(this.items)
+        if(this.items.accounts[0].savingsAccount.goalSavings[this.items.accounts[0].savingsAccount.goalSavings.length-1]){
         this.amountSet =
-            this.items.accounts[0].savingsAccount.goalSavings[0].amountSet;
+            this.items.accounts[0].savingsAccount.goalSavings[this.items.accounts[0].savingsAccount.goalSavings.length-1].amountSet;
+            this.goals=this.items.accounts[0].savingsAccount.goalSavings;
             console.log(this.amountSet)
-            if (this.amountSet){
-              this.isGoalSet=true;
-            }
-            else{
-              this.isGoalSet=false;
-            }
           }else{return}
+          this.findMostRecentGoal();
     });
+
 }
+
+
+
   
 
   transfer() {
@@ -79,17 +84,32 @@ export class TransferModalComponent {
   }
 
 
-  getGoalId(){
-    this.accountService.getAccountData().subscribe(
-      (response: any) => {
-        console.log(response)
-        // Handle the API response as needed
-        if(response.accounts[0].savingsAccount.goalSavings[0]){
-        this.goalId=response.accounts[0].savingsAccount.goalSavings[0].goalId;
-      }
-    }
-    );
-    }
+  findMostRecentGoal() {
+    this.mostRecentGoal = null;
+   let mostRecentDate = null;
+   for (const record of this.goals) {
+     const dateStr = record.dateCreated;
+
+ 
+     if (dateStr) {
+       const dateCreated = new Date(dateStr);
+       if (!mostRecentDate || dateCreated > mostRecentDate) {
+         mostRecentDate = dateCreated;
+         this.mostRecentGoal = record;
+       }
+       
+     }
+   }
+   console.log(this.mostRecentGoal)
+   this.goalId=this.mostRecentGoal.goalId;
+   console.log(this.goalId)
+   if (this.mostRecentGoal.amountSet>0){
+    this.isGoalSet=true;
+  }
+  else{
+    this.isGoalSet=false;
+  }
+ }
 
   /*   When the user clicks on the close button of the dialogue box, this method is called and 
     it closes the dialog box

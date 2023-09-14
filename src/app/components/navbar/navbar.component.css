@@ -19,6 +19,7 @@
 
 .img-fluid{
   margin-left: 10px;
+  max-width: 64%;
 }
 
 .white-text .nav-link {
@@ -92,7 +93,7 @@
 
 
 /* Media query for mobile devices */
- @media (max-width: 999px) {
+ @media (max-width: 991px) {
   .navbar{
     height: auto;
     padding: 5px;

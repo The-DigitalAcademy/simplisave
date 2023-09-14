@@ -76,6 +76,7 @@ h1 {
   padding: 10px;
   height: 90px; 
   max-width: 30%; 
+  min-width:20vw;
 }
 
 .card1 {
@@ -84,6 +85,8 @@ h1 {
   border-radius: 15px;
   padding: 10px;
   height: 90px; 
+  max-width:30%;
+  min-width:20vw;
 
 }
 
@@ -206,6 +209,10 @@ mat-progress-bar {
 
   .mat-icon{
     margin: 0;
+  }
+
+  .card-content{
+    padding:0.5%;
   }
 }
 
