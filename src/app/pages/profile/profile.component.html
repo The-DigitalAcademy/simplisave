@@ -82,7 +82,7 @@
             </ul>
           </nav>
           <hr>
-          <!-- Password Form -->
+          <!-- Accounts Form -->
           <div class="form-row">
             <div class="form-field">
               <label for="accountNo">Bank Account Number:</label>
@@ -101,6 +101,10 @@
               </div>
             </div>
           </div>
+          <div class="form-row">
+            <button class="save-button" type="submit" [disabled]="!basicInfoForm.valid">Save</button>
+            <button class="cancel-button" type="button" routerLink="/dashboard">Back</button>
+        </div>
         </form>
       </ng-template>
     </div>
