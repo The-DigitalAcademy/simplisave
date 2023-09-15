@@ -46,7 +46,6 @@ export class AuthService {
     return this.http.post(`${environment.LOGIN_URL}`, data).pipe(
       tap((response: any) => {
         const authToken = response?.token; // Extract the token property if it exists
-        console.log('Token in AuthService:', authToken);
         this.setToken(authToken);
         this.isAuthenticatedSubject.next(true);
       })

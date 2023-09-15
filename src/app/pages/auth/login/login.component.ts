@@ -67,8 +67,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.loginData).subscribe(
       (response: any) => {
-        console.log('Token in LoginComponent:', response?.token); 
-        console.log('Logged in successfully');
+        
         const authToken = response?.token;                       // Extract the token property if it exists
         this.authService.setToken(authToken);                    // Set the token in the AuthService
         this.authService.successAlert();

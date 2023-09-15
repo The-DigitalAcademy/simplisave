@@ -45,12 +45,12 @@ export class TransferModalComponent {
   getAccountData() {
     this.accountService.getAccountData().subscribe(res => {
         this.items = res;
-        console.log(this.items)
+        
         if(this.items.accounts[0].savingsAccount.goalSavings[this.items.accounts[0].savingsAccount.goalSavings.length-1]){
         this.amountSet =
             this.items.accounts[0].savingsAccount.goalSavings[this.items.accounts[0].savingsAccount.goalSavings.length-1].amountSet;
             this.goals=this.items.accounts[0].savingsAccount.goalSavings;
-            console.log(this.amountSet)
+            
           }else{return}
           this.findMostRecentGoal();
     });
@@ -98,9 +98,9 @@ export class TransferModalComponent {
        
      }
    }
-   console.log(this.mostRecentGoal)
+   
    this.goalId=this.mostRecentGoal.goalId;
-   console.log(this.goalId)
+   
    if (this.mostRecentGoal.amountSet>0){
     this.isGoalSet=true;
   }
