@@ -9,6 +9,12 @@ body {
   flex-direction: column;
 }
 
+img{
+  width: 130px;
+  height: 160px;
+  border-radius: 80px;
+}
+
 .banner {
   height: 20vh; /* Set a fixed height for the banner */
   width: 100%;
@@ -155,13 +161,8 @@ height: 48px;
   border-radius: 3px;
 }
 
-.form-field label {
-  color: black;
-  font-family:  var(--base-font);
-  font-size:  var(--font-small);
-  font-style: normal;
-  font-weight:  var(--regular);
-  line-height: normal;
+label{
+  font-size: var(--font-small);
 }
 
 .save-button {

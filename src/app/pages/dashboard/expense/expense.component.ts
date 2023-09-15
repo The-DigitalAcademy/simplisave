@@ -288,8 +288,11 @@ export class ExpenseComponent {
       
 
       if (typeTotal > typeAmount) {
-        type.progress =  "on/over limit";
-      } else {
+        type.progress =  "over limit";
+      } else if(typeTotal === typeAmount){
+        type.progress =  "limit reached";
+      }
+      else {
         type.progress ="under limit";
       }
     }
