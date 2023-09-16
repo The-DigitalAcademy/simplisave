@@ -341,11 +341,13 @@ export class ExpenseComponent {
         const typeAmount = type.amountSet || 0;
 
 
-        if (typeTotal > typeAmount) {
-          type.progress = "on/over limit";
-        } else {
-          type.progress = "under limit";
-        }
+      if (typeTotal > typeAmount) {
+        type.progress =  "over limit";
+      } else if(typeTotal === typeAmount){
+        type.progress =  "limit reached";
+      }
+      else {
+        type.progress ="under limit";
       }
     });
   }
