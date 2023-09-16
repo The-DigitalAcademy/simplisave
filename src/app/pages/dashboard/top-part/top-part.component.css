@@ -9,6 +9,10 @@
   padding:2vw;
 }
 
+.material-icons{
+  margin-left: 5 px;
+}
+
 .item:hover {
   background-color: var(--hover);
   cursor: pointer;
@@ -30,6 +34,14 @@
   line-height: 20px;
   letter-spacing: 0.10px;
 }
+
+@media (max-width: 1270px) {
+  .Transfer{
+    width: 25%;
+  }
+  
+}
+
 
 .firstPart {
   display: flex;
@@ -56,6 +68,10 @@ mat-icon {
   top: 0;
   right: 0;
 
+}
+
+.material-icons{
+  margin-left: 5px;
 }
 
 .top-container {
@@ -145,10 +161,7 @@ h1{
   }
 
   .material-icons {
-
-    margin: 0;
     padding: 0;
-    margin-left: 0.5vw;
   }
 
   .top-container {
@@ -231,8 +244,6 @@ h1{
   }
 
   .material-icons {
-    margin-left: 0;
-    margin: 0;
     padding: 0;
   }
 
@@ -311,12 +322,18 @@ h1{
     padding-top:4vw;
   }
 
-
 }
 
 @media (min-width: 768px){
   .top-container{
     width: 100%;
+    
+  }
+}
+
+@media (max-width: 289px){
+  .Transfer{
+    font-size: 10px;
     
   }
 }
