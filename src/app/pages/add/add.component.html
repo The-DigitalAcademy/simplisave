@@ -1,16 +1,19 @@
 <app-second-nav-bar></app-second-nav-bar>
 
+<div class="add-container">
+<div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>  
+
 <div class="mask d-flex align-items-center">
     <div class="container">
       <div class="row d-flex justify-content-center align-items-left">
-        <h1 class="title text-center mb-2 mt-5">Welcome to SimpliSave</h1>
-        <h2 class="subtitle text-center mb-5">Login here</h2>
+        <h1 class="title text-center mb-5 mt-5">Add Transactions</h1>
+    
         <div class="col-12 col-md-9 col-lg-7 col-xl-4">
           <div class="card" style="border-radius: 15px;">
-            <div class="card-body p-3">
-              <h3 class="create text-left mb-1">Log into your account</h3>
-              <h4 class="credentials mb-5">Enter your credentials below.</h4>
-  
+            <div class="card-body p-5">
+                
               <form class="example-form" >
 
                 <mat-form-field class="validation mb-4" appearance="outline">
@@ -18,20 +21,16 @@
                   <input matInput type="email" class="form-control-plaintext" id="username" formControlName="username" required />
                 </mat-form-field>
                 <mat-form-field class="validation mb-4" appearance="outline">
-                  <mat-label>Password</mat-label>
-                  <input matInput type="password" class="form-control-plaintext" id="password" formControlName="password" required />
-                  <button type="button" class="show-hide-button">
-                  </button>
-                </mat-form-field>
-                <p class="text-left text-muted mt-3 mb-2">Are you Admin? <a href="loginAdmin"
-                    class="fw-bold text-body"><u>Login here</u></a></p>
-                <p class="text-left text-muted mt-3 mb-2">Don't have an account? <a href="register"
-                    class="fw-bold text-body"><u>Signup</u></a></p>
-                <p class="text-left text-muted mt-3 mb-2">Forgot your password? <a href="forgot"
-                    class="fw-bold text-body"><u>Reset</u></a></p>
-                <br>
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" class="form-control-plaintext" id="username" formControlName="username" required />
+                  </mat-form-field>
+                  <mat-form-field class="validation mb-4" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" class="form-control-plaintext" id="username" formControlName="username" required />
+                  </mat-form-field>
+                
                 <div class="d-flex justify-content-center align-items-center">
-                  <button class="btn" type="submit">Login</button>
+                  <button class="btn" type="submit">Add</button>
                 </div>
             
               </form>
@@ -41,4 +40,5 @@
       </div>
     </div>
   </div>
+</div>
 

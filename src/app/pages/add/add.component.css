@@ -1,40 +1,12 @@
-.create{
-    color: var(--primary-color);
-    font-weight: var(--bold);
-    font-size: var(--font-medium);
-  }
-  
-  .credentials{
-    color: black;
-    font-size: var(--font-x-small);
-  }
-  
-  .show-hide-button{
-    position: absolute;
-    right: -40px;
-    top: 55%;
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  
-  mat-icon{
-    color: gray;
-  }
+.add-container{
+    display: flex;
+}
+
   
   .title{
       color: var(--primary-color);
       font-weight: var(--bold);
       font-size: var(--font-x-large);
-  }
-  
-  .subtitle{
-    font-size: var(--font-small);
-  }
-  
-  p{
-    font-size: var(--font-small);
   }
   
    button{
@@ -60,11 +32,6 @@
     font-size: xx-small !important;
   
   }
-  
-  u{
-    color:var(--primary-color);
-  }
-  
   mat-label{
     font-size: var(--font-x-small);
   }
@@ -74,11 +41,6 @@
     border-color: var(--primary-color)!important;
   }
   
-  .error-message {
-    color: red;
-    font-size: var(--font-x-small);
-    margin-top: 0px; 
-  }
   
   
   
