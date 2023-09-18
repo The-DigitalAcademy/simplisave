@@ -15,19 +15,19 @@
   <!-- <mat-icon class="info-icon" matTooltip="Current Balance on the everyday bank account">info</mat-icon> -->
   <div class="flex-item">
      <h6>Current Balance</h6>
-    <p>R {{ this.availableBalance}}</p>
+    <p>R {{ formatToTwoDecimalPlaces(this.availableBalance)}}</p>
   </div>
 
 
     <!-- <mat-icon class="info-icon" matTooltip="Total amount that has been saved for that specific month">info</mat-icon> -->
   <div class="flex-item">
     <h6>Total Income</h6>
-    <p>R {{this.totalIncome}}</p>
+    <p>R {{formatToTwoDecimalPlaces(this.totalIncome)}}</p>
   </div>
 
    <!-- <mat-icon class="info-icon" matTooltip="Total amount that has been spent for that specific month on the everyday bank account">info</mat-icon> -->
   <div class="flex-item">
     <h6>Total Expenses</h6>
-    <p>R {{this.totalExpenses}}</p>
+    <p>R {{formatToTwoDecimalPlaces(this.totalExpenses)}}</p>
   </div>
 </div>

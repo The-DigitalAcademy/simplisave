@@ -156,4 +156,8 @@ export class BalanceSummaryComponent implements OnInit {
     }
   }
 
+  formatToTwoDecimalPlaces(value: number): string {
+    return value.toFixed(2);
+  }
+
 }

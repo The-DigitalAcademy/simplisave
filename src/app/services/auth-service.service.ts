@@ -66,7 +66,8 @@ export class AuthService {
     sessionStorage.clear();
     this.isAuthenticatedSubject.next(false);
     this.tokenSubject.next(null);
-    this.router.navigate(['/login']);
+    Swal.close();
+    window.location.href = '/login';
   }
 
   successAlert() {

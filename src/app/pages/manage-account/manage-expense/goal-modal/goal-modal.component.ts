@@ -23,7 +23,7 @@ export class GoalModalComponent {
         @Inject(MAT_DIALOG_DATA) public data: any
     ) {
         this.goalForm = this.formBuilder.group({
-            amount: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+            amount: ['', [Validators.required, Validators.min(0), Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
         });
     }
 
