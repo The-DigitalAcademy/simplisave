@@ -9,6 +9,12 @@ export interface LoginData {
   password: string;
 }
 
+export interface AddData{
+  type: string;
+  description: string;
+  amount: string;
+}
+
 // token-response.model.ts (create a new file for this type definition) LOGIN
 export interface TokenResponse {
   access_token: string;

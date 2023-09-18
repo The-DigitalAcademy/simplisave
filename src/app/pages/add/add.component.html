@@ -5,32 +5,32 @@
     <app-sidebar></app-sidebar>
   </div>  
 
-<div class="mask d-flex align-items-center">
+<div class="mask d-flex ">
     <div class="container">
       <div class="row d-flex justify-content-center align-items-center">
-        <h1 class="title text-center mb-4 mt-4">Add Transactions</h1>
+        <h1 class="title text-center mb-5 mt-5">Add Transactions</h1>
     
         <div class="col-12 col-md-9 col-lg-7 col-xl-5">
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
                 
-              <form class="example-form" >
+              <form class="form" [formGroup]="addTransaction" (ngSubmit)="add()" >
 
                 <mat-form-field class="validation mb-4" appearance="outline">
                   <mat-label>Type</mat-label>
-                  <input matInput type="text" class="form-control-plaintext" id="type" formControlName="type" required />
+                  <input matInput type="text" class="form-control-plaintext" id="type"[(ngModel)]="addData.type" formControlName="type" required />
                 </mat-form-field>
                 <mat-form-field class="validation mb-4" appearance="outline">
                     <mat-label>Description</mat-label>
-                    <input matInput type="text" class="form-control-plaintext" id="description" formControlName="description" required />
+                    <input matInput type="text" class="form-control-plaintext" id="description" [(ngModel)]="addData.description" formControlName="description" required />
                   </mat-form-field>
                   <mat-form-field class="validation mb-4" appearance="outline">
                     <mat-label>Amount</mat-label>
-                    <input matInput type="number" class="form-control-plaintext" id="amount" formControlName="amount" required />
+                    <input matInput type="string" class="form-control-plaintext" id="amount" [(ngModel)]="addData.amount" formControlName="amount" required />
                   </mat-form-field>
                 
                 <div class="d-flex justify-content-center align-items-center">
-                  <button class="btn" type="submit">Add</button>
+                  <button [disabled]="!addTransaction.valid" class="btn" type="submit">Add</button>
                 </div>
             
               </form>

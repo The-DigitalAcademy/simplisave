@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AddData } from 'src/app/interfaces/transactions.model';
 
 @Component({
   selector: 'app-add',
@@ -9,6 +10,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class AddComponent implements OnInit {
 
   addTransaction!: FormGroup;
+  addData: AddData = { type: '', description: '', amount: '' };
+
 
   constructor(private formBuilder: FormBuilder){}
 
@@ -36,6 +39,9 @@ export class AddComponent implements OnInit {
     });
   }
 
+  add(){
+
+  }
   
 
 }
