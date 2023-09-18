@@ -67,6 +67,7 @@ export class AuthService {
     this.isAuthenticatedSubject.next(false);
     this.tokenSubject.next(null);
     Swal.close();
+    localStorage.clear();
     window.location.href = '/login';
   }
 
@@ -120,7 +121,10 @@ export class AuthService {
     });
   }
 
-  addGoal() {
+ // Function to display the addGoal SweetAlert
+ addGoal() {
+  // Check if the addGoal alert has already been shown
+  if (!localStorage.getItem('addGoalShown')) {
     Swal.fire({
       icon: 'warning',
       title: 'Please set a new savings goal',
@@ -128,19 +132,30 @@ export class AuthService {
       timer: 3000, // 3000 milliseconds (3 seconds)
       showConfirmButton: false, // Hide the "OK" button
     });
-  }
 
-  addNewGoal(){
+    // Set a flag in localStorage to indicate that the addGoal alert has been shown
+    localStorage.setItem('addGoalShown', 'true');
+  }
+}
+
+// Function to display the addNewGoal SweetAlert
+ addNewGoal() {
+  console.log(localStorage.getItem('addNewGoalShown'));
+  // Check if the addNewGoal alert has already been shown
+  if (!localStorage.getItem('addNewGoalShown')) {
     Swal.fire({
       icon: 'success',
       title: 'Congratulations you have achieved your saving goal',
-      text:'Your goal has been reset, please set a new goal',
+      text: 'Your goal has been reset, please set a new goal',
       iconColor: '#AF144B',
       timer: 3000, // 3000 milliseconds (3 seconds)
       showConfirmButton: false, // Hide the "OK" button
     });
 
+    // Set a flag in localStorage to indicate that the addNewGoal alert has been shown
+    localStorage.setItem('addNewGoalShown', 'true');
   }
+}
 }
 
 
