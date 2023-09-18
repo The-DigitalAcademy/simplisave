@@ -161,7 +161,7 @@ label{
 }
 
 .save-button {
-  max-width: 10%;
+  max-width: 13.5%;
   border-radius: 20px;
   border-style: none;
   background-color:var(--primary-lighter);
@@ -179,7 +179,7 @@ label{
 }
 
 .cancel-button {
-  max-width: 10%;
+  max-width: 13.5%;
   border-radius: 20px;
   border-style: solid;
   border-width: 0.1px;

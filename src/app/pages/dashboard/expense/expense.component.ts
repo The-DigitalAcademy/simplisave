@@ -205,24 +205,40 @@ export class ExpenseComponent {
   createChart(...sumMoneyOutMonths: number[]) {
     const canvas: HTMLCanvasElement = document.getElementById('myChart') as HTMLCanvasElement;
     const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
-
+  
     if (!ctx) {
       throw new Error("Canvas context is null.");
     }
-
+  
     const currentMonthName = new Date().toLocaleString('default', { month: 'long' });
     const prev1MonthName = new Date(new Date().setMonth(new Date().getMonth() - 1)).toLocaleString('default', { month: 'long' });
     const prev2MonthName = new Date(new Date().setMonth(new Date().getMonth() - 2)).toLocaleString('default', { month: 'long' });
     const prev3MonthName = new Date(new Date().setMonth(new Date().getMonth() - 3)).toLocaleString('default', { month: 'long' });
-
-    // Generate random colors for the bars
-    const randomColors = [
-      '#' + Math.random().toString(16).slice(2, 8),
-      '#' + Math.random().toString(16).slice(2, 8),
-      '#' + Math.random().toString(16).slice(2, 8),
-      '#' + Math.random().toString(16).slice(2, 8),
+  
+    // Array of different shades of blue and purple
+    const blueShades = [
+      '#0074D9', '#3498DB', '#5DADE2', '#85C1E9', '#AED6F1', '#D6EAF8', '#85C1E9', '#4A90E2', '#357ABD', '#1F3A93'
     ];
-
+  
+    const purpleShades = [
+      '#9B59B6', '#8E44AD', '#BDC3C7', '#6C3483', '#913D88', '#AF7AC5', '#D7BDE2', '#674172', '#76448A', '#512E5F'
+    ];
+  
+    // Shuffle the blue and purple shades separately
+    for (let i = blueShades.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [blueShades[i], blueShades[j]] = [blueShades[j], blueShades[i]];
+    }
+  
+    for (let i = purpleShades.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [purpleShades[i], purpleShades[j]] = [purpleShades[j], purpleShades[i]];
+    }
+  
+    // Determine whether to use blue or purple shades based on a random choice
+    const useBlue = Math.random() < 0.5;
+    const chartColors = useBlue ? blueShades : purpleShades;
+  
     this.chart = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -230,7 +246,7 @@ export class ExpenseComponent {
         datasets: [{
           label: 'Monthly expense summary',
           data: sumMoneyOutMonths,
-          backgroundColor: randomColors,
+          backgroundColor: chartColors, // Use either blue or purple shades
           borderWidth: 0
         }]
       },
@@ -255,14 +271,14 @@ export class ExpenseComponent {
         },
         plugins: {
           legend: {
-            display: false,  //change to true
-            position: 'top'  //change to bottom
+            display: false,  // change to true
+            position: 'top'  // change to bottom
           }
         }
       } as ChartOptions
     });
   }
-
+  
 
   //Modal to add to checklist, we pecify which component modal is in to open it
   openExpenseModal(): void {
