@@ -69,14 +69,6 @@ export class ManageExpenseComponent implements OnInit {
         } else {
           this.greeting = 'Not a new month';
         }
-
-
-        
-        
-
-
-
-
     }
 
     // Responsible for making an HTTP request to fetch Transaction Types data.

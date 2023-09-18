@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
+import { Observable } from 'rxjs';
 
 interface CategoryOption {
     value: string;
@@ -20,6 +21,7 @@ interface CategoryOption {
     styleUrls: ['./manage-modal.component.css'],
 })
 export class ManageModalComponent {
+    types$!: Observable<any[]>; // Observable to track types
     formData: any = {};
     expenseForm!: FormGroup;
     id: any;
@@ -106,7 +108,7 @@ export class ManageModalComponent {
                 response => {
                     
                     this.dialogRef.close();
-                    this.refreshManagePage();
+                    this.router.navigate(['/manage'])
                 },
                 error => {
                     console.error('API Error:', error);
