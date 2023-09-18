@@ -10,9 +10,7 @@ body {
 }
 
 img{
-  width: 130px;
-  height: 160px;
-  border-radius: 80px;
+  margin-bottom: 10%;
 }
 
 .banner {
@@ -57,9 +55,6 @@ img{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-img{
-margin-bottom: 2%;
 }
 
 .overview-heading {
