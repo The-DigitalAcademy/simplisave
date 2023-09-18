@@ -349,6 +349,7 @@ export class ExpenseComponent {
       else {
         type.progress ="under limit";
       }
-    });
+     }
+   });
   }
 }
