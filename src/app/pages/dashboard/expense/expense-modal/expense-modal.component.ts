@@ -4,125 +4,147 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
-import { TransactionType } from 'src/app/interfaces/transactions.model';
-import Swal from 'sweetalert2';
+import { TransactionType, ApiResponse, ExpenseModalFormData, CategoryOption, CreateTypeResponse } from 'src/app/interfaces/transactions.model';
 
 @Component({
-    selector: 'app-expense-modal',
-    templateUrl: './expense-modal.component.html',
-    styleUrls: ['./expense-modal.component.css'],
+  selector: 'app-expense-modal',
+  templateUrl: './expense-modal.component.html',
+  styleUrls: ['./expense-modal.component.css']
 })
 export class ExpenseModalComponent {
-    showErrorAmountRequired = false;
-    formData: any = {};
-    expenseForm!: FormGroup;
-    selectedCategory = '';
-    categoryExistsError = false;
-    types: TransactionType[] = [];
-    transactionTypes: string[] = [];
-    categoryOptions: any = [
-        { value: 'FOOD', label: 'Food' },
-        { value: 'ACCOMMODATION', label: 'Accommodation' },
-        { value: 'TRANSPORT', label: 'Transport' },
-        { value: 'BOOKS', label: 'Books' },
-        { value: 'TUITION', label: 'Tuition' },
-        { value: 'OTHER', label: 'Other' },
-        { value: 'BANK_CHARGES', label: 'Bank Charges' },
-        { value: 'WITHDRAWAL', label: 'Withdrawal' },
-    ];
+  formData: ExpenseModalFormData = { amount: null, category: '' };
+  expenseForm!: FormGroup;
+  selectedCategory: string = '';
+  categoryExistsError: boolean = false;
+  types: TransactionType[] = [];
+  transactionTypes: string[] = [];
+  categoryOptions: CategoryOption[] = [
+    { value: 'FOOD', label: 'Food' },
+    { value: 'ACCOMMODATION', label: 'Accommodation' },
+    { value: 'TRANSPORT', label: 'Transport' },
+    { value: 'BOOKS', label: 'Books' },
+    { value: 'TUITION', label: 'Tuition' },
+    { value: 'OTHER', label: 'Other' },
+    { value: 'BANK_CHARGES', label: 'Bank Charges' },
+    { value: 'WITHDRAWAL', label: 'Withdrawal' }
+  ];
+  formSubmitted = false;
 
-    constructor(
-        private dashService: DashboardService,
-        private formBuilder: FormBuilder,
-        private service: AccountService,
-        public dialogRef: MatDialogRef<ExpenseModalComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: any,
-        private router: Router
-    ) {
-        this.expenseForm = this.formBuilder.group({
-            category: [this.selectedCategory, Validators.required],
-            amount: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-        });
-    }
+  constructor(
+    private dashService: DashboardService,
+    private formBuilder: FormBuilder,
+    private service: AccountService,
+    public dialogRef: MatDialogRef<ExpenseModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private router: Router
+  ) {
+    this.expenseForm = this.formBuilder.group({
+      category: [this.selectedCategory, Validators.required],
+      amount: ['', [Validators.required, Validators.pattern('^[0-9]*$')]]
+    });
+  }
 
-    ngOnInit() {
-        this.isCategoryAlreadyExists('FOOD');
-    }
+  ngOnInit() {
+    // Fetch data from the API and update transactionTypes
+    this.fetchTransactionTypes();
+  }
 
-    get formControls() {
-        return this.expenseForm.controls;
-    }
+  fetchTransactionTypes() {
+    this.service.getTypesBackend().subscribe((res: ApiResponse) => {
+      this.types = res.budgets.map(budget => {
+        return {
+          goalId: budget.id, // Adjust this mapping as needed
+          name: budget.transactionsType,
+          amount: budget.amountSet,
+          transactionsType: budget.transactionsType // Add this line to include transactionsType
+        };
+       
+      });
+      // Update transactionTypes array
+      this.transactionTypes = this.types.map(type => type.transactionsType);
+      console.log('Transaction Types:', this.transactionTypes);
+    });
+  }
 
-    isCategoryAlreadyExists(category: string): boolean {
-        this.service.getTypesBackend().subscribe((res: any) => {
-            this.types = res.budgets;
-            console.log(res.budgets);
-            for (const transaction of this.types) {
-                this.transactionTypes.push(transaction.transactionsType);
-                console.log(this.transactionTypes);
-            }
-        });
-        return this.transactionTypes.includes(category);
-    }
+  get formControls() {
+    return this.expenseForm.controls;
+  }
 
-    onNoClick(event: Event): void {
-        event.preventDefault(); // Prevent the default form submission behavior
-        this.dialogRef.close();
-    }
+  isCategoryAlreadyExists(category: string): boolean {
+    const lowercaseCategory = category.toLowerCase(); // Convert to lowercase for case-insensitive comparison
+    return this.transactionTypes.some(existingCategory => existingCategory.toLowerCase() === lowercaseCategory);
+  }
 
-    onSave(): void {
-        if (this.expenseForm.get('amount')?.hasError('required')) {
-            // Display an error message
-            this.showErrorAmountRequired = true;
+  onNoClick(event: Event): void {
+   // event.preventDefault(); // Prevent the default form submission behavior
+    this.dialogRef.close();
+  }
+
+ 
+
+  shouldShowError(controlName: string, errorName: string) {
+    const control = this.expenseForm.get(controlName);
+    return control?.touched && control?.hasError(errorName);
+  }
+
+ 
+
+  saveExpense() {
+    if (this.expenseForm.valid) {
+      const selectedCategory = this.expenseForm.value.category;
+      const amount = parseFloat(this.expenseForm.value.amount);
+ 
+      // Check if the category already exists
+      if (this.isCategoryAlreadyExists(selectedCategory)) {
+        // Set the error flag to true or display an error message as needed
+        console.log('Selected Category:', selectedCategory);
+        this.categoryExistsError = true;
+        return;
+      }
+ 
+      // Check if the amount is not a number or is negative
+      if (this.expenseForm.get('amount')?.value === '' || isNaN(amount) || amount < 0) {
+        // Set an error for the "amount" field
+        this.expenseForm.get('amount')?.setErrors({ 'invalidAmount': true });
+        return;
+      }
+     
+ 
+      // If the category doesn't exist and the amount is valid, proceed with the API call
+      const updatedData = {
+        amountSet: amount,
+        transactionsType: selectedCategory
+      };
+ 
+      this.service.createType(updatedData).subscribe(
+        (response: CreateTypeResponse) => {
+          // Optionally, you can close the dialog after a successful API call
+          this.dialogRef.close();
+          this.router.navigate(['/dashboard']);
+          this.refreshChecklist();
+        },
+        (error: CreateTypeResponse) => {
+          // Handle API errors if necessary
+          console.error('API Error:', error);
         }
+      );
     }
+  }
+ 
 
-    shouldShowError(controlName: string, errorName: string) {
-        const control = this.expenseForm.get(controlName);
-        return control?.touched && control?.hasError(errorName);
-    }
+ 
+ 
+ 
+  // Add this method to handle form submission
+  onSubmit() {
+    // Set formSubmitted to true when the form is submitted
+    this.formSubmitted = true;
+   
+    // Call your saveExpense method or perform other form submission logic
+    this.saveExpense();
+  }
 
-    saveExpense() {
-        // Call the API service to post the form data
-        if (this.expenseForm.valid) {
-            const selectedCategory = this.expenseForm.value.category;
-
-            // Check if the category already exists
-            if (this.isCategoryAlreadyExists(selectedCategory)) {
-                // Set the error flag to true
-                this.categoryExistsError = true;
-                return;
-            }
-
-            const updatedData = {
-                amountSet: this.expenseForm.value.amount,
-                transactionsType: selectedCategory,
-            };
-            this.categoryExistsError = false;
-
-            if (!this.categoryExistsError) {
-                this.service.createType(updatedData).subscribe(
-                    (response: any) => {
-                        // Optionally, you can close the dialog after successful API call
-                        this.dialogRef.close();
-                        this.router.navigate(['/dashboard']);
-                        this.refreshChecklist();
-                    },
-                    (error: any) => {
-                        // Handle API errors if necessary
-                        console.error('API Error:', error);
-                    }
-                );
-            }
-        }
-    }
-
-    // Add this method to handle form submission
-    onSubmit() {
-        this.saveExpense();
-    }
-
-    refreshChecklist() {
-        this.dashService.triggerRefresh();
-    }
+  refreshChecklist() {
+    this.dashService.triggerRefresh();
+  }
 }
