@@ -113,4 +113,8 @@ export class TopPartComponent implements OnInit {
     location.reload();
   }
 
+  formatToTwoDecimalPlaces(value: number): string {
+    return value.toFixed(2);
+  }
+
 }
