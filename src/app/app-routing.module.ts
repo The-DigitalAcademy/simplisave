@@ -45,8 +45,6 @@ const routes: Routes = [
     {path:'transactions',component:TransactionsComponent}, /*canActivate: [EmptyBehaviorGuardGuard]},*/
     {path: 'reset', component:ResetComponent},
     {path: 'add', component:AddComponent}
-
-
 ];
 
 @NgModule({
