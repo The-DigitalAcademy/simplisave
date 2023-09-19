@@ -10,15 +10,21 @@ export class FirstTimeUserGuard implements CanActivate {
  
 constructor(private router:Router , private firstTimeUser:FirstTimeUserService){}
 
-canActivate(): Observable<boolean> | boolean {
-  return this.firstTimeUser.onBoardingCompleted$.pipe(
-    take(1), // Take one value and complete the subscription
-    map((completed) => {
-      if (!completed) {
+canActivate(
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+): Observable<boolean> | Promise<boolean> | boolean {
+  return this.firstTimeUser.getTransactions().pipe(
+    map((transactions) => {
+      const hasTransactions = transactions && transactions.length > 0;
+      if (hasTransactions) {
+        // User has transactions, allow access to the dashboard
+        return true;
+      } else {
+        // User has no transactions, redirect to onboarding
         this.router.navigate(['/onBoarding']);
         return false;
       }
-      return true;
     })
   );
 }

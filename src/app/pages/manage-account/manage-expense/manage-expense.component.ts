@@ -165,7 +165,7 @@ deleteTransactionType(id: any){
     getTransactionsFromApi() {
         this.accountService.getTransactions2().subscribe(res => {
             this.items1 = res;
-            
+            console.log('getting transaction fro manage expense', this.items1)
             this.checkDataFetched(); // Call checkDataFetched after items1 is populated
         });
     }
