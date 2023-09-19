@@ -6,6 +6,7 @@ import { AccountService } from 'src/app/services/account.service';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { ExpenseModalComponent } from '../../expense/expense-modal/expense-modal.component';
 import { AuthService } from 'src/app/services/auth-service.service';
+import { StateService } from 'src/app/services/state.service';
 
 @Component({
   selector: 'app-transfer-modal',
@@ -21,12 +22,14 @@ export class TransferModalComponent {
   description!:string;
   mostRecentGoal:any;
   goals: any;
+  updatedAccountDetails:any;
 
   constructor(private authService: AuthService, private dashService: DashboardService,
     private fb: FormBuilder,
     private accountService: AccountService,
     public dialogRef: MatDialogRef<ExpenseModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private router: Router
+    @Inject(MAT_DIALOG_DATA) public data: any, private router: Router,
+    private stateService:StateService
   ) {
     this.transferForm = this.fb.group({
       amount: ['', [Validators.required, Validators.min(0), Validators.pattern(/^\d+(\.\d{1,2})?$/)]]
@@ -71,7 +74,7 @@ export class TransferModalComponent {
       };
       this.accountService.transferToSavings(this.goalId,amount)
         .subscribe(res => {
-
+          this.refreshAccountDetails();
           this.dialogRef.close();
           this.authService.successfulMoneyTransfer();
 
@@ -125,5 +128,15 @@ export class TransferModalComponent {
   refresh() {
     // Trigger the refresh for ComponentTwo
     this.dashService.triggerRefresh();
+  }
+
+  refreshAccountDetails(){
+    this.accountService.getAccountData().subscribe(res => {
+      this.updatedAccountDetails = res;
+      console.log(this.items)
+
+  });
+    this.stateService.updateAccountDetails(this.updatedAccountDetails);
+
   }
 }

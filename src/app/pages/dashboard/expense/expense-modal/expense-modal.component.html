@@ -35,7 +35,7 @@
                 Amount can only contain numbers
             </mat-error>
             </div>
-            <button mat-button (click)="onNoClick($event)">Close</button>
+            <button mat-button type="button" (click)="onNoClick()">Close</button>
             <button mat-button type="submit" style="margin-left: 2%;" [disabled]="!expenseForm.valid">
                 Save
             </button>

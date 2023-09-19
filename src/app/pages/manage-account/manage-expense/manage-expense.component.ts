@@ -11,6 +11,7 @@ import {
     TransactionType,
 } from 'src/app/interfaces/transactions.model';
 import { AuthService } from 'src/app/services/auth-service.service';
+import { StateService } from 'src/app/services/state.service';
 
 @Component({
     selector: 'app-manage-expense',
@@ -40,7 +41,8 @@ export class ManageExpenseComponent implements OnInit {
 
     constructor(
         private accountService: AccountService, private authService:AuthService,
-        private dialog: MatDialog
+        private dialog: MatDialog,
+        private stateService:StateService
     ) {}
 
     private refreshComponent() {
@@ -69,6 +71,15 @@ export class ManageExpenseComponent implements OnInit {
         } else {
           this.greeting = 'Not a new month';
         }
+
+
+        this.stateService.categoryList$.subscribe((updatedCategoryList) => {
+          this.transactionType=updatedCategoryList;
+          // Handle the updated category list here and update your UI
+          // For example, you can assign the updatedCategoryList to a local variable.
+        });
+
+        console.log(this.transactionType);
     }
 
     // Responsible for making an HTTP request to fetch Transaction Types data.

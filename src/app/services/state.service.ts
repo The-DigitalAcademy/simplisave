@@ -1,16 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { TransactionType } from '../interfaces/transactions.model';
+import { Budget, Profile, TransactionType } from '../interfaces/transactions.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StateService {
   
-  private categoriesSubject: BehaviorSubject<TransactionType[]> = new BehaviorSubject<TransactionType[]>([]);
-  categories$!: Observable<TransactionType[]>; // Observable to track categories
+  private categoryListSubject = new BehaviorSubject<Budget[]>([]);
+  categoryList$ = this.categoryListSubject.asObservable();
+
+  private accountDataSubject = new BehaviorSubject<Profile | undefined>(undefined);
+  accountData$: Observable<Profile | undefined> = this.accountDataSubject.asObservable();
+
+
+
 
 
 
   constructor() { }
+
+  updateCategoryList(updatedList: Budget[]) {
+    this.categoryListSubject.next(updatedList);
+    console.log(updatedList);
+  }
+
+  updateAccountDetails(updatedAccountDetails:Profile | undefined){
+    this.accountDataSubject.next(updatedAccountDetails);
+  }
 }
