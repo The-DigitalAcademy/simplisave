@@ -12,7 +12,7 @@ export interface LoginData {
 export interface AddData{
   type: string;
   description: string;
-  amount: string;
+  amount: number | null;
 }
 
 // token-response.model.ts (create a new file for this type definition) LOGIN
@@ -180,42 +180,6 @@ export interface TransactionType {
 export interface TransferFormData {
   amount: number;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export interface TypeTotals {
