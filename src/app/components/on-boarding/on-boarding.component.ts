@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-on-boarding',
@@ -6,9 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./on-boarding.component.css']
 })
 export class OnBoardingComponent {
-constructor(){}
+constructor(private router:Router){}
 
-continue(){}
+continue(){
+  this.router.navigate(['/nextStep']);
+}
 
-skip(){}
+skip(){
+  this.router.navigate(['/main']);
+}
 }
