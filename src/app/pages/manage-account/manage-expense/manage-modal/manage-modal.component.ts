@@ -131,7 +131,7 @@ export class ManageModalComponent {
     refreshUpdate(){
         this.service.getTypesBackend().subscribe(
             (res: any) => {
-              this.updatedList=res.budgets;
+              this.updatedList= res.budgets.filter((record: any) => !record.deleted);
               this.stateService.updateCategoryList(this.updatedList);
             }
           );

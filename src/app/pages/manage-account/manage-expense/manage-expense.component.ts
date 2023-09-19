@@ -168,7 +168,15 @@ export class ManageExpenseComponent implements OnInit {
 deleteTransactionType(id: any){
     this.accountService.deleteTransaction(id).subscribe(
         (res) => {
-            this.getTypes()
+
+            this.accountService.getTypesBackend().subscribe(
+              (res: any) => {
+                if (res && res.budgets) {
+                  this.transactionType = res.budgets.filter((record: any) => !record.deleted);
+                }
+              }
+            );   
+            this.stateService.updateCategoryList(this.transactionType);    
         },
     );
 }
