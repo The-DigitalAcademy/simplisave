@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirstTimeUserService } from 'src/app/services/first-time-user.service';
 
 @Component({
   selector: 'app-on-boarding',
@@ -7,13 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./on-boarding.component.css']
 })
 export class OnBoardingComponent {
-constructor(private router:Router){}
+constructor(private router:Router , private firstTimeUser:FirstTimeUserService){
+
+}
 
 continue(){
-  this.router.navigate(['/nextStep']);
+  this.router.navigate(['/transactions']);
+  
 }
 
 skip(){
-  this.router.navigate(['/main']);
+  
+  this.router.navigate(['/dashboard']);
 }
 }

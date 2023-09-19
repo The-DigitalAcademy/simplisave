@@ -1,22 +1,25 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, map, take } from 'rxjs';
+import { FirstTimeUserService } from './services/first-time-user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirstTimeUserGuard implements CanActivate {
  
-constructor(private router:Router){}
+constructor(private router:Router , private firstTimeUser:FirstTimeUserService){}
 
-canActivate(): boolean{
-  const isFirstTimeUser = !localStorage.getItem('onBoardingComponent');
-
-  if(isFirstTimeUser){
-    this.router.navigate(['/onBoarding']);
-    return false;
-  }
-return true;
+canActivate(): Observable<boolean> | boolean {
+  return this.firstTimeUser.onBoardingCompleted$.pipe(
+    take(1), // Take one value and complete the subscription
+    map((completed) => {
+      if (!completed) {
+        this.router.navigate(['/onBoarding']);
+        return false;
+      }
+      return true;
+    })
+  );
 }
-  
 }
