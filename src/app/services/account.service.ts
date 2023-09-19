@@ -7,12 +7,15 @@ import { AuthService } from './auth-service.service';
 import {  Profile} from '../interfaces/transactions.model';
 import { User } from '../interfaces/user';
 import { Transaction } from '../interfaces/transactions.model';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AccountService {
     private refreshSubject = new Subject<void>();
+    private addData: any = {};
 
     refreshObservable = this.refreshSubject.asObservable();
 
@@ -20,7 +23,8 @@ export class AccountService {
 
     constructor(
         private http: HttpClient,
-        private authService: AuthService
+        private authService: AuthService,
+        private router: Router
     ) {}
 
     // getAccountData(): Observable<User[]>   {
@@ -64,6 +68,36 @@ export class AccountService {
     getTypesBackend(): Observable<any> {
         return this.http.get<any>(`${environment.BACKEND_URL}/budget/details`);
       }
+
+    updateData(data: any): void {
+        console.log("Add data: " + JSON.stringify(data))
+        this.addData = { ...this.addData, ...data };
+      }
+
+    addTransaction(): void  {
+        this.http.post(`${environment.BACKEND_URL}/transactions/transaction`, this.addData).subscribe(
+            (response) => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Transaction Added Successfully',
+                    iconColor: '#AF144B',
+                    confirmButtonColor: '#AF144B'
+                  }).then(() => {
+                    // Navigate to the dashboard 
+                    this.router.navigate(['/dashboard']);
+                   })
+                   
+            },
+            (error) => {
+                Swal.fire({
+                    icon: 'error',
+                    text: 'An error occurred',
+                    iconColor: '#AF144B',
+                    confirmButtonColor: '#AF144B'
+                  });
+            }
+          );
+    }
      
      
    

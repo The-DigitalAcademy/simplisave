@@ -14,16 +14,16 @@
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
                 
-                <form class="form" [formGroup]="addTransaction" (ngSubmit)="add()">
+                <form class="form" [formGroup]="addTransactionForm" (ngSubmit)="add()">
                 
                   <mat-form-field class="validation mb-4" appearance="outline">
                     <mat-label>Type</mat-label>
-                    <select type="text" class="form-control-plaintext" id="type" name="type" [(ngModel)]="addData.type"
-                      formControlName="type" required>
+                    <select type="text" class="form-control-plaintext" id="transactionType" name="transactionType" [(ngModel)]="addData.transactionType"
+                      formControlName="transactionType" required>
                       <option *ngFor="let option of typeOptions" [value]="option.value">
                         {{ option.label }}
-                        <input matInput type="text" class="form-control-plaintext" id="type" [(ngModel)]="addData.type"
-                        formControlName="type" required />
+                        <input matInput type="text" class="form-control-plaintext" id="transactionType" [(ngModel)]="addData.transactionType"
+                        formControlName="transactionType" required />
                       </option>
                     </select>
                     
@@ -48,7 +48,7 @@
                   </mat-form-field>
                 
                   <div class="d-flex justify-content-center align-items-center">
-                    <button [disabled]="!addTransaction.valid" class="btn" type="submit">Add</button>
+                    <button [disabled]="!addTransactionForm.valid" class="btn" type="submit">Add</button>
                   </div>
                 
                 </form>
