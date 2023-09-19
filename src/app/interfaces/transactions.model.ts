@@ -10,9 +10,10 @@ export interface LoginData {
 }
 
 export interface AddData{
-  type: string;
+  transactionType: string;
   description: string;
   amount: number | null;
+  availableBalance: string;
 }
 
 // token-response.model.ts (create a new file for this type definition) LOGIN
@@ -170,6 +171,12 @@ export interface TransactionType {
     name: string;
     amount: number;
     transactionsType:string;
+}
+
+export interface AddTransaction{
+  transactionType: string;
+  description: string;
+  amount: number;
 }
 
 
