@@ -59,6 +59,11 @@ export class ExpenseComponent {
       this.getTypes();
     });
 
+    this.stateService.accountData$.subscribe((updatedAccountDetails) => {
+      this.getTransactionsFromApi();
+      this.getTypes();
+    });
+
    
   }
 

@@ -9,6 +9,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AuthService } from './auth-service.service';
+import Swal from 'sweetalert2';
 
 @Injectable()
 export class SessionTimeoutInterceptor implements HttpInterceptor {
@@ -54,7 +55,9 @@ export class SessionTimeoutInterceptor implements HttpInterceptor {
 
   private handleSessionTimeout() {
     this.authService.setToken('');
-    this.router.navigate(['/login']);
+    Swal.close();
+    localStorage.clear();
+    window.location.href = '/login';
     
   }
 }
