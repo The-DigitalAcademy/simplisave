@@ -88,7 +88,7 @@ export class ManageExpenseComponent implements OnInit {
           this.description=this.mostRecentGoal.description;
           this.totalSaved=this.mostRecentGoal.currentSaved;
           console.log(goal);
-          this.findMostRecentGoal();
+          this.getAccountData();
           // Handle the updated category list here and update your UI
           // For example, you can assign the updatedCategoryList to a local variable.
         });
@@ -136,8 +136,8 @@ export class ManageExpenseComponent implements OnInit {
           console.log(`Total Saved as a percentage: ${this.percentageSaved.toFixed(2)}%`);
           // You can display or use the percentageSaved value as needed.
           if(this.percentageSaved>=100){
+            console.log("executing increase goal")
             this.increaseGoal();
-            location.reload();
           }
         } else {
           console.log('Amount set is zero, cannot calculate percentage.');
@@ -339,15 +339,16 @@ deleteTransactionType(id: any){
       
       console.log(this.mostRecentGoal)
 
-      if (this.amountSet<1 && this.description=='goal'){
+      if (this.amountSet<=0 && this.description=='goal'){
         console.log(this.amountSet, "AMOOOOUNT SEET")
         this.authService.addGoal();
       }
-      if (this.amountSet<1 && this.description=='plusGoal'){
+      if (this.amountSet<=0 && this.description=='plusGoal'){
         console.log(this.amountSet, "AMOOOOUNT SEET")
         this.authService.addNewGoal();
       }
-      this.calculatePercentageSaved();
+      if(this.amountSet>0){
+      this.calculatePercentageSaved();}
     }
 
     newMonthNewGoal(){
@@ -376,6 +377,7 @@ deleteTransactionType(id: any){
     
     this.accountService.createSavingGoal(updatedData).subscribe(
         response => {
+          this.getAccountData();
           console.log(response,"added made goal empty")
         },
         error => {
