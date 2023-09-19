@@ -1,47 +1,69 @@
-.add-container{
-    display: flex;
+.add-container {
+  display: flex;
 }
 
-  
-  .title{
-      color: var(--primary-color);
-      font-weight: var(--bold);
-      font-size: var(--font-x-large);
-  }
-  
-   button{
-    width: 30%;
-  }
-  
-  .validation{
-    width: 100%;
-    font-size:var(--font-x-small);
-    
-  }
-  
-  .btn{
-    background-color: var(--primary-color);
-    float: right;
-    border-radius: 10px;
-    margin-right: 10px;
-    width: 30%;
-    color:white;
-  }
-  
-  .mat-form-field-appearance-outline .mat-form-field-label .mat-placeholder {
-    font-size: xx-small !important;
-  
-  }
-  mat-label{
-    font-size: var(--font-x-small);
-  }
-  
-  
-  .mat-form-field-appearance-outline .mat-form-field-outline {
-    border-color: var(--primary-color)!important;
+.card {
+  width: 94%;
+  margin-top: 2.5%;
+  margin-left: 3%;
+}
+
+.form{
+  width: 100%;
+}
+
+
+.title {
+  color: var(--primary-color);
+  font-size: var(--font-xx-large);
+  font-family: Roboto;
+  font-weight: var(--semi-bold);
+  line-height: 20px;
+  word-wrap: break-word;
+  margin-top: 10px;
+  padding: 2vw;
+}
+
+button {
+  width: 30%;
+}
+
+.validation {
+  width: 100%;
+  font-size: var(--font-x-small);
+
+}
+
+.btn {
+  background-color: var(--primary-color);
+  float: right;
+  border-radius: 10px;
+  margin-right: 10px;
+  width: 30%;
+  color: white;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-label .mat-placeholder {
+  font-size: xx-small !important;
+
+}
+
+mat-label {
+  font-size: var(--font-x-small);
+}
+
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  border-color: var(--primary-color) !important;
+}
+
+@media (max-width: 800px) {
+  .title {
+    font-size: 24px;
+    padding: 3vw;
   }
 
-  
-  
-  
-  
+  .form{
+    width: 100%;
+  }
+}
