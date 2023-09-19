@@ -74,6 +74,7 @@ export class TransferModalComponent {
 
           this.dialogRef.close();
           this.authService.successfulMoneyTransfer();
+          location.reload();
 
 
 
