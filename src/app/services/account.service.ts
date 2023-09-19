@@ -27,21 +27,6 @@ export class AccountService {
         private router: Router
     ) {}
 
-    // getAccountData(): Observable<User[]>   {
-       
-    //     return this.authService.getToken().pipe(
-    //         switchMap(token => {
-    //             const headers = new HttpHeaders({
-    //                 Authorization: `Bearer ${token}`,
-    //             });
-    //             return this.http.get<User[]>(
-    //                 `${environment.STUDENT_DETAILS_URL}`,
-    //                 { headers }
-    //             );
-    //         })
-    //     );
-    // }
-
     getAccountData(): Observable<Profile> {
         return this.authService.getToken().pipe(
           switchMap((token) => {
@@ -70,45 +55,13 @@ export class AccountService {
       }
 
     updateData(data: any): void {
-        console.log("Add data: " + JSON.stringify(data))
         this.addData = { ...this.addData, ...data };
       }
 
-    addTransaction(): void  {
-        this.http.post(`${environment.BACKEND_URL}/transactions/transaction`, this.addData).subscribe(
-            (response) => {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Transaction Added Successfully',
-                    iconColor: '#AF144B',
-                    confirmButtonColor: '#AF144B'
-                  }).then(() => {
-                    // Navigate to the dashboard 
-                    this.router.navigate(['/dashboard']);
-                   })
-                   
-            },
-            (error) => {
-                Swal.fire({
-                    icon: 'error',
-                    text: 'An error occurred',
-                    iconColor: '#AF144B',
-                    confirmButtonColor: '#AF144B'
-                  });
-            }
-          );
-    }
+      addTransaction(transactionData: any): Observable<any> {
+        return this.http.post(`${environment.BACKEND_URL}/transactions/transaction`, transactionData);
+      }
      
-     
-   
-
-    // createType(body: any): Observable<any> {
-    //     return this.http.post<any>(
-    //         `${environment.BACKEND_URL}/budget/creation`,
-    //         body
-    //     );
-    // }
-
     createType(body: any): Observable<any> {
         return this.http.post<any>(
           `${environment.BACKEND_URL}/budget/creation`,
