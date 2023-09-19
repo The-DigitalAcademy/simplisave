@@ -1,0 +1,14 @@
+.onboarding{
+    background-color:transparent;
+    text-align: center;
+    padding: 10%;
+
+}
+button{
+    margin: 3%;
+    width: 15%;
+    height: 50px;
+    border-radius: 12px;
+    background-color: #870a3c;
+    color: #fff;
+}
