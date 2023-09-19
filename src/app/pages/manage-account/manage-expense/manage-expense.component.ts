@@ -80,6 +80,18 @@ export class ManageExpenseComponent implements OnInit {
         });
 
         console.log(this.transactionType);
+
+
+        this.stateService.goal$.subscribe((goal) => {
+          this.mostRecentGoal=goal;
+          this.amountSet=this.mostRecentGoal.amountSet;
+          this.description=this.mostRecentGoal.description;
+          this.totalSaved=this.mostRecentGoal.currentSaved;
+          console.log(goal);
+          this.findMostRecentGoal();
+          // Handle the updated category list here and update your UI
+          // For example, you can assign the updatedCategoryList to a local variable.
+        });
     }
 
     // Responsible for making an HTTP request to fetch Transaction Types data.
@@ -300,7 +312,6 @@ deleteTransactionType(id: any){
 
 
     findMostRecentGoal() {
-       this.mostRecentGoal = null;
       let mostRecentDate = null;
     
       for (const record of this.goals) {

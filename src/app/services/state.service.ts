@@ -15,6 +15,10 @@ export class StateService {
 
 
 
+  private goalSubject :BehaviorSubject<string[]> = new BehaviorSubject<any>([]);
+  goal$ : Observable<any[]> = this.goalSubject.asObservable();
+
+
 
 
 
@@ -27,5 +31,9 @@ export class StateService {
 
   updateAccountDetails(updatedAccountDetails:Profile | undefined){
     this.accountDataSubject.next(updatedAccountDetails);
+  }
+
+  updateGoal(goal:any){
+    this.goalSubject.next(goal);
   }
 }
