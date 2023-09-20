@@ -19,6 +19,9 @@ export class StateService {
   goal$ : Observable<any[]> = this.goalSubject.asObservable();
 
 
+  private profileSubject= new BehaviorSubject<Profile | undefined>(undefined);
+  profileData$: Observable<Profile | undefined> = this.profileSubject.asObservable();
+
 
 
 
@@ -35,5 +38,9 @@ export class StateService {
 
   updateGoal(goal:any){
     this.goalSubject.next(goal);
+  }
+
+  updateProfile(updatedProfile:Profile){
+    this.profileSubject.next(updatedProfile);
   }
 }

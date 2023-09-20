@@ -4,6 +4,7 @@ import { User } from 'src/app/interfaces/user';
 import { Profile } from 'src/app/interfaces/transactions.model';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth-service.service';
+import { StateService } from 'src/app/services/state.service';
 
 @Component({
     selector: 'app-profile',
@@ -15,11 +16,12 @@ export class ProfileComponent implements OnInit {
   basicInfoForm!: FormGroup;
   passwordForm!: FormGroup;
   activeForm: string = 'form1';
-  userInfo: Profile;
+  userInfo: Profile|undefined;
   userId: number = 2;
   selectedImageFile: File | null = null; // Initialize to null
+  updatedProfileData!: Profile;
 
-  constructor(private formBuilder: FormBuilder, private service: AccountService, private authService:AuthService) {
+  constructor(private formBuilder: FormBuilder, private service: AccountService, private authService:AuthService, private stateService:StateService) {
     this.userInfo = {} as Profile;
   }
 
@@ -59,32 +61,43 @@ export class ProfileComponent implements OnInit {
         });
 
         this.getUsersInfo();
+
+
+        this.stateService.profileData$.subscribe((profileData) => {
+            this.userInfo=profileData;
+            this.getUsersInfo();
+          });
     }
 
     /* This function fetches a certain users info and assigns it to the form fields so that they display in the input boxes
       when the form is loaded
         2023/08/14 */
-    getUsersInfo() {
-        this.service.getAccountData().subscribe((res: any) => {
-            this.userInfo = res;
-
-            // Set initial form values using patchValue
-            this.basicInfoForm.patchValue({
-                firstName: this.userInfo.firstName,
-                lastName: this.userInfo.lastName,
-                cellphoneNumber: this.userInfo.cellphoneNumber,
-                email: this.userInfo.email,
-                idNo: this.userInfo.idNo,
+        getUsersInfo() {
+            this.service.getAccountData().subscribe((res: any) => {
+              this.userInfo = res;
+          
+              if (this.userInfo) {
+                // Set initial form values using patchValue
+                this.basicInfoForm.patchValue({
+                  firstName: this.userInfo.firstName || '',
+                  lastName: this.userInfo.lastName || '',
+                  cellphoneNumber: this.userInfo.cellphoneNumber || '',
+                  email: this.userInfo.email || '',
+                  idNo: this.userInfo.idNo || '',
+                });
+          
+                if (this.userInfo.accounts && this.userInfo.accounts.length > 0) {
+                  this.passwordForm.patchValue({
+                    accountNo: this.userInfo.accounts[0].accountNo || '',
+                    savingsAccountNumber: this.userInfo.accounts[0].savingsAccount.savingsAccountNumber || '',
+                  });
+                }
+          
+                console.log(this.userInfo);
+              }
             });
-
-      this.passwordForm.patchValue({
-        accountNo: this.userInfo.accounts[0].accountNo,
-        savingsAccountNumber: this.userInfo.accounts[0].savingsAccount.savingsAccountNumber,
-      });
-
-      console.log(this.userInfo);
-    });
-  }
+          }
+          
 
   
   
@@ -156,8 +169,17 @@ export class ProfileComponent implements OnInit {
                 .updateUser(this.userId, updatedInfo)
                 .subscribe((res: any) => {
                     this.authService.successfulUpdate();
+                    this.refreshProfile();
                     
                 });
         }
     }
+
+    refreshProfile() {
+        this.service.getAccountData().subscribe((res: any) => {
+          this.updatedProfileData = res;
+          this.stateService.updateProfile(this.updatedProfileData);
+        });
+      }
+      
 }
