@@ -77,7 +77,10 @@ export class AuthService {
       text: 'Welcome to SimpliSave',
       iconColor: '#AF144B',
       confirmButtonColor: '#AF144B'
-    });
+    }).then(() => {
+      // Navigate to the dashboard page
+      this.router.navigate(['/dashboard']);
+     });
   }
 
   failedAlert() {
