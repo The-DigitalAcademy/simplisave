@@ -23,6 +23,8 @@ import { TransactionsComponent } from './pages/Transactions/transactions/transac
 import { EmptyBehaviorGuardGuard } from './empty-behavior-guard.guard'; // Import your guard
 import { ResetComponent } from './pages/auth/forgot-password/reset/reset.component';
 import { AddComponent } from './pages/add/add.component';
+import { OnBoardingComponent } from './components/on-boarding/on-boarding.component';
+import { FirstTimeUserGuard } from './first-time-user.guard';
 
 const routes: Routes = [
     { path: 'register', component: RegisterComponent},
@@ -31,7 +33,7 @@ const routes: Routes = [
     { path: 'steps', component: StepsComponent},
     { path: 'accounts', component: AccountsComponent},
     { path: 'learn', component : LearnComponent},
-    {path: 'dashboard', component : DashboardComponent},
+    {path: 'dashboard', component : DashboardComponent,canActivate: [FirstTimeUserGuard],},
     {path : '', component : LandingComponent},
     {path:'learnBanner',component:LearnBannerComponent},
     {path:'manage', component: ManageAccountComponent,}, /*canActivate: [EmptyBehaviorGuardGuard]}, */
@@ -44,6 +46,7 @@ const routes: Routes = [
     {path:'aboutus',component:AboutUsComponent},
     {path:'transactions',component:TransactionsComponent}, /*canActivate: [EmptyBehaviorGuardGuard]},*/
     {path: 'reset', component:ResetComponent},
+    {path:'onBoarding',component:OnBoardingComponent},
     {path: 'add', component:AddComponent}
 ];
 
