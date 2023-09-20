@@ -24,6 +24,7 @@
                         First name is required.
                       </mat-error>
                     </mat-form-field>
+                    
      
                     <mat-form-field class="validation mb-4" appearance="outline">
                       <mat-label>Last name</mat-label>
@@ -171,7 +172,7 @@
        
                       <mat-form-field class="validation mb-4" appearance="outline">
                         <mat-label>Identification Number</mat-label>
-                        <input matInput type="number" class="form-control-plaintext"  [(ngModel)]="registrationData.idNo" id="idNo" placeholder="9008180934087" formControlName="idNo" required />
+                        <input matInput type="text" class="form-control-plaintext"  [(ngModel)]="registrationData.idNo" id="idNo" placeholder="9008180934087" formControlName="idNo" required />
                         <mat-error *ngIf="step3FormGroup.get('idNo')?.invalid">
                           <ng-container *ngIf="step3FormGroup.get('idNo')?.hasError('required')">
                             ID Number is required.

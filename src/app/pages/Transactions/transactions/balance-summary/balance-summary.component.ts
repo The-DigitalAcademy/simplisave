@@ -98,7 +98,7 @@ export class BalanceSummaryComponent implements OnInit {
   getAccountData() {
     this.accountService.getAccountData().subscribe(
       (res: Profile) => {
-        console.log('API Response balance summary getAccountData:', res);
+        // console.log('API Response balance summary getAccountData:', res);
         this.currentBalance = res;
         this.availableBalance = this.currentBalance.accounts[0].accountBalance;
       },

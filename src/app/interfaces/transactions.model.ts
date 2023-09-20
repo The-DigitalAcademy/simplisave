@@ -9,6 +9,13 @@ export interface LoginData {
   password: string;
 }
 
+export interface AddData{
+  transactionType: string;
+  description: string;
+  amount: number | null;
+  availableBalance: string;
+}
+
 // token-response.model.ts (create a new file for this type definition) LOGIN
 export interface TokenResponse {
   access_token: string;
@@ -166,6 +173,12 @@ export interface TransactionType {
     transactionsType:string;
 }
 
+export interface AddTransaction{
+  transactionType: string;
+  description: string;
+  amount: number;
+}
+
 
 
 
@@ -174,42 +187,6 @@ export interface TransactionType {
 export interface TransferFormData {
   amount: number;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export interface TypeTotals {
