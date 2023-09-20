@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
 import { TransactionType, ApiResponse, ExpenseModalFormData, CategoryOption, CreateTypeResponse } from 'src/app/interfaces/transactions.model';
+import { StateService } from 'src/app/services/state.service';
 
 @Component({
   selector: 'app-expense-modal',
@@ -18,6 +19,7 @@ export class ExpenseModalComponent {
   categoryExistsError: boolean = false;
   types: TransactionType[] = [];
   transactionTypes: string[] = [];
+  updatedList:any;
   categoryOptions: CategoryOption[] = [
     { value: 'FOOD', label: 'Food' },
     { value: 'ACCOMMODATION', label: 'Accommodation' },
@@ -36,7 +38,8 @@ export class ExpenseModalComponent {
     private service: AccountService,
     public dialogRef: MatDialogRef<ExpenseModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private router: Router
+    private router: Router,
+    private stateService:StateService
   ) {
     this.expenseForm = this.formBuilder.group({
       category: [this.selectedCategory, Validators.required],
@@ -75,7 +78,7 @@ export class ExpenseModalComponent {
     return this.transactionTypes.some(existingCategory => existingCategory.toLowerCase() === lowercaseCategory);
   }
 
-  onNoClick(event: Event): void {
+  onNoClick() {
    // event.preventDefault(); // Prevent the default form submission behavior
     this.dialogRef.close();
   }
@@ -118,9 +121,9 @@ export class ExpenseModalComponent {
       this.service.createType(updatedData).subscribe(
         (response: CreateTypeResponse) => {
           // Optionally, you can close the dialog after a successful API call
-          this.dialogRef.close();
-          this.router.navigate(['/dashboard']);
-          this.refreshChecklist();
+          this.refreshSaveChecklist();
+          this.closeDialog();
+
         },
         (error: CreateTypeResponse) => {
           // Handle API errors if necessary
@@ -143,7 +146,19 @@ export class ExpenseModalComponent {
     this.saveExpense();
   }
 
-  refreshChecklist() {
-    this.dashService.triggerRefresh();
+  closeDialog(): void {
+    this.dialogRef.close();
+}
+
+  refreshSaveChecklist() {
+
+    this.service.getTypesBackend().subscribe(
+      (res: any) => {
+        this.updatedList=res.budgets;
+        this.stateService.updateCategoryList(this.updatedList);
+        
+      }
+    );
+
   }
 }
