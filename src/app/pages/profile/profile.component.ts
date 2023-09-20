@@ -96,6 +96,7 @@ export class ProfileComponent implements OnInit {
                 console.log(this.userInfo);
               }
             });
+
           }
           
 
@@ -154,8 +155,7 @@ export class ProfileComponent implements OnInit {
                 // Populate text fields
                 firstName: this.basicInfoForm.get('firstName')?.value,
                 lastName: this.basicInfoForm.get('lastName')?.value,
-                cellphoneNumber:
-                    this.basicInfoForm.get('cellphoneNumber')?.value,
+                cellphoneNumber: this.basicInfoForm.get('cellphoneNumber')?.value,
                 email: this.basicInfoForm.get('email')?.value,
                 idNo: this.basicInfoForm.get('idNo')?.value,
                 accountNo: this.basicInfoForm.get('accountNo')?.value,

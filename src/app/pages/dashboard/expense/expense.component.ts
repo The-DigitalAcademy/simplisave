@@ -80,7 +80,6 @@ export class ExpenseComponent {
     
     this.service.getTransactions2().subscribe((res: Transaction[]) => {
       this.items1 = res;
-      console.log('items from gettransactions2', this.items1)
 
       this.filterAndCalculateSumMoneyOut();
       this.createChart(...this.sumMoneyOutMonths);
@@ -116,14 +115,15 @@ export class ExpenseComponent {
   // }
 
   getTypes() {
-    console.log('getTypes called'); 
+   
     this.service.getTypesBackend().pipe(
       catchError((error: ApiResponse) => {
+        
         if (error.status === 404) {
-          console.log('Budgets not found.');
+          
           this.isTypesEmpty = 'empty';
         } else {
-          console.error('Other error:', error);
+          
           this.isTypesEmpty = 'error';
         }
         return of(null);
@@ -156,7 +156,6 @@ export class ExpenseComponent {
   // }
 
   checkDataFetched() {
-    console.log('checkDataFetched called'); 
     const sub = this.service.getTypesBackend().pipe(
       catchError((error: ApiResponse) => {
         return of(null);

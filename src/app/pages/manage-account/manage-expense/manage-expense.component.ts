@@ -96,6 +96,7 @@ export class ManageExpenseComponent implements OnInit, AfterViewInit {
         });
     } */
 
+
   // Responsible for making an HTTP request to fetch goal savings data.
   // Lebohang Mokoena
   // 2023/07/31
@@ -128,6 +129,7 @@ export class ManageExpenseComponent implements OnInit, AfterViewInit {
       if (this.percentageSaved >= 100) {
         console.log("executing increase goal");
         this.increaseGoal();
+
       }
     } else {
       console.log('Amount set is zero, cannot calculate percentage.');
@@ -176,6 +178,7 @@ export class ManageExpenseComponent implements OnInit, AfterViewInit {
   /* call http get function in the service to get all the transaction records
   -Mohammed Badat
   - 2023/08/01*/
+
   getTransactionsFromApi() {
     this.accountService.getTransactions2().subscribe((res) => {
       this.items1 = res;
@@ -183,7 +186,6 @@ export class ManageExpenseComponent implements OnInit, AfterViewInit {
       this.checkDataFetched(); // Call checkDataFetched after items1 is populated
     });
   }
-
   /* call http get function in the service file to fetch the types of expense allocation categories
        set by the user to populate the checklist
        -Mohammed Badat
