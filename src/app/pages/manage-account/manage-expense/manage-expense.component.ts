@@ -8,6 +8,7 @@ import { BudgetResponse, TransactionType } from 'src/app/interfaces/transactions
 import { AuthService } from 'src/app/services/auth-service.service';
 import { StateService } from 'src/app/services/state.service';
 import { Chart, ChartOptions } from 'chart.js'; // Import Chart.js
+import { ExpenseModalComponent } from '../../dashboard/expense/expense-modal/expense-modal.component';
 
 @Component({
   selector: 'app-manage-expense',
@@ -140,6 +141,12 @@ export class ManageExpenseComponent implements OnInit, AfterViewInit {
     localStorage.setItem('typeId', id);
     const dialogRef = this.dialog.open(ManageModalComponent, {
       width: '450px', // Set the desired width of the modal
+    });
+  }
+
+  openAddExpenseModal(): void {
+    const dialogRef = this.dialog.open(ExpenseModalComponent, {
+      width: '450px',
     });
   }
 
