@@ -6,6 +6,7 @@ import { AccountService } from 'src/app/services/account.service';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { StateService } from 'src/app/services/state.service';
 
 @Component({
   selector: 'app-add',
@@ -30,6 +31,7 @@ export class AddComponent implements OnInit {
   selectedType: string = '';
   transactionTypes: string[] = [];
   addData: AddData = { transactionType: '', description: '', amount: null, availableBalance: ''};
+  updatedAccountDetails:any;
   typeOptions: CategoryOption[] = [
 
     { value: 'FOOD', label: 'Food' },
@@ -47,7 +49,8 @@ export class AddComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, 
     private dashService: DashboardService,
     private service: AccountService, 
-    private router: Router){
+    private router: Router,
+    private stateService:StateService){
 
       this.addTransactionForm = this.formBuilder.group({
         transactionType: ['', Validators.required],
@@ -125,16 +128,15 @@ export class AddComponent implements OnInit {
       // Call the modified addTransaction method with transactionData
       this.service.addTransaction(transactionData).subscribe(
         (response) => {
+
+          this.refreshAccountDetails();
           // Handle success by display a success message or navigate to another page
           Swal.fire({
             icon: 'success',
             title: 'Transaction Added Successfully',
             iconColor: '#AF144B',
             confirmButtonColor: '#AF144B'
-          }).then(() => {
-            // Navigate to the dashboard
-            this.router.navigate(['/transactions']);
-          });
+          })
         },
         (error) => {
           // Handle error by displaying an error message
@@ -151,6 +153,11 @@ export class AddComponent implements OnInit {
       this.addTransactionForm.reset();
     } 
   }
-  
+  refreshAccountDetails(){
+    this.service.getAccountData().subscribe(res => {
+      this.updatedAccountDetails = res;
+  });
+    this.stateService.updateAccountDetails(this.updatedAccountDetails);
+  }
 
 }
