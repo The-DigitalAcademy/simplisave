@@ -5,6 +5,7 @@ import { AccountService } from 'src/app/services/account.service';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { TransferModalComponent } from './transfer-modal/transfer-modal.component';
 import { Profile, Transaction, TransactionRecord } from 'src/app/interfaces/transactions.model';
+import { StateService } from 'src/app/services/state.service';
 
 
 
@@ -26,7 +27,8 @@ export class TopPartComponent implements OnInit {
     private route: ActivatedRoute,
     private accountService: AccountService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private stateService:StateService
   ) { }
 
   ngOnInit() {
@@ -35,6 +37,16 @@ export class TopPartComponent implements OnInit {
 
     this.dashService.refreshObservable$.subscribe(() => {
       this.refreshComponent();
+    });
+
+
+    this.stateService.accountData$.subscribe((updatedAccountDetails) => {
+      this.items=updatedAccountDetails;
+      console.log(this.items);
+      // Handle the updated category list here and update your UI
+      // For example, you can assign the updatedCategoryList to a local variable.
+      this.getAccountData();
+      this.getDataFromApi();
     });
   }
 
@@ -113,8 +125,12 @@ export class TopPartComponent implements OnInit {
     location.reload();
   }
 
-  formatToTwoDecimalPlaces(value: number): string {
-    return value.toFixed(2);
+  formatToTwoDecimalPlaces(value: number | undefined | null): string {
+    if (value === undefined || value === null) {
+      return 'N/A';
+    } else {
+      return value.toFixed(2);
+    }
   }
 
 }
