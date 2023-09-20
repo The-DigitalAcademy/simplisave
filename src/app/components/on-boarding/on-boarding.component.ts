@@ -13,7 +13,7 @@ constructor(private router:Router , private firstTimeUser:FirstTimeUserService){
 }
 
 continue(){
-  this.router.navigate(['/transactions']);
+  this.router.navigate(['/add']);
   
 }
 

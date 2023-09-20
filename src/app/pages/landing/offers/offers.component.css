@@ -93,8 +93,14 @@ body {
     text-align: center;
   }
   .heading {
-    font-size: var(--font-xx-large);
+    font-size: var(--font-x-large);
+    margin-bottom: 70px;
   }
+  .card-title{
+    font-size: var(--font-large);
+  }
+    
+  
 }
 
 @media (min-width: 820px) {

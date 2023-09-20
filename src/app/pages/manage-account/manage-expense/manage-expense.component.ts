@@ -94,7 +94,7 @@ export class ManageExpenseComponent implements OnInit {
     getAccountData() {
         this.accountService.getAccountData().subscribe(res => {
           this.items = res;
-          console.log(this.items.accounts[0].savingsAccount.goalSavings)
+          // console.log(this.items.accounts[0].savingsAccount.goalSavings)
           
       
           // Check if 'amountSet' is defined before accessing it
@@ -118,7 +118,7 @@ export class ManageExpenseComponent implements OnInit {
       calculatePercentageSaved() {
         if (this.amountSet !== 0) {
           this.percentageSaved = (this.totalSaved / this.amountSet) * 100;
-          console.log(`Total Saved as a percentage: ${this.percentageSaved.toFixed(2)}%`);
+          // console.log(`Total Saved as a percentage: ${this.percentageSaved.toFixed(2)}%`);
           // You can display or use the percentageSaved value as needed.
           if(this.percentageSaved>=100){
             this.increaseGoal();
@@ -303,7 +303,7 @@ deleteTransactionType(id: any){
       for (const record of this.goals) {
         const dateStr = record.dateCreated;
         const amountSet = record.amountSet;
-        console.log(amountSet)
+        // console.log(amountSet)
     
         if (dateStr) {
           const dateCreated = new Date(dateStr);
@@ -318,19 +318,19 @@ deleteTransactionType(id: any){
         this.amountSet=this.mostRecentGoal.amountSet;
         this.description=this.mostRecentGoal.description;
         this.totalSaved=this.mostRecentGoal.currentSaved;
-        console.log(this.description+'HI'+ this.amountSet)
+        // console.log(this.description+'HI'+ this.amountSet)
         if (this.totalSaved === null) {
           this.totalSaved = 0;
         }
       
-      console.log(this.mostRecentGoal)
+      // console.log(this.mostRecentGoal)
 
       if (this.amountSet<1 && this.description=='goal'){
-        console.log(this.amountSet, "AMOOOOUNT SEET")
+        // console.log(this.amountSet, "AMOOOOUNT SEET")
         this.authService.addGoal();
       }
       if (this.amountSet<1 && this.description=='plusGoal'){
-        console.log(this.amountSet, "AMOOOOUNT SEET")
+        // console.log(this.amountSet, "AMOOOOUNT SEET")
         this.authService.addNewGoal();
       }
       this.calculatePercentageSaved();
@@ -344,7 +344,7 @@ deleteTransactionType(id: any){
         };
         this.accountService.createSavingGoal(updatedData).subscribe(
             response => {
-              console.log(response,"added made goal empty")
+              // console.log(response,"added made goal empty")
             },
             error => {
                 //Handle the API errors if necessary
@@ -362,7 +362,7 @@ deleteTransactionType(id: any){
     
     this.accountService.createSavingGoal(updatedData).subscribe(
         response => {
-          console.log(response,"added made goal empty")
+          // console.log(response,"added made goal empty")
         },
         error => {
             //Handle the API errors if necessary

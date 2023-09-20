@@ -22,6 +22,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { TransactionsComponent } from './pages/Transactions/transactions/transactions.component';
 import { EmptyBehaviorGuardGuard } from './empty-behavior-guard.guard'; // Import your guard
 import { ResetComponent } from './pages/auth/forgot-password/reset/reset.component';
+import { AddComponent } from './pages/add/add.component';
 import { OnBoardingComponent } from './components/on-boarding/on-boarding.component';
 import { FirstTimeUserGuard } from './first-time-user.guard';
 
@@ -46,8 +47,7 @@ const routes: Routes = [
     {path:'transactions',component:TransactionsComponent}, /*canActivate: [EmptyBehaviorGuardGuard]},*/
     {path: 'reset', component:ResetComponent},
     {path:'onBoarding',component:OnBoardingComponent},
-
-
+    {path: 'add', component:AddComponent}
 ];
 
 @NgModule({

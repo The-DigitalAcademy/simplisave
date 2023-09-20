@@ -14,7 +14,7 @@ import { TransactionType, ApiResponse, ExpenseModalFormData, CategoryOption, Cre
 export class ExpenseModalComponent {
   formData: ExpenseModalFormData = { amount: null, category: '' };
   expenseForm!: FormGroup;
-  selectedCategory: string = '';
+  selectedCategory: string = ''; 
   categoryExistsError: boolean = false;
   types: TransactionType[] = [];
   transactionTypes: string[] = [];
@@ -62,7 +62,7 @@ export class ExpenseModalComponent {
       });
       // Update transactionTypes array
       this.transactionTypes = this.types.map(type => type.transactionsType);
-      console.log('Transaction Types:', this.transactionTypes);
+      
     });
   }
 
@@ -97,7 +97,6 @@ export class ExpenseModalComponent {
       // Check if the category already exists
       if (this.isCategoryAlreadyExists(selectedCategory)) {
         // Set the error flag to true or display an error message as needed
-        console.log('Selected Category:', selectedCategory);
         this.categoryExistsError = true;
         return;
       }
