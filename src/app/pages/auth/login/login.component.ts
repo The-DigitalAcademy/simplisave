@@ -72,7 +72,6 @@ export class LoginComponent implements OnInit {
         this.authService.setToken(authToken);                    // Set the token in the AuthService
         this.authService.successAlert();
         this.loginForm.reset();
-        this.router.navigate(['dashboard']);
       },
       (error) => {
         this.authService.failedAlert();
