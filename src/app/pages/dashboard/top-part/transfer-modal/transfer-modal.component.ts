@@ -67,8 +67,6 @@ export class TransferModalComponent {
   transfer() {
     if (this.transferForm.valid) {
       // Handle form submission
-      
-
       const amount = {
         amount: this.transferForm.value.amount,
       };
@@ -77,10 +75,6 @@ export class TransferModalComponent {
           this.refreshAccountDetails();
           this.dialogRef.close();
           this.authService.successfulMoneyTransfer();
-          location.reload();
-
-
-
         })
     }
   }
@@ -99,7 +93,6 @@ export class TransferModalComponent {
          mostRecentDate = dateCreated;
          this.mostRecentGoal = record;
        }
-       
      }
    }
    
