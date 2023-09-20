@@ -31,7 +31,9 @@ export class AddComponent implements OnInit {
   transactionTypes: string[] = [];
   addData: AddData = { transactionType: '', description: '', amount: null, availableBalance: ''};
   typeOptions: CategoryOption[] = [
+
     { value: 'FOOD', label: 'Food' },
+    {value: 'DEPOSIT', label: 'Deposit'},
     { value: 'ACCOMMODATION', label: 'Accommodation' },
     { value: 'TRANSPORT', label: 'Transport' },
     { value: 'BOOKS', label: 'Books' },
@@ -112,54 +114,42 @@ export class AddComponent implements OnInit {
 
   saveData() {
     if (this.addTransactionForm.valid) {
-      const selectedType = this.addTransactionForm.value.transactionType;
-      const description = this.addTransactionForm.value.description;
-      const amount = parseFloat(this.addTransactionForm.value.amount);
- 
-      // Check if the type already exists
-      if (this.isTypeAlreadyExists(selectedType)) {
-        // Set the error flag to true or display an error message as needed
-        this.errorAlert();
-        this.typeExistsError = true;
-        return;
-      }
- 
-      // Check if the amount is not a number or is negative
-      if (this.addTransactionForm.get('amount')?.value === '' || isNaN(amount) || amount < 0) {
-        // Set an error for the "amount" field
-        this.addTransactionForm.get('amount')?.setErrors({ 'invalidAmount': true });
-        return;
-      }
-
-    }
-
-    this.addData = {
-      ...this.addData,
-      transactionType: this.addTransactionForm.value.transactionType,
-      description: this.addTransactionForm.value.description,
-      amount: this.addTransactionForm.value.amount,
-
-    }
-
-    this.service.updateData(this.addData);
-    this.service.addTransaction();
-
-    this.addTransactionForm.reset();
-  }
-
-  isTypeAlreadyExists(transactionType: string): boolean {
-    const lowercaseCategory = transactionType.toLowerCase(); // Convert to lowercase for case-insensitive comparison
-    return this.transactionTypes.some(existingCategory => existingCategory.toLowerCase() === lowercaseCategory);
-  }
-
-
-  errorAlert() {
-    Swal.fire({
-      icon: 'error',
-      text: 'An error occurred',
-      iconColor: '#AF144B',
-      confirmButtonColor: '#AF144B'
-    });
+      // Construct the transactionData object based on the form values
+      const transactionData = {
+        transactionType: this.addTransactionForm.value.transactionType,
+        description: this.addTransactionForm.value.description,
+        amount: parseFloat(this.addTransactionForm.value.amount),
+        availableBalance: '' // this value is not used but is in the schema
+      };
+  
+      // Call the modified addTransaction method with transactionData
+      this.service.addTransaction(transactionData).subscribe(
+        (response) => {
+          // Handle success by display a success message or navigate to another page
+          Swal.fire({
+            icon: 'success',
+            title: 'Transaction Added Successfully',
+            iconColor: '#AF144B',
+            confirmButtonColor: '#AF144B'
+          }).then(() => {
+            // Navigate to the dashboard
+            this.router.navigate(['/transactions']);
+          });
+        },
+        (error) => {
+          // Handle error by displaying an error message
+          Swal.fire({
+            icon: 'error',
+            text: 'An error occurred',
+            iconColor: '#AF144B',
+            confirmButtonColor: '#AF144B'
+          });
+        }
+      );
+  
+      // Reset the form after successful submission
+      this.addTransactionForm.reset();
+    } 
   }
   
 

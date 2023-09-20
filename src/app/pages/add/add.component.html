@@ -7,14 +7,14 @@
 
 <div class="mask d-flex ">
     <div class="container">
-      <div class="row d-flex justify-content-center align-items-center">
-        <h1 class="title text-center mb-5 mt-5">Add Transactions</h1>
+      <div class="row d-flex justify-content-left align-items-left">
+        <h1 class="title text-left ">Add Transactions</h1>
     
-        <div class="col-12 col-md-9 col-lg-7 col-xl-5">
-          <div class="card" style="border-radius: 15px;">
+        <!-- <div class="col-12 col-md-9 col-lg-7 col-xl-5"> -->
+          <div class="card " style="border-radius: 15px;">
             <div class="card-body p-5">
                 
-                <form class="form" [formGroup]="addTransactionForm" (ngSubmit)="add()">
+                <form class="form " [formGroup]="addTransactionForm" (ngSubmit)="add()">
                 
                   <mat-form-field class="validation mb-4" appearance="outline">
                     <mat-label>Type</mat-label>
@@ -26,14 +26,9 @@
                         formControlName="transactionType" required />
                       </option>
                     </select>
-                    
-                    <!-- Display error message if the category already exists -->
                     <mat-error class="error-message" *ngIf="shouldShowError('type', 'required')">
                       Type is required
                     </mat-error>
-                    <mat-error class="error-message" *ngIf="typeExistsError">
-                      Type has already been set,<br>
-                      edit on the manage page.</mat-error>
                   </mat-form-field>
                 
                   <mat-form-field class="validation mb-4" appearance="outline">
@@ -54,7 +49,7 @@
                 </form>
             </div>
           </div>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
   </div>
