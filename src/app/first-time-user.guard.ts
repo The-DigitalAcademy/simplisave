@@ -28,7 +28,7 @@ canActivate(
         Swal.fire({
           icon: 'success',
           title: 'Welcome to SimpliSave',
-          text: 'Please add your transactions to continue..',
+          text: 'Please add transactions to continue..',
           iconColor: '#AF144B',
           confirmButtonColor: '#AF144B',
         }).then(() => {
