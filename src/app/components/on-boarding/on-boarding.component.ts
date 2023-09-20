@@ -17,8 +17,5 @@ continue(){
   
 }
 
-skip(){
-  
-  this.router.navigate(['/dashboard']);
-}
+
 }
