@@ -62,7 +62,7 @@ export class TopPartComponent implements OnInit {
     this.accountService.getTransactions2()
       .subscribe((res: Transaction[]) => {
         this.items1 = res;
-        // console.log('Getting data from the api', this.items1)
+         console.log('Getting data from the api', this.items1)
         this.filterData();
       });
   }
@@ -101,7 +101,7 @@ export class TopPartComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      
       if (result) {
 
       }

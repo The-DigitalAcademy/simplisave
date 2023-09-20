@@ -1,0 +1,163 @@
+.add-container {
+  display: flex;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 2%;
+}
+
+.card{
+  width: 80vw;
+  max-width: 150vw;
+}
+
+.title {
+  color: var(--primary-color);
+  font-size: var(--font-xx-large);
+  font-family: Roboto;
+  font-weight: var(--semi-bold);
+  line-height: 20px;
+  word-wrap: break-word;
+  margin-top: 10px;
+  padding: 2vw;
+}
+
+
+.validation {
+  width: 100%;
+  font-size: var(--font-x-small);
+
+}
+
+.btn {
+  background-color: var(--primary-color);
+  float: right;
+  border-radius: 10px;
+  margin-right: 10px;
+  width: 30%;
+  color: white;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-label .mat-placeholder {
+  font-size: xx-small !important;
+
+}
+
+mat-label {
+  font-size: var(--font-x-small);
+}
+
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  border-color: var(--primary-color) !important;
+}
+
+@media(max-width: 2100px){
+  .card{
+    width: 120vw;
+  }
+}
+
+@media(max-width: 1800px){
+  .card{
+    width: 80vw;
+  }
+}
+
+
+@media(max-width: 1300px){
+  .card{
+    width: 75vw;
+  }
+}
+
+@media (max-width: 1100px) {
+  
+  .card{
+    width: 75vw;
+  }
+
+}
+@media (max-width: 600px) {
+  .title {
+    font-size: 24px;
+    padding: 3vw;
+  }
+  .card{
+    width: 90vw;
+  }
+
+  .p-5 {
+    padding: 1rem!important;
+  }
+
+}
+
+@media (max-width: 420px) {
+  .title {
+    font-size: 24px;
+    padding: 3vw;
+  }
+  .card{
+    width: 95vw;
+  }
+
+  .p-5 {
+    padding: 1rem!important;
+  }
+
+}
+
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 24px;
+    padding: 3vw;
+  }
+  .card{
+    width: 93.5vw;
+  }
+
+  .p-5 {
+    padding: 1rem!important;
+  }
+
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 24px;
+    padding: 3vw;
+  }
+  .card{
+    width: 92vw;
+  }
+
+  .p-5 {
+    padding: 1rem!important;
+  }
+
+}
+
+
+@media(max-width: 300px){
+  .card{
+    width: 92vw;
+  }
+.form{
+  width: 200px
+}
+
+.btn{
+  width: 50%;
+}
+
+.p-5 {
+  padding: 1rem!important;
+}
+ 
+}

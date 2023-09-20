@@ -57,7 +57,6 @@ export class ExpenseComponent {
     
     this.service.getTransactions2().subscribe((res: Transaction[]) => {
       this.items1 = res;
-      console.log('items from gettransactions2', this.items1)
 
       this.filterAndCalculateSumMoneyOut();
       this.createChart(...this.sumMoneyOutMonths);
@@ -93,22 +92,22 @@ export class ExpenseComponent {
   // }
 
   getTypes() {
-    console.log('getTypes called'); 
+   
     this.service.getTypesBackend().pipe(
       catchError((error: ApiResponse) => {
-        console.error('Error fetching types:', error);
+        
         if (error.status === 404) {
-          console.log('Budgets not found.');
+          
           this.isTypesEmpty = 'empty';
         } else {
-          console.error('Other error:', error);
+          
           this.isTypesEmpty = 'error';
         }
         return of(null);
       })
     ).subscribe((response: ApiResponse | null) => {
       if (response) {
-        console.log('Budgets received:', response.budgets);
+        
         this.types$ = of(response.budgets);
         this.calculateTotalForEachType();
       }
@@ -125,7 +124,6 @@ export class ExpenseComponent {
   // }
 
   checkDataFetched() {
-    console.log('checkDataFetched called'); 
     const sub = this.service.getTypesBackend().pipe(
       catchError((error: ApiResponse) => {
         console.error('Error fetching types:', error);

@@ -7,12 +7,15 @@ import { AuthService } from './auth-service.service';
 import {  Profile} from '../interfaces/transactions.model';
 import { User } from '../interfaces/user';
 import { Transaction } from '../interfaces/transactions.model';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AccountService {
     private refreshSubject = new Subject<void>();
+    private addData: any = {};
 
     refreshObservable = this.refreshSubject.asObservable();
 
@@ -20,23 +23,9 @@ export class AccountService {
 
     constructor(
         private http: HttpClient,
-        private authService: AuthService
+        private authService: AuthService,
+        private router: Router
     ) {}
-
-    // getAccountData(): Observable<User[]>   {
-       
-    //     return this.authService.getToken().pipe(
-    //         switchMap(token => {
-    //             const headers = new HttpHeaders({
-    //                 Authorization: `Bearer ${token}`,
-    //             });
-    //             return this.http.get<User[]>(
-    //                 `${environment.STUDENT_DETAILS_URL}`,
-    //                 { headers }
-    //             );
-    //         })
-    //     );
-    // }
 
     getAccountData(): Observable<Profile> {
         return this.authService.getToken().pipe(
@@ -64,17 +53,15 @@ export class AccountService {
     getTypesBackend(): Observable<any> {
         return this.http.get<any>(`${environment.BACKEND_URL}/budget/details`);
       }
-     
-     
-   
 
-    // createType(body: any): Observable<any> {
-    //     return this.http.post<any>(
-    //         `${environment.BACKEND_URL}/budget/creation`,
-    //         body
-    //     );
-    // }
+    updateData(data: any): void {
+        this.addData = { ...this.addData, ...data };
+      }
 
+      addTransaction(transactionData: any): Observable<any> {
+        return this.http.post(`${environment.BACKEND_URL}/transactions/transaction`, transactionData);
+      }
+     
     createType(body: any): Observable<any> {
         return this.http.post<any>(
           `${environment.BACKEND_URL}/budget/creation`,
