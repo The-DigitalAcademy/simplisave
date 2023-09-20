@@ -10,8 +10,8 @@ body {
 }
 .bigger-icon{
   color: var(--primary-lighter)!important;
-  margin-left: 1%;
-  margin-bottom: -3.5px;
+  margin-left: 1% !important;
+  margin-bottom: -5.5px !important;
   
 }
 
