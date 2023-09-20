@@ -64,6 +64,11 @@ export class ExpenseComponent {
       this.getTypes();
     });
 
+    console.log(this.stateService.accountData$);
+    console.log(this.stateService.categoryList$);
+    console.log(this.stateService.goal$);
+
+
    
   }
 
