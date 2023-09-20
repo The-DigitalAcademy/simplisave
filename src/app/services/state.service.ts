@@ -33,4 +33,7 @@ export class StateService {
     this.accountDataSubject.next(updatedAccountDetails);
   }
 
+  updateGoal(goal:any){
+    this.goalSubject.next(goal);
+  }
 }

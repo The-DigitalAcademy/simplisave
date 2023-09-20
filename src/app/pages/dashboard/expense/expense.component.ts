@@ -9,6 +9,7 @@ import { Observable, of } from 'rxjs';
 import { ApiResponse, Budget, Transaction, TransactionRecord, TypeTotals } from 'src/app/interfaces/transactions.model';
 import { catchError, isEmpty, map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { StateService } from 'src/app/services/state.service';
 
 
 @Component({
@@ -23,12 +24,13 @@ export class ExpenseComponent {
     private route: ActivatedRoute,
     private service: AccountService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private stateService:StateService
   ) { }
 
   chart!: Chart;
   items1: Transaction[] = []; 
-  types$: Observable<Budget[]> = of([]); 
+  types$: Budget[] = []; 
   isTypesEmpty: boolean | string = '';
   sumMoneyOutMonths: number[] = [];
   typeTotals: TypeTotals = {}; // Property to store typeTotals
@@ -47,6 +49,22 @@ export class ExpenseComponent {
  */ this.dashService.refreshObservable$.subscribe(() => {
       this.refreshComponent();
     });
+
+    this.stateService.categoryList$.subscribe((updatedCategoryList) => {
+      this.types$=updatedCategoryList;
+      console.log(this.types$);
+      // Handle the updated category list here and update your UI
+      // For example, you can assign the updatedCategoryList to a local variable.
+      this.getTransactionsFromApi();
+      this.getTypes();
+    });
+
+    this.stateService.accountData$.subscribe((updatedAccountDetails) => {
+      this.getTransactionsFromApi();
+      this.getTypes();
+    });
+
+   
   }
 
 
@@ -96,7 +114,6 @@ export class ExpenseComponent {
     console.log('getTypes called'); 
     this.service.getTypesBackend().pipe(
       catchError((error: ApiResponse) => {
-        console.error('Error fetching types:', error);
         if (error.status === 404) {
           console.log('Budgets not found.');
           this.isTypesEmpty = 'empty';
@@ -109,8 +126,17 @@ export class ExpenseComponent {
     ).subscribe((response: ApiResponse | null) => {
       if (response) {
         console.log('Budgets received:', response.budgets);
-        this.types$ = of(response.budgets);
+        this.types$ = response.budgets;
         this.calculateTotalForEachType();
+      }
+    },
+    (error) => {
+      if (error.status === 404) {
+        console.log("No budget set yet");
+        this.isTypesEmpty = ''
+        // You can optionally set this.isTypesEmpty to a specific value here if needed.
+      } else {
+        console.error("An error occurred:", error);
       }
     });
   }
@@ -128,7 +154,6 @@ export class ExpenseComponent {
     console.log('checkDataFetched called'); 
     const sub = this.service.getTypesBackend().pipe(
       catchError((error: ApiResponse) => {
-        console.error('Error fetching types:', error);
         return of(null);
       })
     ).subscribe((response: ApiResponse | null) => {
@@ -138,6 +163,15 @@ export class ExpenseComponent {
         this.calculateTotalForEachType();
       } else {
         this.isTypesEmpty = 'error';
+      }
+    },
+    (error) => {
+      if (error.status === 404) {
+        console.log("No budget set yet");
+        this.isTypesEmpty = ''
+        // You can optionally set this.isTypesEmpty to a specific value here if needed.
+      } else {
+        console.error("An error occurred:", error);
       }
     });
 
@@ -210,6 +244,11 @@ export class ExpenseComponent {
       throw new Error("Canvas context is null.");
     }
   
+    // Check if a chart already exists and destroy it
+    if (this.chart) {
+      this.chart.destroy();
+    }
+  
     const currentMonthName = new Date().toLocaleString('default', { month: 'long' });
     const prev1MonthName = new Date(new Date().setMonth(new Date().getMonth() - 1)).toLocaleString('default', { month: 'long' });
     const prev2MonthName = new Date(new Date().setMonth(new Date().getMonth() - 2)).toLocaleString('default', { month: 'long' });
@@ -279,6 +318,7 @@ export class ExpenseComponent {
     });
   }
   
+  
 
   //Modal to add to checklist, we pecify which component modal is in to open it
   openExpenseModal(): void {
@@ -318,8 +358,8 @@ export class ExpenseComponent {
 
     this.typeTotals = {};
 
-    this.types$.subscribe(types => {  //added the subscription to the 14 sep 2023 by delphia
-      types.forEach((type: Budget) => {
+
+      this.types$.forEach((type: Budget) => {
         const typeName = type.transactionsType;
         const filteredData = transactions.filter((record: TransactionRecord) => {
           const isMoneyOutPositive = record.moneyOut > 0;
@@ -335,10 +375,11 @@ export class ExpenseComponent {
 
         this.typeTotals[typeName] = typeTotal; // Store the   in the typeTotals object
       });
+      console.log(this.typeTotals);
 
 
       this.compareTypesAndTypeTotals(); // Call the new function to compare types and typeTotals
-    });
+    
   }
 
   /*   compare the total monthly spending amounts for the different transaction types with the expense allocation limits
@@ -350,10 +391,10 @@ export class ExpenseComponent {
       return;
     }
 
-    this.types$.subscribe(types => {  //delphia added on the 14 sep 2023
-      for (const type of types) {
+      for (const type of this.types$) {
         const typeName = type.transactionsType;
         const typeTotal = this.typeTotals[typeName] || 0;
+        console.log(this.typeTotals[typeName] || 0);
         const typeAmount = type.amountSet || 0;
 
       if (typeTotal > typeAmount) {
@@ -365,6 +406,6 @@ export class ExpenseComponent {
         type.progress ="under limit";
       }
      }
-   });
+  
   }
 }
