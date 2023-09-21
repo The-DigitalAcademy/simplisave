@@ -137,6 +137,10 @@ export class AddComponent implements OnInit {
             iconColor: '#AF144B',
             confirmButtonColor: '#AF144B'
           })
+          // .then(() => {
+          //    // Reset the form after successful submission
+          //     this.addTransactionForm.reset();
+          // });
         },
         (error) => {
           // Handle error by displaying an error message
@@ -149,8 +153,6 @@ export class AddComponent implements OnInit {
         }
       );
   
-      // Reset the form after successful submission
-      this.addTransactionForm.reset();
     } 
   }
   refreshAccountDetails(){
