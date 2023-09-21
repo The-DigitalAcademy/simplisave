@@ -156,7 +156,7 @@ export class AddComponent implements OnInit {
           // Handle error by displaying an error message
           Swal.fire({
             icon: 'error',
-            text: 'An error occurred',
+            text: 'An error occurred/Insufficient funds',
             iconColor: '#AF144B',
             confirmButtonColor: '#AF144B'
           });

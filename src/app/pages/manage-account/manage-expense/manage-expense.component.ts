@@ -70,6 +70,8 @@ export class ManageExpenseComponent implements OnInit {
 
     this.stateService.categoryList$.subscribe((updatedCategoryList) => {
       this.transactionType = updatedCategoryList;
+      this.getAccountData();
+      this.calculateTotalForEachType();
     });
 
     console.log(this.transactionType);

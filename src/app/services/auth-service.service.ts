@@ -89,6 +89,7 @@ export class AuthService {
       title: 'Oops...',
       text: 'User not found or incorrect credentials. Please try again',
       iconColor: '#AF144B',
+      timer: 3000, // 3000 milliseconds (3 seconds)
       confirmButtonColor: '#AF144B'
     });
   }
