@@ -1,3 +1,4 @@
+import { error } from 'jquery';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { HttpClient } from '@angular/common/http';
@@ -74,6 +75,7 @@ export class LoginComponent implements OnInit {
         // this.loginForm.reset();
       },
       (error) => {
+        console.log(error);
         this.authService.failedAlert();
       }
     );
