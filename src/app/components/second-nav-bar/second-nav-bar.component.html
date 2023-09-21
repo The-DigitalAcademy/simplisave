@@ -13,7 +13,7 @@
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" routerLink="/profile">Profile</a>
-        <a class="dropdown-item" href="#">Logout</a>
+        <a class="dropdown-item"(click)="logout()">Logout</a>
       </div>
     </div>
 </div>
@@ -38,6 +38,12 @@
         <a class="nav-link" routerLink="/transactions"><mat-icon>compare_arrows</mat-icon>Transactions</a>
       </li>
       <hr>
+
+      <li class="nav-item hide-on-desktop">
+        <a class="nav-link" routerLink="/add"><mat-icon>get_app</mat-icon>Add Transactions</a>
+      </li>
+      <hr>
+
       <li class="nav-item hide-on-desktop">
         <a class="nav-link" routerLink="/profile"><mat-icon>account_circle</mat-icon>Profile</a>
       </li>

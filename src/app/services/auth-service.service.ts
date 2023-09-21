@@ -47,7 +47,6 @@ export class AuthService {
     return this.http.post(`${environment.LOGIN_URL}`, data).pipe(
       tap((response: any) => {
         const authToken = response?.token; // Extract the token property if it exists
-        console.log('Token in AuthService:', authToken);
         this.setToken(authToken);
         this.isAuthenticatedSubject.next(true);
       })
@@ -67,7 +66,9 @@ export class AuthService {
     sessionStorage.clear();
     this.isAuthenticatedSubject.next(false);
     this.tokenSubject.next(null);
-    this.router.navigate(['/login']);
+    Swal.close();
+    localStorage.clear();
+    window.location.href = '/login';
   }
 
   successAlert() {
@@ -77,7 +78,10 @@ export class AuthService {
       text: 'Welcome to SimpliSave',
       iconColor: '#AF144B',
       confirmButtonColor: '#AF144B'
-    });
+    }).then(() => {
+      // Navigate to the dashboard page
+      this.router.navigate(['/dashboard']);
+     });
   }
 
   failedAlert() {
@@ -86,6 +90,7 @@ export class AuthService {
       title: 'Oops...',
       text: 'User not found or incorrect credentials. Please try again',
       iconColor: '#AF144B',
+      timer: 3000, // 3000 milliseconds (3 seconds)
       confirmButtonColor: '#AF144B'
     });
   }
@@ -120,7 +125,10 @@ export class AuthService {
     });
   }
 
-  addGoal() {
+ // Function to display the addGoal SweetAlert
+ addGoal() {
+  // Check if the addGoal alert has already been shown
+  if (!localStorage.getItem('addGoalShown')) {
     Swal.fire({
       icon: 'warning',
       title: 'Please set a new savings goal',
@@ -128,19 +136,30 @@ export class AuthService {
       timer: 3000, // 3000 milliseconds (3 seconds)
       showConfirmButton: false, // Hide the "OK" button
     });
-  }
 
-  addNewGoal(){
+    // Set a flag in localStorage to indicate that the addGoal alert has been shown
+    localStorage.setItem('addGoalShown', 'true');
+  }
+}
+
+// Function to display the addNewGoal SweetAlert
+ addNewGoal() {
+  console.log(localStorage.getItem('addNewGoalShown'));
+  // Check if the addNewGoal alert has already been shown
+  if (!localStorage.getItem('addNewGoalShown')) {
     Swal.fire({
       icon: 'success',
       title: 'Congratulations you have achieved your saving goal',
-      text:'Your goal has been reset, please set a new goal',
+      text: 'Your goal has been reset, please set a new goal',
       iconColor: '#AF144B',
       timer: 3000, // 3000 milliseconds (3 seconds)
       showConfirmButton: false, // Hide the "OK" button
     });
 
+    // Set a flag in localStorage to indicate that the addNewGoal alert has been shown
+    localStorage.setItem('addNewGoalShown', 'true');
   }
+}
 }
 
 

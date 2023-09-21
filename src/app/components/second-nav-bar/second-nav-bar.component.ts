@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth-service.service';
+import { StateService } from 'src/app/services/state.service';
 
 @Component({
     selector: 'app-second-nav-bar',
@@ -13,11 +14,17 @@ export class SecondNavBarComponent {
 
     constructor(
         private accountService: AccountService,
-        private auth: AuthService
+        private auth: AuthService,
+        private stateService:StateService
     ) {}
 
     ngOnInit() {
         this.getAccountData();
+        this.stateService.profileData$.subscribe((profileData) => {
+            this.items=profileData;
+            this.getAccountData();
+          });
+
     }
 
     logout() {

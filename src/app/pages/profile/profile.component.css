@@ -10,9 +10,9 @@ body {
 }
 
 img{
-  width: 130px;
-  height: 160px;
-  border-radius: 80px;
+  margin-bottom: 10%;
+  width:120px;
+  height:120px;
 }
 
 .banner {
@@ -57,9 +57,6 @@ img{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-img{
-margin-bottom: 2%;
 }
 
 .overview-heading {
@@ -166,7 +163,7 @@ label{
 }
 
 .save-button {
-  max-width: 10%;
+  max-width: 13.5%;
   border-radius: 20px;
   border-style: none;
   background-color:var(--primary-lighter);
@@ -184,7 +181,7 @@ label{
 }
 
 .cancel-button {
-  max-width: 10%;
+  max-width: 13.5%;
   border-radius: 20px;
   border-style: solid;
   border-width: 0.1px;
@@ -259,6 +256,11 @@ nav a.active {
 }
 
 @media screen and (max-width: 512px) {
+
+  img{
+    width: 100px;
+    height: 100px;
+  }
 .banner {
     display: none;
 }
@@ -338,6 +340,10 @@ height: 30px;
 }
 }
 @media screen and (min-width: 1500px) {
+  img{
+    width: 160px;
+    height: 160px;
+  }
 .line{
   margin-top: 2.7%;
 }

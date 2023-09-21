@@ -1,0 +1,60 @@
+<app-second-nav-bar></app-second-nav-bar>
+
+<div class="add-container">
+<div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>  
+
+<div class="mask d-flex  ">
+    <div class="container">
+      <div class="row d-flex justify-content-left align-items-left">
+        <h1 class="title text-left ">Add Transactions</h1>
+    
+        <!-- <div class="col-12 col-md-9 col-lg-7 col-xl-5"> -->
+        <div class="d-flex justify-content-center align-items-center">
+        <div class="card-container">
+          <div class="card justify-content-center align-items-center" style="border-radius: 15px;">
+            <div class="card-body p-5">
+                
+                <form class="form " [formGroup]="addTransactionForm" (ngSubmit)="add()">
+                
+                  <mat-form-field class="validation mb-4" appearance="outline">
+                    <mat-label>Type</mat-label>
+                    <select type="text" class="form-control-plaintext" id="transactionType" name="transactionType" [(ngModel)]="addData.transactionType"
+                      formControlName="transactionType" required>
+                      <option *ngFor="let option of typeOptions" [value]="option.value">
+                        {{ option.label }}
+                        <input matInput type="text" class="form-control-plaintext" id="transactionType" [(ngModel)]="addData.transactionType"
+                        formControlName="transactionType" required />
+                      </option>
+                    </select>
+                    <mat-error class="error-message" *ngIf="shouldShowError('type', 'required')">
+                      Type is required
+                    </mat-error>
+                  </mat-form-field>
+                
+                  <mat-form-field class="validation mb-4" appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <input matInput type="text" class="form-control-plaintext" id="description" [(ngModel)]="addData.description"
+                      formControlName="description" required />
+                  </mat-form-field>
+                  <mat-form-field class="validation mb-4" appearance="outline">
+                    <mat-label>Amount</mat-label>
+                    <input matInput type="number" class="form-control-plaintext" id="amount" [(ngModel)]="addData.amount"
+                      formControlName="amount" required />
+                  </mat-form-field>
+                
+                  <div class="d-flex justify-content-center align-items-center">
+                    <button [disabled]="!addTransactionForm.valid" class="btn" type="submit">Add</button>
+                  </div>
+                
+                </form>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -9,6 +9,13 @@ export interface LoginData {
   password: string;
 }
 
+export interface AddData{
+  transactionType: string;
+  description: string;
+  amount: number | null;
+  availableBalance: string;
+}
+
 // token-response.model.ts (create a new file for this type definition) LOGIN
 export interface TokenResponse {
   access_token: string;
@@ -34,7 +41,16 @@ export interface Transaction {
     moneyIn: number;
     moneyOut: number;
     availableBalance: number;
-    // image: string;
+}
+
+export interface TransactionRecord {
+  transactionId: number;
+  transactionType: string;
+  transactionDate: Date;
+  description: string;
+  moneyIn: number;
+  moneyOut: number;
+  availableBalance: number;
 }
 
 export interface User {
@@ -53,66 +69,55 @@ export interface GroupedTransactions {
 }
 
 
-
-
-
-// token.interface.ts
-// export interface Token {
-//   access_token: string;
-//   expires_in: number;
-// }
-
-
-
 export interface Profile {
-    userId: number;
-    firstName: string;
-    lastName: string;
-    username: string;
-    email: string;
-    cellphoneNumber: string;
-    password: string;
-    createdAt: string;
-    updatedAt: string;
-    deleted: boolean;
-    roles: { id: number; name: string }[];
-    accounts: {
-        accountId: number;
-        accountNo: string;
-        transaction: {
-            transactionId: number;
-            transactionType: string;
-            transactionDate: string;
-            description: string;
-            moneyIn: number;
-            moneyOut: number;
-            availableBalance: number;
-            accountId: string;
-        }[];
-        accountBalance: number;
-        student: string;
-        accountType: string;
-        savingsAccount: {
-            savingsAccountId: number;
-            totalSavings: number;
-            dateUpdated: string;
-            account: string;
-            goalSavings: {
-                goalId: number;
-                'Amount Set': number;
-                'Amount current saved': number;
-                Description: string;
-                dateCreated: string;
-                savingsAccount: string;
-                deleteGoalSavings: boolean;
-                deleted: boolean;
-            }[];
-            savingsAccountNumber: string;
-        };
-        deleted: boolean;
-    }[];
-    idNo: string;
-    imageUrl: string | null;
+  userId: number;
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+  cellphoneNumber: string;
+  password: string;
+  createdAt: string;
+  updatedAt: string;
+  deleted: boolean;
+  roles: { id: number; name: string }[];
+  accounts: {
+      accountId: number;
+      accountNo: string;
+      transaction: {
+          transactionId: number;
+          transactionType: string;
+          transactionDate: string;
+          description: string;
+          moneyIn: number;
+          moneyOut: number;
+          availableBalance: number;
+          accountId: string;
+      }[];
+      accountBalance: number;
+      student: string;
+      accountType: string;
+      savingsAccount: {
+          savingsAccountId: number;
+          totalSavings: number;
+          dateUpdated: string;
+          account: string;
+          goalSavings: {
+              goalId: number;
+              'Amount Set': number;
+              'Amount current saved': number;
+              Description: string;
+              dateCreated: string;
+              savingsAccount: string;
+              deleteGoalSavings: boolean;
+              deleted: boolean;
+          }[];
+          savingsAccountNumber: string;
+      };
+      deleted: boolean;
+  }[];
+  idNo: string;
+  imageUrl: string | null;
 }
 
 export interface NavBarAccountData {
@@ -125,11 +130,16 @@ export interface BudgetResponse {
     budget: Budget[];
 }
 
+export interface ApiResponse {
+budgets: Budget[];
+message: string;
+status: number;
+}
+
 // export interface TransactionTypeResponse {
   //   budget: TransactionType[];
 // }
 
-//DASHBOARD --> EXPENSE-MODAL-BUDGET CREATION
 
 
 // DASHBOARD --> EXPENSE COMPONENT
@@ -142,6 +152,19 @@ export interface Budget{
     progress: string;
 }
 
+// Create an interface for the budget item
+export interface BudgetItem {
+  budgetId: number;
+  amountSet: number;
+  transactionsType: string;
+  progressAmount: number;
+}
+
+// Create an interface for the response from the service
+export interface BudgetResponses {
+  budgets: BudgetItem[];
+}
+
 // MANAGE EXPENSE COMPONENT
 export interface TransactionType {
     goalId: number;
@@ -150,19 +173,117 @@ export interface TransactionType {
     transactionsType:string;
 }
 
-// export interface ExpenseTransaction{
-// id: number;
-// date: Date;
-// description: string;
-// }
-
-
-
-export interface CurrentBalance {
-    [availableBalance: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
+export interface AddTransaction{
+  transactionType: string;
+  description: string;
+  amount: number;
 }
 
-// interface UpdateGoalData {
-//   amount: number;
-//   // Add more properties if needed
-// }
+
+
+
+//ADDED on the 15 September 2023 
+//interface for transfer modal
+export interface TransferFormData {
+  amount: number;
+}
+
+
+export interface TypeTotals {
+  [key: string]: number;
+}
+
+
+export interface ExpenseModalFormData {
+  amount: number | null; // Define the properties and their types as needed
+  category: string;
+  // Add other properties if your form has more fields
+}
+
+export interface CategoryOption {
+  value: string;
+  label: string;
+}
+
+
+
+export interface Type {
+  // Define the properties of the Type interface
+  typeId: number;
+  // ... other properties
+}
+
+export interface AccountDataResponse {
+  userId: number;
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+  accounts: Account[];
+}
+
+export interface Account {
+  accountId: number;
+  accountNo: string;
+  accountBalance: number;
+  accountType: string;
+  savingsAccount: SavingsAccount;
+  deleted: boolean;
+  // ...other properties as needed
+}
+
+export interface SavingsAccount {
+  savingsAccountId: number;
+  totalSavings: number;
+  dateUpdated: string;
+  goalSavings: GoalSavings[];
+  savingsAccountNumber: string;
+  // ...other properties as needed
+}
+
+export interface GoalSavings {
+  goalId: number;
+  amountSet: number;
+  description: string;
+  dateCreated: string;
+  savingsAccount: string;
+  deleteGoalSavings: boolean;
+  deleted: boolean;
+}
+
+export interface SavingsGoal {
+  goalId: number;
+  amountSet: number;
+  dateCreated: string; 
+  
+}
+
+export interface AccountItem {
+  accountId: number;
+  savingsAccount: {
+    goalSavings: SavingsGoal[];
+  };
+}
+
+export interface CreateTypeRequest {
+  amountSet: number;
+  transactionsType: string;
+}
+
+export interface CreateTypeResponse {
+  id: number;
+  transactionsType: string;
+  amountSet: number;
+}
+
+export interface Goal {
+  goalId: number;
+  amountSet: number;
+  currentSaved: number;
+  description: string;
+  dateCreated: string;
+}
+
+
+
+

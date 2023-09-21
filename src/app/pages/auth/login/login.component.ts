@@ -1,3 +1,4 @@
+import { error } from 'jquery';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { HttpClient } from '@angular/common/http';
@@ -67,15 +68,14 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.loginData).subscribe(
       (response: any) => {
-        console.log('Token in LoginComponent:', response?.token); 
-        console.log('Logged in successfully');
+        
         const authToken = response?.token;                       // Extract the token property if it exists
         this.authService.setToken(authToken);                    // Set the token in the AuthService
-        this.authService.successAlert();
-        this.loginForm.reset();
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['/dashboard']);
+        // this.loginForm.reset();
       },
       (error) => {
+        console.log(error);
         this.authService.failedAlert();
       }
     );

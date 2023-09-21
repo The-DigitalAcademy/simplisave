@@ -8,6 +8,10 @@ body {
   padding-left: 2vw;
   padding-right: 2vw;
 }
+.bigger-icon{
+  color: var(--primary-lighter)!important;
+  
+}
 
 .container {
   display: flex;

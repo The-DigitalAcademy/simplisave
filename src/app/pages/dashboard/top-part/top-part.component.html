@@ -7,21 +7,20 @@
   
   
   <div class="item">
-   
-   <h6>Available Balance</h6>
 
-    <p>R {{ this.availableBalance }}</p>  
+    <h6>Available Balance</h6>
+    <p>R {{ formatToTwoDecimalPlaces(availableBalance) }}</p>
   </div>
 
   <div class="item">
 
     <h6>Monthly Spending</h6>
-    <p>R {{this.sumMoneyOut}}</p>
+    <p>R {{ formatToTwoDecimalPlaces(sumMoneyOut) }}</p>
   </div>
 
   <div class="item">
 
     <h6>Total Saved</h6>
-    <p>R {{this.totalSaved}}</p>
+    <p>R {{ formatToTwoDecimalPlaces(totalSaved) }}</p>
   </div>
 </div>

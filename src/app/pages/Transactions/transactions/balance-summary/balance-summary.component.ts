@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Profile, Transaction, User } from 'src/app/interfaces/transactions.model';
 import { AccountService } from 'src/app/services/account.service';
+import { StateService } from 'src/app/services/state.service';
 import { TransactionsService } from 'src/app/services/transactions.service';
 
 @Component({
@@ -21,12 +22,32 @@ export class BalanceSummaryComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private transactionService: TransactionsService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private stateService:StateService
   ) { }
 
   ngOnInit(): void {
     this.fetchDataFromAPI();
     this.getAccountData();
+
+    this.stateService.accountData$.subscribe((updatedAccountDetails) => {
+      if (updatedAccountDetails) {
+        this.currentBalance = updatedAccountDetails;
+    
+        if (updatedAccountDetails.accounts && updatedAccountDetails.accounts.length > 0) {
+          this.availableBalance = updatedAccountDetails.accounts[0].accountBalance;
+    
+          // Handle the updated category list here and update your UI
+          // For example, you can assign the updatedCategoryList to a local variable.
+          this.fetchDataFromAPI();
+          this.getAccountData();
+        } else {
+          return
+        }
+      } else {
+        return
+      }
+    });
   }
 
   /*
@@ -77,7 +98,7 @@ export class BalanceSummaryComponent implements OnInit {
   getAccountData() {
     this.accountService.getAccountData().subscribe(
       (res: Profile) => {
-        console.log('API Response balance summary getAccountData:', res);
+        // console.log('API Response balance summary getAccountData:', res);
         this.currentBalance = res;
         this.availableBalance = this.currentBalance.accounts[0].accountBalance;
       },
@@ -154,6 +175,10 @@ export class BalanceSummaryComponent implements OnInit {
       // If no filter provided, show all transactions
       this.displayedTransactions = [...this.transactionsList];
     }
+  }
+
+  formatToTwoDecimalPlaces(value: number): string {
+    return value.toFixed(2);
   }
 
 }

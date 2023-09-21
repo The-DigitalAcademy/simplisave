@@ -8,6 +8,8 @@ import {
 import { Router } from '@angular/router';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
+import { Observable } from 'rxjs';
+import { StateService } from 'src/app/services/state.service';
 
 interface CategoryOption {
     value: string;
@@ -20,12 +22,14 @@ interface CategoryOption {
     styleUrls: ['./manage-modal.component.css'],
 })
 export class ManageModalComponent {
+    types$!: Observable<any[]>; // Observable to track types
     formData: any = {};
     expenseForm!: FormGroup;
     id: any;
     Type: any;
     selectedCategory = '';
     foundBudget: any;
+    updatedList:any;
     categoryOptions: CategoryOption[] = [
         { value: 'FOOD', label: 'Food' },
         { value: 'ACCOMMODATION', label: 'Accommodation' },
@@ -43,7 +47,8 @@ export class ManageModalComponent {
         private service: AccountService,
         public dialogRef: MatDialogRef<ManageModalComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
-        private router: Router
+        private router: Router,
+        private stateService:StateService
     ) {
         this.expenseForm = this.formBuilder.group({
             category: { value: '', disabled: true }, // Disable the form control for the category
@@ -104,9 +109,9 @@ export class ManageModalComponent {
 
             this.service.updateBudget(this.id,updatedData).subscribe(
                 response => {
-                    
+                    this.refreshUpdate();
                     this.dialogRef.close();
-                    this.refreshManagePage();
+                    
                 },
                 error => {
                     console.error('API Error:', error);
@@ -120,5 +125,17 @@ export class ManageModalComponent {
     // 2023/08/10
     refreshManagePage() {
         this.service.triggerRefresh();
+    }
+
+
+    refreshUpdate(){
+        this.service.getTypesBackend().subscribe(
+            (res: any) => {
+              this.updatedList= res.budgets.filter((record: any) => !record.deleted);
+              this.stateService.updateCategoryList(this.updatedList);
+            }
+          );
+        
+        
     }
 }
