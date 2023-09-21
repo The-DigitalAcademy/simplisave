@@ -114,6 +114,17 @@ export class AddComponent implements OnInit {
     // Call your saveData method or perform other form submission logic
     this.saveData();
   }
+  resetForm() {
+    // Reset the form to its initial state
+    this.addTransactionForm.reset();
+  
+    // Clear validation errors by marking all controls as pristine and untouched
+    Object.keys(this.addTransactionForm.controls).forEach(key => {
+      this.addTransactionForm.get(key)?.setErrors(null);
+      this.addTransactionForm.get(key)?.markAsPristine();
+      this.addTransactionForm.get(key)?.markAsUntouched();
+    });
+  }
 
   saveData() {
     if (this.addTransactionForm.valid) {
@@ -137,10 +148,10 @@ export class AddComponent implements OnInit {
             iconColor: '#AF144B',
             confirmButtonColor: '#AF144B'
           })
-          // .then(() => {
-          //    // Reset the form after successful submission
-          //     this.addTransactionForm.reset();
-          // });
+          .then(() => {
+             // Reset the form after successful submission
+             this.resetForm();
+          });
         },
         (error) => {
           // Handle error by displaying an error message
