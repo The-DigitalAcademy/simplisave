@@ -11,6 +11,8 @@ body {
 
 img{
   margin-bottom: 10%;
+  width:120px;
+  height:120px;
 }
 
 .banner {
@@ -254,6 +256,11 @@ nav a.active {
 }
 
 @media screen and (max-width: 512px) {
+
+  img{
+    width: 100px;
+    height: 100px;
+  }
 .banner {
     display: none;
 }
@@ -333,6 +340,10 @@ height: 30px;
 }
 }
 @media screen and (min-width: 1500px) {
+  img{
+    width: 160px;
+    height: 160px;
+  }
 .line{
   margin-top: 2.7%;
 }
