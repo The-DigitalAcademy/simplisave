@@ -24,12 +24,15 @@
                   >
               </h1>
           </div>
+          <div *ngIf="isTypesEmpty === 'empty'" class="alert alert-danger">
+            <p>Error: Please add budgets for expense allocation types.</p>
+          </div>          
           <div class="expense-container">
               <div class="accordion-content">
                   <div class="accordion" id="accordionExample">
                       <div
                           class="accordion-item"
-                          *ngFor="let type of types$  let i = index">
+                          *ngFor="let type of types$ | async; let i = index">
                           <p
                               class="accordion-button"
                               data-bs-toggle="collapse"
@@ -67,4 +70,3 @@
           </div>
       </div>
   </div>
-

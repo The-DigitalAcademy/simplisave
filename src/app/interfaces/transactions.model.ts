@@ -1,13 +1,25 @@
 /*
-|---------------------------------------------------------------------------------------------------------------
-|   04-Sep-2023                                                                  Created By: Delphia Sekhukhune
-|   An interface  for LOGIN AND ADMINLOGIN -->   
-|---------------------------------------------------------------------------------------------------------------
+|----------------------------------------------------------------------------------------------------------------------
+| TRANSACTIONMODEL                                                                       Created By Sekhukhune Delphia
+|----------------------------------------------------------------------------------------------------------------------
+|  Date: 2023-Aug-14
+|  Transaction model defines the structure of various data objects within an application. These interfaces are utilized 
+|  to ensure type safety and consistency when working with data throughout the application.
+|----------------------------------------------------------------------------------------------------------------------
 */
+
+
+/*
+|----------------------------------------------------------------------------------------------------------------------                                                   
+|   An interface that represents an object for Login and Admin Login Components                                               Date: 04-Sep-2023 
+|----------------------------------------------------------------------------------------------------------------------
+*/
+
 export interface LoginData {
   username: string;
   password: string;
 }
+
 
 export interface AddData{
   transactionType: string;
@@ -16,57 +28,32 @@ export interface AddData{
   availableBalance: string;
 }
 
-// token-response.model.ts (create a new file for this type definition) LOGIN
+
 export interface TokenResponse {
-  access_token: string;
-  // Add other properties if necessary
+  token: string;
 }
-//An interface for the navBar 05-Sep-2023
+
+
+/*
+|----------------------------------------------------------------------------------------------------------------------                                                   
+|   An interface that represents an object for the NavBar component.                                                           Created Date: 05-Sep-2023 
+|----------------------------------------------------------------------------------------------------------------------
+*/
+
 export interface NavbarData {
   name: string;
-  // Add other properties if needed
 }
 
-export interface AccountData {
-  firstName: string;
-  // Add other properties if needed
-}
 
-// An interface  for Transactions-Details and Balance-Summary--> Added 16-Aug-2023 
-export interface Transaction {
-    transactionId: number;
-    transactionType: string;
-    transactionDate: string;
-    description: string;
-    moneyIn: number;
-    moneyOut: number;
-    availableBalance: number;
-}
-
-export interface TransactionRecord {
-  transactionId: number;
-  transactionType: string;
-  transactionDate: Date;
-  description: string;
-  moneyIn: number;
-  moneyOut: number;
-  availableBalance: number;
-}
-
-export interface User {
-    firstName: string;
-    lastName: string;
-    cellphoneNumber: string;
-    email: string;
-    accountNo: string;
-    idNo: string;
-}
-
-// An interface  for Transaction_Details --> Added 01-Sep-2023 
-export interface GroupedTransactions {
-  [date: string]: Transaction[]; // Use Transaction[] or whatever type represents your transaction data
-
-}
+/*
+|----------------------------------------------------------------------------------------------------------------------
+| PROFILE INTERFACE                                                              Created By: Sekhukhune Delphia
+|----------------------------------------------------------------------------------------------------------------------
+|  Date Created: 2023-Aug-14
+|  This interface that defines data structure for user profile information including user details, account details, 
+|  transaction history, and savings account details. It is used to represent user profiles in the application.
+|----------------------------------------------------------------------------------------------------------------------
+*/
 
 
 export interface Profile {
@@ -82,124 +69,102 @@ export interface Profile {
   deleted: boolean;
   roles: { id: number; name: string }[];
   accounts: {
-      accountId: number;
-      accountNo: string;
-      transaction: {
-          transactionId: number;
-          transactionType: string;
-          transactionDate: string;
-          description: string;
-          moneyIn: number;
-          moneyOut: number;
-          availableBalance: number;
-          accountId: string;
-      }[];
-      accountBalance: number;
-      student: string;
-      accountType: string;
-      savingsAccount: {
-          savingsAccountId: number;
-          totalSavings: number;
-          dateUpdated: string;
-          account: string;
-          goalSavings: {
-              goalId: number;
-              'Amount Set': number;
-              'Amount current saved': number;
-              Description: string;
-              dateCreated: string;
-              savingsAccount: string;
-              deleteGoalSavings: boolean;
-              deleted: boolean;
-          }[];
-          savingsAccountNumber: string;
-      };
-      deleted: boolean;
+    accountId: number;
+    accountNo: string;
+    transaction: {
+      transactionId: number;
+      transactionType: string;
+      transactionDate: string;
+      description: string;
+      moneyIn: number;
+      moneyOut: number;
+      availableBalance: number;
+      accountId: string;
+    }[];
+    accountBalance: number;
+    student: string;
+    accountType: string;
+    savingsAccount: {
+      savingsAccountId: number;
+      totalSavings: number;
+      dateUpdated: string;
+      account: string;
+      goalSavings: GoalSavingsData[];
+      savingsAccountNumber: string;
+    };
+    deleted: boolean;
   }[];
   idNo: string;
   imageUrl: string | null;
 }
 
-export interface NavBarAccountData {
-  [firstName: string]: User[]; // Use Transaction[] or whatever type represents your transaction data
-}
+
+/*
+|--------------------------------------------------------------------------------------------------------------------
+| TRANSACTION INTERFACE                                                              Created By: Sekhukhune Delphia
+|--------------------------------------------------------------------------------------------------------------------
+|  Date Created: 2023-Aug
+|  This interface represents a single transaction object for the following components: account.service, Balance-Summary,
+|  Expense, Manage-expense, Top-part, Transaction-Details and Transaction-Service
+|--------------------------------------------------------------------------------------------------------------------
+*/
 
 
-//MANAGE-EXPENSE
-export interface BudgetResponse {
-    budget: Budget[];
-}
-
-export interface ApiResponse {
-budgets: Budget[];
-message: string;
-status: number;
-}
-
-// export interface TransactionTypeResponse {
-  //   budget: TransactionType[];
-// }
-
-
-
-// DASHBOARD --> EXPENSE COMPONENT
-export interface Budget{
-
-    id: number;
-    amountSet: number;
-    progressAmount: number;
-    transactionsType: string;
-    progress: string;
-}
-
-// Create an interface for the budget item
-export interface BudgetItem {
-  budgetId: number;
-  amountSet: number;
-  transactionsType: string;
-  progressAmount: number;
-}
-
-// Create an interface for the response from the service
-export interface BudgetResponses {
-  budgets: BudgetItem[];
-}
-
-// MANAGE EXPENSE COMPONENT
-export interface TransactionType {
-    goalId: number;
-    name: string;
-    amount: number;
-    transactionsType:string;
-}
-
-export interface AddTransaction{
+export interface Transaction {
+  transactionId: number;
   transactionType: string;
+  transactionDate: string;
   description: string;
-  amount: number;
+  moneyIn: number;
+  moneyOut: number;
+  availableBalance: number;
 }
 
 
-
-
-//ADDED on the 15 September 2023 
-//interface for transfer modal
-export interface TransferFormData {
-  amount: number;
+export interface TransactionRecord {
+  transactionId: number;
+  transactionType: string;
+  transactionDate: Date;
+  description: string;
+  moneyIn: number;
+  moneyOut: number;
+  availableBalance: number;
 }
+
+
+/*
+|---------------------------------------------------------------------------------------------------------------------
+| TRANSACTION-DETAILS INTERFACE                                                       Created By: Sekhukhune Delphia
+|---------------------------------------------------------------------------------------------------------------------
+|  Date Created: 2023-Sep-01
+|  This interface defines a structure for grouping transactions by date for this component.
+|---------------------------------------------------------------------------------------------------------------------
+*/
+
+
+export interface GroupedTransactions {
+  [date: string]: Transaction[];
+
+}
+
+
+/*
+|-----------------------------------------------------------------------------------------------------------------------
+| TRANSFER-MODAL INTERFACE                                                                Created By: Sekhukhune Delphia
+|------------------------------------------------------------------------------------------------------------------------
+|  Date Created: 2023-Sep-05
+|  Option interface is used to define the structure of an object that represent options of categories for selection 
+|  whereas TypeTotals interface is used to store the total of a particular transaction type in this object. This objects 
+|  are utilized in the following components: Expense, Expense-Modal and Manage-Expense
+|----------------------------------------------------------------------------------------------------------------------
+*/
 
 
 export interface TypeTotals {
   [key: string]: number;
 }
 
-
-export interface ExpenseModalFormData {
-  amount: number | null; // Define the properties and their types as needed
-  category: string;
-  // Add other properties if your form has more fields
-}
-
+//  It'
 export interface CategoryOption {
   value: string;
   label: string;
@@ -207,76 +172,105 @@ export interface CategoryOption {
 
 
 
-export interface Type {
-  // Define the properties of the Type interface
-  typeId: number;
-  // ... other properties
+/*
+|----------------------------------------------------------------------------------------------------------------------
+| TRANSFER-MODAL INTERFACE                                                                      Created By: Sekhukhune Delphia
+|----------------------------------------------------------------------------------------------------------------------
+|  Date Created: 2023-Sep-15
+|  This TransferData interface is used to describe an object utilized for transferring money to a savings account in the 
+|  Transfer-Modal component and the MostRecentGoal is a type used to retrieve the most recent goal set.
+|----------------------------------------------------------------------------------------------------------------------
+*/
+
+
+export interface TransferData {
+  amount: number;
 }
 
-export interface AccountDataResponse {
-  userId: number;
-  firstName: string;
-  lastName: string;
-  username: string;
-  email: string;
-  accounts: Account[];
-}
+export type MostRecentGoal = number;
 
-export interface Account {
-  accountId: number;
-  accountNo: string;
-  accountBalance: number;
-  accountType: string;
-  savingsAccount: SavingsAccount;
+
+/*
+|----------------------------------------------------------------------------------------------------------------------
+| BUDGET INTERFACE                                                                      Created By: Sekhukhune Delphia
+|----------------------------------------------------------------------------------------------------------------------
+|  Date Created: 2023-Sep-16
+|  This interface epresents a data structure related to budget information for the following components: Expense, 
+|  Manage-Expense and Manage-Modal. The Budgetsresponse contain an array of Budget objects, which is another interface 
+|  that describes the structure of budget-related information.
+|----------------------------------------------------------------------------------------------------------------------
+*/
+
+
+export interface Budget {
+  amountSet: number;
+  budgetCreated: string;
+  budgetId: number;
+  budgetStatus: string;
   deleted: boolean;
-  // ...other properties as needed
+  progress: string;
+  progressAmount: number;
+  transactionsType: string;
 }
 
-export interface SavingsAccount {
-  savingsAccountId: number;
-  totalSavings: number;
-  dateUpdated: string;
-  goalSavings: GoalSavings[];
-  savingsAccountNumber: string;
-  // ...other properties as needed
+
+export interface BudgetsResponse {
+  budgets: Budget[];
 }
 
-export interface GoalSavings {
+
+/*
+|----------------------------------------------------------------------------------------------------------------------
+| APIRESPOSNE & TRANSACTIONTYPE INTERFACE                                                                      Created By: Sekhukhune Delphia
+|----------------------------------------------------------------------------------------------------------------------
+|  Date Created: 2023-Sep-17
+|  This interface is used to describe the structure of an API response object for the following components: Expense, 
+|  Manage-Expense, Expense-Modal, and Manage-Modal. TransactionType interface is used to define the structure of objects 
+|  representing transaction types.
+|----------------------------------------------------------------------------------------------------------------------
+*/
+
+
+export interface ApiResponse {
+  budgets: Budget[];
+  message: string;
+  status: number;
+}
+
+
+export interface TransactionType {
   goalId: number;
+  name: string;
+  amount: number;
+  transactionsType: string;
+}
+
+
+export interface AddTransaction{
+  transactionType: string;
+  description: string;
+  amount: number | null;
+  availableBalance: string;
+}
+
+/*
+|----------------------------------------------------------------------------------------------------------------------
+| GOAL INTERFACE                                                                      Created By: Sekhukhune Delphia
+|----------------------------------------------------------------------------------------------------------------------
+|  Date Created: 2023-Sep-18
+|  SavingGoalData Interface is used for adding a new goal or incrementing an existing goal in Manage-Expense and Goal-
+|  Modal whereas SavingsGoal and GoalSavingsData are used to ensure that the data you receive from API responses 
+| (Profile and SavingGoalData) matches the expected structures, providing type safety  
+|----------------------------------------------------------------------------------------------------------------------
+*/
+
+
+export interface SavingGoalData {
   amountSet: number;
   description: string;
-  dateCreated: string;
-  savingsAccount: string;
-  deleteGoalSavings: boolean;
-  deleted: boolean;
 }
 
 export interface SavingsGoal {
-  goalId: number;
-  amountSet: number;
-  dateCreated: string; 
-  
-}
-
-export interface AccountItem {
-  accountId: number;
-  savingsAccount: {
-    goalSavings: SavingsGoal[];
-  };
-}
-
-export interface CreateTypeRequest {
-  amountSet: number;
-  transactionsType: string;
-}
-
-export interface CreateTypeResponse {
-  id: number;
-  transactionsType: string;
-  amountSet: number;
-}
-
-export interface Goal {
   goalId: number;
   amountSet: number;
   currentSaved: number;
@@ -285,5 +279,46 @@ export interface Goal {
 }
 
 
+export interface GoalSavingsData {
+  goalId: number;
+  amountSet: number;
+  totalSaved: number;
+  currentSaved: number;
+  description: string;
+  dateCreated: string;
+  savingsAccount: string;
+  deleteGoalSavings: boolean;
+  deleted: boolean;
+}
 
 
+/*
+|------------------------------------------------------------------------------------------------------------------------
+| GOAL INTERFACE                                                                      Created By: Sekhukhune Delphia
+|-----------------------------------------------------------------------------------------------------------------------
+|  Date Created: 2023-Sep-19
+|  CreateTypeRequest is an interface that defines the structure of objects that are sent as requests when creating or 
+|  updating a budget/expense type whereas whereas CreateTypeResponse interface defines the structure of objects received
+|  when creating or updating a budget/expense type.
+|----------------------------------------------------------------------------------------------------------------------
+*/
+
+
+export interface CreateTypeRequest {
+  amountSet: number;
+  transactionsType: string;
+
+}
+
+
+export interface CreateTypeResponse {
+  id: number;
+  transactionsType: string;
+  amountSet: number;
+}
+
+
+export interface ExpenseModalFormData {
+  amount: number | null;
+  category: string;
+}

@@ -9,7 +9,6 @@ import { Observable, of } from 'rxjs';
 import { ApiResponse, Budget, Transaction, TransactionRecord, TypeTotals } from 'src/app/interfaces/transactions.model';
 import { catchError, isEmpty, map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
-import { StateService } from 'src/app/services/state.service';
 
 
 @Component({
@@ -24,13 +23,12 @@ export class ExpenseComponent {
     private route: ActivatedRoute,
     private service: AccountService,
     private router: Router,
-    public dialog: MatDialog,
-    private stateService:StateService
+    public dialog: MatDialog
   ) { }
 
   chart!: Chart;
-  items1: Transaction[] = []; 
-  types$: Budget[] = []; 
+  items1: Transaction[] = [];
+  types$: Observable<Budget[]> = of([]);
   isTypesEmpty: boolean | string = '';
   sumMoneyOutMonths: number[] = [];
   typeTotals: TypeTotals = {}; // Property to store typeTotals
@@ -43,33 +41,12 @@ export class ExpenseComponent {
     this.getTransactionsFromApi();
     this.getTypes();
 
-/*     Subscribe to the observable that holds the state of the checklist, triggering this which
-        triggers a refresh of the checklist once an item is saved
+/*  Subscribe to the observable that holds the state of the checklist, triggering this which
+ triggers a refresh of the checklist once an item is saved
         2023/08/03
  */ this.dashService.refreshObservable$.subscribe(() => {
       this.refreshComponent();
     });
-
-    this.stateService.categoryList$.subscribe((updatedCategoryList) => {
-      this.types$=updatedCategoryList;
-      console.log(this.types$);
-      // Handle the updated category list here and update your UI
-      // For example, you can assign the updatedCategoryList to a local variable.
-      this.getTransactionsFromApi();
-      this.getTypes();
-    });
-
-    this.stateService.accountData$.subscribe((updatedAccountDetails) => {
-      this.getTransactionsFromApi();
-      this.getTypes();
-    });
-
-    console.log(this.stateService.accountData$);
-    console.log(this.stateService.categoryList$);
-    console.log(this.stateService.goal$);
-
-
-   
   }
 
 
@@ -77,9 +54,10 @@ export class ExpenseComponent {
   -Mohammed Badat
   - 2023/08/01*/
   getTransactionsFromApi() {
-    
+
     this.service.getTransactions2().subscribe((res: Transaction[]) => {
       this.items1 = res;
+      console.log('items from gettransactions2', this.items1)
 
       this.filterAndCalculateSumMoneyOut();
       this.createChart(...this.sumMoneyOutMonths);
@@ -115,15 +93,15 @@ export class ExpenseComponent {
   // }
 
   getTypes() {
-   
+    console.log('getTypes called');
     this.service.getTypesBackend().pipe(
       catchError((error: ApiResponse) => {
-        
+        console.error('Error fetching types:', error);
         if (error.status === 404) {
-          
+          console.log('Budgets not found.');
           this.isTypesEmpty = 'empty';
         } else {
-          
+          console.error('Other error:', error);
           this.isTypesEmpty = 'error';
         }
         return of(null);
@@ -131,17 +109,8 @@ export class ExpenseComponent {
     ).subscribe((response: ApiResponse | null) => {
       if (response) {
         console.log('Budgets received:', response.budgets);
-        this.types$ = response.budgets;
+        this.types$ = of(response.budgets);
         this.calculateTotalForEachType();
-      }
-    },
-    (error) => {
-      if (error.status === 404) {
-        console.log("No budget set yet");
-        this.isTypesEmpty = ''
-        // You can optionally set this.isTypesEmpty to a specific value here if needed.
-      } else {
-        console.error("An error occurred:", error);
       }
     });
   }
@@ -151,13 +120,15 @@ export class ExpenseComponent {
   -2023/08/03 */
   // checkDataFetched() {
   //   if (this.items1 && this.types) {
-  //     this.calculateTotalForEachType();
+  //  this.calculateTotalForEachType();
   //   }
   // }
 
   checkDataFetched() {
+    console.log('checkDataFetched called');
     const sub = this.service.getTypesBackend().pipe(
       catchError((error: ApiResponse) => {
+        console.error('Error fetching types:', error);
         return of(null);
       })
     ).subscribe((response: ApiResponse | null) => {
@@ -167,15 +138,6 @@ export class ExpenseComponent {
         this.calculateTotalForEachType();
       } else {
         this.isTypesEmpty = 'error';
-      }
-    },
-    (error) => {
-      if (error.status === 404) {
-        console.log("No budget set yet");
-        this.isTypesEmpty = ''
-        // You can optionally set this.isTypesEmpty to a specific value here if needed.
-      } else {
-        console.error("An error occurred:", error);
       }
     });
 
@@ -204,7 +166,7 @@ export class ExpenseComponent {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth(); // Get the current month (0 to 11)
 
-    /*    
+    /* 
         this.filteredData = transactions.filter((record: any) => {
           const isMoneyOutPositive = record.Money_Out > 0;
           const transactionDate = record.Transaction_Date;
@@ -243,45 +205,24 @@ export class ExpenseComponent {
   createChart(...sumMoneyOutMonths: number[]) {
     const canvas: HTMLCanvasElement = document.getElementById('myChart') as HTMLCanvasElement;
     const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
-  
+
     if (!ctx) {
       throw new Error("Canvas context is null.");
     }
-  
-    // Check if a chart already exists and destroy it
-    if (this.chart) {
-      this.chart.destroy();
-    }
-  
+
     const currentMonthName = new Date().toLocaleString('default', { month: 'long' });
     const prev1MonthName = new Date(new Date().setMonth(new Date().getMonth() - 1)).toLocaleString('default', { month: 'long' });
     const prev2MonthName = new Date(new Date().setMonth(new Date().getMonth() - 2)).toLocaleString('default', { month: 'long' });
     const prev3MonthName = new Date(new Date().setMonth(new Date().getMonth() - 3)).toLocaleString('default', { month: 'long' });
-  
-    // Array of different shades of blue and purple
-    const blueShades = [
-      '#0074D9', '#3498DB', '#5DADE2', '#85C1E9', '#AED6F1', '#D6EAF8', '#85C1E9', '#4A90E2', '#357ABD', '#1F3A93'
+
+    // Generate random colors for the bars
+    const randomColors = [
+      '#' + Math.random().toString(16).slice(2, 8),
+      '#' + Math.random().toString(16).slice(2, 8),
+      '#' + Math.random().toString(16).slice(2, 8),
+      '#' + Math.random().toString(16).slice(2, 8),
     ];
-  
-    const purpleShades = [
-      '#9B59B6', '#8E44AD', '#BDC3C7', '#6C3483', '#913D88', '#AF7AC5', '#D7BDE2', '#674172', '#76448A', '#512E5F'
-    ];
-  
-    // Shuffle the blue and purple shades separately
-    for (let i = blueShades.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [blueShades[i], blueShades[j]] = [blueShades[j], blueShades[i]];
-    }
-  
-    for (let i = purpleShades.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [purpleShades[i], purpleShades[j]] = [purpleShades[j], purpleShades[i]];
-    }
-  
-    // Determine whether to use blue or purple shades based on a random choice
-    const useBlue = Math.random() < 0.5;
-    const chartColors = useBlue ? blueShades : purpleShades;
-  
+
     this.chart = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -289,7 +230,7 @@ export class ExpenseComponent {
         datasets: [{
           label: 'Monthly expense summary',
           data: sumMoneyOutMonths,
-          backgroundColor: chartColors, // Use either blue or purple shades
+          backgroundColor: randomColors,
           borderWidth: 0
         }]
       },
@@ -314,15 +255,14 @@ export class ExpenseComponent {
         },
         plugins: {
           legend: {
-            display: false,  // change to true
-            position: 'top'  // change to bottom
+            display: false,  //change to true
+            position: 'top'  //change to bottom
           }
         }
       } as ChartOptions
     });
   }
-  
-  
+
 
   //Modal to add to checklist, we pecify which component modal is in to open it
   openExpenseModal(): void {
@@ -362,8 +302,8 @@ export class ExpenseComponent {
 
     this.typeTotals = {};
 
-
-      this.types$.forEach((type: Budget) => {
+    this.types$.subscribe(types => {  //added the subscription to the 14 sep 2023 by delphia
+      types.forEach((type: Budget) => {
         const typeName = type.transactionsType;
         const filteredData = transactions.filter((record: TransactionRecord) => {
           const isMoneyOutPositive = record.moneyOut > 0;
@@ -379,11 +319,10 @@ export class ExpenseComponent {
 
         this.typeTotals[typeName] = typeTotal; // Store the   in the typeTotals object
       });
-      console.log(this.typeTotals);
 
 
       this.compareTypesAndTypeTotals(); // Call the new function to compare types and typeTotals
-    
+    });
   }
 
   /*   compare the total monthly spending amounts for the different transaction types with the expense allocation limits
@@ -395,21 +334,22 @@ export class ExpenseComponent {
       return;
     }
 
-      for (const type of this.types$) {
+    this.types$.subscribe(types => {  //delphia added on the 14 sep 2023
+      for (const type of types) {
         const typeName = type.transactionsType;
         const typeTotal = this.typeTotals[typeName] || 0;
-        console.log(this.typeTotals[typeName] || 0);
         const typeAmount = type.amountSet || 0;
 
-      if (typeTotal > typeAmount) {
-        type.progress =  "over limit";
-      } else if(typeTotal === typeAmount){
-        type.progress =  "limit reached";
+
+        if (typeTotal > typeAmount) {
+          type.progress = "over limit";
+        } else if (typeTotal === typeAmount) {
+          type.progress = "limit reached";
+        }
+        else {
+          type.progress = "under limit";
+        }
       }
-      else {
-        type.progress ="under limit";
-      }
-     }
-  
+    });
   }
 }

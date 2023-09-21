@@ -49,15 +49,15 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  /* 
-  |------------------------------------------------------------------------------------------------------------
+  /*
+  |--------------------------------------------------------------------------------------------------------------------
   | Fetches API Data                                                            Created By Sekhukhune Delphia
-  |------------------------------------------------------------------------------------------------------------
-  | 2023-Aug-14
-  |  login() is a method for handling the login process, once a user is logged in, we store the JWT token 
+  |--------------------------------------------------------------------------------------------------------------------
+  |  Date Created: 2023-Aug-14
+  |  login() is a method for handling the login process, once a user is logged in, we store the JWT token
   |  received in the response in a behavior subject so that it can be used in future. the login method also
   |  update the authentication state.
-  |-------------------------------------------------------------------------------------------------------------
+  |--------------------------------------------------------------------------------------------------------------------
   */
 
   login() {
@@ -67,18 +67,20 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.loginData).subscribe(
       (response: any) => {
-        
+        console.log('Token in LoginComponent:', response?.token);
+        console.log('Logged in successfully');
         const authToken = response?.token;                       // Extract the token property if it exists
         this.authService.setToken(authToken);                    // Set the token in the AuthService
-        this.router.navigate(['/dashboard']);
-        // this.loginForm.reset();
+        this.authService.successAlert();
+        this.loginForm.reset();
+        this.router.navigate(['dashboard']);
       },
       (error) => {
         this.authService.failedAlert();
       }
     );
   }
-  
+ 
   // Toggle the visibility of the password field
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;

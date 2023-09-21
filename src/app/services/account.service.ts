@@ -4,10 +4,9 @@ import { BehaviorSubject, Subject, switchMap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from '../../environments/environment'; // Import environment variables
 import { AuthService } from './auth-service.service';
-import {  Profile} from '../interfaces/transactions.model';
+import {  ApiResponse, BudgetsResponse, CreateTypeRequest, CreateTypeResponse, Profile, TransferData} from '../interfaces/transactions.model';
 import { User } from '../interfaces/user';
-import { Transaction } from '../interfaces/transactions.model';
-import Swal from 'sweetalert2';
+import { Transaction, SavingsGoal } from '../interfaces/transactions.model';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -27,6 +26,7 @@ export class AccountService {
         private router: Router
     ) {}
 
+//INTERFACE FOR PROFILE, MANAGE-EXPENSE, TRANSFER-MODAL, TOP-PART, BALANCE-SUMMARY, NAV-BAR & SECOND-NAV-BAR
     getAccountData(): Observable<Profile> {
         return this.authService.getToken().pipe(
           switchMap((token) => {
@@ -40,64 +40,65 @@ export class AccountService {
         );
       }
      
-
+//INTERFACE FOR EXPENSE, MANAGE-EXPENSE, TOP-PART,
     getTransactions2() : Observable<Transaction[]> {
         return this.http.get<Transaction[]>(`${environment.TRANSACTION_URL}`);
     }
 
-   
-    // getTypesBackend(): Observable<Budget[]> {
-    //     return this.http.get<Budget[]>(`${environment.BACKEND_URL}/budget/details`);
-    //   }
 
-    getTypesBackend(): Observable<any> {
-        return this.http.get<any>(`${environment.BACKEND_URL}/budget/details`);
-      }
 
-    updateData(data: any): void {
+    //INTERFACE FOR EXPENSE MANAGE-EXPENSE & EXPENSE-MODAL
+    getTypesBackend(): Observable<ApiResponse> {
+        return this.http.get<ApiResponse>(`${environment.BACKEND_URL}/budget/details`);
+}
+
+updateData(data: any): void {
         this.addData = { ...this.addData, ...data };
       }
 
       addTransaction(transactionData: any): Observable<any> {
         return this.http.post(`${environment.BACKEND_URL}/transactions/transaction`, transactionData);
       }
-     
-    createType(body: any): Observable<any> {
-        return this.http.post<any>(
+     //EXPENSE-MODAL
+    createType(body: CreateTypeRequest): Observable<CreateTypeResponse> {
+        return this.http.post<CreateTypeResponse>(
           `${environment.BACKEND_URL}/budget/creation`,
           body
         );
       }
+     
+//MANAGE-EXPENSE
 
-
-    createSavingGoal(data: any): Observable<any> {
-        return this.http.post(`${environment.CREATESAVINGSGOAL}`, data);
+    createSavingGoal(data: SavingsGoal): Observable<SavingsGoal> {
+        return this.http.post<SavingsGoal>(`${environment.CREATESAVINGSGOAL}`, data);
     }
 
 
-    updateUser(id: any, data: any) {
+//PROFILE
+    updateUser(id: number, data: User): Observable <User[]> {
         return this.http.patch<User[]>(`${environment.UPDATE_URL}`, data);
     }
 
 
-
-    updateBudget(id:any,data:any){
-        return this.http.patch(`${environment.BACKEND_URL}/budget/progress/${id}`, data);
+//MANAGE-MODAL
+    updateBudget(id:number, data:CreateTypeRequest): Observable<CreateTypeResponse>{
+        return this.http.patch<CreateTypeResponse>(`${environment.BACKEND_URL}/budget/progress/${id}`, data);
     }
 
-    getOneBudget(){
-        return this.http.get(`${environment.BACKEND_URL}/budget/details`);
+ //MANAGE_MODAL
+    getOneBudget(): Observable <BudgetsResponse>{
+        return this.http.get<BudgetsResponse>(`${environment.BACKEND_URL}/budget/details`);
 
-    }
+     }
 
     //Refreshes the page after a successful update
     // Lebohang Mokoena
     // 2023/08/07
-    deleteTransaction(id: any) {
-        return this.http.delete(`${environment.BACKEND_URL}/budget/${id}`);
+    deleteTransaction(id: number): Observable<Transaction> {
+        return this.http.delete<Transaction>(`${environment.BACKEND_URL}/budget/${id}`);
     }
 
-    transferToSavings(id: any, data: any) {
+    transferToSavings(id: number, data: TransferData): Observable <TransferData>  {
        
         return this.authService.getToken().pipe(
             switchMap(token => {
@@ -105,7 +106,7 @@ export class AccountService {
                     Authorization: `${token}`,
                 });
                 // Make the authenticated API request using HttpClient
-                return this.http.post(
+                return this.http.post<TransferData>(
                     `${environment.BACKEND_URL}/simplisaving/transfer/${id}`,
                     data,
                     { headers }
@@ -118,4 +119,5 @@ export class AccountService {
     triggerRefresh() {
         this.refreshSubject.next();
     }
+   
 }

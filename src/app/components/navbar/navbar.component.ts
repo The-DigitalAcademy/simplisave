@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavbarData } from 'src/app/interfaces/transactions.model';
+import { NavbarData, Profile } from 'src/app/interfaces/transactions.model';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth-service.service';
 
@@ -28,9 +28,9 @@ export class NavbarComponent {
   getUserName(){
 
  
-    this.accountService.getAccountData().subscribe((res: any) => {
+    this.accountService.getAccountData().subscribe((res: Profile) => {
       this.data.name = res.firstName;
-
+      console.log('username', this.data.name)
 
      
     });
