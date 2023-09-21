@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,
+    production: true,
     REG_URL: '/api/v1/student/registration',
     LOGIN_URL: '/api/v1/auth/login',
     apiUrl: 'http://localhost:3000',
