@@ -51,14 +51,11 @@
                 </div>
             </div>
         </ng-template>
-        <div class="cardHeading">
-            <h4>Expense Allocation Categories
-                <mat-icon class="bigger-icon" (click)="openAddExpenseModal()"
-                      >add_circle</mat-icon
-                  >
-            </h4>
+        <div class="cardHeading" style="display: inline-flex; align-items: center;">
+            <h4 style="margin-right: 10px;white-space: nowrap;">Expense Allocation Categories</h4>
+            <mat-icon class="bigger-icon" (click)="openAddExpenseModal()">add_circle</mat-icon>
         </div>
-        <div class="grid-container" *ngIf="transactionType && transactionType.length > 0">
+        <div class="grid-container" *ngIf="transactionType && transactionType.length > 0; else noAmountSetBlock" >
             <div class="card" *ngFor="let transactionType of transactionType">
                 <div class="card-content">
                     <div class="title">
