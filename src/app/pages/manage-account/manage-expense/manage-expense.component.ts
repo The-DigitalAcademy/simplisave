@@ -14,9 +14,7 @@ import { Chart, ChartOptions } from 'chart.js'; // Import Chart.js
   templateUrl: './manage-expense.component.html',
   styleUrls: ['./manage-expense.component.css'],
 })
-export class ManageExpenseComponent implements OnInit, AfterViewInit {
-  @ViewChild('myChart', { static: false }) canvasRef!: ElementRef<HTMLCanvasElement>;
-  chart: Chart | null = null; // Store the chart instance
+export class ManageExpenseComponent implements OnInit{
 
   transactionType: any;
   Goal_Savings: TransactionType[] = [];
@@ -299,13 +297,19 @@ export class ManageExpenseComponent implements OnInit, AfterViewInit {
   }
 
   findMostRecentGoal() {
+    // Check if this.goals is populated (not empty and not null)
+    if (!this.goals || this.goals.length === 0) {
+      console.log('No goals are available.');
+      return; // Exit the function early if there are no goals
+    }
+  
     let mostRecentDate = null;
-
+  
     for (const record of this.goals) {
       const dateStr = record.dateCreated;
       const amountSet = record.amountSet;
       console.log(amountSet);
-
+  
       if (dateStr) {
         const dateCreated = new Date(dateStr);
         if (!mostRecentDate || dateCreated > mostRecentDate) {
@@ -314,7 +318,7 @@ export class ManageExpenseComponent implements OnInit, AfterViewInit {
         }
       }
     }
-
+  
     this.amountSet = this.mostRecentGoal.amountSet;
     this.description = this.mostRecentGoal.description;
     this.totalSaved = this.mostRecentGoal.currentSaved;
@@ -322,9 +326,9 @@ export class ManageExpenseComponent implements OnInit, AfterViewInit {
     if (this.totalSaved === null) {
       this.totalSaved = 0;
     }
-
+  
     console.log(this.mostRecentGoal);
-
+  
     if (this.amountSet <= 0 && this.description == 'goal') {
       console.log(this.amountSet, "AMOOOOUNT SEET")
       this.authService.addGoal();
@@ -337,6 +341,7 @@ export class ManageExpenseComponent implements OnInit, AfterViewInit {
       this.calculatePercentageSaved();
     }
   }
+  
 
   newMonthNewGoal() {
     const updatedData = {
@@ -374,90 +379,4 @@ export class ManageExpenseComponent implements OnInit, AfterViewInit {
     );
   }
 
-  ngAfterViewInit() {
-    // Call the function to create the chart after the view is initialized
-    this.createChart();
-  }
-
-  createChart() {
-    const canvas: HTMLCanvasElement = this.canvasRef.nativeElement;
-    const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
-
-    if (!ctx) {
-      throw new Error("Canvas context is null.");
-    }
-
-    // Check if a chart already exists and destroy it
-    if (this.chart) {
-      this.chart.destroy();
-    }
-
-    const currentMonthName = new Date().toLocaleString('default', { month: 'long' });
-    const prev1MonthName = new Date(new Date().setMonth(new Date().getMonth() - 1)).toLocaleString('default', { month: 'long' });
-    const prev2MonthName = new Date(new Date().setMonth(new Date().getMonth() - 2)).toLocaleString('default', { month: 'long' });
-    const prev3MonthName = new Date(new Date().setMonth(new Date().getMonth() - 3)).toLocaleString('default', { month: 'long' });
-
-    // Array of different shades of blue and purple
-    const blueShades = [
-      '#0074D9', '#3498DB', '#5DADE2', '#85C1E9', '#AED6F1', '#D6EAF8', '#85C1E9', '#4A90E2', '#357ABD', '#1F3A93'
-    ];
-
-    const purpleShades = [
-      '#9B59B6', '#8E44AD', '#BDC3C7', '#6C3483', '#913D88', '#AF7AC5', '#D7BDE2', '#674172', '#76448A', '#512E5F'
-    ];
-
-    // Shuffle the blue and purple shades separately
-    for (let i = blueShades.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [blueShades[i], blueShades[j]] = [blueShades[j], blueShades[i]];
-    }
-
-    for (let i = purpleShades.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [purpleShades[i], purpleShades[j]] = [purpleShades[j], purpleShades[i]];
-    }
-
-    // Determine whether to use blue or purple shades based on a random choice
-    const useBlue = Math.random() < 0.5;
-    const chartColors = useBlue ? blueShades : purpleShades;
-
-    this.chart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: [currentMonthName, prev1MonthName, prev2MonthName, prev3MonthName].reverse(),
-        datasets: [{
-          label: 'Monthly expense summary',
-          data: this.sumMoneyOutMonths,
-          backgroundColor: chartColors, // Use either blue or purple shades
-          borderWidth: 0
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          x: {
-            display: true
-          },
-          y: {
-            display: true,
-            suggestedMin: 0,
-            suggestedMax: 2000,
-            ticks: {
-              stepSize: 500
-            },
-            grid: {
-              display: false
-            }
-          }
-        },
-        plugins: {
-          legend: {
-            display: false,  // change to true
-            position: 'top'  // change to bottom
-          }
-        }
-      } as ChartOptions
-    });
-  }
 }
