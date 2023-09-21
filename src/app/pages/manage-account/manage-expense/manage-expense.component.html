@@ -37,10 +37,28 @@
                 </div>
             </div>
         </ng-template>
+        <ng-template #noAmountSetBlock>
+            <!-- Content to display when transactionType.amountSet is falsy -->
+            <div class="card1">
+                <div class="card-content">
+                    <div class="title">
+                        <h5>Set a budget</h5>
+                    </div>
+                    <div class="icon-container">
+                        <mat-icon  class="icon" (click)="openAddExpenseModal()"
+                            >add</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
         <div class="cardHeading">
-            <h4>Expense Allocation Categories</h4>
+            <h4>Expense Allocation Categories
+                <mat-icon class="bigger-icon" (click)="openAddExpenseModal()"
+                      >add_circle</mat-icon
+                  >
+            </h4>
         </div>
-        <div class="grid-container">
+        <div class="grid-container" *ngIf="transactionType && transactionType.length > 0">
             <div class="card" *ngFor="let transactionType of transactionType">
                 <div class="card-content">
                     <div class="title">
