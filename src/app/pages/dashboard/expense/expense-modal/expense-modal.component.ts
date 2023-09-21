@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
 import { TransactionType, ApiResponse, ExpenseModalFormData, CategoryOption, CreateTypeResponse } from 'src/app/interfaces/transactions.model';
-import { StateService } from 'src/app/services/state.service';
 
 @Component({
   selector: 'app-expense-modal',
@@ -15,11 +14,10 @@ import { StateService } from 'src/app/services/state.service';
 export class ExpenseModalComponent {
   formData: ExpenseModalFormData = { amount: null, category: '' };
   expenseForm!: FormGroup;
-  selectedCategory: string = ''; 
+  selectedCategory: string = '';
   categoryExistsError: boolean = false;
   types: TransactionType[] = [];
   transactionTypes: string[] = [];
-  updatedList:any;
   categoryOptions: CategoryOption[] = [
     { value: 'FOOD', label: 'Food' },
     { value: 'ACCOMMODATION', label: 'Accommodation' },
@@ -38,8 +36,7 @@ export class ExpenseModalComponent {
     private service: AccountService,
     public dialogRef: MatDialogRef<ExpenseModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private router: Router,
-    private stateService:StateService
+    private router: Router
   ) {
     this.expenseForm = this.formBuilder.group({
       category: [this.selectedCategory, Validators.required],
@@ -56,16 +53,16 @@ export class ExpenseModalComponent {
     this.service.getTypesBackend().subscribe((res: ApiResponse) => {
       this.types = res.budgets.map(budget => {
         return {
-          goalId: budget.id, // Adjust this mapping as needed
+          goalId: budget.budgetId,
           name: budget.transactionsType,
           amount: budget.amountSet,
-          transactionsType: budget.transactionsType // Add this line to include transactionsType
+          transactionsType: budget.transactionsType
         };
        
       });
       // Update transactionTypes array
       this.transactionTypes = this.types.map(type => type.transactionsType);
-      
+      console.log('Transaction Types:', this.transactionTypes);
     });
   }
 
@@ -78,8 +75,8 @@ export class ExpenseModalComponent {
     return this.transactionTypes.some(existingCategory => existingCategory.toLowerCase() === lowercaseCategory);
   }
 
-  onNoClick() {
-   // event.preventDefault(); // Prevent the default form submission behavior
+  onNoClick(event: Event): void {
+    event.preventDefault(); // Prevent the default form submission behavior
     this.dialogRef.close();
   }
 
@@ -100,6 +97,7 @@ export class ExpenseModalComponent {
       // Check if the category already exists
       if (this.isCategoryAlreadyExists(selectedCategory)) {
         // Set the error flag to true or display an error message as needed
+        console.log('Selected Category:', selectedCategory);
         this.categoryExistsError = true;
         return;
       }
@@ -121,9 +119,9 @@ export class ExpenseModalComponent {
       this.service.createType(updatedData).subscribe(
         (response: CreateTypeResponse) => {
           // Optionally, you can close the dialog after a successful API call
-          this.refreshSaveChecklist();
-          this.closeDialog();
-
+          this.dialogRef.close();
+          this.router.navigate(['/dashboard']);
+          this.refreshChecklist();
         },
         (error: CreateTypeResponse) => {
           // Handle API errors if necessary
@@ -146,19 +144,7 @@ export class ExpenseModalComponent {
     this.saveExpense();
   }
 
-  closeDialog(): void {
-    this.dialogRef.close();
-}
-
-  refreshSaveChecklist() {
-
-    this.service.getTypesBackend().subscribe(
-      (res: any) => {
-        this.updatedList=res.budgets;
-        this.stateService.updateCategoryList(this.updatedList);
-        
-      }
-    );
-
+  refreshChecklist() {
+    this.dashService.triggerRefresh();
   }
 }

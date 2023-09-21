@@ -1,4 +1,3 @@
-import { AddTransaction, Type } from './../../interfaces/transactions.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AddData, ApiResponse, CategoryOption, CreateTypeResponse, TransactionType } from 'src/app/interfaces/transactions.model';
@@ -89,7 +88,7 @@ export class AddComponent implements OnInit {
     this.service.getTypesBackend().subscribe((res: ApiResponse) => {
       this.types = res.budgets.map(budget => {
         return {
-          goalId: budget.id, // Adjust this mapping as needed
+          goalId: budget.budgetId, // Adjust this mapping as needed
           name: budget.transactionsType,
           amount: budget.amountSet,
           transactionsType: budget.transactionsType // Add this line to include transactionsType

@@ -8,8 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { AccountService } from 'src/app/services/account.service';
-import { Observable } from 'rxjs';
-import { StateService } from 'src/app/services/state.service';
+import { ApiResponse, Budget, BudgetsResponse, CreateTypeRequest, CreateTypeResponse } from 'src/app/interfaces/transactions.model';
 
 interface CategoryOption {
     value: string;
@@ -22,14 +21,12 @@ interface CategoryOption {
     styleUrls: ['./manage-modal.component.css'],
 })
 export class ManageModalComponent {
-    types$!: Observable<any[]>; // Observable to track types
-    formData: any = {};
+    //formData: any = {};
+    //selectedCategory = '';
     expenseForm!: FormGroup;
-    id: any;
-    Type: any;
-    selectedCategory = '';
-    foundBudget: any;
-    updatedList:any;
+    id!: number;
+    Type: Budget[] = [];
+    foundBudget: Budget | undefined;
     categoryOptions: CategoryOption[] = [
         { value: 'FOOD', label: 'Food' },
         { value: 'ACCOMMODATION', label: 'Accommodation' },
@@ -47,8 +44,7 @@ export class ManageModalComponent {
         private service: AccountService,
         public dialogRef: MatDialogRef<ManageModalComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
-        private router: Router,
-        private stateService:StateService
+        private router: Router
     ) {
         this.expenseForm = this.formBuilder.group({
             category: { value: '', disabled: true }, // Disable the form control for the category
@@ -57,31 +53,35 @@ export class ManageModalComponent {
     }
 
     ngOnInit() {
-        this.id = localStorage.getItem('typeId');
+        this.id = Number(localStorage.getItem('typeId'));
 
-        this.service.getOneBudget().subscribe((res: any) => {
+        this.service.getOneBudget().subscribe((res: BudgetsResponse) => {
             if (res) {
-                this.Type = res.budgets.filter((record: any) => !record.deleted);
-                
+                this.Type = res.budgets.filter((record: Budget) => !record.deleted);
+               
             }
-            this.foundBudget = this.Type.find((budget: { budgetId: any }) => budget.budgetId == this.id);
+            console.log('Category to be updated:', this.Type);
+            this.foundBudget = this.Type.find((budget: { budgetId: number }) => budget.budgetId == this.id);
 
             if (this.foundBudget) {
 
                 // Modify this part to set default values in the form
                 this.expenseForm.patchValue({// Set category based on foundBudget
                     amount: this.foundBudget.amountSet, // Set amount based on foundBudget
-                    category:this.foundBudget.transactionsType
+                    category:this.foundBudget.transactionsType,
+                   
                 });
+                 console.log('Category updating:', this.foundBudget.transactionsType)
             } else {
-                
+               return;
             }
         });
     }
     //Responsible for closing a modal dialog
     // Lebohang Mokoena
     // 2023/08/10
-    onNoClick(): void {
+    onNoClick(event: Event): void {
+        event.preventDefault();
         this.dialogRef.close();
     }
 
@@ -100,20 +100,21 @@ export class ManageModalComponent {
        
 
         if (this.expenseForm.valid) {
-            
-            const updatedData = {
+           
+            const updatedData: CreateTypeRequest = {
                 amountSet: this.expenseForm.value.amount,
                 transactionsType: this.expenseForm.value.category,
-                progressAmount: 0,
+               // progressAmount: 0, // Add progressAmount property with an appropriate value
             };
+           
 
-            this.service.updateBudget(this.id,updatedData).subscribe(
-                response => {
-                    this.refreshUpdate();
+            this.service.updateBudget(this.id, updatedData).subscribe(
+                (response: CreateTypeResponse) => {
+                   
                     this.dialogRef.close();
-                    
+                    this.refreshManagePage();
                 },
-                error => {
+                (error) => {
                     console.error('API Error:', error);
                 }
             );
@@ -125,17 +126,5 @@ export class ManageModalComponent {
     // 2023/08/10
     refreshManagePage() {
         this.service.triggerRefresh();
-    }
-
-
-    refreshUpdate(){
-        this.service.getTypesBackend().subscribe(
-            (res: any) => {
-              this.updatedList= res.budgets.filter((record: any) => !record.deleted);
-              this.stateService.updateCategoryList(this.updatedList);
-            }
-          );
-        
-        
     }
 }

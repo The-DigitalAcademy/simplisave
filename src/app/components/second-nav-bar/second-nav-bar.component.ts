@@ -1,7 +1,8 @@
+
 import { Component } from '@angular/core';
+import { Profile } from 'src/app/interfaces/transactions.model';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth-service.service';
-import { StateService } from 'src/app/services/state.service';
 
 @Component({
     selector: 'app-second-nav-bar',
@@ -9,22 +10,16 @@ import { StateService } from 'src/app/services/state.service';
     styleUrls: ['./second-nav-bar.component.css'],
 })
 export class SecondNavBarComponent {
-    items: any;
-    name: any;
+    items: Profile | undefined;
+    name!: string;
 
     constructor(
         private accountService: AccountService,
-        private auth: AuthService,
-        private stateService:StateService
+        private auth: AuthService
     ) {}
 
     ngOnInit() {
         this.getAccountData();
-        this.stateService.profileData$.subscribe((profileData) => {
-            this.items=profileData;
-            this.getAccountData();
-          });
-
     }
 
     logout() {
@@ -32,9 +27,11 @@ export class SecondNavBarComponent {
     }
 
     getAccountData() {
-        this.accountService.getAccountData().subscribe(res => {
+        this.accountService.getAccountData().subscribe((res: Profile) => {
             this.items = res;
             this.name = this.items.firstName;
+            console.log('Items:', this.items)
+            console.log('Name:', this.name)
         });
     }
 }

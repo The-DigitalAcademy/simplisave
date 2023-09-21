@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Profile, Transaction, User } from 'src/app/interfaces/transactions.model';
+import { Profile, Transaction } from 'src/app/interfaces/transactions.model';
 import { AccountService } from 'src/app/services/account.service';
-import { StateService } from 'src/app/services/state.service';
 import { TransactionsService } from 'src/app/services/transactions.service';
 
 @Component({
@@ -22,43 +21,23 @@ export class BalanceSummaryComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private transactionService: TransactionsService,
-    private accountService: AccountService,
-    private stateService:StateService
+    private accountService: AccountService
   ) { }
 
   ngOnInit(): void {
     this.fetchDataFromAPI();
     this.getAccountData();
-
-    this.stateService.accountData$.subscribe((updatedAccountDetails) => {
-      if (updatedAccountDetails) {
-        this.currentBalance = updatedAccountDetails;
-    
-        if (updatedAccountDetails.accounts && updatedAccountDetails.accounts.length > 0) {
-          this.availableBalance = updatedAccountDetails.accounts[0].accountBalance;
-    
-          // Handle the updated category list here and update your UI
-          // For example, you can assign the updatedCategoryList to a local variable.
-          this.fetchDataFromAPI();
-          this.getAccountData();
-        } else {
-          return
-        }
-      } else {
-        return
-      }
-    });
   }
 
   /*
-  |------------------------------------------------------------------------------------------------------------
-  | Fetches API Data                                                            Created By Sekhukhune Delphia
-  |------------------------------------------------------------------------------------------------------------
-  | 2023-Aug-19
+  |--------------------------------------------------------------------------------------------------------------------
+  | Fetches Transaction Data from API                                                    Created By Sekhukhune Delphia
+  |--------------------------------------------------------------------------------------------------------------------
+  | Date Created: 2023-Aug-19
   | This method fetches a list of transactions from an API using the transactionService.
   | After successfully fetching data, it calls calculateTotalsForMonth() method to calculate income and expenses.
   |
-  |-------------------------------------------------------------------------------------------------------------
+  |--------------------------------------------------------------------------------------------------------------------
   */
 
 
@@ -76,29 +55,20 @@ export class BalanceSummaryComponent implements OnInit {
   }
 
   /*
-  |------------------------------------------------------------------------------------------------------------
-  | Fetches Available balance from everyday banking account                      Created By Sekhukhune Delphia
-  |------------------------------------------------------------------------------------------------------------
-  | 2023-Aug-14
-  | This method fetches account data from an API using the accountService and subscribes to the observable
-  | returned by getAccountData() to update the availableBalance property.
+  |--------------------------------------------------------------------------------------------------------------------
+  | AVAILABLE BALANCE RETRIEVAL                                                          Created By Sekhukhune Delphia
+  |--------------------------------------------------------------------------------------------------------------------
+  |  Date Created: 2023-Aug-14
+  |  This method fetches account data from an API using the accountService and subscribes to the observable
+  |  returned by getAccountData() to update the availableBalance property.
   |
-  |-------------------------------------------------------------------------------------------------------------
+  |---------------------------------------------------------------------------------------------------------------------
   */
-
-  // getAccountData() {
-  //   this.accountService.getAccountData()
-  //     .subscribe(res => {
-  //       this.currentBalance = res;
-  //       this.availableBalance = this.currentBalance.accounts[0].accountBalance;
-
-  //     });
-  // }
 
   getAccountData() {
     this.accountService.getAccountData().subscribe(
       (res: Profile) => {
-        // console.log('API Response balance summary getAccountData:', res);
+        console.log('API Response balance summary getAccountData:', res);
         this.currentBalance = res;
         this.availableBalance = this.currentBalance.accounts[0].accountBalance;
       },
@@ -110,15 +80,15 @@ export class BalanceSummaryComponent implements OnInit {
  
 
   /*
-  |------------------------------------------------------------------------------------------------------------
-  | Calculate total income and expense for the current month                     Created By Sekhukhune Delphia
-  |------------------------------------------------------------------------------------------------------------
-  | 2023-Aug-24
+  |--------------------------------------------------------------------------------------------------------------------
+  | CALCULATE TOTAL INCOME & EXPENSE FOR THE CURRENT MONTH                             Created By: Sekhukhune Delphia
+  |--------------------------------------------------------------------------------------------------------------------
+  | Date Created: 2023-Aug-24
   | This method calculates the total income and total expenses for the current month based on the transactionsList.
   | It uses the current date to determine the current month and and sums up money in and money out from the
   | transactions for the current month, updating totalIncome and totalExpenses.
   |
-  |-------------------------------------------------------------------------------------------------------------
+  |------------------------------------------------------------------------------------------------------------------
   */
   calculateTotalsForMonth() {
     const currentDate = new Date();
@@ -152,15 +122,15 @@ export class BalanceSummaryComponent implements OnInit {
   }
 
    /*
-  |------------------------------------------------------------------------------------------------------------
+  |-------------------------------------------------------------------------------------------------------------------
   | Search Filter                                                                Created By Sekhukhune Delphia
-  |------------------------------------------------------------------------------------------------------------
-  | 2023-Aug-29
+  |-------------------------------------------------------------------------------------------------------------------
+  | DAte Created: 2023-Aug-29
   | This method sets the search filter in the transactionService using setSearchFilter(). It then filters the
   | transactionsList based on the search filter (transaction description or amount). The filtered transactions are
   | stored in displayedTransactions. If no filter is provided, it displays all transactions.
   |
-  |-------------------------------------------------------------------------------------------------------------
+  |------------------------------------------------------------------------------------------------------------------
   */
   applySearchFilter() {
     this.transactionService.setSearchFilter(this.searchFilter); // Set the search filter in the service
