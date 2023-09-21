@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, map, take } from 'rxjs';
 import { FirstTimeUserService } from './services/first-time-user.service';
+import Swal from 'sweetalert2';
+import { AuthService } from './services/auth-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirstTimeUserGuard implements CanActivate {
  
-constructor(private router:Router , private firstTimeUser:FirstTimeUserService){}
+constructor(private router:Router , private firstTimeUser:FirstTimeUserService, private authService: AuthService){}
 
 canActivate(
   route: ActivatedRouteSnapshot,
@@ -19,10 +21,20 @@ canActivate(
       const hasTransactions = transactions && transactions.length > 0;
       if (hasTransactions) {
         // User has transactions, allow access to the dashboard
+        this.authService.successAlert();
         return true;
       } else {
         // User has no transactions, redirect to onboarding
-        this.router.navigate(['/onBoarding']);
+        Swal.fire({
+          icon: 'success',
+          title: 'Welcome to SimpliSave',
+          text: 'Please add transactions to continue..',
+          iconColor: '#AF144B',
+          confirmButtonColor: '#AF144B',
+        }).then(() => {
+          // Navigate to the Add Transactions page
+          this.router.navigate(['/add']);
+         });
         return false;
       }
     })

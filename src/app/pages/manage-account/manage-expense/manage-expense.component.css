@@ -8,6 +8,12 @@ body {
   padding-left: 2vw;
   padding-right: 2vw;
 }
+.bigger-icon{
+  color: var(--primary-lighter)!important;
+  margin-left: 1% !important;
+  margin-bottom: -5.5px !important;
+  
+}
 
 .container {
   display: flex;
