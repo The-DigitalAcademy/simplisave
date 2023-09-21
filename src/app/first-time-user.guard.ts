@@ -21,7 +21,6 @@ canActivate(
       const hasTransactions = transactions && transactions.length > 0;
       if (hasTransactions) {
         // User has transactions, allow access to the dashboard
-        this.authService.successAlert();
         return true;
       } else {
         // User has no transactions, redirect to onboarding
