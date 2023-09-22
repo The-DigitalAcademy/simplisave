@@ -246,7 +246,7 @@ p{
         font-size: 14px;
     }
     p{
-        font-size:  var(--font-x-small);
+        font-size:  var(--font-small);
     }
 
     td img {

@@ -13,7 +13,7 @@ import { ExpenseModalComponent } from '../../dashboard/expense/expense-modal/exp
 @Component({
   selector: 'app-manage-expense',
   templateUrl: './manage-expense.component.html',
-  styleUrls: ['./manage-expense.component.css'],
+  styleUrls: ['./manage-expense.component.css']
 })
 export class ManageExpenseComponent implements OnInit{
 

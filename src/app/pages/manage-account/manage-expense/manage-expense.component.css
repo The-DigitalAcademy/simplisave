@@ -188,13 +188,13 @@ mat-progress-bar {
     max-width: 100%;
   }
 
-  .title h5{
+  .heading1 h5{
     font-size: 16px;
   }
 
   .cardHeading h4{
     font-size: 18px;
-    padding-bottom:2%;
+    padding-bottom:0;
 
   }
 
