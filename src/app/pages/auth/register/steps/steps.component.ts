@@ -100,44 +100,44 @@ export class StepsComponent implements OnInit {
   }
 
   passwordMatch(): boolean {
-    return this.newPassword === this.newConfirmPassword;
+    return this.password === this.confirmPassword;
   }
 
 
-  //updating step 1 - Thilivhali Ravhutulu 05/08/2023
-  updateStep1Values() {
-    const updatedValues = {
-      firstName: this.newFirstName,
-      lastName: this.newLastName,
-      email: this.newEmail,
-      cellphoneNumber: this.newCellphoneNumber,
-    };
+  // //updating step 1 - Thilivhali Ravhutulu 05/08/2023
+  // updateStep1Values() {
+  //   const updatedValues = {
+  //     firstName: this.newFirstName,
+  //     lastName: this.newLastName,
+  //     email: this.newEmail,
+  //     cellphoneNumber: this.newCellphoneNumber,
+  //   };
     
-    this.step1FormGroup.patchValue(updatedValues);
-  }
+  //   this.step1FormGroup.patchValue(updatedValues);
+  // }
 
-  //updating step 2 - Thilivhali Ravhutulu 05/08/2023
-  updateStep2Values() {
-    if (this.step2FormGroup.valid && this.passwordMatch()) {
-      const updatedValues = {
-        password: this.newPassword
-      };
+  // //updating step 2 - Thilivhali Ravhutulu 05/08/2023
+  // updateStep2Values() {
+  //   if (this.step2FormGroup.valid && this.passwordMatch()) {
+  //     const updatedValues = {
+  //       password: this.newPassword
+  //     };
       
-      this.step2FormGroup.patchValue(updatedValues);
-      // Now you can navigate to the next step here if needed
-    } 
-  }
+  //     this.step2FormGroup.patchValue(updatedValues);
+  //     // Now you can navigate to the next step here if needed
+  //   } 
+  // }
 
-  //updating third step  - Thilivhali Ravhutulu 05/08/2023
-  updateStep3Values() {
-    if ( this.step3FormGroup.valid){
-      const updatedValues = 
-      this.step3FormGroup.get('idNo')?.value;
+  // //updating third step  - Thilivhali Ravhutulu 05/08/2023
+  // updateStep3Values() {
+  //   if ( this.step3FormGroup.valid){
+  //     const updatedValues = 
+  //     this.step3FormGroup.get('idNo')?.value;
       
-      this.step3FormGroup.patchValue(updatedValues);
-      // Now you can navigate to the next step here if needed
-    } 
-  }
+  //     this.step3FormGroup.patchValue(updatedValues);
+  //     // Now you can navigate to the next step here if needed
+  //   } 
+  // }
 
   onNext() {
     const currentStep = this.stepperService.getCurrentStep();

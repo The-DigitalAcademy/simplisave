@@ -74,8 +74,6 @@ import { FaqBannerComponent } from './components/faq/faq-banner/faq-banner.compo
 import { FaqContentComponent } from './components/faq/faq-content/faq-content.component';
 import { AccountsSavingsAndInvestmentsComponent } from './pages/accounts/accounts-savings-and-investments/accounts-savings-and-investments.component';
 import { TransferModalComponent } from './pages/dashboard/top-part/transfer-modal/transfer-modal.component';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 import { ResetComponent } from './pages/auth/forgot-password/reset/reset.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
