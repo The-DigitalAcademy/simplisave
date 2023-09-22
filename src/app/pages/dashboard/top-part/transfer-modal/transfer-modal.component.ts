@@ -109,9 +109,10 @@ export class TransferModalComponent {
   /*   When the user clicks on the close button of the dialogue box, this method is called and 
     it closes the dialog box
     2023/08/03 */
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+    onNoClick() {
+      // event.preventDefault(); // Prevent the default form submission behavior
+       this.dialogRef.close();
+     }
 
 
 
