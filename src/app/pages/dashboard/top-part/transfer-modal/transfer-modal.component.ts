@@ -23,6 +23,7 @@ export class TransferModalComponent {
   mostRecentGoal:any;
   goals: any;
   updatedAccountDetails:any;
+  showAmountError: boolean = false; // Declare showAmountError property
 
   constructor(private authService: AuthService, private dashService: DashboardService,
     private fb: FormBuilder,
