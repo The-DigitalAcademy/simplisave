@@ -11,19 +11,19 @@ export class EmptyBehaviorGuardGuard {
 
   constructor(private authService: AuthService) {}
 
-  // canActivate(
-  //   route: ActivatedRouteSnapshot,
-  //   state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-  //     return this.authService.getToken().pipe(
-  //       map(token => {
-  //         if (!token) {
-  //           Prevent navigation if token is empty
-  //           You can also navigate to a specific route here if desired
-  //           return false;
-  //         }
-  //         return true;
-  //       })
-  //     );
-  // }
+      return this.authService.getToken().pipe(
+        map(token => {
+          if (!token) {
+           /*  Prevent navigation if token is empty
+            You can also navigate to a specific route here if desired */
+            return false;
+          }
+          return true;
+        })
+      );
+  }
 }

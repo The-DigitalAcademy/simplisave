@@ -93,6 +93,7 @@ export class ExpenseModalComponent {
  
 
   saveExpense() {
+    this.formSubmitted=true;
     if (this.expenseForm.valid) {
       const selectedCategory = this.expenseForm.value.category;
       const amount = parseFloat(this.expenseForm.value.amount);

@@ -1,3 +1,17 @@
+.container{
+  padding-left: 2vw;
+  padding-right: 2vw;
+  max-width:100%;
+}
+.my-custom-row{
+  display: flex;
+  flex-direction: column;
+}
+
+.d-flex {
+  display: flex!important;
+  width: 100%;
+}
 .add-container {
   display: flex;
 }
@@ -11,8 +25,7 @@
 }
 
 .card{
-  width: 80vw;
-  max-width: 150vw;
+  width: 100%;
 }
 
 .title {
@@ -24,6 +37,7 @@
   word-wrap: break-word;
   margin-top: 10px;
   padding: 2vw;
+  padding-left:0;
 }
 
 
@@ -56,108 +70,28 @@ mat-label {
   border-color: var(--primary-color) !important;
 }
 
-@media(max-width: 2100px){
-  .card{
-    width: 120vw;
-  }
-}
-
-@media(max-width: 1800px){
-  .card{
-    width: 80vw;
-  }
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 
-@media(max-width: 1300px){
-  .card{
-    width: 75vw;
-  }
-}
 
-@media (max-width: 1100px) {
-  
-  .card{
-    width: 75vw;
-  }
-
-}
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .title {
     font-size: 24px;
-    padding: 3vw;
-  }
-  .card{
-    width: 90vw;
+    margin:0;
   }
 
-  .p-5 {
-    padding: 1rem!important;
-  }
-
+  .title{
+    padding-top: 6vw;
+    padding-bottom: 6vw;}
 }
 
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   .title {
+    font-size: var(--font-x-large);
     font-size: 24px;
-    padding: 3vw;
+    margin:0;
   }
-  .card{
-    width: 95vw;
-  }
-
-  .p-5 {
-    padding: 1rem!important;
-  }
-
-}
-
-
-@media (max-width: 400px) {
-  .title {
-    font-size: 24px;
-    padding: 3vw;
-  }
-  .card{
-    width: 93.5vw;
-  }
-
-  .p-5 {
-    padding: 1rem!important;
-  }
-
-}
-
-@media (max-width: 360px) {
-  .title {
-    font-size: 24px;
-    padding: 3vw;
-  }
-  .card{
-    width: 92vw;
-  }
-
-  .p-5 {
-    padding: 1rem!important;
-  }
-
-}
-
-
-@media(max-width: 300px){
-  .card{
-    width: 92vw;
-  }
-.form{
-  width: 200px
-}
-
-.btn{
-  width: 50%;
-}
-
-.p-5 {
-  padding: 1rem!important;
-}
- 
 }

@@ -6,22 +6,21 @@
         <div class="form-group">
           <label for="category">Amount to transfer (R)</label>
           <input matInput formControlName="amount" name="amount">
-          <div *ngIf="transferForm.get('amount')?.invalid && (transferForm.get('amount')?.dirty || transferForm.get('amount')?.touched)">
-            <mat-error *ngIf="transferForm.get('amount')?.errors?.['required']">Amount is required.</mat-error>
-            <mat-error *ngIf="transferForm.get('amount')?.errors?.['min']">Amount must be greater than or equal to 0.</mat-error>
-            <mat-error *ngIf="transferForm.get('amount')?.errors?.['pattern']">Invalid amount format.</mat-error>
+          <div *ngIf="showAmountError">
+            <mat-error *ngIf="transferForm.get('amount')?.hasError('required')">Amount is required.</mat-error>
+            <mat-error *ngIf="transferForm.get('amount')?.hasError('min')">Amount must be greater than or equal to 0.</mat-error>
+            <mat-error *ngIf="transferForm.get('amount')?.hasError('pattern')">Invalid amount format.</mat-error>
           </div>
         </div>
-        <button mat-button (click)="onNoClick()">Cancel</button>
-        <button mat-button type="submit" style="margin-left: 2%;" [disabled]="!transferForm.valid">Transfer</button>
+        <button mat-button type="button" (click)="onNoClick()">Close</button>
+        <button mat-button type="submit" style="margin-left: 2%;" (click)="showAmountError = true;">Save</button>
       </form>
     </ng-container>
     <ng-template #goalNotSetMessage>
       <p class="addGoalMessage">Please set a goal on the manage page before you can transfer money.</p>
-      <mat-dialog-actions class="closeCenter"> <!-- Center-align the actions -->
+      <mat-dialog-actions class="closeCenter">
         <button mat-button (click)="onNoClick()">Close</button>
       </mat-dialog-actions>
     </ng-template>
-    
   </mat-dialog-content>
 </div>

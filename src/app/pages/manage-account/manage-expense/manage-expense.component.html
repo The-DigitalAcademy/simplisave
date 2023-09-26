@@ -10,7 +10,7 @@
         <div *ngIf="amountSet; else elseBlock">
             <div class="card">
                 <div class="card-content">
-                    <div class="title">
+                    <div class="heading1">
                         <h5>Goal</h5>
                     </div>
                     <mat-progress-bar
@@ -27,7 +27,7 @@
         <ng-template #elseBlock>
             <div class="card1">
                 <div class="card-content">
-                    <div class="title">
+                    <div class="heading1">
                         <h5>Set a Goal</h5>
                     </div>
                     <div class="icon-container">
@@ -41,7 +41,7 @@
             <!-- Content to display when transactionType.amountSet is falsy -->
             <div class="card1">
                 <div class="card-content">
-                    <div class="title">
+                    <div class="heading1">
                         <h5>Set a budget</h5>
                     </div>
                     <div class="icon-container">
@@ -58,7 +58,7 @@
         <div class="grid-container" *ngIf="transactionType && transactionType.length > 0; else noAmountSetBlock" >
             <div class="card" *ngFor="let transactionType of transactionType">
                 <div class="card-content">
-                    <div class="title">
+                    <div class="heading1">
                         <h5>{{ transactionType.transactionsType }}</h5>
                     </div>
                     <div class="icon-container">
