@@ -33,21 +33,21 @@ const routes: Routes = [
     { path: 'steps', component: StepsComponent},
     { path: 'accounts', component: AccountsComponent},
     { path: 'learn', component : LearnComponent},
-    {path: 'dashboard', component : DashboardComponent,canActivate: [FirstTimeUserGuard],},
+    {path: 'dashboard', component : DashboardComponent,canActivate: [FirstTimeUserGuard, EmptyBehaviorGuardGuard]},
     {path : '', component : LandingComponent},
     {path:'learnBanner',component:LearnBannerComponent},
-    {path:'manage', component: ManageAccountComponent,}, /*canActivate: [EmptyBehaviorGuardGuard]}, */
+    {path:'manage', component: ManageAccountComponent,canActivate: [EmptyBehaviorGuardGuard]},
     {path:'admin',component:MainAdminComponent},
     {path:'admin2',component:AdminComponent},
     {path:'loginAdmin',component:AdminLoginComponent},
     {path:'faq',component:FAQComponent},
-    {path:'profile',component:ProfileComponent},
+    {path:'profile',component:ProfileComponent,canActivate: [EmptyBehaviorGuardGuard]},
     {path:'privacy',component:PrivacyPolicyComponent},
     {path:'aboutus',component:AboutUsComponent},
-    {path:'transactions',component:TransactionsComponent}, /*canActivate: [EmptyBehaviorGuardGuard]},*/
+    {path:'transactions',component:TransactionsComponent, canActivate: [EmptyBehaviorGuardGuard]},
     {path: 'reset', component:ResetComponent},
     {path:'onBoarding',component:OnBoardingComponent},
-    {path: 'add', component:AddComponent}
+    {path: 'add', component:AddComponent, canActivate: [EmptyBehaviorGuardGuard]}
 ];
 
 @NgModule({
