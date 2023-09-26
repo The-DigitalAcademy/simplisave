@@ -85,6 +85,7 @@ export class ManageExpenseComponent implements OnInit{
       this.totalSaved = this.mostRecentGoal.currentSaved;
       console.log(goal);
       this.getAccountData();
+      this.calculatePercentageSaved();
     });
   }
 
