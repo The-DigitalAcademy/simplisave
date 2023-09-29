@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AddTransaction, Type } from './../../interfaces/transactions.model';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AddData, ApiResponse, CategoryOption, CreateTypeResponse, TransactionType } from 'src/app/interfaces/transactions.model';
 import { AccountService } from 'src/app/services/account.service';
@@ -10,7 +11,8 @@ import { StateService } from 'src/app/services/state.service';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  styleUrls: ['./add.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AddComponent implements OnInit {
 

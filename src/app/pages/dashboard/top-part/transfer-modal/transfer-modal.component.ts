@@ -17,11 +17,13 @@ export class TransferModalComponent {
   transferForm: FormGroup;
   goalId: number | null = null;
   amountSet!: number;
-  items: Profile | null = null;
-  isGoalSet!: boolean; // Ensure this is initialized as false
-  description!: string;
-  mostRecentGoal: MostRecentGoal | null = null;
-  goals: GoalSavingsData[] = [];
+  items:any;
+  isGoalSet!: boolean;
+  description!:string;
+  mostRecentGoal:any;
+  goals: any;
+  updatedAccountDetails:any;
+  showAmountError: boolean = false; // Declare showAmountError property
 
   constructor(
     private authService: AuthService,
